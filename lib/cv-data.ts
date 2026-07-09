@@ -405,6 +405,16 @@ export const scales: Scale[] = [
 
 export const journalPublications: JournalPublication[] = [
   {
+    id: 0,
+    year: 2026,
+    title: 'From Philosophy to Practice: Reflected Values in Learners Shaped by Tagore’s Educational Vision',
+    journal: 'RESEARCH REVIEW International Journal of Multidisciplinary, Double-blind peer-reviewed and refereed online Journal',
+    type: 'Peer-Reviewed',
+    details: 'Volume 11 Issue 6, June 2026, e-ISSN: 2455-3085, Page No: 144-152.',
+    doi: '10.31305/rrijm.2026.v11.n06.016',
+    link: '/read/tagore-educational-vision',
+  },
+  {
     id: 1,
     year: 2026,
     title: 'DO LOCALITY AND GENDER MATTER? A COMPARATIVE ANALYSIS OF NEP 2020 AWARENESS AMONG PRIMARY SCHOOL TEACHERS',

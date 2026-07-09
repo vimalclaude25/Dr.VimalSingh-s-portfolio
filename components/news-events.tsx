@@ -4,6 +4,14 @@ import { Newspaper, ArrowRight } from 'lucide-react'
 
 const news = [
   {
+    day: '14',
+    mon: 'JUN',
+    year: '2026',
+    title: 'New Research Paper Published on Tagore’s Educational Vision',
+    desc: 'Empirical study "From Philosophy to Practice: Reflected Values in Learners Shaped by Tagore’s Educational Vision" published in RRIJM. Click here to read online.',
+    link: '/read/tagore-educational-vision',
+  },
+  {
     day: '24',
     mon: 'MAY',
     year: '2025',
@@ -49,17 +57,37 @@ export function NewsEvents() {
         {news.map((item) => (
           <li key={item.title} className="relative">
             <span className="absolute -left-[31px] top-1.5 flex h-3 w-3 items-center justify-center rounded-full border-2 border-royal bg-background" />
-            <div className="flex items-start gap-4 rounded-2xl border border-border bg-card p-4 transition-colors hover:border-royal/30">
-              <div className="flex flex-col items-center rounded-xl bg-muted px-3 py-2 text-center">
-                <span className="font-heading text-lg font-bold text-navy dark:text-white">{item.day}</span>
-                <span className="text-[10px] font-semibold tracking-wide text-royal">{item.mon}</span>
-                <span className="text-[10px] text-muted-foreground">{item.year}</span>
+            
+            {item.link ? (
+              <a
+                href={item.link}
+                className="flex items-start gap-4 rounded-2xl border border-border bg-card p-4 transition-all hover:border-royal hover:shadow-md hover:-translate-y-0.5 cursor-pointer block"
+              >
+                <div className="flex flex-col items-center rounded-xl bg-muted px-3 py-2 text-center shrink-0">
+                  <span className="font-heading text-lg font-bold text-navy dark:text-white">{item.day}</span>
+                  <span className="text-[10px] font-semibold tracking-wide text-royal">{item.mon}</span>
+                  <span className="text-[10px] text-muted-foreground">{item.year}</span>
+                </div>
+                <div>
+                  <h3 className="font-heading text-sm font-bold text-navy dark:text-white flex items-center gap-1.5 hover:text-royal transition-colors">
+                    {item.title} <ArrowRight className="h-3.5 w-3.5 text-royal" />
+                  </h3>
+                  <p className="mt-1 text-sm text-muted-foreground">{item.desc}</p>
+                </div>
+              </a>
+            ) : (
+              <div className="flex items-start gap-4 rounded-2xl border border-border bg-card p-4 transition-colors hover:border-royal/30">
+                <div className="flex flex-col items-center rounded-xl bg-muted px-3 py-2 text-center shrink-0">
+                  <span className="font-heading text-lg font-bold text-navy dark:text-white">{item.day}</span>
+                  <span className="text-[10px] font-semibold tracking-wide text-royal">{item.mon}</span>
+                  <span className="text-[10px] text-muted-foreground">{item.year}</span>
+                </div>
+                <div>
+                  <h3 className="font-heading text-sm font-bold text-navy dark:text-white">{item.title}</h3>
+                  <p className="mt-1 text-sm text-muted-foreground">{item.desc}</p>
+                </div>
               </div>
-              <div>
-                <h3 className="font-heading text-sm font-bold text-navy dark:text-white">{item.title}</h3>
-                <p className="mt-1 text-sm text-muted-foreground">{item.desc}</p>
-              </div>
-            </div>
+            )}
           </li>
         ))}
       </ol>

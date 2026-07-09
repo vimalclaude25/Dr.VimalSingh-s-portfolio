@@ -157,8 +157,8 @@ export function PublicationsSection() {
                         {pub.link ? (
                           <a
                             href={pub.link}
-                            target="_blank"
-                            rel="noopener noreferrer"
+                            target={pub.link.startsWith('http') ? '_blank' : undefined}
+                            rel={pub.link.startsWith('http') ? 'noopener noreferrer' : undefined}
                             className="inline-flex items-center gap-1 font-semibold text-royal hover:underline"
                           >
                             Read Article <ExternalLink className="h-3 w-3" />
