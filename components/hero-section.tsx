@@ -55,7 +55,7 @@ export function HeroSection() {
             <div className="absolute inset-0 -z-10 translate-x-3 translate-y-3 rounded-3xl bg-gold/20" />
             <div className="h-64 w-52 overflow-hidden rounded-3xl border border-border bg-muted shadow-xl sm:h-72 sm:w-56">
               <Image
-                src="/dr-vimal-singh.png"
+                src="/dr-vimal-singh.jpeg"
                 alt="Portrait of Dr. Vimal Singh"
                 width={280}
                 height={360}
