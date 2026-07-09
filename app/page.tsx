@@ -2,7 +2,10 @@ import { SiteTopbar } from '@/components/site-topbar'
 import { SiteNavbar } from '@/components/site-navbar'
 import { HeroSection } from '@/components/hero-section'
 import { QuickAccess } from '@/components/quick-access'
-import { LatestPublications } from '@/components/latest-publications'
+import { AboutSection } from '@/components/about-section'
+import { ResearchSection } from '@/components/research-section'
+import { PublicationsSection } from '@/components/publications-section'
+import { ActivitiesSection } from '@/components/activities-section'
 import { NewsEvents } from '@/components/news-events'
 import { SiteFooter } from '@/components/site-footer'
 
@@ -14,8 +17,11 @@ export default function Page() {
       <main>
         <HeroSection />
         <QuickAccess />
-        <LatestPublications />
         <NewsEvents />
+        <AboutSection />
+        <ResearchSection />
+        <PublicationsSection />
+        <ActivitiesSection />
       </main>
       <SiteFooter />
     </div>

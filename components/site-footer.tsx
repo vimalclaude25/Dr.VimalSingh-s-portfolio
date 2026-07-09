@@ -6,9 +6,25 @@ const links = {
   Academic: ['Google Scholar', 'ResearchGate', 'Scopus', 'ORCID', 'VIDWAN', 'GitHub'],
 }
 
+const getHref = (label: string) => {
+  if (label === 'Home') return '#home'
+  if (label === 'About') return '#about'
+  if (label === 'Research') return '#research'
+  if (label === 'Publications') return '#publications'
+  if (label === 'AI Lab') return '#home'
+  if (label === 'Contact') return '#contact'
+  if (label === 'GitHub') return 'https://github.com/vimalclaude25'
+  if (label === 'Google Scholar') return 'https://scholar.google.com/citations?user=eq1y6iYAAAAJ&hl=en'
+  if (label === 'ResearchGate') return 'https://www.researchgate.net/profile/Vimal-Singh-23'
+  if (label === 'Scopus') return 'https://www.scopus.com/authid/detail.uri?authorId=58797837900'
+  if (label === 'ORCID') return 'https://orcid.org/my-orcid?orcid=0000-0002-3209-6057'
+  if (label === 'VIDWAN') return 'https://vidwan.inflibnet.ac.in/profile/346396'
+  return '#'
+}
+
 export function SiteFooter() {
   return (
-    <footer className="bg-navy text-white">
+    <footer id="contact" className="bg-navy text-white scroll-mt-10">
       <div className="mx-auto grid max-w-7xl gap-8 px-4 py-12 sm:px-6 lg:grid-cols-4 lg:px-8">
         <div>
           <div className="flex items-center gap-3">
@@ -35,7 +51,9 @@ export function SiteFooter() {
               {items.map((i) => (
                 <li key={i}>
                   <a
-                    href={i === 'GitHub' ? 'https://github.com/vimalclaude25' : '#'}
+                    href={getHref(i)}
+                    target={getHref(i).startsWith('http') ? '_blank' : undefined}
+                    rel={getHref(i).startsWith('http') ? 'noopener noreferrer' : undefined}
                     className="text-sm text-white/70 transition-colors hover:text-white"
                   >
                     {i}

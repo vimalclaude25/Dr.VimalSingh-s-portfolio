@@ -5,19 +5,17 @@ import { ChevronDown, Menu, X } from 'lucide-react'
 
 type NavItem = {
   label: string
+  href: string
   children?: string[]
 }
 
 const nav: NavItem[] = [
-  { label: 'Home' },
-  { label: 'About' },
-  { label: 'Research', children: ['Research Interests', 'Current Projects', 'Consultancy', 'Patents', 'Collaborations'] },
-  { label: 'Publications', children: ['Scopus', 'UGC CARE', 'Web of Science', 'Books', 'Book Chapters'] },
-  { label: 'Projects' },
-  { label: 'Teaching', children: ['Courses', 'Research Guidance', 'Thesis Repository'] },
-  { label: 'AI Lab' },
-  { label: 'D-CODE' },
-  { label: 'More', children: ['E-Resources', 'Media Coverage', 'Gallery', 'Blog', 'Contact'] },
+  { label: 'Home', href: '#home' },
+  { label: 'About', href: '#about' },
+  { label: 'Research', href: '#research', children: ['Research Projects', 'Patents', 'Research Guidance', 'Consultancy'] },
+  { label: 'Publications', href: '#publications', children: ['Journal Articles', 'Books & Chapters', 'Tests & Scales'] },
+  { label: 'Activities', href: '#activities', children: ['Special Lectures', 'FDPs & Workshops', 'Committees & Memberships'] },
+  { label: 'Contact', href: '#contact' },
 ]
 
 export function SiteNavbar() {
@@ -59,7 +57,8 @@ export function SiteNavbar() {
         <nav className="hidden items-center gap-1 xl:flex">
           {nav.map((item) => (
             <div key={item.label} className="group relative">
-              <button
+              <a
+                href={item.href}
                 onClick={() => setActive(item.label)}
                 className={`flex items-center gap-1 rounded-lg px-3 py-2 text-sm font-medium transition-colors ${
                   active === item.label
@@ -69,7 +68,7 @@ export function SiteNavbar() {
               >
                 {item.label}
                 {item.children && <ChevronDown className="h-3.5 w-3.5 opacity-70" />}
-              </button>
+              </a>
               {active === item.label && (
                 <span className="absolute inset-x-3 -bottom-0.5 h-0.5 rounded-full bg-royal" />
               )}
@@ -78,7 +77,7 @@ export function SiteNavbar() {
                   {item.children.map((c) => (
                     <a
                       key={c}
-                      href="#"
+                      href={item.href}
                       className="block rounded-lg px-3 py-2 text-sm text-foreground/80 transition-colors hover:bg-muted hover:text-royal"
                     >
                       {c}
@@ -105,7 +104,7 @@ export function SiteNavbar() {
           {nav.map((item) => (
             <a
               key={item.label}
-              href="#"
+              href={item.href}
               className="block rounded-lg px-3 py-2.5 text-sm font-medium text-foreground/80 hover:bg-muted hover:text-royal"
               onClick={() => {
                 setActive(item.label)

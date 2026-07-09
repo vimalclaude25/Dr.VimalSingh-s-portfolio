@@ -28,13 +28,13 @@ const areas = [
 
 const stats = [
   { icon: FileText, value: 37, label: 'Research Papers Published', color: 'text-royal' },
-  { icon: Quote, value: 18, label: 'UGC CARE / Scopus Publications', color: 'text-gold' },
-  { icon: BookOpen, value: 6, label: 'Books Published', color: 'text-emerald-400' },
-  { icon: Files, value: 14, label: 'Book Chapters', color: 'text-gold' },
-  { icon: FlaskConical, value: 8, label: 'Research Projects', color: 'text-emerald-400' },
+  { icon: Quote, value: 24, label: 'UGC CARE / Scopus Publications', color: 'text-gold' },
+  { icon: BookOpen, value: 4, label: 'Books Published', color: 'text-emerald-400' },
+  { icon: Files, value: 11, label: 'Book Chapters', color: 'text-gold' },
+  { icon: FlaskConical, value: 2, label: 'Research Projects', color: 'text-emerald-400' },
   { icon: Users, value: 41, label: 'Research Scholars Guided', color: 'text-royal' },
   { icon: BadgeCheck, value: 2, label: 'Patents Published', color: 'text-gold' },
-  { icon: CalendarDays, value: 10, suffix: '+', label: 'Years of Experience', color: 'text-emerald-400' },
+  { icon: CalendarDays, value: 12, suffix: '+', label: 'Years of Experience', color: 'text-emerald-400' },
 ]
 
 export function HeroSection() {
