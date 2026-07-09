@@ -14,6 +14,7 @@ import {
   Users,
   BadgeCheck,
   CalendarDays,
+  BookMarked,
 } from 'lucide-react'
 import { AnimatedCounter } from '@/components/animated-counter'
 
@@ -29,7 +30,8 @@ const areas = [
 const stats = [
   { icon: FileText, value: 37, label: 'Research Papers Published', color: 'text-royal' },
   { icon: Quote, value: 24, label: 'UGC CARE / Scopus Publications', color: 'text-gold' },
-  { icon: BookOpen, value: 4, label: 'Books Published', color: 'text-emerald-400' },
+  { icon: BookOpen, value: 1, label: 'Self Authored Books', color: 'text-emerald-400' },
+  { icon: BookMarked, value: 3, label: 'Edited Books', color: 'text-emerald-400' },
   { icon: Files, value: 11, label: 'Book Chapters', color: 'text-gold' },
   { icon: FlaskConical, value: 2, label: 'Research Projects', color: 'text-emerald-400' },
   { icon: Users, value: 41, label: 'Research Scholars Guided', color: 'text-royal' },
@@ -129,7 +131,7 @@ export function HeroSection() {
             </span>
           </div>
 
-          <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
+          <div className="grid grid-cols-2 gap-3 sm:grid-cols-3">
             {stats.map(({ icon: Icon, value, suffix, label, color }) => (
               <div
                 key={label}
