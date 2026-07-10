@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import {
   FlaskConical,
@@ -23,6 +23,17 @@ import {
 
 export function ResearchSection() {
   const [activeTab, setActiveTab] = useState<'projects' | 'patents' | 'guidance' | 'consultancy'>('projects')
+
+  useEffect(() => {
+    const handleTabChange = (e: Event) => {
+      const customEvent = e as CustomEvent<string>
+      if (['projects', 'patents', 'guidance', 'consultancy'].includes(customEvent.detail)) {
+        setActiveTab(customEvent.detail as any)
+      }
+    }
+    document.addEventListener('change-research-tab', handleTabChange)
+    return () => document.removeEventListener('change-research-tab', handleTabChange)
+  }, [])
 
   const containerVariants = {
     hidden: { opacity: 0 },

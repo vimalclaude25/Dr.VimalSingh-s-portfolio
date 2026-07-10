@@ -9,6 +9,7 @@ const cards = [
     desc: 'Exploring AI in education, machine learning, policy & curriculum development.',
     cta: 'Explore',
     accent: 'bg-royal',
+    href: '#research',
   },
   {
     icon: BookOpen,
@@ -16,6 +17,7 @@ const cards = [
     desc: 'Scopus indexed, UGC CARE listed, peer-reviewed publications.',
     cta: 'View All',
     accent: 'bg-emerald-500',
+    href: '#publications',
   },
   {
     icon: FlaskConical,
@@ -23,6 +25,7 @@ const cards = [
     desc: 'Government projects, research grants & academic consultancy.',
     cta: 'View Projects',
     accent: 'bg-navy',
+    href: '#research',
   },
   {
     icon: Users,
@@ -30,6 +33,7 @@ const cards = [
     desc: 'M.Ed. & Ph.D. scholars guided with strong research outcomes.',
     cta: 'Know More',
     accent: 'bg-gold',
+    href: '#research',
   },
   {
     icon: Bot,
@@ -37,6 +41,7 @@ const cards = [
     desc: 'AI in education, prompt engineering, research tools & tutorials.',
     cta: 'Visit AI Lab',
     accent: 'bg-teal-500',
+    href: '#nta-net',
   },
   {
     icon: Library,
@@ -44,17 +49,29 @@ const cards = [
     desc: 'Lecture notes, templates, research methodology & digital library.',
     cta: 'Browse',
     accent: 'bg-royal',
+    href: '#nta-net',
   },
 ]
 
 export function QuickAccess() {
+  const handleCardClick = (title: string) => {
+    if (title === 'Projects & Consultancy') {
+      document.dispatchEvent(new CustomEvent('change-research-tab', { detail: 'projects' }))
+    } else if (title === 'Research Guidance') {
+      document.dispatchEvent(new CustomEvent('change-research-tab', { detail: 'guidance' }))
+    } else if (title === 'Research & Innovation') {
+      document.dispatchEvent(new CustomEvent('change-research-tab', { detail: 'projects' }))
+    }
+  }
+
   return (
     <section className="mx-auto -mt-8 max-w-7xl px-4 pb-4 sm:px-6 lg:px-8">
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
-        {cards.map(({ icon: Icon, title, desc, cta, accent }) => (
+        {cards.map(({ icon: Icon, title, desc, cta, accent, href }) => (
           <a
             key={title}
-            href="#"
+            href={href}
+            onClick={() => handleCardClick(title)}
             className="group relative rounded-2xl border border-border bg-card p-5 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-royal/30 hover:shadow-xl hover:shadow-royal/10"
           >
             <div
