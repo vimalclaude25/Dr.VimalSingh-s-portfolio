@@ -1,7 +1,8 @@
 'use client'
 
+import { useState } from 'react'
 import Image from 'next/image'
-import { motion } from 'framer-motion'
+import { motion, AnimatePresence } from 'framer-motion'
 import {
   Download,
   Compass,
@@ -15,6 +16,17 @@ import {
   BadgeCheck,
   CalendarDays,
   BookMarked,
+  Award,
+  TrendingUp,
+  GraduationCap,
+  Bookmark,
+  Presentation,
+  Briefcase,
+  Speech,
+  Landmark,
+  CalendarCheck,
+  Handshake,
+  BarChart2,
 } from 'lucide-react'
 import { AnimatedCounter } from '@/components/animated-counter'
 
@@ -39,7 +51,24 @@ const stats = [
   { icon: CalendarDays, value: 12, suffix: '+', label: 'Years of Experience', color: 'text-emerald-400' },
 ]
 
+const glanceStats = [
+  { icon: Award, value: 7, label: 'h-Index', color: 'text-royal' },
+  { icon: BarChart2, value: 5, label: 'i10-Index', color: 'text-gold' },
+  { icon: TrendingUp, value: 103, label: 'Citations', color: 'text-emerald-400' },
+  { icon: GraduationCap, value: 3, label: 'Ph.D. Scholar', color: 'text-royal' },
+  { icon: Bookmark, value: 2, label: 'Scale Published', color: 'text-gold' },
+  { icon: Presentation, value: 30, label: 'Paper Presentations', color: 'text-emerald-400' },
+  { icon: Briefcase, value: 20, label: 'Professional Development Activities', color: 'text-royal' },
+  { icon: BookOpen, value: 4, label: 'Design New Curricula', color: 'text-gold' },
+  { icon: Speech, value: 74, label: 'Special Invitee Lectures', color: 'text-emerald-400' },
+  { icon: Landmark, value: 8, label: 'Policy Contributions', color: 'text-royal' },
+  { icon: CalendarCheck, value: 7, label: 'Professional Dev. Activities Organized', color: 'text-gold' },
+  { icon: Handshake, value: 1, label: 'Consultancy', color: 'text-emerald-400' },
+]
+
 export function HeroSection() {
+  const [activeTab, setActiveTab] = useState<'impact' | 'glance'>('impact')
+
   return (
     <section id="home" className="relative overflow-hidden bg-background">
       <div className="hero-grid pointer-events-none absolute inset-0 opacity-60" />
@@ -83,7 +112,46 @@ export function HeroSection() {
               Chhatrapati Shahu Ji Maharaj University, Kanpur
             </p>
 
-            <div className="mt-4 flex flex-wrap gap-2">
+            {/* Key Portfolios */}
+            <div className="mt-4 space-y-2 border-l-2 border-gold/50 pl-3.5 py-0.5">
+              <p className="text-[10px] font-bold uppercase tracking-wider text-muted-foreground">
+                Key Portfolios
+              </p>
+              <ul className="space-y-1.5 text-xs text-navy/95 dark:text-white/95">
+                <li className="flex items-start gap-1.5">
+                  <span className="mt-1.5 h-1 w-1 rounded-full bg-royal shrink-0" />
+                  <span>
+                    <strong>Deputy Director (Technical)</strong> &mdash; Dronacharya Centre of Online and Distance Education, CDOE
+                  </span>
+                </li>
+                <li className="flex items-start gap-1.5">
+                  <span className="mt-1.5 h-1 w-1 rounded-full bg-royal shrink-0" />
+                  <span>
+                    <strong>Associate Chief Proctor</strong>
+                  </span>
+                </li>
+                <li className="flex items-start gap-1.5">
+                  <span className="mt-1.5 h-1 w-1 rounded-full bg-royal shrink-0" />
+                  <span>
+                    <strong>Member Core</strong>, Steering and Working Committee IQAC
+                  </span>
+                </li>
+                <li className="flex items-start gap-1.5">
+                  <span className="mt-1.5 h-1 w-1 rounded-full bg-royal shrink-0" />
+                  <span>
+                    <strong>Incharge</strong> Departmental Website &amp; Department Alumni Association
+                  </span>
+                </li>
+                <li className="flex items-start gap-1.5">
+                  <span className="mt-1.5 h-1 w-1 rounded-full bg-royal shrink-0" />
+                  <span>
+                    <strong>Member</strong> Institute Innovation Council (IIC-6.0)
+                  </span>
+                </li>
+              </ul>
+            </div>
+
+            <div className="mt-5 flex flex-wrap gap-2">
               {areas.map((a) => (
                 <span
                   key={a}
@@ -124,26 +192,83 @@ export function HeroSection() {
           transition={{ duration: 0.6, delay: 0.15, ease: 'easeOut' }}
           className="rounded-3xl bg-navy p-5 shadow-2xl sm:p-6"
         >
-          <div className="mb-4 flex items-center justify-between">
-            <h2 className="font-heading text-lg font-bold text-white">Academic Impact</h2>
+          <div className="mb-4 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+            {/* Tab switchers */}
+            <div className="relative flex bg-white/10 p-1 rounded-xl w-fit">
+              <button
+                onClick={() => setActiveTab('impact')}
+                className="relative z-10 px-3 py-1.5 rounded-lg text-xs font-semibold transition-colors duration-200"
+                style={{ color: activeTab === 'impact' ? '#0B2545' : 'rgba(255, 255, 255, 0.7)' }}
+              >
+                {activeTab === 'impact' && (
+                  <motion.span
+                    layoutId="dashboard-bubble"
+                    className="absolute inset-0 -z-10 rounded-lg bg-white"
+                    transition={{ type: 'spring', bounce: 0.2, duration: 0.5 }}
+                  />
+                )}
+                Academic Impact
+              </button>
+              <button
+                onClick={() => setActiveTab('glance')}
+                className="relative z-10 px-3 py-1.5 rounded-lg text-xs font-semibold transition-colors duration-200"
+                style={{ color: activeTab === 'glance' ? '#0B2545' : 'rgba(255, 255, 255, 0.7)' }}
+              >
+                {activeTab === 'glance' && (
+                  <motion.span
+                    layoutId="dashboard-bubble"
+                    className="absolute inset-0 -z-10 rounded-lg bg-white"
+                    transition={{ type: 'spring', bounce: 0.2, duration: 0.5 }}
+                  />
+                )}
+                At a Glance
+              </button>
+            </div>
+
             <span className="flex items-center gap-1.5 text-xs font-medium text-emerald-400">
               <span className="h-2 w-2 animate-pulse rounded-full bg-emerald-400" /> Live
             </span>
           </div>
 
-          <div className="grid grid-cols-2 gap-3 sm:grid-cols-3">
-            {stats.map(({ icon: Icon, value, suffix, label, color }) => (
-              <div
-                key={label}
-                className="rounded-2xl border border-white/10 bg-white/5 p-3 transition-colors hover:border-gold/40 hover:bg-white/10"
+          <div className="min-h-[290px]">
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={activeTab}
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -10 }}
+                transition={{ duration: 0.2 }}
+                className="grid grid-cols-2 gap-3 sm:grid-cols-3"
               >
-                <Icon className={`h-5 w-5 ${color}`} />
-                <p className={`mt-2 font-heading text-2xl font-bold ${color}`}>
-                  <AnimatedCounter value={value} suffix={suffix} />
-                </p>
-                <p className="mt-0.5 text-[11px] leading-tight text-white/70">{label}</p>
-              </div>
-            ))}
+                {activeTab === 'impact' ? (
+                  stats.map(({ icon: Icon, value, suffix, label, color }) => (
+                    <div
+                      key={label}
+                      className="rounded-2xl border border-white/10 bg-white/5 p-3 transition-colors hover:border-gold/40 hover:bg-white/10"
+                    >
+                      <Icon className={`h-5 w-5 ${color}`} />
+                      <p className={`mt-2 font-heading text-2xl font-bold ${color}`}>
+                        <AnimatedCounter value={value} suffix={suffix} />
+                      </p>
+                      <p className="mt-0.5 text-[11px] leading-tight text-white/70">{label}</p>
+                    </div>
+                  ))
+                ) : (
+                  glanceStats.map(({ icon: Icon, value, label, color }) => (
+                    <div
+                      key={label}
+                      className="rounded-2xl border border-white/10 bg-white/5 p-3 transition-colors hover:border-gold/40 hover:bg-white/10"
+                    >
+                      <Icon className={`h-5 w-5 ${color}`} />
+                      <p className={`mt-2 font-heading text-2xl font-bold ${color}`}>
+                        <AnimatedCounter value={value} />
+                      </p>
+                      <p className="mt-0.5 text-[11px] leading-tight text-white/70">{label}</p>
+                    </div>
+                  ))
+                )}
+              </motion.div>
+            </AnimatePresence>
           </div>
 
           <div className="mt-4 flex items-center justify-between border-t border-white/10 pt-3 text-[11px] text-white/50">
@@ -155,3 +280,4 @@ export function HeroSection() {
     </section>
   )
 }
+
