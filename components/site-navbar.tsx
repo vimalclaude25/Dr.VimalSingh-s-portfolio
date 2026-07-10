@@ -19,7 +19,7 @@ type NavItem = {
 const nav: NavItem[] = [
   { label: 'Home', href: '#home' },
   { label: 'About', href: '#about' },
-  { label: 'Research', href: '#research', children: ['Research Projects', 'Patents', 'Research Guidance', 'Consultancy'] },
+  { label: 'Research', href: '#research', children: ['Research Projects', 'Patents', 'Research Guidance', 'Consultancy', 'Research Repository'] },
   { label: 'Publications', href: '#publications', children: ['Journal Articles', 'Books & Chapters', 'Tests & Scales'] },
   {
     label: 'Research in News',
@@ -172,7 +172,7 @@ export function SiteNavbar() {
                   {item.children.map((c) => (
                     <a
                       key={c}
-                      href={item.href}
+                      href={c === 'Research Repository' ? '#research-repository' : item.href}
                       className="block rounded-lg px-3 py-2 text-sm font-medium text-foreground/80 transition-colors hover:bg-muted hover:text-royal"
                     >
                       {c}
@@ -195,7 +195,7 @@ export function SiteNavbar() {
                             <li key={subItem.label}>
                               <a
                                 href={subItem.href}
-                                className="block text-xs font-semibold text-foreground/80 hover:text-royal transition-colors py-0.5"
+                                className="block text-xs font-semibold text-foreground/95 hover:text-royal transition-colors"
                               >
                                 {subItem.label}
                               </a>
@@ -211,14 +211,23 @@ export function SiteNavbar() {
           ))}
         </nav>
 
-        <button
-          type="button"
-          className="rounded-lg border border-border p-2 text-navy dark:text-white xl:hidden"
-          onClick={() => setOpen((o) => !o)}
-          aria-label="Toggle menu"
-        >
-          {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
-        </button>
+        {/* Action Button & Menu Toggle */}
+        <div className="flex items-center gap-4">
+          <a
+            href="#contact"
+            className="hidden rounded-xl bg-navy px-5 py-2.5 text-xs font-semibold text-white shadow-md hover:bg-royal transition-all duration-300 xl:block"
+          >
+            Get in Touch
+          </a>
+
+          <button
+            onClick={() => setOpen(!open)}
+            aria-label="Toggle Menu"
+            className="rounded-xl border border-border p-2.5 hover:bg-muted xl:hidden transition-colors"
+          >
+            {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+          </button>
+        </div>
       </div>
 
       {open && (
@@ -241,7 +250,7 @@ export function SiteNavbar() {
                         {item.children && item.children.map((c) => (
                           <a
                             key={c}
-                            href={item.href}
+                            href={c === 'Research Repository' ? '#research-repository' : item.href}
                             className="block px-3 py-1.5 text-xs text-foreground/70 hover:text-royal"
                             onClick={() => setOpen(false)}
                           >
