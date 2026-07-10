@@ -172,19 +172,21 @@ export function HeroSection() {
 
             <div className="mt-6 flex flex-wrap gap-3">
               <a
-                href="#"
+                href={personalInfo.links.facultyPage}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 rounded-xl bg-royal px-5 py-2.5 text-sm font-semibold text-white shadow-lg shadow-royal/25 transition-transform hover:-translate-y-0.5"
               >
                 <Download className="h-4 w-4" /> Download CV
               </a>
               <a
-                href="#"
+                href="#research"
                 className="inline-flex items-center gap-2 rounded-xl border border-border bg-card px-5 py-2.5 text-sm font-semibold text-navy transition-colors hover:border-royal hover:text-royal dark:text-white"
               >
                 <Compass className="h-4 w-4" /> Explore Research
               </a>
               <a
-                href="#"
+                href="#contact"
                 className="inline-flex items-center gap-2 rounded-xl bg-navy px-5 py-2.5 text-sm font-semibold text-white transition-transform hover:-translate-y-0.5"
               >
                 <Mail className="h-4 w-4" /> Contact Me
