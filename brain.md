@@ -41,14 +41,16 @@ academic-portfolio-website/
 │   ├── latest-publications.tsx# Quick grid/list of recent research papers
 │   ├── news-events.tsx       # Dynamic updates feed
 │   ├── publications-section.tsx# Searchable/filterable list of publications (books, articles, patents)
+│   ├── research-news-section.tsx # Displays newspaper, press releases, digital interviews [NEW]
+│   ├── nta-net-section.tsx       # Notion/Coursera-style learning hub and daily quiz arena [NEW]
 │   ├── quick-access.tsx      # Navigational links/actions for quick discovery
 │   ├── research-section.tsx  # Detailed research projects, grants, and areas
 │   ├── site-footer.tsx       # Footer with contact details and copyrights
-│   ├── site-navbar.tsx       # Sticky header/navigation bar
+│   ├── site-navbar.tsx       # Sticky header/navigation bar (supports 2-column & 5-column mega menus)
 │   ├── site-topbar.tsx       # Scrolling marquee/announcements top bar
 │   └── theme-provider.tsx    # Next-theme style setup (if active/configured)
 ├── lib/                      # Helper libraries and static/dynamic data
-│   ├── cv-data.ts            # Central data store (JSON/TS structure) representing the complete CV
+│   ├── cv-data.ts            # Central data store representing complete CV + NTA NET + news coverage data
 │   └── utils.ts              # Tailwind CSS utility helpers (cn)
 ├── components.json           # Shadcn configuration
 ├── next.config.mjs           # Next.js bundler config
@@ -63,12 +65,13 @@ academic-portfolio-website/
 ## 4. Architecture & Data Flow
 1. **Centralized Data Store (`lib/cv-data.ts`)**:
    - Stores CV data including basic info, research projects, publications, activities, education, experience, teaching details, and news/events.
+   - Houses `researchNewsData` and `ntaNetResourcesData` representing the news coverage archives and the study materials / practice quiz databases.
    - Provides a single source of truth, making it easy to update content by modifying this file.
 2. **Main Page Layout (`app/page.tsx`)**:
-   - Composition of individual section components.
+   - Composition of individual section components (now including `ResearchNewsSection` and `NtaNetSection`).
    - Serves as the landing page showing Dr. Vimal Singh's profile comprehensively.
 3. **Animations System**:
-   - `framer-motion` handles entrance, scroll-triggered, and hover state animations.
+   - `framer-motion` handles entrance, scroll-triggered, tab bubble layouts, en-dash shifts, and hover state animations.
 
 ---
 
