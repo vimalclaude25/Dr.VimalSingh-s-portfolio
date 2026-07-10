@@ -2,6 +2,7 @@
 
 import { Phone, Mail, MapPin, Moon, Sun } from 'lucide-react'
 import { useTheme } from '@/components/theme-provider'
+import { personalInfo } from '@/lib/cv-data'
 
 export function SiteTopbar() {
   const { theme, toggleTheme } = useTheme()
@@ -26,16 +27,30 @@ export function SiteTopbar() {
 
         <div className="flex items-center gap-3">
           <div className="flex items-center gap-1">
-            {['LinkedIn', 'Scholar', 'RG', 'Scopus', 'ORCID', 'VIDWAN', 'GitHub'].map((tag) => (
-              <a
-                key={tag}
-                href={tag === 'GitHub' ? 'https://github.com/vimalclaude25' : '#'}
-                aria-label={tag}
-                className="rounded-md border border-white/15 px-1.5 py-0.5 text-[10px] font-semibold tracking-wide text-white/80 transition-colors hover:border-gold hover:text-gold"
-              >
-                {tag}
-              </a>
-            ))}
+            {['LinkedIn', 'Scholar', 'RG', 'Scopus', 'ORCID', 'VIDWAN', 'GitHub'].map((tag) => {
+              const getHref = (t: string) => {
+                if (t === 'LinkedIn') return 'https://www.linkedin.com'
+                if (t === 'Scholar') return personalInfo.links.scholar
+                if (t === 'RG') return personalInfo.links.researchgate
+                if (t === 'Scopus') return personalInfo.links.scopus
+                if (t === 'ORCID') return personalInfo.links.orcid
+                if (t === 'VIDWAN') return personalInfo.links.vidwan
+                if (t === 'GitHub') return 'https://github.com/vimalclaude25'
+                return '#'
+              }
+              return (
+                <a
+                  key={tag}
+                  href={getHref(tag)}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={tag}
+                  className="rounded-md border border-white/15 px-1.5 py-0.5 text-[10px] font-semibold tracking-wide text-white/80 transition-colors hover:border-gold hover:text-gold"
+                >
+                  {tag}
+                </a>
+              )
+            })}
           </div>
 
           <button
