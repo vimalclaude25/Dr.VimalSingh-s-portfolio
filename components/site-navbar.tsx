@@ -1,6 +1,7 @@
 'use client'
 
 import { useEffect, useState } from 'react'
+import Image from 'next/image'
 import { ChevronDown, Menu, X } from 'lucide-react'
 
 type MegaMenuColumn = {
@@ -129,10 +130,13 @@ export function SiteNavbar() {
     >
       <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8">
         <a href="#home" className="flex items-center gap-3">
-          <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-navy font-heading text-lg font-extrabold text-white shadow-md">
-            <span className="font-bold text-gold">V</span>
-            <span className="font-bold">S</span>
-          </span>
+          <Image
+            src="/logo-vs.jpg"
+            alt="Dr. Vimal Singh Logo"
+            width={44}
+            height={44}
+            className="h-11 w-11 rounded-full object-cover border border-gold/30 shadow-sm"
+          />
           <span className="leading-tight">
             <span className="block font-heading text-lg font-bold tracking-tight text-navy dark:text-white">
               DR. VIMAL SINGH

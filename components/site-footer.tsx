@@ -1,4 +1,5 @@
 import { Phone, Mail, MapPin } from 'lucide-react'
+import Image from 'next/image'
 
 const links = {
   'Quick Links': ['Home', 'About', 'Research', 'Publications', 'AI Lab', 'Contact'],
@@ -28,9 +29,13 @@ export function SiteFooter() {
       <div className="mx-auto grid max-w-7xl gap-8 px-4 py-12 sm:px-6 lg:grid-cols-4 lg:px-8">
         <div>
           <div className="flex items-center gap-3">
-            <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-white/10 font-heading text-lg font-bold">
-              <span className="text-gold">V</span>S
-            </span>
+            <Image
+              src="/logo-vs.jpg"
+              alt="Dr. Vimal Singh Logo"
+              width={44}
+              height={44}
+              className="h-11 w-11 rounded-full object-cover border border-white/20 shadow-sm"
+            />
             <span className="font-heading text-lg font-bold">Dr. Vimal Singh</span>
           </div>
           <p className="mt-4 text-sm leading-relaxed text-white/70">
