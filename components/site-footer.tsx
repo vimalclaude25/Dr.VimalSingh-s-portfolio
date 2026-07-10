@@ -40,7 +40,7 @@ export function SiteFooter() {
             <span className="font-heading text-lg font-bold">Dr. Vimal Singh</span>
           </div>
           <p className="mt-4 text-sm leading-relaxed text-white/70">
-            Assistant Professor, School of Teacher Education, CSJM University, Kanpur. Advancing
+            Assistant Professor, Department Of Advanced Educational Research And Teaching Of Educational Foundations, School of Teacher Education, CSJM University, Kanpur. Advancing
             education through AI, research & innovation.
           </p>
           <div className="mt-4 space-y-2 text-sm text-white/70">

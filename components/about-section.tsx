@@ -236,7 +236,15 @@ export function AboutSection() {
               </span>
               <h3 className="mt-4 font-heading text-xl font-bold">{personalInfo.name}</h3>
               <p className="text-sm text-white/70">{personalInfo.title}</p>
-              <p className="text-xs text-white/50 mt-1">{personalInfo.department}</p>
+              <p className="text-xs text-white/50 mt-1 max-w-[220px] mx-auto leading-relaxed">
+                {personalInfo.departmentName && (
+                  <>
+                    {personalInfo.departmentName}
+                    <br />
+                  </>
+                )}
+                {personalInfo.department}
+              </p>
             </motion.div>
 
             <motion.div

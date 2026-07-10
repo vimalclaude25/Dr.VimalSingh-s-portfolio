@@ -29,6 +29,7 @@ import {
   BarChart2,
 } from 'lucide-react'
 import { AnimatedCounter } from '@/components/animated-counter'
+import { personalInfo } from '@/lib/cv-data'
 
 const areas = [
   'Education',
@@ -102,15 +103,21 @@ export function HeroSection() {
               Welcome to the official website of
             </p>
             <h1 className="mt-1 font-heading text-4xl font-extrabold leading-tight tracking-tight text-navy text-balance dark:text-white sm:text-5xl">
-              Dr. Vimal Singh
+              {personalInfo.name}
             </h1>
             <p className="mt-3 font-heading text-lg font-semibold text-royal">
-              Assistant Professor
+              {personalInfo.title}
             </p>
             <p className="text-sm leading-relaxed text-muted-foreground">
-              School of Teacher Education
+              {personalInfo.departmentName && (
+                <>
+                  {personalInfo.departmentName}
+                  <br />
+                </>
+              )}
+              {personalInfo.department}
               <br />
-              Chhatrapati Shahu Ji Maharaj University, Kanpur
+              {personalInfo.institution}
             </p>
 
             {/* Key Portfolios */}

@@ -24,12 +24,12 @@ export const metadata: Metadata = {
   },
   title: 'Dr. Vimal Singh — Educator, Researcher & AI Innovator',
   description:
-    'Official website of Dr. Vimal Singh, Assistant Professor, School of Teacher Education, CSJM University, Kanpur. Research in AI, Machine Learning, Educational Technology, and Teacher Education.',
+    'Official website of Dr. Vimal Singh, Assistant Professor, Department Of Advanced Educational Research And Teaching Of Educational Foundations, School of Teacher Education, CSJM University, Kanpur. Research in AI, Machine Learning, Educational Technology, and Teacher Education.',
   generator: 'v0.app',
   openGraph: {
     title: 'Dr. Vimal Singh — Educator, Researcher & AI Innovator',
     description:
-      'Assistant Professor, School of Teacher Education, CSJM University, Kanpur. Research in AI, Educational Technology & Policy.',
+      'Assistant Professor, Department Of Advanced Educational Research And Teaching Of Educational Foundations, School of Teacher Education, CSJM University, Kanpur. Research in AI, Educational Technology & Policy.',
     type: 'profile',
     url: 'https://drvimalsingh.in',
     siteName: 'Dr. Vimal Singh Academic Portfolio',

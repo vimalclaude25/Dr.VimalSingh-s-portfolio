@@ -3,6 +3,7 @@ export interface PersonalInfo {
   qualifications: string
   title: string
   department: string
+  departmentName?: string
   institution: string
   contact: string[]
   whatsapp: string
@@ -158,6 +159,7 @@ export const personalInfo: PersonalInfo = {
   qualifications: 'MPA, M.Ed., Ph.D.',
   title: 'Assistant Professor',
   department: 'School of Teacher Education',
+  departmentName: 'Department Of Advanced Educational Research And Teaching Of Educational Foundations',
   institution: 'Chhatrapati Shahu Ji Maharaj University, Kanpur',
   contact: ['+91-7905184427', '+91-9795168526', '+91-6387549445'],
   whatsapp: '+91-9452913556',
@@ -170,7 +172,7 @@ export const personalInfo: PersonalInfo = {
     orcid: 'https://orcid.org/my-orcid?orcid=0000-0002-3209-6057',
     facultyPage: 'https://csjmu.ac.in/all-faculty/dr-vimal-singh/',
   },
-  summary: 'Presently working as Assistant Professor in the School of Teacher Education, C.S.J.M. University, Kanpur UP with sincerity, perseverance, hard work & commitment, having a good academic and research background.',
+  summary: 'Presently working as Assistant Professor in the Department Of Advanced Educational Research And Teaching Of Educational Foundations, School of Teacher Education, C.S.J.M. University, Kanpur UP with sincerity, perseverance, hard work & commitment, having a good academic and research background.',
   biographical: {
     fatherName: 'Late Surendra Pratap Singh',
     motherName: 'Meena Singh',
@@ -184,7 +186,7 @@ export const personalInfo: PersonalInfo = {
 export const teachingExperience: Experience[] = [
   {
     role: 'Assistant Professor',
-    organization: 'School of Teacher Education, C.S.J.M. University, Kanpur, UP',
+    organization: 'Department Of Advanced Educational Research And Teaching Of Educational Foundations, School of Teacher Education, C.S.J.M. University, Kanpur, UP',
     duration: '23 April 2022 to the present',
   },
   {
