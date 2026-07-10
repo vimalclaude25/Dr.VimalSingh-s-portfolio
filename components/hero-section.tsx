@@ -139,7 +139,7 @@ export function HeroSection() {
                 <li className="flex items-start gap-1.5">
                   <span className="mt-1.5 h-1 w-1 rounded-full bg-royal shrink-0" />
                   <span>
-                    <strong>Incharge</strong> Departmental Website &amp; Department Alumni Association
+                    <strong>Incharge</strong> &ndash; Departmental Website &amp; <strong>Incharge</strong> &ndash; Department Alumni Association
                   </span>
                 </li>
                 <li className="flex items-start gap-1.5">
