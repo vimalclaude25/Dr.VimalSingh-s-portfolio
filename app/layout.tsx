@@ -18,6 +18,10 @@ const poppins = Poppins({
 })
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://drvimalsingh.in'),
+  alternates: {
+    canonical: '/',
+  },
   title: 'Dr. Vimal Singh — Educator, Researcher & AI Innovator',
   description:
     'Official website of Dr. Vimal Singh, Assistant Professor, School of Teacher Education, CSJM University, Kanpur. Research in AI, Machine Learning, Educational Technology, and Teacher Education.',
@@ -27,6 +31,8 @@ export const metadata: Metadata = {
     description:
       'Assistant Professor, School of Teacher Education, CSJM University, Kanpur. Research in AI, Educational Technology & Policy.',
     type: 'profile',
+    url: 'https://drvimalsingh.in',
+    siteName: 'Dr. Vimal Singh Academic Portfolio',
   },
 }
 
