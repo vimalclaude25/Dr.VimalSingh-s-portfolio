@@ -52,6 +52,102 @@ const quizQuestions = [
     ],
     answer: 0,
     explanation: "NEP 2020 replaces the legacy 10+2 system with a new 5+3+3+4 cognitive developmental structure: Foundational (5 years), Preparatory (3 years), Middle (3 years), and Secondary (4 years)."
+  },
+  {
+    id: 3,
+    question: "What is the primary purpose of formative evaluation?",
+    options: [
+      "To grade student performance",
+      "To monitor learning progress and provide ongoing feedback",
+      "To select students for a scholarship",
+      "To certify students at the end of the term"
+    ],
+    answer: 1,
+    explanation: "Formative evaluation is conducted during the instruction process to monitor student learning and provide continuous feedback that can be used by instructors to improve their teaching and by students to improve their learning."
+  },
+  {
+    id: 4,
+    question: "In research methodology, what does a Type I error refer to?",
+    options: [
+      "Rejecting the null hypothesis when it is true",
+      "Accepting the null hypothesis when it is false",
+      "Failing to formulate a null hypothesis",
+      "Using an incorrect sample size"
+    ],
+    answer: 0,
+    explanation: "A Type I error (alpha error) occurs when the researcher rejects a true null hypothesis (false positive)."
+  },
+  {
+    id: 5,
+    question: "Which of the following is an example of non-probability sampling?",
+    options: [
+      "Simple Random Sampling",
+      "Stratified Random Sampling",
+      "Quota Sampling",
+      "Cluster Sampling"
+    ],
+    answer: 2,
+    explanation: "Quota sampling is a non-probability sampling method where samples are selected based on pre-specified characteristics, rather than random selection."
+  },
+  {
+    id: 6,
+    question: "The primary goal of Action Research is to:",
+    options: [
+      "Formulate new theories",
+      "Solve immediate local problems in educational practice",
+      "Generalize findings to a larger population",
+      "Conduct historical analysis of institutions"
+    ],
+    answer: 1,
+    explanation: "Action research is a disciplined process of inquiry conducted by and for those taking the action. The primary focus is to solve a specific, immediate problem in a local setting (e.g. classroom)."
+  },
+  {
+    id: 7,
+    question: "Which agency is responsible for funding and coordinating higher education in India?",
+    options: [
+      "NCERT",
+      "NCTE",
+      "UGC",
+      "AICTE"
+    ],
+    answer: 2,
+    explanation: "The University Grants Commission (UGC) is a statutory body set up by the Government of India for the coordination, determination, and maintenance of standards of higher education and for funding universities."
+  },
+  {
+    id: 8,
+    question: "In a normal distribution curve, what percentage of values fall within one standard deviation (+/- 1 SD) of the mean?",
+    options: [
+      "50%",
+      "68.27%",
+      "95.45%",
+      "99.73%"
+    ],
+    answer: 1,
+    explanation: "In a normal distribution, approximately 68.27% of all data points fall within one standard deviation (+/- 1 SD) of the mean."
+  },
+  {
+    id: 9,
+    question: "Which school of philosophy in education strongly advocates 'Learning by Doing'?",
+    options: [
+      "Idealism",
+      "Naturalism",
+      "Pragmatism",
+      "Realism"
+    ],
+    answer: 2,
+    explanation: "Pragmatism, championed by John Dewey, emphasizes active learning, experimental education, and learning by doing."
+  },
+  {
+    id: 10,
+    question: "The concept of 'Scaffolding' is associated with which theorist?",
+    options: [
+      "Jean Piaget",
+      "Lev Vygotsky",
+      "B.F. Skinner",
+      "Jerome Bruner"
+    ],
+    answer: 1,
+    explanation: "While Jerome Bruner coined the term, the theoretical concept of scaffolding is deeply associated with Lev Vygotsky's Zone of Proximal Development (ZPD) in social constructivist theory."
   }
 ]
 
