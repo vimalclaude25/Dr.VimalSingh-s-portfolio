@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react'
 import Image from 'next/image'
 import { ChevronDown, Menu, X } from 'lucide-react'
+import { usePathname } from 'next/navigation'
 
 type MegaMenuColumn = {
   title: string
@@ -12,99 +13,125 @@ type MegaMenuColumn = {
 type NavItem = {
   label: string
   href: string
-  children?: string[]
+  children?: { label: string; href: string }[]
   megaMenu?: MegaMenuColumn[]
 }
 
 const nav: NavItem[] = [
-  { label: 'Home', href: '#home' },
-  { label: 'About', href: '#about' },
-  { label: 'Research', href: '#research', children: ['Research Projects', 'Patents', 'Research Guidance', 'Consultancy', 'Research Repository'] },
-  { label: 'Publications', href: '#publications', children: ['Journal Articles', 'Books & Chapters', 'Tests & Scales'] },
+  { label: 'Home', href: '/#home' },
+  { label: 'About', href: '/#about' },
+  {
+    label: 'Research',
+    href: '/#research',
+    children: [
+      { label: 'Research Projects', href: '/projects-consultancy' },
+      { label: 'Patents', href: '/research-innovation' },
+      { label: 'Research Guidance', href: '/research-guidance' },
+      { label: 'Consultancy', href: '/projects-consultancy' },
+      { label: 'Research Repository', href: '/#research-repository' },
+    ],
+  },
+  {
+    label: 'Publications',
+    href: '/publications',
+    children: [
+      { label: 'Journal Articles', href: '/publications' },
+      { label: 'Books & Chapters', href: '/publications' },
+      { label: 'Tests & Scales', href: '/publications' },
+    ],
+  },
   {
     label: 'Research in News',
-    href: '#research-news',
+    href: '/#research-news',
     megaMenu: [
       {
         title: 'Media Coverage',
         items: [
-          { label: 'Newspaper Coverage', href: '#research-news' },
-          { label: 'University News', href: '#research-news' },
-          { label: 'Press Releases', href: '#research-news' },
+          { label: 'Newspaper Coverage', href: '/#research-news' },
+          { label: 'University News', href: '/#research-news' },
+          { label: 'Press Releases', href: '/#research-news' },
         ],
       },
       {
         title: 'Digital Media',
         items: [
-          { label: 'Television Coverage', href: '#research-news' },
-          { label: 'Interviews', href: '#research-news' },
-          { label: 'Podcasts', href: '#research-news' },
+          { label: 'Television Coverage', href: '/#research-news' },
+          { label: 'Interviews', href: '/#research-news' },
+          { label: 'Podcasts', href: '/#research-news' },
         ],
       },
     ],
   },
   {
     label: 'NTA NET Resources',
-    href: '#nta-net',
+    href: '/#nta-net',
     megaMenu: [
       {
         title: 'NET Preparation',
         items: [
-          { label: 'About UGC NET', href: '#nta-net' },
-          { label: 'Exam Pattern', href: '#nta-net' },
-          { label: 'Latest Syllabus', href: '#nta-net' },
-          { label: 'Eligibility', href: '#nta-net' },
-          { label: 'Important Dates', href: '#nta-net' },
-          { label: 'Previous Year Trends', href: '#nta-net' },
+          { label: 'About UGC NET', href: '/#nta-net' },
+          { label: 'Exam Pattern', href: '/#nta-net' },
+          { label: 'Latest Syllabus', href: '/#nta-net' },
+          { label: 'Eligibility', href: '/#nta-net' },
+          { label: 'Important Dates', href: '/#nta-net' },
+          { label: 'Previous Year Trends', href: '/#nta-net' },
         ],
       },
       {
         title: 'Study Materials',
         items: [
-          { label: 'Notes', href: '#nta-net' },
-          { label: 'PDF Resources', href: '#nta-net' },
-          { label: 'PPT Repository', href: '#nta-net' },
-          { label: 'Short Notes', href: '#nta-net' },
-          { label: 'Mind Maps', href: '#nta-net' },
-          { label: 'Flash Cards', href: '#nta-net' },
-          { label: 'Infographics', href: '#nta-net' },
+          { label: 'Notes', href: '/e-resources' },
+          { label: 'PDF Resources', href: '/e-resources' },
+          { label: 'PPT Repository', href: '/e-resources' },
+          { label: 'Short Notes', href: '/e-resources' },
+          { label: 'Mind Maps', href: '/e-resources' },
+          { label: 'Flash Cards', href: '/e-resources' },
+          { label: 'Infographics', href: '/e-resources' },
         ],
       },
       {
         title: 'MCQ Practice',
         items: [
-          { label: 'Topic-wise MCQs', href: '#nta-net' },
-          { label: 'PYQs', href: '#nta-net' },
-          { label: 'Daily Quiz', href: '#nta-net' },
-          { label: 'Weekly Test', href: '#nta-net' },
-          { label: 'Mock Tests', href: '#nta-net' },
-          { label: 'Full-Length Tests', href: '#nta-net' },
+          { label: 'Topic-wise MCQs', href: '/e-resources' },
+          { label: 'PYQs', href: '/e-resources' },
+          { label: 'Daily Quiz', href: '/e-resources' },
+          { label: 'Weekly Test', href: '/e-resources' },
+          { label: 'Mock Tests', href: '/e-resources' },
+          { label: 'Full-Length Tests', href: '/e-resources' },
         ],
       },
       {
         title: 'Video Library',
         items: [
-          { label: 'Recorded Classes', href: '#nta-net' },
-          { label: 'Research Bytes', href: '#nta-net' },
-          { label: 'Short Concept Videos', href: '#nta-net' },
-          { label: 'Live Sessions', href: '#nta-net' },
-          { label: 'Webinar Recordings', href: '#nta-net' },
+          { label: 'Recorded Classes', href: '/e-resources' },
+          { label: 'Research Bytes', href: '/e-resources' },
+          { label: 'Short Concept Videos', href: '/e-resources' },
+          { label: 'Live Sessions', href: '/e-resources' },
+          { label: 'Webinar Recordings', href: '/e-resources' },
         ],
       },
       {
         title: 'Success Stories',
         items: [
-          { label: 'NET Qualified Students', href: '#nta-net' },
-          { label: 'JRF Awardees', href: '#nta-net' },
-          { label: 'Testimonials', href: '#nta-net' },
-          { label: 'Rank Holders', href: '#nta-net' },
-          { label: 'Interview Experiences', href: '#nta-net' },
+          { label: 'NET Qualified Students', href: '/#nta-net' },
+          { label: 'JRF Awardees', href: '/#nta-net' },
+          { label: 'Testimonials', href: '/#nta-net' },
+          { label: 'Rank Holders', href: '/#nta-net' },
+          { label: 'Interview Experiences', href: '/#nta-net' },
         ],
       },
     ],
   },
-  { label: 'Activities', href: '#activities', children: ['Special Lectures', 'FDPs & Workshops', 'Committees & Memberships'] },
-  { label: 'Contact', href: '#contact' },
+  {
+    label: 'Activities',
+    href: '/#activities',
+    children: [
+      { label: 'Special Lectures', href: '/#activities' },
+      { label: 'FDPs & Workshops', href: '/#activities' },
+      { label: 'Committees & Memberships', href: '/#activities' },
+    ],
+  },
+  { label: 'Contact', href: '/#contact' },
 ]
 
 export function SiteNavbar() {
@@ -112,6 +139,7 @@ export function SiteNavbar() {
   const [open, setOpen] = useState(false)
   const [active, setActive] = useState('Home')
   const [mobileOpenSection, setMobileOpenSection] = useState<string | null>(null)
+  const pathname = usePathname()
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 8)
@@ -119,6 +147,20 @@ export function SiteNavbar() {
     window.addEventListener('scroll', onScroll, { passive: true })
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
+
+  useEffect(() => {
+    if (pathname === '/') {
+      setActive('Home')
+    } else if (pathname === '/publications') {
+      setActive('Publications')
+    } else if (pathname.includes('research') || pathname.includes('project') || pathname.includes('innovation') || pathname.includes('guidance')) {
+      setActive('Research')
+    } else if (pathname === '/e-resources') {
+      setActive('NTA NET Resources')
+    } else if (pathname === '/ai-lab') {
+      setActive('NTA NET Resources') // Or highlight home/etc
+    }
+  }, [pathname])
 
   return (
     <header
@@ -129,7 +171,7 @@ export function SiteNavbar() {
       }`}
     >
       <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8">
-        <a href="#home" className="flex items-center gap-3">
+        <a href="/#home" className="flex items-center gap-3">
           <Image
             src="/logo-vs.jpg"
             alt="Dr. Vimal Singh Logo"
@@ -171,11 +213,11 @@ export function SiteNavbar() {
                 <div className="invisible absolute left-0 top-full min-w-52 translate-y-2 rounded-2xl border border-border bg-popover p-2 opacity-0 shadow-xl transition-all duration-200 group-hover:visible group-hover:translate-y-0 group-hover:opacity-100">
                   {item.children.map((c) => (
                     <a
-                      key={c}
-                      href={c === 'Research Repository' ? '#research-repository' : item.href}
+                      key={c.label}
+                      href={c.href}
                       className="block rounded-lg px-3 py-2 text-sm font-medium text-foreground/80 transition-colors hover:bg-muted hover:text-royal"
                     >
-                      {c}
+                      {c.label}
                     </a>
                   ))}
                 </div>
@@ -214,7 +256,7 @@ export function SiteNavbar() {
         {/* Action Button & Menu Toggle */}
         <div className="flex items-center gap-4">
           <a
-            href="#contact"
+            href="/#contact"
             className="hidden rounded-xl bg-navy px-5 py-2.5 text-xs font-semibold text-white shadow-md hover:bg-royal transition-all duration-300 xl:block"
           >
             Get in Touch
@@ -249,12 +291,12 @@ export function SiteNavbar() {
                       <div className="pl-4 mt-1 border-l-2 border-border/60 ml-3 space-y-1">
                         {item.children && item.children.map((c) => (
                           <a
-                            key={c}
-                            href={c === 'Research Repository' ? '#research-repository' : item.href}
+                            key={c.label}
+                            href={c.href}
                             className="block px-3 py-1.5 text-xs text-foreground/70 hover:text-royal"
                             onClick={() => setOpen(false)}
                           >
-                            {c}
+                            {c.label}
                           </a>
                         ))}
                         {item.megaMenu && item.megaMenu.map((col) => (

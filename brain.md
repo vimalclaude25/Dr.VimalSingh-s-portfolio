@@ -25,9 +25,17 @@ A premium, highly interactive academic portfolio website built for **Dr. Vimal S
 academic-portfolio-website/
 ├── .next/                    # Next.js build and cache directory
 ├── app/                      # Next.js App Router root
+│   ├── (main)/               # Route Group for standard site layout
+│   │   ├── layout.tsx        # Shared site layout (Navbar, Footer, Topbar)
+│   │   ├── page.tsx          # Main home page component assembling all sections
+│   │   ├── ai-lab/           # AI & Innovation Lab subpage [NEW]
+│   │   ├── e-resources/      # NTA NET study resources repository subpage [NEW]
+│   │   ├── projects-consultancy/ # Government grants & industry consultancy subpage [NEW]
+│   │   ├── publications/     # Full-featured search & filter books/chapters subpage [NEW]
+│   │   ├── research-guidance/ # Interactive Ph.D. & M.Ed. cohorts statistics subpage [NEW]
+│   │   └── research-innovation/ # Core specializations & patent showcase subpage [NEW]
 │   ├── globals.css           # Global CSS and Tailwind directives
 │   ├── layout.tsx            # Main HTML layout, providers, fonts
-│   ├── page.tsx              # Main home page component assembling all sections
 │   └── read/                 # Sub-routes for reading articles/essays
 │       └── tagore-educational-vision/
 │           └── page.tsx      # Dr. Vimal Singh's page on Tagore's Educational Vision
