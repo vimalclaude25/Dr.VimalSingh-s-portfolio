@@ -15,6 +15,7 @@ import {
   X,
 } from 'lucide-react'
 import { researchNewsData, ResearchNewsItem } from '@/lib/cv-data'
+import Image from 'next/image'
 
 const subcategories = [
   'All',
@@ -146,12 +147,27 @@ export function ResearchNewsSection() {
                           <Calendar className="h-3 w-3" /> {item.date}
                         </span>
                       </div>
+                      
+                      {/* Heading first */}
                       <h3 className="font-heading text-base font-bold text-navy dark:text-white leading-snug">
                         {item.title}
                       </h3>
-                      <p className="mt-2 text-xs leading-relaxed text-muted-foreground line-clamp-3">
-                        {item.desc}
-                      </p>
+                      
+                      {/* Then image if present, else text */}
+                      {item.image ? (
+                        <div className="relative w-full h-44 my-3 overflow-hidden rounded-xl border border-border bg-muted">
+                          <Image
+                            src={item.image}
+                            alt={item.title}
+                            fill
+                            className="object-cover"
+                          />
+                        </div>
+                      ) : (
+                        <p className="mt-2 text-xs leading-relaxed text-muted-foreground line-clamp-3">
+                          {item.desc}
+                        </p>
+                      )}
                     </div>
                     
                     <div className="mt-5 border-t border-border pt-4 flex items-center justify-between">
@@ -227,6 +243,18 @@ export function ResearchNewsSection() {
                 {selectedNews.title}
               </h3>
 
+              {/* Image in Modal */}
+              {selectedNews.image && (
+                <div className="relative w-full h-64 overflow-hidden rounded-2xl border border-border/80 mb-4 bg-muted">
+                  <Image
+                    src={selectedNews.image}
+                    alt={selectedNews.title}
+                    fill
+                    className="object-cover"
+                  />
+                </div>
+              )}
+
               {/* Divider */}
               <div className="border-b border-border/50 pb-4 mb-4">
                 <span className="text-xs font-semibold text-muted-foreground">
@@ -235,7 +263,7 @@ export function ResearchNewsSection() {
               </div>
 
               {/* Content Description */}
-              <div className="prose prose-sm dark:prose-invert max-w-none text-sm leading-relaxed text-muted-foreground max-h-[300px] overflow-y-auto pr-2 scrollbar-thin scrollbar-thumb-border">
+              <div className="prose prose-sm dark:prose-invert max-w-none text-sm leading-relaxed text-muted-foreground max-h-[250px] overflow-y-auto pr-2 scrollbar-thin scrollbar-thumb-border">
                 <p className="whitespace-pre-wrap">{selectedNews.desc}</p>
               </div>
 

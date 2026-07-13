@@ -1006,6 +1006,7 @@ export interface ResearchNewsItem {
   subcategory: string
   link?: string
   mediaType: 'Newspaper' | 'University' | 'Press Release' | 'TV' | 'Interview' | 'Podcast'
+  image?: string
 }
 
 export interface NtaNetResource {
@@ -1086,6 +1087,18 @@ export const researchNewsData: ResearchNewsItem[] = [
     subcategory: 'Podcasts',
     mediaType: 'Podcast',
     link: '#',
+  },
+  {
+    id: 7,
+    title: 'D-CODE, Sikh LI Regimental Centre Sign MoU',
+    source: 'Pioneer News Service',
+    date: '13 July 2026',
+    desc: 'An important Memorandum of Understanding was signed between D-CODE (CSJM University) and the Sikh Light Infantry Regimental Training Centre. Co-Director of D-CODE Dr. Vimal Singh proposed the vote of thanks.',
+    category: 'media-coverage',
+    subcategory: 'Newspaper Coverage',
+    mediaType: 'Newspaper',
+    link: '#',
+    image: '/dcode-mou.png',
   },
 ]
 
