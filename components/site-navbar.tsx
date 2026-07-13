@@ -194,7 +194,13 @@ export function SiteNavbar() {
             <div key={item.label} className="group relative">
               <a
                 href={item.href}
-                onClick={() => setActive(item.label)}
+                onClick={(e) => {
+                  if (item.children || item.megaMenu) {
+                    e.preventDefault()
+                  } else {
+                    setActive(item.label)
+                  }
+                }}
                 className={`flex items-center gap-1 rounded-lg px-3 py-2 text-sm font-semibold transition-colors ${
                   active === item.label
                     ? 'text-royal'
@@ -256,7 +262,7 @@ export function SiteNavbar() {
         {/* Action Button & Menu Toggle */}
         <div className="flex items-center gap-4">
           <a
-            href="/#contact"
+            href="/contact"
             className="hidden rounded-xl bg-navy px-5 py-2.5 text-xs font-semibold text-white shadow-md hover:bg-royal transition-all duration-300 xl:block"
           >
             Get in Touch
