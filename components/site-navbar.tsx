@@ -47,17 +47,17 @@ const nav: NavItem[] = [
       {
         title: 'Media Coverage',
         items: [
-          { label: 'Newspaper Coverage', href: '/news-media' },
-          { label: 'University News', href: '/news-media' },
-          { label: 'Press Releases', href: '/news-media' },
+          { label: 'Newspaper Coverage', href: '/news-media?category=Newspaper%20Coverage' },
+          { label: 'University News', href: '/news-media?category=University%20News' },
+          { label: 'Press Releases', href: '/news-media?category=Press%20Releases' },
         ],
       },
       {
         title: 'Digital Media',
         items: [
-          { label: 'Television Coverage', href: '/news-media' },
-          { label: 'Interviews', href: '/news-media' },
-          { label: 'Podcasts', href: '/news-media' },
+          { label: 'Television Coverage', href: '/news-media?category=Television%20Coverage' },
+          { label: 'Interviews', href: '/news-media?category=Interviews' },
+          { label: 'Podcasts', href: '/news-media?category=Podcasts' },
         ],
       },
     ],

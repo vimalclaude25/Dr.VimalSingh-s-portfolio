@@ -1,8 +1,7 @@
-'use client'
-
 import { ResearchNewsSection } from '@/components/research-news-section'
 import { ArrowLeft } from 'lucide-react'
 import Link from 'next/link'
+import { Suspense } from 'react'
 
 export default function NewsMediaPage() {
   return (
@@ -24,7 +23,9 @@ export default function NewsMediaPage() {
         </ol>
       </nav>
 
-      <ResearchNewsSection />
+      <Suspense fallback={<div className="py-12 text-center text-muted-foreground">Loading news & media...</div>}>
+        <ResearchNewsSection />
+      </Suspense>
     </div>
   )
 }

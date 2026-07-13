@@ -1,7 +1,8 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
+import { useSearchParams } from 'next/navigation'
 import {
   Newspaper,
   Globe,
@@ -25,7 +26,15 @@ const subcategories = [
 ]
 
 export function ResearchNewsSection() {
+  const searchParams = useSearchParams()
+  const categoryParam = searchParams.get('category')
   const [activeSub, setActiveSub] = useState<string>('All')
+
+  useEffect(() => {
+    if (categoryParam && subcategories.includes(categoryParam)) {
+      setActiveSub(categoryParam)
+    }
+  }, [categoryParam])
   const [searchQuery, setSearchQuery] = useState<string>('')
 
   const getIcon = (type: string) => {
