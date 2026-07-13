@@ -1,11 +1,19 @@
 'use client'
 
-import { ArrowLeft, AlertCircle, Eye, BookOpen } from 'lucide-react'
+import { use, useEffect } from 'react'
+import { ArrowLeft, AlertCircle, Eye } from 'lucide-react'
 import Link from 'next/link'
-import { useEffect } from 'react'
+import { journalPublications } from '@/lib/cv-data'
 
-export default function TagoreReaderPage() {
-  // Prevent right-click inside the page to discourage downloads
+export default function ReaderPage({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = use(params)
+
+  // Find the corresponding publication in the CV data matching the link path
+  const publication = journalPublications.find(
+    (pub) => pub.link === `/read/${slug}`
+  )
+
+  // Disable right click to discourage simple document saving
   useEffect(() => {
     const handleContextMenu = (e: MouseEvent) => {
       e.preventDefault()
@@ -16,9 +24,26 @@ export default function TagoreReaderPage() {
     }
   }, [])
 
+  if (!publication) {
+    return (
+      <div className="flex flex-col min-h-screen bg-navy text-white items-center justify-center p-6 text-center">
+        <h1 className="text-2xl font-bold font-heading mb-2">Paper Not Available</h1>
+        <p className="text-sm text-muted-foreground mb-6">
+          The requested view-only copy is currently not uploaded on the server.
+        </p>
+        <Link
+          href="/"
+          className="inline-flex items-center gap-1.5 bg-royal px-5 py-2.5 rounded-xl text-xs font-bold text-white hover:bg-royal/90 transition-colors"
+        >
+          <ArrowLeft className="h-4 w-4" /> Back to Home
+        </Link>
+      </div>
+    )
+  }
+
   return (
     <div className="flex flex-col min-h-screen bg-navy text-white">
-      {/* Top Header */}
+      {/* Top Header Bar */}
       <header className="flex items-center justify-between px-6 py-4 bg-navy border-b border-white/10 z-10 shadow-md">
         <div className="flex items-center gap-4">
           <Link
@@ -33,7 +58,7 @@ export default function TagoreReaderPage() {
               Online Reader
             </span>
             <h1 className="text-sm sm:text-base font-heading font-bold text-white line-clamp-1 max-w-[280px] sm:max-w-xl md:max-w-2xl">
-              From Philosophy to Practice: Reflected Values in Learners Shaped by Tagore’s Educational Vision
+              {publication.title}
             </h1>
           </div>
         </div>
@@ -44,29 +69,32 @@ export default function TagoreReaderPage() {
         </div>
       </header>
 
-      {/* Reader Notice */}
+      {/* Security notice banner */}
       <div className="bg-white/5 border-b border-white/10 px-6 py-3 text-xs flex items-center justify-between text-white/70 flex-wrap gap-2">
         <span className="flex items-center gap-2">
           <AlertCircle className="h-4 w-4 text-gold shrink-0" />
-          <span>To support scholarly publications, this paper is presented in read-only format. Printing and direct downloading are disabled.</span>
+          <span>
+            To support scholarly publishers, this paper is presented in read-only format. Printing and direct downloading are disabled.
+          </span>
         </span>
-        <a 
-          href="https://doi.org/10.31305/rrijm.2026.v11.n06.016" 
-          target="_blank" 
-          rel="noopener noreferrer" 
-          className="font-bold text-gold hover:underline"
-        >
-          Visit Publisher Website
-        </a>
+        {publication.doi && (
+          <a
+            href={`https://doi.org/${publication.doi}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="font-bold text-gold hover:underline"
+          >
+            Visit Publisher Website
+          </a>
+        )}
       </div>
 
-      {/* PDF View Container */}
+      {/* Viewport Frame */}
       <main className="flex-1 bg-navy/95 relative overflow-hidden flex flex-col items-center justify-center p-4">
-        {/* Hiding toolbar parameters in direct iframe src */}
         <iframe
-          src="/papers/tagore-educational-vision.pdf#toolbar=0&navpanes=0&scrollbar=1"
+          src={`/papers/${slug}.pdf#toolbar=0&navpanes=0&scrollbar=1`}
           className="w-full max-w-5xl h-full flex-1 rounded-2xl shadow-2xl border border-white/15 bg-white"
-          title="From Philosophy to Practice: Reflected Values in Learners Shaped by Tagore's Educational Vision"
+          title={publication.title}
           onContextMenu={(e) => e.preventDefault()}
         />
       </main>
