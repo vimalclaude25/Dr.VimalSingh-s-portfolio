@@ -172,9 +172,8 @@ export function HeroSection() {
 
             <div className="mt-6 flex flex-wrap gap-3">
               <a
-                href={personalInfo.links.facultyPage}
-                target="_blank"
-                rel="noopener noreferrer"
+                href="/dr-vimal-singh-cv.pdf"
+                download="Dr_Vimal_Singh_CV.pdf"
                 className="inline-flex items-center gap-2 rounded-xl bg-royal px-5 py-2.5 text-sm font-semibold text-white shadow-lg shadow-royal/25 transition-transform hover:-translate-y-0.5"
               >
                 <Download className="h-4 w-4" /> Download CV
