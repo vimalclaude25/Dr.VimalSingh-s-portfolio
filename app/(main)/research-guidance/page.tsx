@@ -93,6 +93,55 @@ export default function ResearchGuidancePage() {
         </div>
       </div>
 
+      {/* Interactive Chart */}
+      <div className="rounded-3xl border border-border bg-card p-6 shadow-sm mb-12">
+        <h2 className="mb-6 flex items-center gap-2 font-heading text-xl font-bold text-navy dark:text-white border-b border-border/50 pb-2">
+          <BarChart2 className="h-5.5 w-5.5 text-royal" /> Cohort Distribution Analytics
+        </h2>
+        <div className="h-64 flex flex-col justify-end pt-4">
+          <div className="flex-1 flex items-end justify-between gap-4 px-2 sm:px-6">
+            {details.map((cohort, index) => {
+              const percent = (cohort.count / 10) * 100
+              return (
+                <div key={index} className="flex-1 flex flex-col items-center group relative">
+                  {/* Tooltip */}
+                  <div className="absolute -top-10 scale-0 group-hover:scale-100 transition-all duration-200 bg-navy dark:bg-slate-800 text-white text-xs font-bold px-2.5 py-1 rounded shadow border border-white/10 dark:border-slate-700 z-10 whitespace-nowrap">
+                    {cohort.count} Scholars ({cohort.status})
+                  </div>
+                  
+                  {/* Bar */}
+                  <div 
+                    className={`w-full rounded-t-lg transition-all duration-500 ${
+                      cohort.status === 'Awarded' 
+                        ? 'bg-royal group-hover:bg-royal/85' 
+                        : 'bg-gold group-hover:bg-gold/85'
+                    }`} 
+                    style={{ height: `${percent}%` }}
+                  />
+                  
+                  {/* Label */}
+                  <span className="text-[9px] sm:text-xs font-bold mt-2 text-muted-foreground whitespace-nowrap rotate-12 sm:rotate-0">
+                    {cohort.year.split(' – ')[0]}
+                  </span>
+                </div>
+              )
+            })}
+          </div>
+          
+          {/* Y Axis / Legend */}
+          <div className="flex justify-center gap-6 mt-6 border-t border-border/60 pt-4 text-xs font-semibold flex-wrap">
+            <div className="flex items-center gap-1.5">
+              <span className="h-3 w-3 rounded bg-royal" />
+              <span className="text-muted-foreground">M.Ed. Completed &amp; Awarded</span>
+            </div>
+            <div className="flex items-center gap-1.5">
+              <span className="h-3 w-3 rounded bg-gold" />
+              <span className="text-muted-foreground">M.Ed. Ongoing (Pursuing)</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <motion.div
         variants={containerVariants}
         initial="hidden"

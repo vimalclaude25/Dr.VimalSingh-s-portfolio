@@ -52,6 +52,45 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning className={`${inter.variable} ${poppins.variable} bg-background`}>
       <body className="bg-background font-sans antialiased">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Person",
+              "name": "Dr. Vimal Singh",
+              "jobTitle": "Assistant Professor",
+              "worksFor": {
+                "@type": "EducationalOrganization",
+                "name": "Chhatrapati Shahu Ji Maharaj University",
+                "alternateName": "CSJM University",
+                "location": {
+                  "@type": "Place",
+                  "address": {
+                    "@type": "PostalAddress",
+                    "addressLocality": "Kanpur",
+                    "addressRegion": "Uttar Pradesh",
+                    "addressCountry": "India"
+                  }
+                }
+              },
+              "alumniOf": [
+                {
+                  "@type": "EducationalOrganization",
+                  "name": "University of Lucknow"
+                }
+              ],
+              "url": "https://drvimalsingh.in",
+              "sameAs": [
+                "https://vidwan.inflibnet.ac.in/profile/346396",
+                "https://www.scopus.com/authid/detail.uri?authorId=58797837900",
+                "https://www.researchgate.net/profile/Vimal-Singh-23",
+                "https://scholar.google.com/citations?user=eq1y6iYAAAAJ&hl=en",
+                "https://orcid.org/my-orcid?orcid=0000-0002-3209-6057"
+              ]
+            })
+          }}
+        />
         <ThemeProvider>{children}</ThemeProvider>
         {process.env.NODE_ENV === 'production' && <Analytics />}
       </body>

@@ -33,6 +33,8 @@ const publications = [
   },
 ]
 
+import Link from 'next/link'
+
 export function LatestPublications() {
   const [index, setIndex] = useState(0)
   const [filter, setFilter] = useState('All')
@@ -48,9 +50,9 @@ export function LatestPublications() {
           <h2 className="flex items-center gap-2 font-heading text-2xl font-bold text-navy dark:text-white">
             <FileText className="h-6 w-6 text-royal" /> Latest Publications
           </h2>
-          <a href="#" className="inline-flex items-center gap-1 text-sm font-semibold text-royal hover:underline">
+          <Link href="/publications" className="inline-flex items-center gap-1 text-sm font-semibold text-royal hover:underline">
             View All Publications <ArrowRight className="h-4 w-4" />
-          </a>
+          </Link>
         </div>
 
         <div className="mb-6 flex flex-wrap gap-2">
@@ -95,7 +97,7 @@ export function LatestPublications() {
                 <User className="h-4 w-4" /> {pub.author}
               </p>
               <div className="mt-4 flex flex-wrap gap-3">
-                <a href="#" className="inline-flex items-center gap-1.5 rounded-lg bg-royal px-4 py-2 text-xs font-semibold text-white transition-transform hover:-translate-y-0.5">
+                <a href={`https://doi.org/${pub.doi}`} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 rounded-lg bg-royal px-4 py-2 text-xs font-semibold text-white transition-transform hover:-translate-y-0.5">
                   <ExternalLink className="h-3.5 w-3.5" /> Read Paper
                 </a>
                 <a href="#" className="inline-flex items-center gap-1.5 rounded-lg border border-border px-4 py-2 text-xs font-semibold text-navy transition-colors hover:border-royal hover:text-royal dark:text-white">
