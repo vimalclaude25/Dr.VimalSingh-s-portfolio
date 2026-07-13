@@ -65,6 +65,10 @@ export function ResearchNewsSection() {
     return matchesSub && matchesSearch
   })
 
+  const sortedNews = [...filteredNews].sort((a, b) => {
+    return new Date(b.date).getTime() - new Date(a.date).getTime()
+  })
+
   return (
     <section id="research-news" className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
       <div className="mb-10 text-center">
@@ -95,8 +99,8 @@ export function ResearchNewsSection() {
           ))}
         </div>
 
-        {/* Search Input */}
-        <div className="relative w-full sm:max-w-xs order-1 sm:order-2">
+        {/* Search Bar */}
+        <div className="relative order-1 sm:order-2 w-full sm:max-w-xs">
           <span className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
             <Search className="h-4 w-4 text-muted-foreground" />
           </span>
@@ -112,13 +116,13 @@ export function ResearchNewsSection() {
 
       {/* Grid List */}
       <div className="min-h-[250px]">
-        {filteredNews.length > 0 ? (
+        {sortedNews.length > 0 ? (
           <motion.div
             layout
             className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3"
           >
             <AnimatePresence mode="popLayout">
-              {filteredNews.map((item) => {
+              {sortedNews.map((item) => {
                 const Icon = getIcon(item.mediaType)
                 return (
                   <motion.div
