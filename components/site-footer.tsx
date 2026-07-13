@@ -8,13 +8,13 @@ const links = {
 }
 
 const getHref = (label: string) => {
-  if (label === 'Home') return '/#home'
+  if (label === 'Home') return '/'
   if (label === 'About') return '/#about'
-  if (label === 'Research') return '/#research'
+  if (label === 'Research') return '/projects-consultancy'
   if (label === 'Publications') return '/publications'
   if (label === 'AI Lab') return '/ai-lab'
-  if (label === 'Contact') return '/#contact'
-  if (label === 'Thesis Repository') return '/#research-repository'
+  if (label === 'Contact') return '/contact'
+  if (label === 'Thesis Repository') return '/research-repository'
   if (label === 'E-Resources') return '/e-resources'
   if (label === 'GitHub') return 'https://github.com/vimalclaude25'
   if (label === 'Google Scholar') return 'https://scholar.google.com/citations?user=eq1y6iYAAAAJ&hl=en'

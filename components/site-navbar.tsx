@@ -18,17 +18,17 @@ type NavItem = {
 }
 
 const nav: NavItem[] = [
-  { label: 'Home', href: '/#home' },
+  { label: 'Home', href: '/' },
   { label: 'About', href: '/#about' },
   {
     label: 'Research',
-    href: '/#research',
+    href: '/projects-consultancy',
     children: [
       { label: 'Research Projects', href: '/projects-consultancy' },
       { label: 'Patents', href: '/research-innovation' },
       { label: 'Research Guidance', href: '/research-guidance' },
       { label: 'Consultancy', href: '/projects-consultancy' },
-      { label: 'Research Repository', href: '/#research-repository' },
+      { label: 'Research Repository', href: '/research-repository' },
     ],
   },
   {
@@ -42,39 +42,39 @@ const nav: NavItem[] = [
   },
   {
     label: 'Research in News',
-    href: '/#research-news',
+    href: '/news-media',
     megaMenu: [
       {
         title: 'Media Coverage',
         items: [
-          { label: 'Newspaper Coverage', href: '/#research-news' },
-          { label: 'University News', href: '/#research-news' },
-          { label: 'Press Releases', href: '/#research-news' },
+          { label: 'Newspaper Coverage', href: '/news-media' },
+          { label: 'University News', href: '/news-media' },
+          { label: 'Press Releases', href: '/news-media' },
         ],
       },
       {
         title: 'Digital Media',
         items: [
-          { label: 'Television Coverage', href: '/#research-news' },
-          { label: 'Interviews', href: '/#research-news' },
-          { label: 'Podcasts', href: '/#research-news' },
+          { label: 'Television Coverage', href: '/news-media' },
+          { label: 'Interviews', href: '/news-media' },
+          { label: 'Podcasts', href: '/news-media' },
         ],
       },
     ],
   },
   {
     label: 'NTA NET Resources',
-    href: '/#nta-net',
+    href: '/e-resources',
     megaMenu: [
       {
         title: 'NET Preparation',
         items: [
-          { label: 'About UGC NET', href: '/#nta-net' },
-          { label: 'Exam Pattern', href: '/#nta-net' },
-          { label: 'Latest Syllabus', href: '/#nta-net' },
-          { label: 'Eligibility', href: '/#nta-net' },
-          { label: 'Important Dates', href: '/#nta-net' },
-          { label: 'Previous Year Trends', href: '/#nta-net' },
+          { label: 'About UGC NET', href: '/e-resources' },
+          { label: 'Exam Pattern', href: '/e-resources' },
+          { label: 'Latest Syllabus', href: '/e-resources' },
+          { label: 'Eligibility', href: '/e-resources' },
+          { label: 'Important Dates', href: '/e-resources' },
+          { label: 'Previous Year Trends', href: '/e-resources' },
         ],
       },
       {
@@ -113,25 +113,25 @@ const nav: NavItem[] = [
       {
         title: 'Success Stories',
         items: [
-          { label: 'NET Qualified Students', href: '/#nta-net' },
-          { label: 'JRF Awardees', href: '/#nta-net' },
-          { label: 'Testimonials', href: '/#nta-net' },
-          { label: 'Rank Holders', href: '/#nta-net' },
-          { label: 'Interview Experiences', href: '/#nta-net' },
+          { label: 'NET Qualified Students', href: '/e-resources' },
+          { label: 'JRF Awardees', href: '/e-resources' },
+          { label: 'Testimonials', href: '/e-resources' },
+          { label: 'Rank Holders', href: '/e-resources' },
+          { label: 'Interview Experiences', href: '/e-resources' },
         ],
       },
     ],
   },
   {
     label: 'Activities',
-    href: '/#activities',
+    href: '/activities',
     children: [
-      { label: 'Special Lectures', href: '/#activities' },
-      { label: 'FDPs & Workshops', href: '/#activities' },
-      { label: 'Committees & Memberships', href: '/#activities' },
+      { label: 'Special Lectures', href: '/activities' },
+      { label: 'FDPs & Workshops', href: '/activities' },
+      { label: 'Committees & Memberships', href: '/activities' },
     ],
   },
-  { label: 'Contact', href: '/#contact' },
+  { label: 'Contact', href: '/contact' },
 ]
 
 export function SiteNavbar() {
