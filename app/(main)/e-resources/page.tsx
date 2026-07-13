@@ -1,14 +1,28 @@
-'use client'
-
-import { useState } from 'react'
+import { useState, useEffect, Suspense } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
+import { useSearchParams } from 'next/navigation'
 import { Search, Download, ExternalLink, Library, BookOpen, Film, HelpCircle, FileText, CheckCircle, ArrowLeft } from 'lucide-react'
 import Link from 'next/link'
 import { ntaNetResourcesData } from '@/lib/cv-data'
 
-export default function EResourcesPage() {
+function EResourcesContent() {
+  const searchParams = useSearchParams()
+  const categoryParam = searchParams.get('category')
   const [searchQuery, setSearchQuery] = useState('')
   const [activeCategory, setActiveCategory] = useState<'all' | 'preparation' | 'materials' | 'mcqs' | 'videos' | 'success'>('all')
+
+  useEffect(() => {
+    if (
+      categoryParam === 'preparation' ||
+      categoryParam === 'materials' ||
+      categoryParam === 'mcqs' ||
+      categoryParam === 'videos' ||
+      categoryParam === 'success' ||
+      categoryParam === 'all'
+    ) {
+      setActiveCategory(categoryParam as any)
+    }
+  }, [categoryParam])
 
   const categories = [
     { id: 'all', label: 'All Resources', icon: Library },
@@ -28,7 +42,6 @@ export default function EResourcesPage() {
     }
   }
 
-  // Filter resources based on query and active tab
   const filteredResources = ntaNetResourcesData.filter((resource) => {
     const matchesSearch =
       resource.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
@@ -40,34 +53,7 @@ export default function EResourcesPage() {
   })
 
   return (
-    <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
-      {/* Breadcrumb */}
-      <nav className="mb-6 flex" aria-label="Breadcrumb">
-        <ol className="inline-flex items-center space-x-1 md:space-x-3 text-sm font-semibold">
-          <li className="inline-flex items-center">
-            <Link href="/" className="text-muted-foreground hover:text-royal transition-colors flex items-center gap-1">
-              <ArrowLeft className="h-4 w-4" /> Home
-            </Link>
-          </li>
-          <li>
-            <div className="flex items-center">
-              <span className="mx-2 text-muted-foreground">/</span>
-              <span className="text-navy dark:text-white">E-Resources</span>
-            </div>
-          </li>
-        </ol>
-      </nav>
-
-      {/* Hero Header */}
-      <div className="mb-12 text-center">
-        <h1 className="font-heading text-4xl font-extrabold tracking-tight text-navy dark:text-white sm:text-5xl">
-          E-Resources &amp; Study Hub
-        </h1>
-        <p className="mx-auto mt-4 max-w-3xl text-lg text-muted-foreground leading-relaxed">
-          Access high-yield study materials, topic-wise practice quizzes, and recorded concept lectures compiled for UGC NET and JRF aspirants in Education.
-        </p>
-      </div>
-
+    <>
       {/* Search and Filters Layout */}
       <div className="mb-8 flex flex-col md:flex-row gap-4 items-center justify-between">
         {/* Search Input */}
@@ -185,6 +171,43 @@ export default function EResourcesPage() {
           </div>
         )}
       </div>
+    </>
+  )
+}
+
+export default function EResourcesPage() {
+  return (
+    <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
+      {/* Breadcrumb */}
+      <nav className="mb-6 flex" aria-label="Breadcrumb">
+        <ol className="inline-flex items-center space-x-1 md:space-x-3 text-sm font-semibold">
+          <li className="inline-flex items-center">
+            <Link href="/" className="text-muted-foreground hover:text-royal transition-colors flex items-center gap-1">
+              <ArrowLeft className="h-4 w-4" /> Home
+            </Link>
+          </li>
+          <li>
+            <div className="flex items-center">
+              <span className="mx-2 text-muted-foreground">/</span>
+              <span className="text-navy dark:text-white">E-Resources</span>
+            </div>
+          </li>
+        </ol>
+      </nav>
+
+      {/* Hero Header */}
+      <div className="mb-12 text-center">
+        <h1 className="font-heading text-4xl font-extrabold tracking-tight text-navy dark:text-white sm:text-5xl">
+          E-Resources &amp; Study Hub
+        </h1>
+        <p className="mx-auto mt-4 max-w-3xl text-lg text-muted-foreground leading-relaxed">
+          Access high-yield study materials, topic-wise practice quizzes, and recorded concept lectures compiled for UGC NET and JRF aspirants in Education.
+        </p>
+      </div>
+
+      <Suspense fallback={<div className="py-12 text-center text-muted-foreground">Loading resources...</div>}>
+        <EResourcesContent />
+      </Suspense>
     </div>
   )
 }

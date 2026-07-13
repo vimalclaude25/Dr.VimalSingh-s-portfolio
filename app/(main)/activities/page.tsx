@@ -1,8 +1,7 @@
-'use client'
-
 import { ActivitiesSection } from '@/components/activities-section'
 import { ArrowLeft } from 'lucide-react'
 import Link from 'next/link'
+import { Suspense } from 'react'
 
 export default function ActivitiesPage() {
   return (
@@ -24,7 +23,9 @@ export default function ActivitiesPage() {
         </ol>
       </nav>
 
-      <ActivitiesSection />
+      <Suspense fallback={<div className="py-12 text-center text-muted-foreground">Loading activities...</div>}>
+        <ActivitiesSection />
+      </Suspense>
     </div>
   )
 }

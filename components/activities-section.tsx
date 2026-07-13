@@ -1,7 +1,8 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
+import { useSearchParams } from 'next/navigation'
 import {
   Mic,
   Calendar,
@@ -25,7 +26,15 @@ import {
 } from '@/lib/cv-data'
 
 export function ActivitiesSection() {
+  const searchParams = useSearchParams()
+  const tabParam = searchParams.get('tab')
   const [activeTab, setActiveTab] = useState<'lectures' | 'fdps' | 'admin' | 'memberships'>('lectures')
+
+  useEffect(() => {
+    if (tabParam === 'lectures' || tabParam === 'fdps' || tabParam === 'admin' || tabParam === 'memberships') {
+      setActiveTab(tabParam)
+    }
+  }, [tabParam])
   const [searchQuery, setSearchQuery] = useState('')
   const [visibleCount, setVisibleCount] = useState(6)
 

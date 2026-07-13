@@ -3,6 +3,7 @@
 import { PublicationsSection } from '@/components/publications-section'
 import { ArrowLeft } from 'lucide-react'
 import Link from 'next/link'
+import { Suspense } from 'react'
 
 export default function PublicationsPage() {
   return (
@@ -25,7 +26,9 @@ export default function PublicationsPage() {
       </nav>
 
       {/* Publications component handles the rest of the search and layout */}
-      <PublicationsSection />
+      <Suspense fallback={<div className="py-12 text-center text-muted-foreground">Loading publications...</div>}>
+        <PublicationsSection />
+      </Suspense>
     </div>
   )
 }

@@ -1,7 +1,8 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
+import { useSearchParams } from 'next/navigation'
 import {
   FileText,
   Search,
@@ -21,7 +22,15 @@ import {
 } from '@/lib/cv-data'
 
 export function PublicationsSection() {
+  const searchParams = useSearchParams()
+  const tabParam = searchParams.get('tab')
   const [activeTab, setActiveTab] = useState<'journals' | 'books' | 'scales'>('journals')
+
+  useEffect(() => {
+    if (tabParam === 'journals' || tabParam === 'books' || tabParam === 'scales') {
+      setActiveTab(tabParam)
+    }
+  }, [tabParam])
   const [searchQuery, setSearchQuery] = useState('')
   const [journalFilter, setJournalFilter] = useState<'All' | 'Scopus Indexed' | 'UGC-CARE Listed' | 'Peer-Reviewed'>('All')
   const [visibleCount, setVisibleCount] = useState(5)
