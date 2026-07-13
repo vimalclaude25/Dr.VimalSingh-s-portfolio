@@ -1100,6 +1100,18 @@ export const researchNewsData: ResearchNewsItem[] = [
     link: '#',
     image: '/dcode-mou.png',
   },
+  {
+    id: 8,
+    title: 'Dainik Bhaskar Features Research on AI Bias Supervised by Dr. Vimal Singh',
+    source: 'Dainik Bhaskar',
+    date: '27 May 2026',
+    desc: 'Dainik Bhaskar featured a research study on algorithmic bias in artificial intelligence conducted under the supervision of Assistant Professor Dr. Vimal Singh. The study surveyed 211 PG students regarding AI inclusivity and bias awareness in education.',
+    category: 'media-coverage',
+    subcategory: 'Newspaper Coverage',
+    mediaType: 'Newspaper',
+    link: '#',
+    image: '/ai-bias-bhaskar.png',
+  },
 ]
 
 export const ntaNetResourcesData: NtaNetResource[] = [
