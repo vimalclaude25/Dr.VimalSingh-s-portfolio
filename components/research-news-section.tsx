@@ -12,6 +12,7 @@ import {
   Search,
   ExternalLink,
   Calendar,
+  X,
 } from 'lucide-react'
 import { researchNewsData, ResearchNewsItem } from '@/lib/cv-data'
 
@@ -29,6 +30,7 @@ export function ResearchNewsSection() {
   const searchParams = useSearchParams()
   const categoryParam = searchParams.get('category')
   const [activeSub, setActiveSub] = useState<string>('All')
+  const [selectedNews, setSelectedNews] = useState<ResearchNewsItem | null>(null)
 
   useEffect(() => {
     if (categoryParam && subcategories.includes(categoryParam)) {
@@ -132,7 +134,8 @@ export function ResearchNewsSection() {
                     animate={{ opacity: 1, scale: 1 }}
                     exit={{ opacity: 0, scale: 0.95 }}
                     transition={{ duration: 0.3 }}
-                    className="flex flex-col justify-between rounded-2xl border border-border bg-card p-6 shadow-sm transition-all duration-300 hover:border-royal/30 hover:shadow-md"
+                    onClick={() => setSelectedNews(item)}
+                    className="flex flex-col justify-between rounded-2xl border border-border bg-card p-6 shadow-sm transition-all duration-300 hover:border-royal/30 hover:shadow-md cursor-pointer hover:-translate-y-0.5"
                   >
                     <div>
                       <div className="mb-4 flex items-center justify-between">
@@ -155,12 +158,15 @@ export function ResearchNewsSection() {
                       <span className="text-[11px] font-bold text-muted-foreground">
                         Source: <span className="text-navy dark:text-white font-semibold">{item.source}</span>
                       </span>
-                      {item.link && (
+                      {item.link && item.link !== '#' && (
                         <a
                           href={item.link}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          onClick={(e) => e.stopPropagation()}
                           className="inline-flex items-center gap-1 text-xs font-bold text-royal hover:underline"
                         >
-                          Read Coverage <ExternalLink className="h-3.5 w-3.5" />
+                          Read Original <ExternalLink className="h-3.5 w-3.5" />
                         </a>
                       )}
                     </div>
@@ -175,6 +181,87 @@ export function ResearchNewsSection() {
           </div>
         )}
       </div>
+
+      {/* Modal Popup for Reading News */}
+      <AnimatePresence>
+        {selectedNews && (
+          <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6">
+            {/* Backdrop */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={() => setSelectedNews(null)}
+              className="absolute inset-0 bg-navy/60 backdrop-blur-sm"
+            />
+
+            {/* Modal Body */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95, y: 15 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.95, y: 15 }}
+              transition={{ type: 'spring', duration: 0.4 }}
+              className="relative w-full max-w-2xl overflow-hidden rounded-3xl border border-border bg-card p-6 shadow-2xl z-10 text-foreground"
+            >
+              {/* Close Button */}
+              <button
+                onClick={() => setSelectedNews(null)}
+                className="absolute right-4 top-4 flex h-8 w-8 items-center justify-center rounded-full bg-muted text-muted-foreground hover:text-foreground transition-colors cursor-pointer"
+                aria-label="Close modal"
+              >
+                <X className="h-4 w-4" />
+              </button>
+
+              {/* Tag & Date */}
+              <div className="flex items-center gap-3 mb-4">
+                <span className="inline-flex items-center gap-1.5 rounded-full bg-royal/10 px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-royal">
+                  {selectedNews.subcategory}
+                </span>
+                <span className="flex items-center gap-1 text-xs text-muted-foreground">
+                  <Calendar className="h-3.5 w-3.5" /> {selectedNews.date}
+                </span>
+              </div>
+
+              {/* Title */}
+              <h3 className="font-heading text-xl sm:text-2xl font-bold text-navy dark:text-white leading-snug mb-4">
+                {selectedNews.title}
+              </h3>
+
+              {/* Divider */}
+              <div className="border-b border-border/50 pb-4 mb-4">
+                <span className="text-xs font-semibold text-muted-foreground">
+                  Source: <span className="text-navy dark:text-white font-bold">{selectedNews.source}</span>
+                </span>
+              </div>
+
+              {/* Content Description */}
+              <div className="prose prose-sm dark:prose-invert max-w-none text-sm leading-relaxed text-muted-foreground max-h-[300px] overflow-y-auto pr-2 scrollbar-thin scrollbar-thumb-border">
+                <p className="whitespace-pre-wrap">{selectedNews.desc}</p>
+              </div>
+
+              {/* Footer Actions */}
+              <div className="mt-6 flex justify-end gap-3 border-t border-border/40 pt-4">
+                <button
+                  onClick={() => setSelectedNews(null)}
+                  className="rounded-xl border border-border px-4 py-2 text-xs font-bold hover:bg-muted transition-colors cursor-pointer"
+                >
+                  Close Reader
+                </button>
+                {selectedNews.link && selectedNews.link !== '#' && (
+                  <a
+                    href={selectedNews.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 rounded-xl bg-royal px-4 py-2 text-xs font-bold text-white hover:bg-royal/95 transition-colors"
+                  >
+                    Read Full Coverage <ExternalLink className="h-3.5 w-3.5" />
+                  </a>
+                )}
+              </div>
+            </motion.div>
+          </div>
+        )}
+      </AnimatePresence>
     </section>
   )
 }

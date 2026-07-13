@@ -1,6 +1,8 @@
 'use client'
 
-import { Newspaper, ArrowRight } from 'lucide-react'
+import { useState } from 'react'
+import { Newspaper, ArrowRight, X, Calendar } from 'lucide-react'
+import { motion, AnimatePresence } from 'framer-motion'
 
 const news = [
   {
@@ -42,6 +44,8 @@ const news = [
 ]
 
 export function NewsEvents() {
+  const [selectedNews, setSelectedNews] = useState<any | null>(null)
+
   const sortedNews = [...news].sort((a, b) => {
     const dateA = new Date(`${a.day} ${a.mon} ${a.year}`)
     const dateB = new Date(`${b.day} ${b.mon} ${b.year}`)
@@ -82,7 +86,10 @@ export function NewsEvents() {
                 </div>
               </a>
             ) : (
-              <div className="flex items-start gap-4 rounded-2xl border border-border bg-card p-4 transition-colors hover:border-royal/30">
+              <div 
+                onClick={() => setSelectedNews(item)}
+                className="flex items-start gap-4 rounded-2xl border border-border bg-card p-4 transition-all hover:border-royal hover:shadow-md hover:-translate-y-0.5 cursor-pointer"
+              >
                 <div className="flex flex-col items-center rounded-xl bg-muted px-3 py-2 text-center shrink-0">
                   <span className="font-heading text-lg font-bold text-navy dark:text-white">{item.day}</span>
                   <span className="text-[10px] font-semibold tracking-wide text-royal">{item.mon}</span>
@@ -97,6 +104,66 @@ export function NewsEvents() {
           </li>
         ))}
       </ol>
+
+      {/* Modal Popup for Reading News */}
+      <AnimatePresence>
+        {selectedNews && (
+          <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6">
+            {/* Backdrop */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={() => setSelectedNews(null)}
+              className="absolute inset-0 bg-navy/60 backdrop-blur-sm"
+            />
+
+            {/* Modal Body */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95, y: 15 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.95, y: 15 }}
+              transition={{ type: 'spring', duration: 0.4 }}
+              className="relative w-full max-w-2xl overflow-hidden rounded-3xl border border-border bg-card p-6 shadow-2xl z-10 text-foreground"
+            >
+              {/* Close Button */}
+              <button
+                onClick={() => setSelectedNews(null)}
+                className="absolute right-4 top-4 flex h-8 w-8 items-center justify-center rounded-full bg-muted text-muted-foreground hover:text-foreground transition-colors cursor-pointer"
+                aria-label="Close modal"
+              >
+                <X className="h-4 w-4" />
+              </button>
+
+              {/* Date */}
+              <div className="flex items-center gap-1.5 text-xs font-semibold text-muted-foreground mb-4">
+                <Calendar className="h-3.5 w-3.5" />
+                <span>{selectedNews.day} {selectedNews.mon} {selectedNews.year}</span>
+              </div>
+
+              {/* Title */}
+              <h3 className="font-heading text-xl sm:text-2xl font-bold text-navy dark:text-white leading-snug mb-4 border-b border-border/50 pb-4">
+                {selectedNews.title}
+              </h3>
+
+              {/* Content Description */}
+              <div className="prose prose-sm dark:prose-invert max-w-none text-sm leading-relaxed text-muted-foreground max-h-[300px] overflow-y-auto pr-2 scrollbar-thin scrollbar-thumb-border">
+                <p className="whitespace-pre-wrap">{selectedNews.desc}</p>
+              </div>
+
+              {/* Footer Actions */}
+              <div className="mt-6 flex justify-end gap-3 border-t border-border/40 pt-4">
+                <button
+                  onClick={() => setSelectedNews(null)}
+                  className="rounded-xl border border-border px-4 py-2 text-xs font-bold hover:bg-muted transition-colors cursor-pointer"
+                >
+                  Close
+                </button>
+              </div>
+            </motion.div>
+          </div>
+        )}
+      </AnimatePresence>
     </section>
   )
 }
