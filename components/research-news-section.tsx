@@ -155,12 +155,12 @@ export function ResearchNewsSection() {
                       
                       {/* Then image if present, else text */}
                       {item.image ? (
-                        <div className="relative w-full h-44 my-3 overflow-hidden rounded-xl border border-border bg-muted">
+                        <div className="relative w-full h-48 my-3 overflow-hidden rounded-xl border border-border bg-muted/30">
                           <Image
                             src={item.image}
                             alt={item.title}
                             fill
-                            className="object-cover"
+                            className="object-contain"
                           />
                         </div>
                       ) : (
@@ -245,12 +245,12 @@ export function ResearchNewsSection() {
 
               {/* Image in Modal */}
               {selectedNews.image && (
-                <div className="relative w-full h-64 overflow-hidden rounded-2xl border border-border/80 mb-4 bg-muted">
+                <div className="relative w-full h-80 sm:h-[400px] overflow-hidden rounded-2xl border border-border/80 mb-4 bg-muted/30">
                   <Image
                     src={selectedNews.image}
                     alt={selectedNews.title}
                     fill
-                    className="object-cover"
+                    className="object-contain"
                   />
                 </div>
               )}
