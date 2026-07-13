@@ -1,6 +1,7 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, Suspense } from 'react'
+import { useSearchParams } from 'next/navigation'
 import {
   Lock,
   Plus,
@@ -17,13 +18,17 @@ import {
 import Link from 'next/link'
 import Image from 'next/image'
 
-export default function AdminPage() {
+function AdminPageContent() {
+  const searchParams = useSearchParams()
+  const editIdParam = searchParams.get('edit')
+  
   const [passcode, setPasscode] = useState('')
   const [isAuthorized, setIsAuthorized] = useState(false)
   const [errorMsg, setErrorMsg] = useState('')
   const [news, setNews] = useState<any[]>([])
   const [loading, setLoading] = useState(true)
   const [saving, setSaving] = useState(false)
+  const [removeImage, setRemoveImage] = useState(false)
   
   // Form states
   const [editingItem, setEditingItem] = useState<any | null>(null)
@@ -49,6 +54,15 @@ export default function AdminPage() {
       setLoading(false)
     }
   }, [])
+
+  useEffect(() => {
+    if (editIdParam && news.length > 0 && isAuthorized) {
+      const itemToEdit = news.find((item: any) => item.id === Number(editIdParam))
+      if (itemToEdit) {
+        startEdit(itemToEdit)
+      }
+    }
+  }, [editIdParam, news, isAuthorized])
 
   const handleLogin = (e: React.FormEvent) => {
     e.preventDefault()
@@ -86,6 +100,7 @@ export default function AdminPage() {
       const file = e.target.files[0]
       setSelectedFile(file)
       setFilePreview(URL.createObjectURL(file))
+      setRemoveImage(false)
     }
   }
 
@@ -102,6 +117,7 @@ export default function AdminPage() {
     })
     setFilePreview(item.image || '')
     setSelectedFile(null)
+    setRemoveImage(false)
     setShowForm(true)
   }
 
@@ -122,6 +138,7 @@ export default function AdminPage() {
     })
     setFilePreview('')
     setSelectedFile(null)
+    setRemoveImage(false)
     setShowForm(true)
   }
 
@@ -142,6 +159,9 @@ export default function AdminPage() {
       fData.append('desc', formData.desc)
       fData.append('link', formData.link)
       
+      if (removeImage) {
+        fData.append('removeImage', 'true')
+      }
       if (selectedFile) {
         fData.append('image', selectedFile)
       }
@@ -396,9 +416,22 @@ export default function AdminPage() {
 
             {filePreview && (
               <div className="mt-4">
-                <span className="block text-xs font-bold text-navy dark:text-white uppercase tracking-wider mb-2">
-                  Image Preview
-                </span>
+                <div className="flex items-center justify-between mb-2">
+                  <span className="block text-xs font-bold text-navy dark:text-white uppercase tracking-wider">
+                    Image Preview
+                  </span>
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setFilePreview('')
+                      setSelectedFile(null)
+                      setRemoveImage(true)
+                    }}
+                    className="text-xs font-bold text-rose-500 hover:underline cursor-pointer"
+                  >
+                    Remove Image
+                  </button>
+                </div>
                 <div className="relative w-full h-44 overflow-hidden rounded-xl border border-border bg-muted/20">
                   <Image
                     src={filePreview}
@@ -411,6 +444,18 @@ export default function AdminPage() {
             )}
 
             <div className="pt-4 flex gap-3 justify-end border-t border-border/40">
+              {editingItem && (
+                <button
+                  type="button"
+                  onClick={() => {
+                    handleDelete(editingItem.id)
+                    setShowForm(false)
+                  }}
+                  className="mr-auto rounded-xl border border-rose-500/30 text-rose-500 px-5 py-2.5 text-xs font-bold hover:bg-rose-500/10 transition-colors cursor-pointer"
+                >
+                  Delete Article
+                </button>
+              )}
               <button
                 type="button"
                 onClick={() => setShowForm(false)}
@@ -503,5 +548,18 @@ export default function AdminPage() {
         </div>
       )}
     </div>
+  )
+}
+
+export default function AdminPage() {
+  return (
+    <Suspense fallback={
+      <div className="py-24 text-center text-muted-foreground flex flex-col items-center justify-center gap-2">
+        <Loader className="h-8 w-8 animate-spin text-royal" />
+        <span>Initializing Admin Panel...</span>
+      </div>
+    }>
+      <AdminPageContent />
+    </Suspense>
   )
 }

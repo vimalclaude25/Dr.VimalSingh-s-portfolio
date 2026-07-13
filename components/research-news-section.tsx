@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { useSearchParams } from 'next/navigation'
+import { useSearchParams, useRouter } from 'next/navigation'
 import {
   Newspaper,
   Globe,
@@ -13,6 +13,8 @@ import {
   ExternalLink,
   Calendar,
   X,
+  Edit3,
+  Trash2,
 } from 'lucide-react'
 import { researchNewsData, ResearchNewsItem } from '@/lib/cv-data'
 import Image from 'next/image'
@@ -29,9 +31,15 @@ const subcategories = [
 
 export function ResearchNewsSection() {
   const searchParams = useSearchParams()
+  const router = useRouter()
   const categoryParam = searchParams.get('category')
   const [activeSub, setActiveSub] = useState<string>('All')
   const [selectedNews, setSelectedNews] = useState<ResearchNewsItem | null>(null)
+  const [isAdmin, setIsAdmin] = useState(false)
+
+  useEffect(() => {
+    setIsAdmin(localStorage.getItem('vimal_admin_auth') === 'true')
+  }, [])
 
   useEffect(() => {
     if (categoryParam && subcategories.includes(categoryParam)) {
@@ -143,9 +151,38 @@ export function ResearchNewsSection() {
                         <span className="inline-flex items-center gap-1.5 rounded-full bg-royal/10 px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-royal">
                           <Icon className="h-3 w-3" /> {item.subcategory}
                         </span>
-                        <span className="flex items-center gap-1 text-[11px] text-muted-foreground">
-                          <Calendar className="h-3 w-3" /> {item.date}
-                        </span>
+                        <div className="flex items-center gap-2">
+                          <span className="flex items-center gap-1 text-[11px] text-muted-foreground">
+                            <Calendar className="h-3 w-3" /> {item.date}
+                          </span>
+                          {isAdmin && (
+                            <div className="flex items-center gap-1" onClick={(e) => e.stopPropagation()}>
+                              <button
+                                onClick={() => router.push(`/admin?edit=${item.id}`)}
+                                className="p-1.5 rounded-md hover:bg-royal/15 hover:text-royal text-muted-foreground transition-all cursor-pointer"
+                                title="Edit article"
+                              >
+                                <Edit3 className="h-3.5 w-3.5" />
+                              </button>
+                              <button
+                                onClick={async () => {
+                                  if (confirm(`Delete article: "${item.title}"?`)) {
+                                    const res = await fetch(`/api/admin/news?id=${item.id}`, { method: 'DELETE' })
+                                    if (res.ok) {
+                                      window.location.reload()
+                                    } else {
+                                      alert('Failed to delete article')
+                                    }
+                                  }
+                                }}
+                                className="p-1.5 rounded-md hover:bg-rose-500/15 hover:text-rose-500 text-muted-foreground transition-all cursor-pointer"
+                                title="Delete article"
+                              >
+                                <Trash2 className="h-3.5 w-3.5" />
+                              </button>
+                            </div>
+                          )}
+                        </div>
                       </div>
                       
                       {/* Heading first */}
@@ -229,13 +266,44 @@ export function ResearchNewsSection() {
               </button>
 
               {/* Tag & Date */}
-              <div className="flex items-center gap-3 mb-4">
-                <span className="inline-flex items-center gap-1.5 rounded-full bg-royal/10 px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-royal">
-                  {selectedNews.subcategory}
-                </span>
-                <span className="flex items-center gap-1 text-xs text-muted-foreground">
-                  <Calendar className="h-3.5 w-3.5" /> {selectedNews.date}
-                </span>
+              <div className="flex items-center justify-between mb-4">
+                <div className="flex items-center gap-3">
+                  <span className="inline-flex items-center gap-1.5 rounded-full bg-royal/10 px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-royal">
+                    {selectedNews.subcategory}
+                  </span>
+                  <span className="flex items-center gap-1 text-xs text-muted-foreground">
+                    <Calendar className="h-3.5 w-3.5" /> {selectedNews.date}
+                  </span>
+                </div>
+                {isAdmin && (
+                  <div className="flex items-center gap-2 mr-10">
+                    <button
+                      onClick={() => {
+                        setSelectedNews(null)
+                        router.push(`/admin?edit=${selectedNews.id}`)
+                      }}
+                      className="inline-flex items-center gap-1 rounded-lg border border-border px-2.5 py-1.5 text-xs font-bold text-navy dark:text-white hover:bg-royal/10 hover:text-royal hover:border-royal/30 transition-all cursor-pointer"
+                    >
+                      <Edit3 className="h-3.5 w-3.5" /> Edit
+                    </button>
+                    <button
+                      onClick={async () => {
+                        if (confirm(`Delete article: "${selectedNews.title}"?`)) {
+                          const res = await fetch(`/api/admin/news?id=${selectedNews.id}`, { method: 'DELETE' })
+                          if (res.ok) {
+                            setSelectedNews(null)
+                            window.location.reload()
+                          } else {
+                            alert('Failed to delete article')
+                          }
+                        }
+                      }}
+                      className="inline-flex items-center gap-1 rounded-lg border border-border px-2.5 py-1.5 text-xs font-bold text-muted-foreground hover:bg-rose-500/10 hover:text-rose-500 hover:border-rose-500/30 transition-all cursor-pointer"
+                    >
+                      <Trash2 className="h-3.5 w-3.5" /> Delete
+                    </button>
+                  </div>
+                )}
               </div>
 
               {/* Title */}

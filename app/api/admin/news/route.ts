@@ -29,7 +29,12 @@ export async function POST(request: Request) {
     const link = (formData.get('link') as string) || '#'
     const imageFile = formData.get('image') as File | null
 
+    const removeImage = formData.get('removeImage') === 'true'
+
     let imagePath = (formData.get('existingImage') as string) || ''
+    if (removeImage) {
+      imagePath = ''
+    }
 
     if (imageFile && imageFile.name && imageFile.size > 0) {
       // Save image file to public/ directory
