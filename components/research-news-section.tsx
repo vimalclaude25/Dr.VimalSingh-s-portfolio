@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { useSearchParams, useRouter } from 'next/navigation'
+import { useSearchParams } from 'next/navigation'
 import {
   Newspaper,
   Globe,
@@ -13,8 +13,9 @@ import {
   ExternalLink,
   Calendar,
   X,
-  Edit3,
-  Trash2,
+  ChevronLeft,
+  ChevronRight,
+  Images,
 } from 'lucide-react'
 import { researchNewsData, ResearchNewsItem } from '@/lib/cv-data'
 import Image from 'next/image'
@@ -22,24 +23,89 @@ import Image from 'next/image'
 const subcategories = [
   'All',
   'Newspaper Coverage',
-  'University News',
+  'Departmental News',
   'Press Releases',
   'Television Coverage',
-  'Interviews',
   'Podcasts',
 ]
 
+function ImageCarousel({ images, title }: { images: string[]; title: string }) {
+  const [current, setCurrent] = useState(0)
+
+  const prev = () => setCurrent((c) => (c === 0 ? images.length - 1 : c - 1))
+  const next = () => setCurrent((c) => (c === images.length - 1 ? 0 : c + 1))
+
+  return (
+    <div className="relative w-full mb-4">
+      <div className="relative w-full h-72 sm:h-[380px] overflow-hidden rounded-2xl border border-border/80 bg-muted/30">
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={current}
+            initial={{ opacity: 0, x: 40 }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: -40 }}
+            transition={{ duration: 0.3 }}
+            className="absolute inset-0"
+          >
+            <Image
+              src={images[current]}
+              alt={`${title} — clipping ${current + 1}`}
+              fill
+              className="object-contain"
+            />
+          </motion.div>
+        </AnimatePresence>
+
+        {/* Navigation arrows */}
+        {images.length > 1 && (
+          <>
+            <button
+              onClick={prev}
+              className="absolute left-2 top-1/2 -translate-y-1/2 flex h-8 w-8 items-center justify-center rounded-full bg-navy/60 text-white hover:bg-navy/90 transition-colors backdrop-blur-sm"
+              aria-label="Previous image"
+            >
+              <ChevronLeft className="h-4 w-4" />
+            </button>
+            <button
+              onClick={next}
+              className="absolute right-2 top-1/2 -translate-y-1/2 flex h-8 w-8 items-center justify-center rounded-full bg-navy/60 text-white hover:bg-navy/90 transition-colors backdrop-blur-sm"
+              aria-label="Next image"
+            >
+              <ChevronRight className="h-4 w-4" />
+            </button>
+          </>
+        )}
+
+        {/* Counter badge */}
+        <span className="absolute bottom-2 left-1/2 -translate-x-1/2 rounded-full bg-navy/70 px-3 py-0.5 text-[11px] font-bold text-white backdrop-blur-sm">
+          {current + 1} / {images.length}
+        </span>
+      </div>
+
+      {/* Dot indicators */}
+      {images.length > 1 && (
+        <div className="mt-2 flex justify-center gap-1.5">
+          {images.map((_, i) => (
+            <button
+              key={i}
+              onClick={() => setCurrent(i)}
+              className={`h-1.5 rounded-full transition-all duration-300 ${
+                i === current ? 'w-5 bg-royal' : 'w-1.5 bg-border hover:bg-royal/50'
+              }`}
+              aria-label={`Go to image ${i + 1}`}
+            />
+          ))}
+        </div>
+      )}
+    </div>
+  )
+}
+
 export function ResearchNewsSection() {
   const searchParams = useSearchParams()
-  const router = useRouter()
   const categoryParam = searchParams.get('category')
   const [activeSub, setActiveSub] = useState<string>('All')
   const [selectedNews, setSelectedNews] = useState<ResearchNewsItem | null>(null)
-  const [isAdmin, setIsAdmin] = useState(false)
-
-  useEffect(() => {
-    setIsAdmin(localStorage.getItem('vimal_admin_auth') === 'true')
-  }, [])
 
   useEffect(() => {
     if (categoryParam && subcategories.includes(categoryParam)) {
@@ -151,38 +217,9 @@ export function ResearchNewsSection() {
                         <span className="inline-flex items-center gap-1.5 rounded-full bg-royal/10 px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-royal">
                           <Icon className="h-3 w-3" /> {item.subcategory}
                         </span>
-                        <div className="flex items-center gap-2">
-                          <span className="flex items-center gap-1 text-[11px] text-muted-foreground">
-                            <Calendar className="h-3 w-3" /> {item.date}
-                          </span>
-                          {isAdmin && (
-                            <div className="flex items-center gap-1" onClick={(e) => e.stopPropagation()}>
-                              <button
-                                onClick={() => router.push(`/admin?edit=${item.id}`)}
-                                className="p-1.5 rounded-md hover:bg-royal/15 hover:text-royal text-muted-foreground transition-all cursor-pointer"
-                                title="Edit article"
-                              >
-                                <Edit3 className="h-3.5 w-3.5" />
-                              </button>
-                              <button
-                                onClick={async () => {
-                                  if (confirm(`Delete article: "${item.title}"?`)) {
-                                    const res = await fetch(`/api/admin/news?id=${item.id}`, { method: 'DELETE' })
-                                    if (res.ok) {
-                                      window.location.reload()
-                                    } else {
-                                      alert('Failed to delete article')
-                                    }
-                                  }
-                                }}
-                                className="p-1.5 rounded-md hover:bg-rose-500/15 hover:text-rose-500 text-muted-foreground transition-all cursor-pointer"
-                                title="Delete article"
-                              >
-                                <Trash2 className="h-3.5 w-3.5" />
-                              </button>
-                            </div>
-                          )}
-                        </div>
+                        <span className="flex items-center gap-1 text-[11px] text-muted-foreground">
+                          <Calendar className="h-3 w-3" /> {item.date}
+                        </span>
                       </div>
                       
                       {/* Heading first */}
@@ -191,7 +228,21 @@ export function ResearchNewsSection() {
                       </h3>
                       
                       {/* Then image if present, else text */}
-                      {item.image ? (
+                      {(item.images && item.images.length > 0) ? (
+                        <div className="relative w-full h-48 my-3 overflow-hidden rounded-xl border border-border bg-muted/30">
+                          <Image
+                            src={item.images[0]}
+                            alt={item.title}
+                            fill
+                            className="object-contain"
+                          />
+                          {item.images.length > 1 && (
+                            <span className="absolute bottom-2 right-2 inline-flex items-center gap-1 rounded-full bg-navy/70 px-2 py-0.5 text-[10px] font-bold text-white">
+                              <Images className="h-3 w-3" /> {item.images.length}
+                            </span>
+                          )}
+                        </div>
+                      ) : item.image ? (
                         <div className="relative w-full h-48 my-3 overflow-hidden rounded-xl border border-border bg-muted/30">
                           <Image
                             src={item.image}
@@ -266,44 +317,13 @@ export function ResearchNewsSection() {
               </button>
 
               {/* Tag & Date */}
-              <div className="flex items-center justify-between mb-4">
-                <div className="flex items-center gap-3">
-                  <span className="inline-flex items-center gap-1.5 rounded-full bg-royal/10 px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-royal">
-                    {selectedNews.subcategory}
-                  </span>
-                  <span className="flex items-center gap-1 text-xs text-muted-foreground">
-                    <Calendar className="h-3.5 w-3.5" /> {selectedNews.date}
-                  </span>
-                </div>
-                {isAdmin && (
-                  <div className="flex items-center gap-2 mr-10">
-                    <button
-                      onClick={() => {
-                        setSelectedNews(null)
-                        router.push(`/admin?edit=${selectedNews.id}`)
-                      }}
-                      className="inline-flex items-center gap-1 rounded-lg border border-border px-2.5 py-1.5 text-xs font-bold text-navy dark:text-white hover:bg-royal/10 hover:text-royal hover:border-royal/30 transition-all cursor-pointer"
-                    >
-                      <Edit3 className="h-3.5 w-3.5" /> Edit
-                    </button>
-                    <button
-                      onClick={async () => {
-                        if (confirm(`Delete article: "${selectedNews.title}"?`)) {
-                          const res = await fetch(`/api/admin/news?id=${selectedNews.id}`, { method: 'DELETE' })
-                          if (res.ok) {
-                            setSelectedNews(null)
-                            window.location.reload()
-                          } else {
-                            alert('Failed to delete article')
-                          }
-                        }
-                      }}
-                      className="inline-flex items-center gap-1 rounded-lg border border-border px-2.5 py-1.5 text-xs font-bold text-muted-foreground hover:bg-rose-500/10 hover:text-rose-500 hover:border-rose-500/30 transition-all cursor-pointer"
-                    >
-                      <Trash2 className="h-3.5 w-3.5" /> Delete
-                    </button>
-                  </div>
-                )}
+              <div className="flex items-center gap-3 mb-4">
+                <span className="inline-flex items-center gap-1.5 rounded-full bg-royal/10 px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-royal">
+                  {selectedNews.subcategory}
+                </span>
+                <span className="flex items-center gap-1 text-xs text-muted-foreground">
+                  <Calendar className="h-3.5 w-3.5" /> {selectedNews.date}
+                </span>
               </div>
 
               {/* Title */}
@@ -311,8 +331,10 @@ export function ResearchNewsSection() {
                 {selectedNews.title}
               </h3>
 
-              {/* Image in Modal */}
-              {selectedNews.image && (
+              {/* Image or Carousel in Modal */}
+              {selectedNews.images && selectedNews.images.length > 0 ? (
+                <ImageCarousel images={selectedNews.images} title={selectedNews.title} />
+              ) : selectedNews.image ? (
                 <div className="relative w-full h-80 sm:h-[400px] overflow-hidden rounded-2xl border border-border/80 mb-4 bg-muted/30">
                   <Image
                     src={selectedNews.image}
@@ -321,7 +343,7 @@ export function ResearchNewsSection() {
                     className="object-contain"
                   />
                 </div>
-              )}
+              ) : null}
 
               {/* Divider */}
               <div className="border-b border-border/50 pb-4 mb-4">
@@ -330,10 +352,12 @@ export function ResearchNewsSection() {
                 </span>
               </div>
 
-              {/* Content Description */}
-              <div className="prose prose-sm dark:prose-invert max-w-none text-sm leading-relaxed text-muted-foreground max-h-[250px] overflow-y-auto pr-2 scrollbar-thin scrollbar-thumb-border">
-                <p className="whitespace-pre-wrap">{selectedNews.desc}</p>
-              </div>
+              {/* Content Description — hidden for image-only entries */}
+              {!selectedNews.imageOnly && (
+                <div className="prose prose-sm dark:prose-invert max-w-none text-sm leading-relaxed text-muted-foreground max-h-[250px] overflow-y-auto pr-2 scrollbar-thin scrollbar-thumb-border">
+                  <p className="whitespace-pre-wrap">{selectedNews.desc}</p>
+                </div>
+              )}
 
               {/* Footer Actions */}
               <div className="mt-6 flex justify-end gap-3 border-t border-border/40 pt-4">
