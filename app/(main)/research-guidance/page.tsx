@@ -99,11 +99,11 @@ export default function ResearchGuidancePage() {
           <BarChart2 className="h-5.5 w-5.5 text-royal" /> Cohort Distribution Analytics
         </h2>
         <div className="h-64 flex flex-col justify-end pt-4">
-          <div className="flex-1 flex items-end justify-between gap-4 px-2 sm:px-6">
+          <div className="h-48 flex items-end justify-between gap-4 px-2 sm:px-6">
             {details.map((cohort, index) => {
               const percent = (cohort.count / 10) * 100
               return (
-                <div key={index} className="flex-1 flex flex-col items-center group relative">
+                <div key={index} className="flex-1 flex flex-col items-center group relative h-full justify-end">
                   {/* Tooltip */}
                   <div className="absolute -top-10 scale-0 group-hover:scale-100 transition-all duration-200 bg-navy dark:bg-slate-800 text-white text-xs font-bold px-2.5 py-1 rounded shadow border border-white/10 dark:border-slate-700 z-10 whitespace-nowrap">
                     {cohort.count} Scholars ({cohort.status})
@@ -121,7 +121,7 @@ export default function ResearchGuidancePage() {
                   
                   {/* Label */}
                   <span className="text-[9px] sm:text-xs font-bold mt-2 text-muted-foreground whitespace-nowrap rotate-12 sm:rotate-0">
-                    {cohort.year.split(' – ')[0]}
+                    {cohort.year.split(' - ')[0]}
                   </span>
                 </div>
               )
