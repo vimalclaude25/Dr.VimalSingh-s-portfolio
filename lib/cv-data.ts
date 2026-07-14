@@ -1326,6 +1326,30 @@ export const researchNewsData: ResearchNewsItem[] = [
     mediaType: 'Newspaper',
     image: '/nep-awareness-newspaper.jpg'
   },
+  {
+    id: 4,
+    title: 'एआई ने बगैर डांटे पढ़ाया, छात्रों को खूब समझ आया',
+    source: 'Newspaper (Kanpur)',
+    date: '14 July 2026',
+    desc: '',
+    category: 'media-coverage',
+    subcategory: 'Newspaper Coverage',
+    mediaType: 'Newspaper',
+    image: '/ai-guru-2.jpg',
+    imageOnly: true,
+  },
+  {
+    id: 5,
+    title: 'उत्पादक एआई बनेगा विद्यार्थियों का स्मार्ट गुरु',
+    source: 'Newspaper (Kanpur)',
+    date: '14 July 2026',
+    desc: '',
+    category: 'media-coverage',
+    subcategory: 'Newspaper Coverage',
+    mediaType: 'Newspaper',
+    image: '/ai-guru-1.jpg',
+    imageOnly: true,
+  },
 ]
 
 export const ntaNetResourcesData: NtaNetResource[] = [
