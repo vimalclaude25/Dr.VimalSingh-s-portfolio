@@ -1350,6 +1350,30 @@ export const researchNewsData: ResearchNewsItem[] = [
     image: '/ai-guru-1.jpg',
     imageOnly: true,
   },
+  {
+    id: 6,
+    title: 'अध्यात्म की ओर रुझान तो चिंता अंतर्ध्यान',
+    source: 'Newspaper (Kanpur)',
+    date: '14 July 2026',
+    desc: '',
+    category: 'media-coverage',
+    subcategory: 'Newspaper Coverage',
+    mediaType: 'Newspaper',
+    image: '/spiritual-anxiety-1.jpg',
+    imageOnly: true,
+  },
+  {
+    id: 7,
+    title: 'मानसिक तनाव से जूझ रहे युवाओं के लिए सीएसजेएमयू का बड़ा शोध',
+    source: 'Newspaper (Kanpur)',
+    date: '14 July 2026',
+    desc: '',
+    category: 'media-coverage',
+    subcategory: 'Newspaper Coverage',
+    mediaType: 'Newspaper',
+    image: '/spiritual-anxiety-2.jpg',
+    imageOnly: true,
+  },
 ]
 
 export const ntaNetResourcesData: NtaNetResource[] = [
