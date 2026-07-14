@@ -13,6 +13,14 @@ const news = [
     desc: "Study by scholar Mahima Tripathi under Dr. Vimal Singh's supervision shows significant improvements in student concentration and study habits.",
     link: '/news-media',
   },
+  {
+    day: '27',
+    mon: 'MAY',
+    year: '2026',
+    title: "AI & Algorithmic Bias Research by Scholar Mansi Singh Featured in Dainik Bhaskar",
+    desc: "Study under Dr. Vimal Singh's supervision explores algorithmic bias on intersectional identities and highlights student critical AI literacy recommendations.",
+    link: '/news-media',
+  },
 ]
 
 export function NewsEvents() {

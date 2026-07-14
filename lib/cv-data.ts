@@ -1040,6 +1040,23 @@ export const researchNewsData: ResearchNewsItem[] = [
       '/digital-diet-3.jpg',
     ],
   },
+  {
+    id: 2,
+    title: "AI Now Shapes Students' Thinking & Confidence — Research by Dr. Vimal Singh's Scholar Mansi Singh",
+    source: 'Dainik Jagran / Dainik Bhaskar / Amrit Vichar',
+    date: '27 May 2026',
+    desc: "Multiple newspapers covered a landmark research study by PhD scholar Mansi Singh under the supervision of Assistant Professor Dr. Vimal Singh (CSJMU). The study — A Study of Algorithmic Bias on Intersectional Identities: A Socio-Educational Study Among Postgraduate Students of Kanpur City — surveyed 211 PG students and IT experts, revealing how urban students identify AI bias faster than rural peers, and recommending Critical AI Literacy programmes in universities.",
+    category: 'media-coverage',
+    subcategory: 'Newspaper Coverage',
+    mediaType: 'Newspaper',
+    link: '#',
+    images: [
+      '/ai-mansi-1.jpg',
+      '/ai-mansi-2.jpg',
+      '/ai-mansi-3.jpg',
+      '/ai-mansi-4.jpg',
+    ],
+  },
 ]
 
 export const ntaNetResourcesData: NtaNetResource[] = [
