@@ -4,7 +4,16 @@ import { useState } from 'react'
 import { Newspaper, ArrowRight, X, Calendar } from 'lucide-react'
 import { motion, AnimatePresence } from 'framer-motion'
 
-const news: any[] = []
+const news = [
+  {
+    day: '25',
+    mon: 'MAY',
+    year: '2026',
+    title: "Landmark 'Digital Diet Model' Study Featured in Dainik Jagran & Dinar Times",
+    desc: "Study by scholar Mahima Tripathi under Dr. Vimal Singh's supervision shows significant improvements in student concentration and study habits.",
+    link: '/news-media',
+  },
+]
 
 export function NewsEvents() {
   const [selectedNews, setSelectedNews] = useState<any | null>(null)

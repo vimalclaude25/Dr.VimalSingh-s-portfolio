@@ -1023,7 +1023,24 @@ export interface NtaNetResource {
   link?: string
 }
 
-export const researchNewsData: ResearchNewsItem[] = []
+export const researchNewsData: ResearchNewsItem[] = [
+  {
+    id: 1,
+    title: "CSJMU's 'Digital Diet Model' Shows Landmark Success in Improving Student Concentration & Study Habits",
+    source: 'Dainik Jagran / Dinar Times / Amrit Vichar',
+    date: '25 May 2026',
+    desc: "A landmark study on 'Efficacy Testing of Digital Diet Model on Study Habits of Adolescent Children' conducted by researcher Mahima Tripathi under the supervision of Assistant Professor Dr. Vimal Singh (School of Teacher Education, CSJMU Kanpur) was featured by prominent newspapers. The study investigated the impact of controlled digital device usage and screen time reduction on adolescents aged 10-18, demonstrating significant improvements in concentration levels, study discipline, and time management.",
+    category: 'media-coverage',
+    subcategory: 'Newspaper Coverage',
+    mediaType: 'Newspaper',
+    link: '#',
+    images: [
+      '/digital-diet-1.jpg',
+      '/digital-diet-2.jpg',
+      '/digital-diet-3.jpg',
+    ],
+  },
+]
 
 export const ntaNetResourcesData: NtaNetResource[] = [
   // NET Preparation
