@@ -6,6 +6,14 @@ import { motion, AnimatePresence } from 'framer-motion'
 
 const news = [
   {
+    day: '14',
+    mon: 'JUL',
+    year: '2026',
+    title: "गांव हो या शहर, शिक्षक नई शिक्षा नीति को समझने के लिए पूरी तरह तैयार",
+    desc: "CSJMU के शिक्षा विभाग की शोधार्थी रचना यादव द्वारा डॉ. विमल सिंह के निर्देशन में किया गया शोध अंतरराष्ट्रीय शोध पत्रिका 'Socio-Economic Perspectives' में प्रकाशित हुआ है।",
+    link: '/news-media',
+  },
+  {
     day: '25',
     mon: 'MAY',
     year: '2026',

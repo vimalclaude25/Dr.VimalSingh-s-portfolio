@@ -23,9 +23,10 @@ import Image from 'next/image'
 const subcategories = [
   'All',
   'Newspaper Coverage',
-  'Departmental News',
+  'University News',
   'Press Releases',
   'Television Coverage',
+  'Interviews',
   'Podcasts',
 ]
 
@@ -381,8 +382,8 @@ export function ResearchNewsSection() {
                 </span>
               </div>
 
-              {/* Content Description — hidden for image-only entries */}
-              {!selectedNews.imageOnly && (
+              {/* Content Description — hidden for image-only entries or when there is no text content */}
+              {!selectedNews.imageOnly && selectedNews.desc && (
                 <div className="prose prose-sm dark:prose-invert max-w-none text-sm leading-relaxed text-muted-foreground max-h-[380px] overflow-y-auto pr-2 scrollbar-thin scrollbar-thumb-border">
                   <p className="whitespace-pre-wrap">{selectedNews.desc}</p>
                 </div>

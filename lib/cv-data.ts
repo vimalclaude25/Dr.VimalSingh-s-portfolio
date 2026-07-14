@@ -1315,6 +1315,17 @@ export const researchNewsData: ResearchNewsItem[] = [
       '/ai-mansi-4.jpg',
     ],
   },
+  {
+    id: 3,
+    title: 'गांव हो या शहर, शिक्षक नई शिक्षा नीति को समझने के लिए पूरी तरह तैयार',
+    source: 'Socio-Economic Perspectives',
+    date: '14 July 2026',
+    desc: "छत्रपति शाहू जी महाराज विश्वविद्यालय (CSJMU), कानपुर के शिक्षा विभाग की शोधार्थी रचना यादव द्वारा डॉ. विमल सिंह के निर्देशन में किया गया एक महत्वपूर्ण शोध अंतरराष्ट्रीय शोध पत्रिका 'Socio-Economic Perspectives' में प्रकाशित हुआ है। यह शोध नई शिक्षा नीति (NEP 2020) को लेकर शिक्षकों की जागरूकता पर आधारित है। 1741 प्राथमिक विद्यालय के शिक्षकों पर किए गए इस विस्तृत अध्ययन से पता चला है कि ग्रामीण और शहरी दोनों क्षेत्रों के महिला व पुरुष शिक्षकों में नई शिक्षा नीति के प्रति समान और उच्च स्तर की जागरूकता है। DIKSHA पोर्टल, NIPUN Bharat अभियान और विभिन्न प्रशिक्षण कार्यक्रमों ने इसमें महत्वपूर्ण भूमिका निभाई है, जिससे ग्रामीण और शहरी क्षेत्रों के बीच का जागरूकता अंतर समाप्त हो गया है।",
+    category: 'media-coverage',
+    subcategory: 'Newspaper Coverage',
+    mediaType: 'Newspaper',
+    image: '/nep-awareness-newspaper.jpg'
+  },
 ]
 
 export const ntaNetResourcesData: NtaNetResource[] = [
