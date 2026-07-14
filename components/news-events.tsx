@@ -33,7 +33,7 @@ export function NewsEvents() {
   })
 
   return (
-    <section className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
+    <section className="mx-auto max-w-9xl px-4 py-14 sm:px-6 lg:px-8">
       <div className="mb-6 flex items-center justify-between">
         <h2 className="flex items-center gap-2 font-heading text-2xl font-bold text-navy dark:text-white">
           <Newspaper className="h-6 w-6 text-royal" /> News &amp; Events
@@ -153,3 +153,4 @@ export function NewsEvents() {
     </section>
   )
 }
+

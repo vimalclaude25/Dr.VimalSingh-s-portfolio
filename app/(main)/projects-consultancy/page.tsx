@@ -25,7 +25,7 @@ export default function ProjectsConsultancyPage() {
   const consultancyCount = 1
 
   return (
-    <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
+    <div className="mx-auto max-w-9xl px-4 py-12 sm:px-6 lg:px-8">
       {/* Breadcrumb */}
       <nav className="mb-6 flex" aria-label="Breadcrumb">
         <ol className="inline-flex items-center space-x-1 md:space-x-3 text-sm font-semibold">
@@ -172,3 +172,4 @@ export default function ProjectsConsultancyPage() {
     </div>
   )
 }
+

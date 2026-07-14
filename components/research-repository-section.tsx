@@ -316,7 +316,7 @@ export function ResearchRepositorySection() {
 
   return (
     <section id="research-repository" className="scroll-mt-20 py-16 bg-gradient-to-b from-background to-muted/30">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-9xl px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
         <div className="mb-10 text-center">
@@ -579,3 +579,4 @@ export function ResearchRepositorySection() {
     </section>
   )
 }
+

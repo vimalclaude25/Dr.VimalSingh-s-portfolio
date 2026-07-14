@@ -28,7 +28,7 @@ const getHref = (label: string) => {
 export function SiteFooter() {
   return (
     <footer id="contact" className="bg-navy text-white scroll-mt-10">
-      <div className="mx-auto grid max-w-7xl gap-8 px-4 py-12 sm:px-6 lg:grid-cols-4 lg:px-8">
+      <div className="mx-auto grid max-w-9xl gap-8 px-4 py-12 sm:px-6 lg:grid-cols-4 lg:px-8">
         <div>
           <div className="flex items-center gap-3">
             <Image
@@ -73,7 +73,7 @@ export function SiteFooter() {
       </div>
 
       <div className="border-t border-white/10">
-        <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-3 px-4 py-5 text-xs text-white/60 sm:flex-row sm:px-6 lg:px-8">
+        <div className="mx-auto flex max-w-9xl flex-col items-center justify-between gap-3 px-4 py-5 text-xs text-white/60 sm:flex-row sm:px-6 lg:px-8">
           <p>© {new Date().getFullYear()} Dr. Vimal Singh. All rights reserved.</p>
           <div className="flex gap-5">
             <a href="#" className="transition-colors hover:text-white">Privacy Policy</a>
@@ -84,3 +84,4 @@ export function SiteFooter() {
     </footer>
   )
 }
+

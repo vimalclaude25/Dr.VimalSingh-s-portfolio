@@ -45,7 +45,7 @@ export function LatestPublications() {
 
   return (
     <section className="bg-muted/50 py-14">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-9xl px-4 sm:px-6 lg:px-8">
         <div className="mb-6 flex items-center justify-between">
           <h2 className="flex items-center gap-2 font-heading text-2xl font-bold text-navy dark:text-white">
             <FileText className="h-6 w-6 text-royal" /> Latest Publications
@@ -131,3 +131,4 @@ export function LatestPublications() {
     </section>
   )
 }
+
