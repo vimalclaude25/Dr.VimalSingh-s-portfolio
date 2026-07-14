@@ -160,9 +160,11 @@ export function PublicationsSection() {
                       {pub.journal} &nbsp;|&nbsp; {pub.details}
                     </p>
 
-                    {pub.doi && (
-                      <div className="mt-3 flex items-center gap-4 text-xs">
-                        <span className="font-mono text-muted-foreground">DOI: {pub.doi}</span>
+                    {(pub.link || pub.doi) && (
+                      <div className="mt-3 flex flex-wrap items-center gap-4 text-xs">
+                        {pub.doi && (
+                          <span className="font-mono text-muted-foreground">DOI: {pub.doi}</span>
+                        )}
                         {pub.link ? (
                           <a
                             href={pub.link}
