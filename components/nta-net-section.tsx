@@ -16,6 +16,7 @@ import {
   BookMarked,
   ArrowRight,
   TrendingUp,
+  Eye,
 } from 'lucide-react'
 import { ntaNetResourcesData, NtaNetResource } from '@/lib/cv-data'
 
@@ -293,9 +294,15 @@ export function NtaNetSection() {
                         
                         <a
                           href={res.link || '#'}
+                          target={res.link && !res.link.startsWith('http') ? undefined : '_blank'}
+                          rel={res.link && !res.link.startsWith('http') ? undefined : 'noopener noreferrer'}
                           className="inline-flex items-center gap-1.5 rounded-xl bg-royal/5 border border-royal/10 hover:bg-royal hover:text-white px-3.5 py-1.5 text-xs font-bold text-royal transition-all"
                         >
-                          {res.type === 'PDF' || res.type === 'PPT' ? (
+                          {res.link && res.link.startsWith('/read/') ? (
+                            <>
+                              Read Online <Eye className="h-3 w-3" />
+                            </>
+                          ) : res.type === 'PDF' || res.type === 'PPT' ? (
                             <>
                               Download <Download className="h-3 w-3" />
                             </>

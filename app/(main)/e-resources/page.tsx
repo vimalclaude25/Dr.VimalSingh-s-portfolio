@@ -147,9 +147,19 @@ function EResourcesContent() {
                     ) : resource.type === 'PDF' ? (
                       <a
                         href={resource.link || '#'}
+                        target={resource.link && !resource.link.startsWith('http') ? undefined : '_blank'}
+                        rel={resource.link && !resource.link.startsWith('http') ? undefined : 'noopener noreferrer'}
                         className="inline-flex items-center gap-1.5 rounded-xl bg-royal px-4 py-2 text-xs font-bold text-white hover:bg-royal/95 transition-colors"
                       >
-                        <Download className="h-3.5 w-3.5" /> Download
+                        {resource.link && resource.link.startsWith('/read/') ? (
+                          <>
+                            Read Online <BookOpen className="h-3.5 w-3.5" />
+                          </>
+                        ) : (
+                          <>
+                            <Download className="h-3.5 w-3.5" /> Download
+                          </>
+                        )}
                       </a>
                     ) : (
                       <a

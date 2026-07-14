@@ -95,11 +95,11 @@ export default function AiLabPage() {
                     {pub.title}
                   </h3>
                   <p className="mt-1 text-xs text-muted-foreground line-clamp-1">{pub.journal}</p>
-                  {pub.doi && (
+                  {(pub.link || pub.doi) && (
                     <a
                       href={pub.link || `https://doi.org/${pub.doi}`}
-                      target="_blank"
-                      rel="noopener noreferrer"
+                      target={pub.link && !pub.link.startsWith('http') ? undefined : '_blank'}
+                      rel={pub.link && !pub.link.startsWith('http') ? undefined : 'noopener noreferrer'}
                       className="mt-2 inline-flex items-center gap-1 text-xs font-semibold text-royal hover:underline"
                     >
                       Read Article <ExternalLink className="h-3 w-3" />
@@ -138,6 +138,18 @@ export default function AiLabPage() {
                     <span className="inline-block mt-2 rounded bg-gold/10 px-2 py-0.5 text-[9px] font-bold text-gold">
                       Sponsor: {fdp.sponsor}
                     </span>
+                  )}
+                  {fdp.link && (
+                    <div className="mt-3">
+                      <a
+                        href={fdp.link}
+                        target={fdp.link.startsWith('http') ? '_blank' : undefined}
+                        rel={fdp.link.startsWith('http') ? 'noopener noreferrer' : undefined}
+                        className="inline-flex items-center gap-1 text-xs font-semibold text-royal hover:underline"
+                      >
+                        View Certificate <ExternalLink className="h-3 w-3" />
+                      </a>
+                    </div>
                   )}
                 </div>
               ))}

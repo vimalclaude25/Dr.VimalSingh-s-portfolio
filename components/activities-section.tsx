@@ -15,6 +15,7 @@ import {
   Building,
   CheckCircle2,
   FileSpreadsheet,
+  ExternalLink,
 } from 'lucide-react'
 import {
   inviteeLectures,
@@ -183,6 +184,18 @@ export function ActivitiesSection() {
                       Organized by: <span className="font-semibold text-navy dark:text-white">{course.organizer}</span>
                       {course.sponsor && ` | Sponsored by: ${course.sponsor}`}
                     </p>
+                    {course.link && (
+                      <div className="mt-2.5">
+                        <a
+                          href={course.link}
+                          target={course.link.startsWith('http') ? '_blank' : undefined}
+                          rel={course.link.startsWith('http') ? 'noopener noreferrer' : undefined}
+                          className="inline-flex items-center gap-1 text-xs font-semibold text-royal hover:underline"
+                        >
+                          View Certificate <ExternalLink className="h-3 w-3" />
+                        </a>
+                      </div>
+                    )}
                   </div>
                   <div className="shrink-0 text-xs text-right sm:text-right text-muted-foreground">
                     <span className="font-semibold text-royal block">{course.from}</span>
@@ -231,14 +244,28 @@ export function ActivitiesSection() {
                   </div>
                   <div className="space-y-3.5 max-h-[220px] overflow-y-auto pr-1">
                     {filteredCommittees.map((item) => (
-                      <div key={item.id} className="flex justify-between items-start text-xs border-b border-border/50 pb-1.5">
-                        <span className="font-medium text-navy dark:text-white pr-2 leading-normal">
-                          {item.name}
-                        </span>
-                        <div className="text-right shrink-0">
-                          <span className="font-bold text-royal block">{item.role}</span>
-                          <span className="text-[10px] text-muted-foreground">{item.year}</span>
+                      <div key={item.id} className="border-b border-border/50 pb-2 space-y-1">
+                        <div className="flex justify-between items-start text-xs">
+                          <span className="font-medium text-navy dark:text-white pr-2 leading-normal">
+                            {item.name}
+                          </span>
+                          <div className="text-right shrink-0">
+                            <span className="font-bold text-royal block">{item.role}</span>
+                            <span className="text-[10px] text-muted-foreground">{item.year}</span>
+                          </div>
                         </div>
+                        {item.link && (
+                          <div className="text-left">
+                            <a
+                              href={item.link}
+                              target={item.link.startsWith('http') ? '_blank' : undefined}
+                              rel={item.link.startsWith('http') ? 'noopener noreferrer' : undefined}
+                              className="inline-flex items-center gap-1 text-[10px] font-semibold text-royal hover:underline"
+                            >
+                              View Document <ExternalLink className="h-2.5 w-2.5" />
+                            </a>
+                          </div>
+                        )}
                       </div>
                     ))}
                   </div>
