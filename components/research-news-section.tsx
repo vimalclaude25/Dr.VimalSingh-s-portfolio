@@ -133,6 +133,28 @@ export function ResearchNewsSection() {
     }
   };
 
+  const getTabIcon = (sub: string) => {
+    switch (sub) {
+      case 'Newspaper Coverage':
+        return Newspaper
+      case 'Departmental News':
+        return Globe
+      case 'Press Releases':
+        return MessageSquare
+      case 'Television Coverage':
+        return Tv
+      case 'Podcasts':
+        return Radio
+      default:
+        return Globe
+    }
+  }
+
+  const getCount = (sub: string) => {
+    if (sub === 'All') return researchNewsData.length
+    return researchNewsData.filter((item) => item.subcategory === sub).length
+  }
+
   const filteredNews = researchNewsData.filter((item) => {
     const matchesSub = activeSub === 'All' || item.subcategory === activeSub
     const matchesSearch =
@@ -157,36 +179,43 @@ export function ResearchNewsSection() {
         </p>
       </div>
 
-      {/* Toolbar: Search and Filters */}
-      <div className="mb-8 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-        {/* Subcategory Pills */}
-        <div className="flex flex-wrap gap-2 order-2 sm:order-1">
-          {subcategories.map((sub) => (
+      {/* Category Tabs */}
+      <div className="mb-6 flex flex-wrap justify-center gap-2 border-b border-border pb-px">
+        {subcategories.map((sub) => {
+          const Icon = getTabIcon(sub)
+          const count = getCount(sub)
+          return (
             <button
               key={sub}
-              onClick={() => setActiveSub(sub)}
-              className={`rounded-full px-4 py-1.5 text-xs font-semibold transition-all cursor-pointer ${
+              onClick={() => {
+                setActiveSub(sub)
+                setSearchQuery('')
+              }}
+              className={`flex items-center gap-2 border-b-2 px-5 py-3 text-sm font-semibold transition-all cursor-pointer ${
                 activeSub === sub
-                  ? 'bg-royal text-white shadow-sm'
-                  : 'bg-muted text-muted-foreground hover:bg-royal/10 hover:text-royal'
+                  ? 'border-royal text-royal'
+                  : 'border-transparent text-muted-foreground hover:text-royal'
               }`}
             >
-              {sub}
+              <Icon className="h-4 w-4" />
+              {sub} ({count})
             </button>
-          ))}
-        </div>
+          )
+        })}
+      </div>
 
-        {/* Search Bar */}
-        <div className="relative order-1 sm:order-2 w-full sm:max-w-xs">
+      {/* Search Bar */}
+      <div className="mb-8 flex justify-center">
+        <div className="relative w-full max-w-md">
           <span className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
-            <Search className="h-4 w-4 text-muted-foreground" />
+            <Search className="h-4.5 w-4.5 text-muted-foreground" />
           </span>
           <input
             type="text"
-            placeholder="Search news..."
+            placeholder="Search news by title, content or source..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            className="w-full rounded-full border border-border bg-card py-2 pl-9 pr-4 text-xs font-medium focus:border-royal focus:outline-none focus:ring-1 focus:ring-royal dark:text-white"
+            className="w-full rounded-xl border border-border bg-card py-2 pl-10 pr-4 text-sm focus:border-royal focus:outline-none focus:ring-1 focus:ring-royal dark:text-white"
           />
         </div>
       </div>
