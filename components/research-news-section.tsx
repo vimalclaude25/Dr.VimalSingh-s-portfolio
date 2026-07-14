@@ -354,7 +354,7 @@ export function ResearchNewsSection() {
 
               {/* Content Description — hidden for image-only entries */}
               {!selectedNews.imageOnly && (
-                <div className="prose prose-sm dark:prose-invert max-w-none text-sm leading-relaxed text-muted-foreground max-h-[250px] overflow-y-auto pr-2 scrollbar-thin scrollbar-thumb-border">
+                <div className="prose prose-sm dark:prose-invert max-w-none text-sm leading-relaxed text-muted-foreground max-h-[380px] overflow-y-auto pr-2 scrollbar-thin scrollbar-thumb-border">
                   <p className="whitespace-pre-wrap">{selectedNews.desc}</p>
                 </div>
               )}
