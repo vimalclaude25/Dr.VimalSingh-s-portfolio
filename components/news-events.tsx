@@ -4,44 +4,7 @@ import { useState } from 'react'
 import { Newspaper, ArrowRight, X, Calendar } from 'lucide-react'
 import { motion, AnimatePresence } from 'framer-motion'
 
-const news = [
-  {
-    day: '14',
-    mon: 'JUN',
-    year: '2026',
-    title: 'New Research Paper Published on Tagore’s Educational Vision',
-    desc: 'Empirical study "From Philosophy to Practice: Reflected Values in Learners Shaped by Tagore’s Educational Vision" published in RRIJM. Click here to read online.',
-    link: '/read/tagore-educational-vision',
-  },
-  {
-    day: '24',
-    mon: 'MAY',
-    year: '2025',
-    title: 'Paper Published in Annals of Neurosciences (Scopus Indexed)',
-    desc: 'New paper on Cognitive Load and AI published.',
-  },
-  {
-    day: '18',
-    mon: 'MAY',
-    year: '2025',
-    title: 'Patents Published',
-    desc: 'Two patents published on AI based educational tools.',
-  },
-  {
-    day: '10',
-    mon: 'MAY',
-    year: '2025',
-    title: 'Guest Lecture Delivered',
-    desc: 'Invited talk on AI in Education at National Webinar.',
-  },
-  {
-    day: '02',
-    mon: 'MAY',
-    year: '2025',
-    title: 'Research Grant Awarded',
-    desc: 'Government funded project on NEP 2020 implementation approved.',
-  },
-]
+const news: any[] = []
 
 export function NewsEvents() {
   const [selectedNews, setSelectedNews] = useState<any | null>(null)
@@ -63,47 +26,53 @@ export function NewsEvents() {
         </a>
       </div>
 
-      <ol className="relative space-y-4 border-l border-border pl-6">
-        {sortedNews.map((item) => (
-          <li key={item.title} className="relative">
-            <span className="absolute -left-[31px] top-1.5 flex h-3 w-3 items-center justify-center rounded-full border-2 border-royal bg-background" />
-            
-            {item.link ? (
-              <a
-                href={item.link}
-                className="flex items-start gap-4 rounded-2xl border border-border bg-card p-4 transition-all hover:border-royal hover:shadow-md hover:-translate-y-0.5 cursor-pointer block"
-              >
-                <div className="flex flex-col items-center rounded-xl bg-muted px-3 py-2 text-center shrink-0">
-                  <span className="font-heading text-lg font-bold text-navy dark:text-white">{item.day}</span>
-                  <span className="text-[10px] font-semibold tracking-wide text-royal">{item.mon}</span>
-                  <span className="text-[10px] text-muted-foreground">{item.year}</span>
+      {sortedNews.length > 0 ? (
+        <ol className="relative space-y-4 border-l border-border pl-6">
+          {sortedNews.map((item) => (
+            <li key={item.title} className="relative">
+              <span className="absolute -left-[31px] top-1.5 flex h-3 w-3 items-center justify-center rounded-full border-2 border-royal bg-background" />
+              
+              {item.link ? (
+                <a
+                  href={item.link}
+                  className="flex items-start gap-4 rounded-2xl border border-border bg-card p-4 transition-all hover:border-royal hover:shadow-md hover:-translate-y-0.5 cursor-pointer block"
+                >
+                  <div className="flex flex-col items-center rounded-xl bg-muted px-3 py-2 text-center shrink-0">
+                    <span className="font-heading text-lg font-bold text-navy dark:text-white">{item.day}</span>
+                    <span className="text-[10px] font-semibold tracking-wide text-royal">{item.mon}</span>
+                    <span className="text-[10px] text-muted-foreground">{item.year}</span>
+                  </div>
+                  <div>
+                    <h3 className="font-heading text-sm font-bold text-navy dark:text-white flex items-center gap-1.5 hover:text-royal transition-colors">
+                      {item.title} <ArrowRight className="h-3.5 w-3.5 text-royal" />
+                    </h3>
+                    <p className="mt-1 text-sm text-muted-foreground">{item.desc}</p>
+                  </div>
+                </a>
+              ) : (
+                <div 
+                  onClick={() => setSelectedNews(item)}
+                  className="flex items-start gap-4 rounded-2xl border border-border bg-card p-4 transition-all hover:border-royal hover:shadow-md hover:-translate-y-0.5 cursor-pointer"
+                >
+                  <div className="flex flex-col items-center rounded-xl bg-muted px-3 py-2 text-center shrink-0">
+                    <span className="font-heading text-lg font-bold text-navy dark:text-white">{item.day}</span>
+                    <span className="text-[10px] font-semibold tracking-wide text-royal">{item.mon}</span>
+                    <span className="text-[10px] text-muted-foreground">{item.year}</span>
+                  </div>
+                  <div>
+                    <h3 className="font-heading text-sm font-bold text-navy dark:text-white">{item.title}</h3>
+                    <p className="mt-1 text-sm text-muted-foreground">{item.desc}</p>
+                  </div>
                 </div>
-                <div>
-                  <h3 className="font-heading text-sm font-bold text-navy dark:text-white flex items-center gap-1.5 hover:text-royal transition-colors">
-                    {item.title} <ArrowRight className="h-3.5 w-3.5 text-royal" />
-                  </h3>
-                  <p className="mt-1 text-sm text-muted-foreground">{item.desc}</p>
-                </div>
-              </a>
-            ) : (
-              <div 
-                onClick={() => setSelectedNews(item)}
-                className="flex items-start gap-4 rounded-2xl border border-border bg-card p-4 transition-all hover:border-royal hover:shadow-md hover:-translate-y-0.5 cursor-pointer"
-              >
-                <div className="flex flex-col items-center rounded-xl bg-muted px-3 py-2 text-center shrink-0">
-                  <span className="font-heading text-lg font-bold text-navy dark:text-white">{item.day}</span>
-                  <span className="text-[10px] font-semibold tracking-wide text-royal">{item.mon}</span>
-                  <span className="text-[10px] text-muted-foreground">{item.year}</span>
-                </div>
-                <div>
-                  <h3 className="font-heading text-sm font-bold text-navy dark:text-white">{item.title}</h3>
-                  <p className="mt-1 text-sm text-muted-foreground">{item.desc}</p>
-                </div>
-              </div>
-            )}
-          </li>
-        ))}
-      </ol>
+              )}
+            </li>
+          ))}
+        </ol>
+      ) : (
+        <div className="flex h-32 items-center justify-center rounded-2xl border border-dashed border-border text-sm text-muted-foreground bg-card p-6">
+          No news &amp; events at this time.
+        </div>
+      )}
 
       {/* Modal Popup for Reading News */}
       <AnimatePresence>
