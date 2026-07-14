@@ -188,7 +188,7 @@ export function NtaNetSection() {
   }
 
   return (
-    <section id="nta-net" className="mx-auto max-w-9xl px-4 py-16 sm:px-6 lg:px-8">
+    <section id="nta-net" className="mx-auto max-w-8xl px-4 py-16 sm:px-6 lg:px-8">
       <div className="mb-10 text-center">
         <span className="rounded-full bg-royal/10 px-3 py-1 text-xs font-semibold text-royal">
           NTA UGC NET Portal

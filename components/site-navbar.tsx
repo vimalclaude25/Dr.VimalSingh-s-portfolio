@@ -170,7 +170,7 @@ export function SiteNavbar() {
           : 'bg-background'
       }`}
     >
-      <div className="mx-auto flex max-w-9xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8">
+      <div className="mx-auto flex max-w-8xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8">
         <a href="/#home" className="flex items-center gap-3">
           <Image
             src="/logo-vs.jpg"

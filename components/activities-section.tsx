@@ -56,7 +56,7 @@ export function ActivitiesSection() {
 
   return (
     <section id="activities" className="bg-muted/50 py-16">
-      <div className="mx-auto max-w-9xl px-4 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-8xl px-4 sm:px-6 lg:px-8">
         <div className="mb-10 text-center">
           <h2 className="font-heading text-3xl font-bold tracking-tight text-navy dark:text-white sm:text-4xl">
             Professional Engagement &amp; Activities

@@ -9,7 +9,7 @@ export function SiteTopbar() {
 
   return (
     <div className="w-full bg-navy text-white">
-      <div className="mx-auto flex max-w-9xl flex-wrap items-center justify-between gap-y-2 px-4 py-2 text-xs sm:px-6 lg:px-8">
+      <div className="mx-auto flex max-w-8xl flex-wrap items-center justify-between gap-y-2 px-4 py-2 text-xs sm:px-6 lg:px-8">
         <div className="flex flex-wrap items-center gap-x-5 gap-y-1">
           <a href="tel:+917905184427" className="flex items-center gap-1.5 opacity-90 transition-opacity hover:opacity-100">
             <Phone className="h-3.5 w-3.5 text-gold" />

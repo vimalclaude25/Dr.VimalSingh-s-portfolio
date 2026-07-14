@@ -56,7 +56,7 @@ const cards = [
 
 export function QuickAccess() {
   return (
-    <section className="mx-auto -mt-8 max-w-9xl px-4 pb-4 sm:px-6 lg:px-8">
+    <section className="mx-auto -mt-8 max-w-8xl px-4 pb-4 sm:px-6 lg:px-8">
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {cards.map(({ icon: Icon, title, desc, cta, accent, href }) => (
           <Link
