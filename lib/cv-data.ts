@@ -1374,6 +1374,18 @@ export const researchNewsData: ResearchNewsItem[] = [
     image: '/spiritual-anxiety-2.jpg',
     imageOnly: true,
   },
+  {
+    id: 8,
+    title: 'डिजिटल शिक्षा पर अध्ययन ने खोले नई संभावनाओं के द्वार',
+    source: 'Newspaper (Kanpur)',
+    date: '14 July 2026',
+    desc: '',
+    category: 'media-coverage',
+    subcategory: 'Newspaper Coverage',
+    mediaType: 'Newspaper',
+    image: '/digital-education-study.jpg',
+    imageOnly: true,
+  },
 ]
 
 export const ntaNetResourcesData: NtaNetResource[] = [
