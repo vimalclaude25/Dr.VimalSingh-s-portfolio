@@ -1386,6 +1386,23 @@ export const researchNewsData: ResearchNewsItem[] = [
     image: '/digital-education-study.jpg',
     imageOnly: true,
   },
+  {
+    id: 9,
+    title: 'युवाओं के मन का तनाव नापेगा सीएसजेएमयू का थर्मामीटर',
+    source: 'Dainik Jagran / Hindustan / Amrit Vichar',
+    date: '14 July 2026',
+    desc: '',
+    category: 'media-coverage',
+    subcategory: 'Newspaper Coverage',
+    mediaType: 'Newspaper',
+    images: [
+      '/anxiety-scale-1.jpg',
+      '/anxiety-scale-2.jpg',
+      '/anxiety-scale-3.jpg',
+      '/anxiety-scale-4.jpg',
+    ],
+    imageOnly: true,
+  },
 ]
 
 export const ntaNetResourcesData: NtaNetResource[] = [
