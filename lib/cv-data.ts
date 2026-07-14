@@ -1403,6 +1403,24 @@ export const researchNewsData: ResearchNewsItem[] = [
     ],
     imageOnly: true,
   },
+  {
+    id: 10,
+    title: 'रिसर्चर्स की ऑनलाइन पहचान को बनाया प्लेटफॉर्म / वैश्विक शोध पैमाना',
+    source: 'Dainik Jagran / Hindustan / Amrit Vichar',
+    date: '14 July 2026',
+    desc: '',
+    category: 'media-coverage',
+    subcategory: 'Newspaper Coverage',
+    mediaType: 'Newspaper',
+    images: [
+      '/grup-scale-1.jpg',
+      '/grup-scale-2.jpg',
+      '/grup-scale-3.jpg',
+      '/grup-scale-4.jpg',
+      '/grup-scale-5.jpg',
+    ],
+    imageOnly: true,
+  },
 ]
 
 export const ntaNetResourcesData: NtaNetResource[] = [
