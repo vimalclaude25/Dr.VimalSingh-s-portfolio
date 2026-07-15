@@ -15,13 +15,38 @@ export default function ContactPage() {
   })
   const [status, setStatus] = useState<'idle' | 'sending' | 'success'>('idle')
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setStatus('sending')
-    setTimeout(() => {
-      setStatus('success')
-      setFormData({ name: '', email: '', subject: 'General Inquiry', message: '' })
-    }, 1500)
+
+    try {
+      const response = await fetch(`https://formsubmit.co/ajax/${personalInfo.email}`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify({
+          Name: formData.name,
+          Email: formData.email,
+          Subject: formData.subject,
+          Message: formData.message,
+          _subject: `[Portfolio Inquiry] ${formData.subject}`,
+          _replyto: formData.email
+        })
+      })
+
+      if (response.ok) {
+        setStatus('success')
+        setFormData({ name: '', email: '', subject: 'General Inquiry', message: '' })
+      } else {
+        throw new Error('Failed to send message via FormSubmit.')
+      }
+    } catch (err) {
+      console.error(err)
+      setStatus('idle')
+      alert('Unable to send message at this time. Please check your internet connection or try again later.')
+    }
   }
 
   return (
