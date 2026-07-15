@@ -97,7 +97,7 @@ export default function EditedBooksPage() {
   }
 
   // Web App URL configuration (paste your Google Apps Script URL here)
-  const SUBMISSION_FORM_URL = "YOUR_GOOGLE_APPS_SCRIPT_URL_HERE"
+  const SUBMISSION_FORM_URL = "https://script.google.com/macros/s/AKfycbwRLrKUjPQm5BvSIVKOt8--Goi5eFLT56OZGb7dSvK4XaNQOoTmcV0nkc8jHOP-Nuozkg/exec"
 
   // Handle form submission to Google Sheets and Drive
   const handleSubmit = (e: React.FormEvent, book: EditedBook2026) => {
@@ -171,7 +171,7 @@ export default function EditedBooksPage() {
         })
 
         const result = await response.json()
-        
+
         if (result.status === 'success') {
           setSubmitStep(5) // "Compiling receipts..."
           setTimeout(() => {
@@ -234,7 +234,7 @@ export default function EditedBooksPage() {
             >
               {/* Split Screen Layout: Left Flyer Preview, Right Book Details */}
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
-                
+
                 {/* Left Column: Direct Flyer Document View */}
                 <div className="lg:col-span-5 flex flex-col justify-between">
                   <div>
@@ -369,7 +369,7 @@ export default function EditedBooksPage() {
                                   <ChevronDown className="h-3.5 w-3.5 text-royal shrink-0" />
                                 )}
                               </button>
-                              
+
                               <AnimatePresence initial={false}>
                                 {isExpanded && (
                                   <motion.div
@@ -416,11 +416,10 @@ export default function EditedBooksPage() {
                     </div>
                     <button
                       onClick={() => setActiveFormBookId(isFormOpen ? null : book.id)}
-                      className={`w-full sm:w-auto py-2.5 px-6 text-xs font-bold rounded-xl text-white transition-all shadow-sm flex items-center justify-center gap-1.5 ${
-                        isFormOpen
+                      className={`w-full sm:w-auto py-2.5 px-6 text-xs font-bold rounded-xl text-white transition-all shadow-sm flex items-center justify-center gap-1.5 ${isFormOpen
                           ? 'bg-red-600 hover:bg-red-700'
                           : 'bg-royal hover:bg-royal-dark'
-                      }`}
+                        }`}
                     >
                       {isFormOpen ? 'Close Submission Form' : 'Submit Chapter Manuscript'} <FileUp className="h-4.5 w-4.5" />
                     </button>
@@ -441,7 +440,7 @@ export default function EditedBooksPage() {
                   >
                     <div className="max-w-3xl mx-auto">
                       <AnimatePresence mode="wait">
-                        
+
                         {/* Success State */}
                         {submitSuccess ? (
                           <motion.div
@@ -730,11 +729,10 @@ export default function EditedBooksPage() {
                                 onDragOver={handleDrag}
                                 onDragLeave={handleDrag}
                                 onDrop={handleDrop}
-                                className={`relative border border-dashed rounded-2xl p-5 text-center transition-all ${
-                                  dragActive
+                                className={`relative border border-dashed rounded-2xl p-5 text-center transition-all ${dragActive
                                     ? 'border-royal bg-royal/[0.02]'
                                     : 'border-border bg-card hover:border-royal/50'
-                                }`}
+                                  }`}
                               >
                                 <input
                                   type="file"
