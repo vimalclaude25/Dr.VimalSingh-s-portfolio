@@ -20,7 +20,7 @@ export default function ContactPage() {
     setStatus('sending')
 
     try {
-      const response = await fetch(`https://formsubmit.co/ajax/${personalInfo.email}`, {
+      const response = await fetch('/api/contact', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -30,22 +30,22 @@ export default function ContactPage() {
           Name: formData.name,
           Email: formData.email,
           Subject: formData.subject,
-          Message: formData.message,
-          _subject: `[Portfolio Inquiry] ${formData.subject}`,
-          _replyto: formData.email
+          Message: formData.message
         })
       })
 
-      if (response.ok) {
+      const data = await response.json()
+
+      if (response.ok && data.success) {
         setStatus('success')
         setFormData({ name: '', email: '', subject: 'General Inquiry', message: '' })
       } else {
-        throw new Error('Failed to send message via FormSubmit.')
+        throw new Error(data.error || 'Failed to send message.')
       }
-    } catch (err) {
+    } catch (err: any) {
       console.error(err)
       setStatus('idle')
-      alert('Unable to send message at this time. Please check your internet connection or try again later.')
+      alert(`Submission Error: ${err.message || 'Unable to send message at this time. Please check your internet connection or try again later.'}`)
     }
   }
 
