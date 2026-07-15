@@ -491,11 +491,11 @@ export default function EditedBooksPage() {
                                 </p>
                               </div>
 
-                              <div className="mx-auto h-36 w-36 bg-white p-1.5 rounded-xl border border-border shadow-sm flex items-center justify-center">
+                              <div className="mx-auto flex justify-center items-center bg-white border border-border rounded-2xl p-3 shadow-sm max-w-[240px] w-auto h-auto">
                                 <img
                                   src={book.whatsappQrUrl}
                                   alt="WhatsApp Group QR Code"
-                                  className="h-full w-full object-contain"
+                                  className="w-full h-auto object-contain"
                                 />
                               </div>
 
