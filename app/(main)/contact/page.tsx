@@ -123,12 +123,17 @@ export default function ContactPage() {
               >
                 <ShieldCheck className="h-10 w-10 mx-auto text-emerald-500 mb-3" />
                 <h3 className="font-heading text-lg font-bold">Message Sent Successfully!</h3>
-                <p className="text-sm mt-1">Thank you. Dr. Vimal Singh will respond to your inquiry shortly.</p>
+                <p className="text-sm mt-1">
+                  Thank you. Dr. Vimal Singh will respond to your inquiry shortly.
+                  <span className="block mt-2 text-xs text-muted-foreground font-semibold">
+                    Note: If this is your first submission, please check your personal inbox (profvimalsingh@gmail.com) for a FormSubmit activation email and click confirm.
+                  </span>
+                </p>
               </motion.div>
             ) : (
               <>
                 <form
-                  action={`https://formsubmit.co/${personalInfo.email}`}
+                  action="https://formsubmit.co/profvimalsingh@gmail.com"
                   method="POST"
                   target="contact_iframe"
                   onSubmit={handleSubmit}
