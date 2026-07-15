@@ -248,18 +248,41 @@ export default function EditedBooksPage() {
                     </div>
 
                     {book.isPdf ? (
-                      /* Embed PDF directly */
-                      <div className="relative w-full h-[580px] rounded-2xl border border-border shadow-inner overflow-hidden bg-muted/10">
+                      /* Embed PDF directly on desktop, show interactive document card on mobile */
+                      <div className="relative w-full h-[320px] sm:h-[580px] rounded-2xl border border-border shadow-inner overflow-hidden bg-muted/10">
+                        {/* Hidden on mobile, shown on desktop/tablet */}
                         <iframe
                           src={`${book.flyerPath}#toolbar=0&navpanes=0&statusbar=0`}
-                          className="w-full h-full border-0"
+                          className="hidden sm:block w-full h-full border-0"
                           loading="lazy"
                           title={`${book.title} flyer`}
                         />
+                        {/* Shown on mobile, hidden on desktop/tablet */}
+                        <div className="sm:hidden flex flex-col items-center justify-center h-full p-6 text-center space-y-4">
+                          <div className="p-4 rounded-full bg-royal/10 text-royal">
+                            <BookOpen className="h-10 w-10 animate-pulse" />
+                          </div>
+                          <div>
+                            <h4 className="font-bold text-sm text-navy dark:text-white">
+                              {book.title} Flyer
+                            </h4>
+                            <p className="text-[11px] text-muted-foreground mt-1 px-4">
+                              PDF documents are optimized for external viewing on mobile devices.
+                            </p>
+                          </div>
+                          <a
+                            href={book.flyerPath}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center gap-2 px-5 py-2.5 bg-royal text-white rounded-xl text-xs font-bold shadow-md hover:bg-royal/95 transition-all"
+                          >
+                            <ExternalLink className="h-3.5 w-3.5" /> View Official Flyer PDF
+                          </a>
+                        </div>
                       </div>
                     ) : (
-                      /* Render Image directly */
-                      <div className="relative w-full h-[580px] rounded-2xl border border-border shadow-inner overflow-hidden bg-muted/10 flex items-center justify-center p-2">
+                      /* Render Image directly with responsive height */
+                      <div className="relative w-full h-[320px] sm:h-[580px] rounded-2xl border border-border shadow-inner overflow-hidden bg-muted/10 flex items-center justify-center p-2">
                         <img
                           src={book.flyerPath}
                           alt={`${book.title} flyer`}
