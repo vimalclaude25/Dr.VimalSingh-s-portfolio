@@ -1,12 +1,16 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect, Suspense } from 'react'
+import { useSearchParams, useRouter } from 'next/navigation'
 import { motion } from 'framer-motion'
 import { Phone, Mail, MapPin, Send, MessageSquare, Calendar, ShieldCheck, ArrowLeft } from 'lucide-react'
 import Link from 'next/link'
 import { personalInfo } from '@/lib/cv-data'
 
-export default function ContactPage() {
+function ContactFormContent() {
+  const searchParams = useSearchParams()
+  const router = useRouter()
+
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -14,13 +18,20 @@ export default function ContactPage() {
     message: ''
   })
   const [status, setStatus] = useState<'idle' | 'sending' | 'success'>('idle')
+  const [redirectUrl, setRedirectUrl] = useState('')
+
+  // Check query parameter on load
+  useEffect(() => {
+    if (searchParams?.get('status') === 'success') {
+      setStatus('success')
+    }
+    if (typeof window !== 'undefined') {
+      setRedirectUrl(`${window.location.origin}/contact?status=success`)
+    }
+  }, [searchParams])
 
   const handleSubmit = () => {
     setStatus('sending')
-    setTimeout(() => {
-      setStatus('success')
-      setFormData({ name: '', email: '', subject: 'General Inquiry', message: '' })
-    }, 2000)
   }
 
   return (
@@ -129,13 +140,21 @@ export default function ContactPage() {
                     Note: If this is your first submission, please check your personal inbox (profvimalsingh@gmail.com) for a FormSubmit activation email and click confirm.
                   </span>
                 </p>
+                <button
+                  onClick={() => {
+                    setStatus('idle')
+                    router.push('/contact')
+                  }}
+                  className="mt-5 inline-flex items-center gap-1.5 rounded-xl border border-border bg-card hover:bg-muted text-muted-foreground px-4 py-2 text-xs font-bold hover:text-royal hover:border-royal transition-all cursor-pointer shadow-sm"
+                >
+                  Send Another Message
+                </button>
               </motion.div>
             ) : (
               <>
                 <form
                   action="https://formsubmit.co/profvimalsingh@gmail.com"
                   method="POST"
-                  target="contact_iframe"
                   onSubmit={handleSubmit}
                   className="space-y-4"
                 >
@@ -145,6 +164,7 @@ export default function ContactPage() {
                   {/* Form configuration headers for FormSubmit */}
                   <input type="hidden" name="_subject" value={`[Portfolio Inquiry] ${formData.subject}`} />
                   <input type="hidden" name="_replyto" value={formData.email} />
+                  <input type="hidden" name="_next" value={redirectUrl} />
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
@@ -218,15 +238,24 @@ export default function ContactPage() {
                     </button>
                   </div>
                 </form>
-
-                {/* Hidden iframe handles post natively */}
-                <iframe name="contact_iframe" style={{ display: 'none' }}></iframe>
               </>
             )}
           </div>
         </div>
       </div>
     </div>
+  )
+}
+
+export default function ContactPage() {
+  return (
+    <Suspense fallback={
+      <div className="mx-auto max-w-8xl px-4 py-24 sm:px-6 lg:px-8 text-center text-xs text-muted-foreground animate-pulse font-semibold">
+        Loading contact portal...
+      </div>
+    }>
+      <ContactFormContent />
+    </Suspense>
   )
 }
 
