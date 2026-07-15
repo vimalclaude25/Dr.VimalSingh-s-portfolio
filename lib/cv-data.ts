@@ -208,14 +208,14 @@ export const teachingExperience: Experience[] = [
     role: 'Assistant Professor',
     organization: 'Balram Krishan Academy (A College of Higher Education), University of Lucknow, Lucknow',
     duration: '1 July 2014 to 17 Jan 2016',
-  },
+  }
 ]
 
 export const academicAchievements: string[] = [
   'Qualified UGC-NET JRF in Education in Dec.2013, June 2014, and NET for Lectureship in Dec 2014.',
   'Qualified UGC-NET in Public Administration for Lectureship in June 2012.',
   'Qualified CTET for Junior Level in July 2013.',
-  'Qualified UPTET for Junior Level in August 2013.',
+  'Qualified UPTET for Junior Level in August 2013.'
 ]
 
 export const professionalQualifications: Qualification[] = [
@@ -241,7 +241,7 @@ export const professionalQualifications: Qualification[] = [
     degree: 'Diploma in Computer Programming, System and Management',
     institution: 'Bright Computer Education, Registered by UP Government',
     year: '2005 - 2006',
-  },
+  }
 ]
 
 export const academicQualifications: Qualification[] = [
@@ -268,7 +268,7 @@ export const academicQualifications: Qualification[] = [
     institution: 'U.P. Board, Allahabad',
     year: '2003',
     details: '2nd Division (52.50%)',
-  },
+  }
 ]
 
 export const specializations: string[] = [
@@ -277,7 +277,7 @@ export const specializations: string[] = [
   'Mixed Method',
   'Curriculum Development',
   'Policy Research',
-  'Educational Administration and Management',
+  'Educational Administration and Management'
 ]
 
 export const researchGuidance: GuidedScholar = {
@@ -291,12 +291,12 @@ export const researchGuidance: GuidedScholar = {
     { year: '2023 – 2025', count: 7, status: 'Awarded' },
     { year: '2022 – 2024', count: 7, status: 'Awarded' },
     { year: '2021 – 2023', count: 8, status: 'Awarded' }, // 07+1* represented as 8
-    { year: '2020 – 2022', count: 3, status: 'Awarded' },
-  ],
+    { year: '2020 – 2022', count: 3, status: 'Awarded' }
+],
   phdScholars: [
     { name: 'Ms. Mahima Tripathi', regNo: 'PHD202500001327', session: '2024 - 2025 (IGNOU)' },
-    { name: 'Mr. Suraj Gupta', regNo: 'PHD202500000536', session: '2024 - 2025 (IGNOU)' },
-  ],
+    { name: 'Mr. Suraj Gupta', regNo: 'PHD202500000536', session: '2024 - 2025 (IGNOU)' }
+],
 }
 
 export const patents: Patent[] = [
@@ -316,7 +316,7 @@ export const patents: Patent[] = [
     role: 'Principal Inventor',
     designNo: '202411071925',
     dateGrant: '11 October 2024',
-  },
+  }
 ]
 
 export const researchProjects: Project[] = [
@@ -338,7 +338,7 @@ export const researchProjects: Project[] = [
     role: 'Principal Investigator',
     amount: '2 Lac 46 Thousand',
     dateSanction: '31 March 2026',
-  },
+  }
 ]
 
 export const consultancy: Consultancy = {
@@ -385,7 +385,7 @@ export const books: Book[] = [
     date: 'November 2015',
     isbn: '978-81-926826-2-4',
     referred: false,
-  },
+  }
 ]
 
 export const scales: Scale[] = [
@@ -402,7 +402,7 @@ export const scales: Scale[] = [
     isbn: 'N/A',
     publisher: 'Manas Psycho Home, Uttam Nagar, New Delhi [INDIA]',
     year: '2026',
-  },
+  }
 ]
 
 export const journalPublications: JournalPublication[] = [
@@ -763,7 +763,7 @@ export const journalPublications: JournalPublication[] = [
     type: 'Peer-Reviewed',
     details: 'Year 1, Vol 1, No. 2, Oct 2015, ISSN No: 2395-728X, Page: 197-206.',
     link: '/read/adjustment-emotional-intelligence-study-hindi',
-  },
+  }
 ]
 
 export const bookChapters: BookChapter[] = [
@@ -883,7 +883,7 @@ export const bookChapters: BookChapter[] = [
     role: 'Author',
     pages: '68 – 76',
     link: '/read/news-framing-student-perceptions',
-  },
+  }
 ]
 
 export const inviteeLectures: InviteeLecture[] = [
@@ -1017,7 +1017,7 @@ export const inviteeLectures: InviteeLecture[] = [
   { id: 54, topic: 'Preparation of Project Report (Online)', event: 'Two Days Webinar on "Fundamentals of Project Report Writing"', organizer: 'Cult the Cultural Society (CTCS), Lucknow', date: '13 June 2021' },
   { id: 55, topic: 'B.Ed. Internship Programme', event: 'Special Lecture', organizer: 'Charak Institute of Education (Affiliated with University of Lucknow), Lucknow', date: '27 April 2019' },
   { id: 56, topic: 'Formulation of Hypothesis & Operational Definition of Variables', event: 'Workshop on "Development of Research Proposal"', organizer: 'Department of Education, University of Lucknow, Lucknow', date: '08 to 15 February 2019' },
-  { id: 57, topic: 'Development of Writing Instructional Objectives, Creating Set and Introducing the Lesson', event: 'Workshop on "Development of Micro Teaching Skills"', organizer: 'Department of Education, University of Lucknow, Lucknow', date: '24 to 29 December 2018' },
+  { id: 57, topic: 'Development of Writing Instructional Objectives, Creating Set and Introducing the Lesson', event: 'Workshop on "Development of Micro Teaching Skills"', organizer: 'Department of Education, University of Lucknow, Lucknow', date: '24 to 29 December 2018' }
 ]
 
 export const fdpsAndWorkshops: FdpWorkshop[] = [
@@ -1080,7 +1080,7 @@ export const fdpsAndWorkshops: FdpWorkshop[] = [
   },
   { id: 20, course: 'Workshop on Swami Vivekananda and Human Excellence', organizer: 'Department of Education, University of Lucknow', sponsor: 'MHRD & ICPR', from: '01 May 2014', to: '07 May 2014',
     link: '/read/tracing-cbcs-challenges',
-  },
+  }
 ]
 
 export const committees: CommitteeRole[] = [
@@ -1152,7 +1152,7 @@ export const committees: CommitteeRole[] = [
   },
   { id: 23, name: 'Departmental Quality Assurance Cell', role: 'Member', year: '2022 (Dept Level)',
     link: '/read/krishnamurti-philosophy-fear-hindi',
-  },
+  }
 ]
 
 export const administrativeResponsibilities: AdminResponsibility[] = [
@@ -1209,7 +1209,7 @@ export const administrativeResponsibilities: AdminResponsibility[] = [
   },
   { id: 18, responsibility: 'Observer, B.Ed. JEE 2022', date: '02.07.2022',
     link: '/read/women-studies-trends',
-  },
+  }
 ]
 
 export const coCurricularActivities: CoCurricularActivity[] = [
@@ -1242,7 +1242,7 @@ export const coCurricularActivities: CoCurricularActivity[] = [
   },
   { id: 10, description: 'One Day National Conference on Understanding Learning Disability: Strategical Review, Practices & Processes', from: '28 October 2023', to: '28 October 2023',
     link: '/read/neuroeducation-landscape',
-  },
+  }
 ]
 
 export const memberships: string[] = [
@@ -1251,7 +1251,7 @@ export const memberships: string[] = [
   'Chief Editor, NOUS:- A Half-yearly Journal of Education, Arts, Humanities and Social Sciences',
   'Bhartiya Shiksha Shodh Sansthan – Receipt No.-035, Date-02/02/2017',
   'In Editorial Board of Research Journey in Education- A Bilingual Annual Journal of Education (ISSN-2321-256X, Reg. No: 165213/2011)',
-  'In Editorial Board of Educational Metamorphosis: A Half-yearly Refereed & Peer-reviewed International Journal of Education, ISSN: 2583-4754',
+  'In Editorial Board of Educational Metamorphosis: A Half-yearly Refereed & Peer-reviewed International Journal of Education, ISSN: 2583-4754'
 ]
 
 export interface ResearchNewsItem {
@@ -1284,8 +1284,8 @@ export const researchNewsData: ResearchNewsItem[] = [
     images: [
       '/digital-diet-1.jpg',
       '/digital-diet-2.jpg',
-      '/digital-diet-3.jpg',
-    ],
+      '/digital-diet-3.jpg'
+],
   },
   {
     id: 2,
@@ -1301,8 +1301,8 @@ export const researchNewsData: ResearchNewsItem[] = [
       '/ai-mansi-1.jpg',
       '/ai-mansi-2.jpg',
       '/ai-mansi-3.jpg',
-      '/ai-mansi-4.jpg',
-    ],
+      '/ai-mansi-4.jpg'
+],
   },
   {
     id: 3,
@@ -1388,8 +1388,8 @@ export const researchNewsData: ResearchNewsItem[] = [
       '/anxiety-scale-1.jpg',
       '/anxiety-scale-2.jpg',
       '/anxiety-scale-3.jpg',
-      '/anxiety-scale-4.jpg',
-    ],
+      '/anxiety-scale-4.jpg'
+],
     imageOnly: true,
   },
   {
@@ -1406,10 +1406,10 @@ export const researchNewsData: ResearchNewsItem[] = [
       '/grup-scale-2.jpg',
       '/grup-scale-3.jpg',
       '/grup-scale-4.jpg',
-      '/grup-scale-5.jpg',
-    ],
+      '/grup-scale-5.jpg'
+],
     imageOnly: true,
-  },
+  }
 ]
 
 export interface Course {
@@ -1602,17 +1602,6 @@ export const coursesData: Course[] = [
 ]
 
 export const studyResourcesData: StudyResource[] = [
-  {
-    id: 1784100199589,
-    title: "Philosophical Foundation of Research",
-    desc: "notes for today",
-    courseCode: "MED104",
-    type: "PDF",
-    link: "https://drive.google.com/file/d/1e9b6vaTftw56Ygf9q1pUU6Q5nYm9vHBq/view",
-    fileSize: "258 KB",
-    
-    date: "15 July 2026"
-  }
 ]
 
 
