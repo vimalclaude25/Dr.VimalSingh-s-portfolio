@@ -1519,6 +1519,30 @@ export const researchNewsData: ResearchNewsItem[] = [
       '/grup-scale-5.jpg'
     ],
     imageOnly: true,
+  },
+  {
+    id: 11,
+    title: 'दुनिया भर के 1600 शोध खंगाले तो मिला बेहतर पढ़ाई का फॉर्मूला',
+    source: 'Amrit Vichar',
+    date: '15 July 2026',
+    desc: '',
+    category: 'media-coverage',
+    subcategory: 'Newspaper Coverage',
+    mediaType: 'Newspaper',
+    image: '/global-research-formula.jpg',
+    imageOnly: true,
+  },
+  {
+    id: 12,
+    title: 'शोध: शिक्षा को डिजिटल के साथ सरल बनाना जरूरी',
+    source: 'Newspaper (Kanpur)',
+    date: '15 July 2026',
+    desc: '',
+    category: 'media-coverage',
+    subcategory: 'Newspaper Coverage',
+    mediaType: 'Newspaper',
+    image: '/digital-education-simplicity.jpg',
+    imageOnly: true,
   }
 ]
 
