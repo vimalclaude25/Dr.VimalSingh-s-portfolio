@@ -1601,6 +1601,18 @@ export const coursesData: Course[] = [
   }
 ]
 
-export const studyResourcesData: StudyResource[] = []
+export const studyResourcesData: StudyResource[] = [
+  {
+    id: 1784100199589,
+    title: "Philosophical Foundation of Research",
+    desc: "notes for today",
+    courseCode: "MED104",
+    type: "PDF",
+    link: "https://drive.google.com/file/d/1e9b6vaTftw56Ygf9q1pUU6Q5nYm9vHBq/view",
+    fileSize: "258 KB",
+    
+    date: "15 July 2026"
+  }
+]
 
 
