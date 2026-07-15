@@ -15,38 +15,12 @@ export default function ContactPage() {
   })
   const [status, setStatus] = useState<'idle' | 'sending' | 'success'>('idle')
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault()
+  const handleSubmit = () => {
     setStatus('sending')
-
-    try {
-      const response = await fetch('/api/contact', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Accept': 'application/json'
-        },
-        body: JSON.stringify({
-          Name: formData.name,
-          Email: formData.email,
-          Subject: formData.subject,
-          Message: formData.message
-        })
-      })
-
-      const data = await response.json()
-
-      if (response.ok && data.success) {
-        setStatus('success')
-        setFormData({ name: '', email: '', subject: 'General Inquiry', message: '' })
-      } else {
-        throw new Error(data.error || 'Failed to send message.')
-      }
-    } catch (err: any) {
-      console.error(err)
-      setStatus('idle')
-      alert(`Submission Error: ${err.message || 'Unable to send message at this time. Please check your internet connection or try again later.'}`)
-    }
+    setTimeout(() => {
+      setStatus('success')
+      setFormData({ name: '', email: '', subject: 'General Inquiry', message: '' })
+    }, 2000)
   }
 
   return (
@@ -152,75 +126,97 @@ export default function ContactPage() {
                 <p className="text-sm mt-1">Thank you. Dr. Vimal Singh will respond to your inquiry shortly.</p>
               </motion.div>
             ) : (
-              <form onSubmit={handleSubmit} className="space-y-4">
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <>
+                <form
+                  action={`https://formsubmit.co/${personalInfo.email}`}
+                  method="POST"
+                  target="contact_iframe"
+                  onSubmit={handleSubmit}
+                  className="space-y-4"
+                >
+                  {/* Honeypot anti-spam check */}
+                  <input type="text" name="_honey" style={{ display: 'none' }} readOnly />
+
+                  {/* Form configuration headers for FormSubmit */}
+                  <input type="hidden" name="_subject" value={`[Portfolio Inquiry] ${formData.subject}`} />
+                  <input type="hidden" name="_replyto" value={formData.email} />
+
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                      <label className="block text-xs font-bold text-navy dark:text-white uppercase tracking-wider mb-1">Your Name</label>
+                      <input
+                        type="text"
+                        name="Name"
+                        required
+                        value={formData.name}
+                        onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                        className="w-full rounded-xl border border-border bg-card px-4 py-2.5 text-sm text-foreground outline-none focus:border-royal transition-colors"
+                        placeholder="John Doe"
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-xs font-bold text-navy dark:text-white uppercase tracking-wider mb-1">Email Address</label>
+                      <input
+                        type="email"
+                        name="Email"
+                        required
+                        value={formData.email}
+                        onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                        className="w-full rounded-xl border border-border bg-card px-4 py-2.5 text-sm text-foreground outline-none focus:border-royal transition-colors"
+                        placeholder="john@example.com"
+                      />
+                    </div>
+                  </div>
+
                   <div>
-                    <label className="block text-xs font-bold text-navy dark:text-white uppercase tracking-wider mb-1">Your Name</label>
-                    <input
-                      type="text"
+                    <label className="block text-xs font-bold text-navy dark:text-white uppercase tracking-wider mb-1">Inquiry Subject</label>
+                    <select
+                      name="Subject"
+                      value={formData.subject}
+                      onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
+                      className="w-full rounded-xl border border-border bg-card px-4 py-2.5 text-sm text-foreground outline-none focus:border-royal transition-colors cursor-pointer"
+                    >
+                      <option>General Inquiry</option>
+                      <option>Research Collaboration</option>
+                      <option>M.Ed. / Ph.D. Guidance</option>
+                      <option>Lecture / Seminar Invitation</option>
+                      <option>AI Lab Projects</option>
+                    </select>
+                  </div>
+
+                  <div>
+                    <label className="block text-xs font-bold text-navy dark:text-white uppercase tracking-wider mb-1">Your Message</label>
+                    <textarea
+                      rows={5}
+                      name="Message"
                       required
-                      value={formData.name}
-                      onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                      className="w-full rounded-xl border border-border bg-card px-4 py-2.5 text-sm text-foreground outline-none focus:border-royal transition-colors"
-                      placeholder="John Doe"
+                      value={formData.message}
+                      onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                      className="w-full rounded-xl border border-border bg-card px-4 py-2.5 text-sm text-foreground outline-none focus:border-royal transition-colors resize-none"
+                      placeholder="Write your details, objectives, or questions here..."
                     />
                   </div>
-                  <div>
-                    <label className="block text-xs font-bold text-navy dark:text-white uppercase tracking-wider mb-1">Email Address</label>
-                    <input
-                      type="email"
-                      required
-                      value={formData.email}
-                      onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                      className="w-full rounded-xl border border-border bg-card px-4 py-2.5 text-sm text-foreground outline-none focus:border-royal transition-colors"
-                      placeholder="john@example.com"
-                    />
+
+                  <div className="pt-2">
+                    <button
+                      type="submit"
+                      disabled={status === 'sending'}
+                      className="w-full rounded-xl bg-royal text-white font-bold py-3 px-4 flex items-center justify-center gap-2 hover:bg-royal/95 transition-all shadow-md shadow-royal/10"
+                    >
+                      {status === 'sending' ? (
+                        <span>Sending Message...</span>
+                      ) : (
+                        <>
+                          <Send className="h-4 w-4" /> Send Inquiry Message
+                        </>
+                      )}
+                    </button>
                   </div>
-                </div>
+                </form>
 
-                <div>
-                  <label className="block text-xs font-bold text-navy dark:text-white uppercase tracking-wider mb-1">Inquiry Subject</label>
-                  <select
-                    value={formData.subject}
-                    onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
-                    className="w-full rounded-xl border border-border bg-card px-4 py-2.5 text-sm text-foreground outline-none focus:border-royal transition-colors cursor-pointer"
-                  >
-                    <option>General Inquiry</option>
-                    <option>Research Collaboration</option>
-                    <option>M.Ed. / Ph.D. Guidance</option>
-                    <option>Lecture / Seminar Invitation</option>
-                    <option>AI Lab Projects</option>
-                  </select>
-                </div>
-
-                <div>
-                  <label className="block text-xs font-bold text-navy dark:text-white uppercase tracking-wider mb-1">Your Message</label>
-                  <textarea
-                    rows={5}
-                    required
-                    value={formData.message}
-                    onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                    className="w-full rounded-xl border border-border bg-card px-4 py-2.5 text-sm text-foreground outline-none focus:border-royal transition-colors resize-none"
-                    placeholder="Write your details, objectives, or questions here..."
-                  />
-                </div>
-
-                <div className="pt-2">
-                  <button
-                    type="submit"
-                    disabled={status === 'sending'}
-                    className="w-full rounded-xl bg-royal text-white font-bold py-3 px-4 flex items-center justify-center gap-2 hover:bg-royal/95 transition-all shadow-md shadow-royal/10"
-                  >
-                    {status === 'sending' ? (
-                      <span>Sending Message...</span>
-                    ) : (
-                      <>
-                        <Send className="h-4 w-4" /> Send Inquiry Message
-                      </>
-                    )}
-                  </button>
-                </div>
-              </form>
+                {/* Hidden iframe handles post natively */}
+                <iframe name="contact_iframe" style={{ display: 'none' }}></iframe>
+              </>
             )}
           </div>
         </div>
