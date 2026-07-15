@@ -8,6 +8,7 @@ export interface PersonalInfo {
   contact: string[]
   whatsapp: string
   email: string
+  contactFormUrl?: string
   links: {
     vidwan: string
     scopus: string
@@ -164,6 +165,7 @@ export const personalInfo: PersonalInfo = {
   contact: ['+91-7905184427', '+91-9795168526', '+91-6387549445'],
   whatsapp: '+91-9452913556',
   email: 'drvimalsingh@csjmu.ac.in',
+  contactFormUrl: '',
   links: {
     vidwan: 'https://vidwan.inflibnet.ac.in/profile/346396',
     scopus: 'https://www.scopus.com/authid/detail.uri?authorId=58797837900',

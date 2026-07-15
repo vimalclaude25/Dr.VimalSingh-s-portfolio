@@ -30,8 +30,17 @@ function ContactFormContent() {
     }
   }, [searchParams])
 
-  const handleSubmit = () => {
+  const targetUrl = personalInfo.contactFormUrl || "https://formsubmit.co/profvimalsingh@gmail.com"
+  const isGoogleScript = targetUrl.includes('script.google.com')
+
+  const handleSubmit = (e: React.FormEvent) => {
     setStatus('sending')
+    if (isGoogleScript) {
+      setTimeout(() => {
+        setStatus('success')
+        setFormData({ name: '', email: '', subject: 'General Inquiry', message: '' })
+      }, 2000)
+    }
   }
 
   return (
@@ -136,9 +145,11 @@ function ContactFormContent() {
                 <h3 className="font-heading text-lg font-bold">Message Sent Successfully!</h3>
                 <p className="text-sm mt-1">
                   Thank you. Dr. Vimal Singh will respond to your inquiry shortly.
-                  <span className="block mt-2 text-xs text-muted-foreground font-semibold">
-                    Note: If this is your first submission, please check your personal inbox (profvimalsingh@gmail.com) for a FormSubmit activation email and click confirm.
-                  </span>
+                  {!isGoogleScript && (
+                    <span className="block mt-2 text-xs text-muted-foreground font-semibold">
+                      Note: If this is your first submission, please check your personal inbox (profvimalsingh@gmail.com) for a FormSubmit activation email and click confirm.
+                    </span>
+                  )}
                 </p>
                 <button
                   onClick={() => {
@@ -153,8 +164,9 @@ function ContactFormContent() {
             ) : (
               <>
                 <form
-                  action="https://formsubmit.co/profvimalsingh@gmail.com"
+                  action={targetUrl}
                   method="POST"
+                  target={isGoogleScript ? "contact_iframe" : undefined}
                   onSubmit={handleSubmit}
                   className="space-y-4"
                 >
@@ -238,6 +250,8 @@ function ContactFormContent() {
                     </button>
                   </div>
                 </form>
+
+                {isGoogleScript && <iframe name="contact_iframe" style={{ display: 'none' }}></iframe>}
               </>
             )}
           </div>
