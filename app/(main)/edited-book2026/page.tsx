@@ -412,8 +412,8 @@ export default function EditedBooksPage() {
                     <button
                       onClick={() => setActiveFormBookId(isFormOpen ? null : book.id)}
                       className={`w-full sm:w-auto py-2.5 px-6 text-xs font-bold rounded-xl text-white transition-all shadow-sm flex items-center justify-center gap-1.5 ${isFormOpen
-                          ? 'bg-red-600 hover:bg-red-700'
-                          : 'bg-royal hover:bg-royal-dark'
+                        ? 'bg-red-600 hover:bg-red-700'
+                        : 'bg-royal hover:bg-royal-dark'
                         }`}
                     >
                       {isFormOpen ? 'Close Submission Form' : 'Submit Chapter Manuscript'} <FileUp className="h-4.5 w-4.5" />
@@ -725,8 +725,8 @@ export default function EditedBooksPage() {
                                 onDragLeave={handleDrag}
                                 onDrop={handleDrop}
                                 className={`relative border border-dashed rounded-2xl p-5 text-center transition-all ${dragActive
-                                    ? 'border-royal bg-royal/[0.02]'
-                                    : 'border-border bg-card hover:border-royal/50'
+                                  ? 'border-royal bg-royal/[0.02]'
+                                  : 'border-border bg-card hover:border-royal/50'
                                   }`}
                               >
                                 <input
