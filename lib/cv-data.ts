@@ -1716,4 +1716,470 @@ export const studyResourcesData: StudyResource[] = [
 
 ]
 
+export interface EditedBook2026 {
+  id: string
+  title: string
+  subtitle?: string
+  editor: string
+  editorTitle?: string
+  editorAffiliation?: string
+  coEditor: string
+  coEditorTitle?: string
+  coEditorAffiliation?: string
+  email: string
+  submissionPeriod?: string
+  deadline: string
+  whatsappQrUrl: string
+  whatsappGroupUrl: string
+  introduction: string
+  highlights: string[]
+  features: string[]
+  themes: {
+    title: string
+    subthemes: string[]
+  }[]
+  guidelines: {
+    font?: string
+    bodySize?: string
+    lineSpacing?: string
+    margins?: string
+    alignment?: string
+    citation?: string
+    wordLimit?: string
+    originality?: string
+    fileFormat?: string
+    peerReview?: string
+    note?: string
+    figures?: string
+  }
+}
+
+export const editedBooks2026Data: EditedBook2026[] = [
+  {
+    id: 'behind-the-algorithms',
+    title: 'Behind the Algorithms: AI, Ethics, and Society in the Global South',
+    subtitle: 'An Empirical, Practitioner-Grounded, India-Centered Exploration of AI and Society',
+    editor: 'Dr. Vimal Singh',
+    editorTitle: 'Assistant Professor, Department of Education',
+    editorAffiliation: 'Chhatrapati Shahu Ji Maharaj University, Kanpur',
+    coEditor: 'Mansi Singh',
+    coEditorTitle: 'Co-Editor',
+    coEditorAffiliation: 'Department of Education, Chhatrapati Shahu Ji Maharaj University, Kanpur',
+    email: 'behindthealgorithms.book@gmail.com',
+    deadline: '15 August 2026',
+    whatsappQrUrl: 'https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=https://chat.whatsapp.com/BehindTheAlgorithms2026',
+    whatsappGroupUrl: 'https://chat.whatsapp.com/BehindTheAlgorithms2026',
+    introduction: 'Behind the Algorithms examines AI not as a purely technical system but as a human institution shaped by the people who build it. Drawing on original mixed-methods field research with IT professionals across India, this book uncovers the gap between practitioners\' private recognition of bias and their public ethical resistance—revealing how organizational pressure, opaque data pipelines, and normative assumptions sustain inequity.',
+    highlights: [
+      'Original mixed-methods research with IT professionals in India',
+      'Dual-purpose: textbook (UG/PG) + research monograph',
+      'Bridges empirical data, practitioner voices and ethical theory',
+      'Explores ethical responsibility vs. organizational pressure',
+      'India-specific vulnerability framework (rural, linguistic, gendered, economic, disability)',
+      'Case studies, practitioner reflections & policy insights',
+      'Accessible language with academic rigor',
+      'Global relevance from a Global South perspective'
+    ],
+    features: [
+      'Peer-reviewed and edited chapters',
+      'Empirical and practitioner-grounded',
+      'Interdisciplinary and inclusive',
+      'Case studies and real-world examples',
+      'Pedagogical tools for classroom use',
+      'Global conversations from the margins'
+    ],
+    themes: [
+      {
+        title: 'PART I: FOUNDATIONS: AI AND SOCIETY',
+        subthemes: [
+          'Introduction: Artificial Intelligence as a Social Institution',
+          'A Brief History of AI, Bias, and the Question of Fairness',
+          'Understanding Algorithmic Bias: Data, Design, and Deployment',
+          'Key Theories in AI Ethics: Sociotechnical Systems and Justice'
+        ]
+      },
+      {
+        title: 'PART II: THE HUMAN IN THE LOOP',
+        subthemes: [
+          'Who Builds AI? The Role and Responsibility of IT Professionals',
+          'Individual Conscience vs. Organizational Pressure',
+          'Inside the Machine Room: Voices from India\'s IT Industry',
+          'Trust, Skepticism, and the Limits of Machine "Understanding"'
+        ]
+      },
+      {
+        title: 'PART III: SOCIETY, VULNERABILITY AND POWER',
+        subthemes: [
+          'Data Colonialism and the Global South: Whose AI Is It?',
+          'The India Story: Rural, Linguistic, Gendered, and Economic Bias',
+          'Disability, Accessibility, and the Excluded User',
+          'AI and Manipulation: Nudging the Vulnerable Citizen'
+        ]
+      },
+      {
+        title: 'PART IV: GOVERNANCE, EDUCATION AND THE ROAD AHEAD',
+        subthemes: [
+          'Regulating the Algorithm: Global and Indian Policy Landscapes',
+          'Teaching Ethics to Engineers: AI Literacy in Higher Education',
+          'Toward Responsible Design: Frameworks for Ethical Practice',
+          'Conclusion: Reimagining AI and Society from the Margins'
+        ]
+      }
+    ],
+    guidelines: {
+      font: 'Times New Roman',
+      bodySize: '12 pt',
+      lineSpacing: '1.16',
+      margins: '1 Inch (2.54 cm) on all sides',
+      alignment: 'Justified',
+      citation: 'APA 7th Edition for in-text citations and references',
+      originality: 'Similarity Index must be below 15%. All submissions must be original and unpublished.',
+      fileFormat: 'Microsoft Word format only (.doc or .docx)',
+      note: 'Include a title page with: Chapter Title, Author Name(s), Affiliation, Email ID. Submit your chapter proposal to the designated email.'
+    }
+  },
+  {
+    id: 'imt-literacy',
+    title: 'Information, Media and Technology Literacy (IMT): Educational Tools, Digital Transformation, and NEP 2020',
+    subtitle: 'An Edited Volume on Digital Education, IMT Literacy, and Educational Innovation',
+    editor: 'Dr. Vimal Singh',
+    editorTitle: 'Assistant Professor, Department of Education',
+    editorAffiliation: 'Chhatrapati Shahu Ji Maharaj University, Kanpur',
+    coEditor: 'Shivani Yaduvanshi',
+    coEditorTitle: 'Co-Editor / Research Scholar',
+    coEditorAffiliation: 'Department of Education, Chhatrapati Shahu Ji Maharaj University, Kanpur',
+    email: 'imteditedbook2026@gmail.com',
+    deadline: '15 October 2026',
+    whatsappQrUrl: 'https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=https://chat.whatsapp.com/IMTLiteracy2026',
+    whatsappGroupUrl: 'https://chat.whatsapp.com/IMTLiteracy2026',
+    introduction: 'This edited volume explores the triad of Information, Media and Technology Literacy (IMT) and its transformative role in education through digital tools, innovative pedagogies, and the vision of NEP 2020. It brings together research-backed insights, best practices, emerging trends, and future-ready approaches to empower learners, educators, and institutions in a technology-driven world.',
+    highlights: [
+      'Covers Information, Media & Technology Literacy comprehensively',
+      'Aligned with NEP 2020 and its digital vision',
+      'Focus on educational tools and digital transformation',
+      'Interdisciplinary, research-based and practice-oriented chapters',
+      'Includes case studies, frameworks, and best practices',
+      'National and international perspectives',
+      'Useful for educators, researchers, practitioners and policy makers'
+    ],
+    features: [
+      'Peer-reviewed and edited volume',
+      'ISBN with reputed publisher',
+      'Interdisciplinary and inclusive approach',
+      'Research-based and evidence-informed',
+      'Pedagogical tools for classroom use',
+      'Case studies and real-world examples',
+      'Global conversations from diverse contexts',
+      'High academic and editorial standards'
+    ],
+    themes: [
+      {
+        title: 'Theme 1: Information Literacy',
+        subthemes: [
+          'Digital Information Evaluation',
+          'Academic Information Retrieval',
+          'Research Information Management',
+          'Information Ethics',
+          'Critical Information Analysis'
+        ]
+      },
+      {
+        title: 'Theme 2: Media Literacy',
+        subthemes: [
+          'Digital Media Awareness',
+          'Social Media and Education',
+          'Fake News Detection',
+          'Responsible Media Consumption',
+          'Media Ethics'
+        ]
+      },
+      {
+        title: 'Theme 3: Technology Literacy',
+        subthemes: [
+          'Artificial Intelligence in Education',
+          'Educational Technologies',
+          'Blended Learning Platforms',
+          'ICT Integration in Teaching',
+          'Emerging Educational Technologies'
+        ]
+      },
+      {
+        title: 'Theme 4: Teacher Education and Professional Development',
+        subthemes: [
+          'Innovative Teaching Practices',
+          'Digital Pedagogy',
+          'Teacher Competency Development',
+          'Professional Learning Communities',
+          'Educational Leadership'
+        ]
+      },
+      {
+        title: 'Theme 5: Educational Innovation and Research',
+        subthemes: [
+          'NEP 2020 Implementation',
+          'Inclusive Education',
+          'Assessment and Evaluation',
+          'Educational Policy',
+          'Quality Assurance in Education'
+        ]
+      },
+      {
+        title: 'Theme 6: Emerging Trends in Education',
+        subthemes: [
+          'Smart Classrooms',
+          'Blended Learning',
+          'Sustainable Education',
+          'Future Skills',
+          'Global Perspectives in Education'
+        ]
+      }
+    ],
+    guidelines: {
+      font: 'Times New Roman',
+      bodySize: '12 pt',
+      lineSpacing: '1.15',
+      margins: '1 Inch (2.54 cm) on all sides',
+      alignment: 'Justified',
+      citation: 'Follow APA 7th Edition style consistently throughout the manuscript',
+      originality: 'Similarity index should preferably be below 10% (excluding references). Any form of plagiarism will result in immediate rejection.',
+      fileFormat: 'Microsoft Word (.doc or .docx) format only'
+    }
+  },
+  {
+    id: 'research-indexing',
+    title: 'Research Indexing and Scholarly Impact: A Comprehensive Guide to Visibility, Metrics and Impact in Academic Publishing',
+    subtitle: 'A Comprehensive Guide to Visibility, Metrics and Impact in Academic Publishing',
+    editor: 'Dr. Vimal Singh',
+    editorTitle: 'Assistant Professor, Department of Education',
+    editorAffiliation: 'Chhatrapati Shahu Ji Maharaj University, Kanpur',
+    coEditor: 'Suraj Gupta',
+    coEditorTitle: 'Co-Editor / Research Scholar',
+    coEditorAffiliation: 'Department of Education, Chhatrapati Shahu Ji Maharaj University, Kanpur',
+    email: '2026.editedbook@gmail.com',
+    deadline: '31 August 2025',
+    whatsappQrUrl: 'https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=https://chat.whatsapp.com/ResearchIndexing2026',
+    whatsappGroupUrl: 'https://chat.whatsapp.com/ResearchIndexing2026',
+    introduction: 'This edited book aims to provide a comprehensive guide to research indexing, citation metrics, and scholarly impact strategies, bringing together perspectives from bibliometricians, academic editors, publishers, librarians, and experienced researchers to maximize visibility and career advancement in the digital age.',
+    highlights: [
+      'Comprehensive coverage of indexing databases and criteria',
+      'In-depth understanding of metrics and research impact',
+      'Practical strategies for publishing in indexed venues',
+      'Special focus on books, edited volumes and chapters',
+      'Ethical publishing and future trends in research evaluation',
+      'Insights from global experts and real-world experiences'
+    ],
+    features: [
+      'DOI (Digital Object Identifier) provided for accepted chapters',
+      'Soft Copy (PDF) of the Published Book provided to all authors',
+      'No publication fee - all services are provided free of charge',
+      'Strengthen your academic profile with a peer-reviewed publication'
+    ],
+    themes: [
+      {
+        title: '01: Foundations of Research Indexing',
+        subthemes: [
+          'Definition and significance of research indexing',
+          'Historical evolution of citation indexing',
+          'Understanding indexing criteria',
+          'Overview of BKCI and its features',
+          'Indexing vs. abstracting services',
+          'Relationship with university rankings'
+        ]
+      },
+      {
+        title: '02: Major Indexing Databases and Their Working',
+        subthemes: [
+          'Scopus: scope, coverage, selection criteria',
+          'Web of Science & its indexes (SCI, SSCI, AHCI, ESCI)',
+          'Google Scholar: strengths & weaknesses',
+          'Regional & subject-specific databases',
+          'Metadata & its role in discoverability',
+          'Comparative analysis of indexing coverage'
+        ]
+      },
+      {
+        title: '03: Metrics, Evaluation and Scholarly Impact',
+        subthemes: [
+          'Citation metrics: h-index, i10-index, impact factor, etc.',
+          'Book-level metrics and citation patterns',
+          'Alternative metrics (altmetrics)',
+          'Indexing status & citation counts',
+          'Citation reports & analytics tools',
+          'Metrics in promotion, tenure & funding',
+          'Responsible use of metrics'
+        ]
+      },
+      {
+        title: '04: Practical Strategies for Publishing in Indexed Venues',
+        subthemes: [
+          'Choosing the right journal, series or publisher',
+          'Manuscript preparation & metadata optimization',
+          'Publisher policies regarding indexing',
+          'Strategies to enhance citation impact',
+          'Timing of publication for visibility',
+          'Building a publication portfolio',
+          'Preprints, repositories & discoverability',
+          'Promoting research after publication'
+        ]
+      },
+      {
+        title: '05: Edited Volumes, Books and Special Considerations',
+        subthemes: [
+          'Unique aspects of book publishing',
+          'Indexing of monographs, edited volumes and chapters',
+          'Book proposal to indexing: the journey',
+          'Peer review, ISBN, DOI & metadata',
+          'Book series and indexing requirements',
+          'Visibility and marketing of books'
+        ]
+      },
+      {
+        title: '06: Ethical, Regional and Future Perspectives',
+        subthemes: [
+          'Predatory publishing and quality assurance',
+          'Ethical considerations in research evaluation',
+          'Regional challenges & opportunities',
+          'Open access and digital publishing',
+          'Future of indexing and scholarly communication',
+          'Future-implications for stakeholders'
+        ]
+      }
+    ],
+    guidelines: {
+      font: 'Times New Roman',
+      bodySize: '12 pt',
+      lineSpacing: '1.15',
+      margins: '1 Inch (2.54 cm) on all sides',
+      alignment: 'Justified',
+      citation: 'Follow APA 7th Edition style consistently. Every reference listed must be cited in the text.',
+      wordLimit: '3,000 to 6,000 words inclusive of references, tables, and figures',
+      originality: 'Only original and unpublished manuscripts will be considered. Similarity index should preferably be below 10% (excluding references).',
+      fileFormat: 'Microsoft Word (.doc or .docx) format only',
+      note: 'File name format: ThemeNo_Subtheme_YourName (Example: 2_1_IndexingCriteria_Singh.docx)'
+    }
+  },
+  {
+    id: 'genai-obe',
+    title: 'Integrating Generative Artificial Intelligence and Outcome-Based Education (OBE)',
+    subtitle: 'Transforming Teaching, Learning, Assessment and Educational Innovation in the Age of Artificial Intelligence',
+    editor: 'Dr. Vimal Singh',
+    editorTitle: 'Chief Editor / Assistant Professor, Department of Education',
+    editorAffiliation: 'Chhatrapati Shahu Ji Maharaj University, Kanpur',
+    coEditor: 'Saumya Tripathi',
+    coEditorTitle: 'Co-Editor / Post Graduate Scholar',
+    coEditorAffiliation: 'Department of Education, Chhatrapati Shahu Ji Maharaj University, Kanpur',
+    email: 'genai.obe.editedbook@gmail.com',
+    submissionPeriod: '15th July 2026 to 15th August 2026',
+    deadline: '15 August 2026',
+    whatsappQrUrl: 'https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=https://chat.whatsapp.com/GenAIOutcomeBasedEducation2026',
+    whatsappGroupUrl: 'https://chat.whatsapp.com/GenAIOutcomeBasedEducation2026',
+    introduction: 'Artificial Intelligence is rapidly reshaping the global education landscape by personalizing learning, enhancing instructional design, automating assessment, and enabling data-driven decision making. Outcome-Based Education (OBE) ensures that learning is aligned with clearly defined outcomes, promoting learner-centricity, accountability and measurable success. This edited book brings together researchers, educators, practitioners and policy makers to explore how Generative AI can strengthen OBE practices across school, higher and technical education.',
+    highlights: [
+      'International Edited Book with ISBN and DOI for each chapter',
+      'Double Blind Peer Review with an international editorial board',
+      'No publication fee (all services provided free of charge)',
+      'Provides wide academic visibility and networking opportunities'
+    ],
+    features: [
+      'Explore cutting-edge GenAI applications for educational transformation',
+      'Rigorous peer review and high publishing standards',
+      'Enhance academic citations and dissemination',
+      'Contribute to inclusive, ethical, and learner-centered educational environments'
+    ],
+    themes: [
+      {
+        title: '01 Generative AI and the Implementation of NEP 2020',
+        subthemes: [
+          'AI-driven policies, curricular reforms, and institutional readiness under NEP 2020'
+        ]
+      },
+      {
+        title: '02 Generative AI for Achieving SDG 4: Quality Education',
+        subthemes: [
+          'Roles of GenAI in promoting inclusive, equitable, and lifelong learning opportunities'
+        ]
+      },
+      {
+        title: '03 Ethical, Responsible and Inclusive Use of AI in Education',
+        subthemes: [
+          'Addressing bias, privacy, equity, and access in AI-integrated learning systems'
+        ]
+      },
+      {
+        title: '04 AI-Driven Learning Analytics and Educational Data Intelligence',
+        subthemes: [
+          'Predictive modeling, performance tracking, and diagnostics for personalized interventions'
+        ]
+      },
+      {
+        title: '05 AI-Assisted Lesson Planning, Content Development and Instructional Design',
+        subthemes: [
+          'Automating resources creation, multi-modal content curation, and custom learning pathways'
+        ]
+      },
+      {
+        title: '06 Academic Integrity, Assessment Security and Responsible AI Use',
+        subthemes: [
+          'Rethinking plagiarism, cheating prevention, and novel assessment frameworks for AI age'
+        ]
+      },
+      {
+        title: '07 AI in Teacher Education and Professional Development',
+        subthemes: [
+          'Empowering educators with AI competencies, digital tutoring, and reflective teaching practices'
+        ]
+      },
+      {
+        title: '08 AI-Supported Research, Academic Writing and Scholarly Communication',
+        subthemes: [
+          'Leveraging AI as a writing co-pilot, data analyzer, and literature reviewer responsibly'
+        ]
+      },
+      {
+        title: '09 AI for Inclusive, Accessible and Equitable Education',
+        subthemes: [
+          'Assisting diverse learners, including students with special education needs (SEN)'
+        ]
+      },
+      {
+        title: '10 Future Classrooms: Smart Learning Environments and Educational Innovation',
+        subthemes: [
+          'Integrating VR/AR, voice assistants, adaptive learning systems, and IoT in future schools'
+        ]
+      },
+      {
+        title: '11 AI Applications in School, Higher and Technical Education',
+        subthemes: [
+          'Domain-specific implementations, engineering and medical training innovations'
+        ]
+      },
+      {
+        title: '12 Policy, Governance and Leadership for AI-Integrated Education',
+        subthemes: [
+          'Guidelines, risk management, and administrative strategies for educational leaders'
+        ]
+      },
+      {
+        title: '13 Case Studies, Best Practices and Innovative Models of AI-Integrated OBE',
+        subthemes: [
+          'Real-world institutional deployments, evaluation metrics, and lessons learned'
+        ]
+      }
+    ],
+    guidelines: {
+      font: 'Times New Roman',
+      bodySize: '12 pt',
+      lineSpacing: '1.5',
+      margins: '1-inch margin on all sides',
+      alignment: 'Justified',
+      citation: 'APA 7th Edition',
+      wordLimit: '4,000 to 7,000 words',
+      originality: 'Maximum 10% AI-generated content (must be properly edited and verified). Plagiarism/similarity index must be below 10%.',
+      fileFormat: 'MS Word (.doc/.docx) format only',
+      peerReview: 'Double Blind',
+      figures: '300 dpi editable'
+    }
+  }
+]
+
 
