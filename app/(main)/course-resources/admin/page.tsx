@@ -109,13 +109,23 @@ function AdminContent() {
 
   const fetchResourcesList = async () => {
     setIsLoadingResources(true)
+    setErrorMessage('')
     try {
       const res = await fetch(`https://api.github.com/repos/${gitOwner}/${gitRepo}/contents/lib/cv-data.ts`, {
         headers: {
-          Authorization: `token ${gitPat}`
+          'Authorization': `Bearer ${gitPat}`,
+          'Accept': 'application/vnd.github+json',
+          'X-GitHub-Api-Version': '2022-11-28'
         }
       })
-      if (!res.ok) throw new Error('Failed to fetch cv-data.ts')
+      if (!res.ok) {
+        let errMessage = `HTTP ${res.status}: ${res.statusText}`
+        try {
+          const errData = await res.json()
+          if (errData && errData.message) errMessage += ` (${errData.message})`
+        } catch (_) {}
+        throw new Error(`Failed to fetch cv-data.ts from GitHub. Details: ${errMessage}. Please check repository settings and verify that your GitHub Token has 'repo' permission.`)
+      }
       const data = await res.json()
       const rawContent = decodeURIComponent(escape(atob(data.content)))
       
@@ -133,8 +143,9 @@ function AdminContent() {
       } else {
         setExistingResources([])
       }
-    } catch (err) {
+    } catch (err: any) {
       console.error(err)
+      setErrorMessage(err.message || 'Failed to fetch existing resources.')
     } finally {
       setIsLoadingResources(false)
     }
@@ -292,11 +303,20 @@ function AdminContent() {
       const dbUrl = `https://api.github.com/repos/${gitOwner}/${gitRepo}/contents/lib/cv-data.ts`
       const gitGetRes = await fetch(dbUrl, {
         headers: {
-          Authorization: `token ${gitPat}`
+          'Authorization': `Bearer ${gitPat}`,
+          'Accept': 'application/vnd.github+json',
+          'X-GitHub-Api-Version': '2022-11-28'
         }
       })
 
-      if (!gitGetRes.ok) throw new Error('Failed to read cv-data.ts from your GitHub repository.')
+      if (!gitGetRes.ok) {
+        let errMessage = `HTTP ${gitGetRes.status}: ${gitGetRes.statusText}`
+        try {
+          const errData = await gitGetRes.json()
+          if (errData && errData.message) errMessage += ` (${errData.message})`
+        } catch (_) {}
+        throw new Error(`Failed to read cv-data.ts from your GitHub repository. Details: ${errMessage}. Please verify that your GitHub Token has 'repo' permission, and that the Username (${gitOwner}) and Repo Name (${gitRepo}) are correct.`)
+      }
       const gitData = await gitGetRes.json()
       const decodedContent = decodeURIComponent(escape(atob(gitData.content)))
       const fileSha = gitData.sha
@@ -351,7 +371,9 @@ function AdminContent() {
       const gitPutRes = await fetch(dbUrl, {
         method: 'PUT',
         headers: {
-          Authorization: `token ${gitPat}`,
+          'Authorization': `Bearer ${gitPat}`,
+          'Accept': 'application/vnd.github+json',
+          'X-GitHub-Api-Version': '2022-11-28',
           'Content-Type': 'application/json'
         },
         body: JSON.stringify({
@@ -361,7 +383,14 @@ function AdminContent() {
         })
       })
 
-      if (!gitPutRes.ok) throw new Error('Failed to push updates to GitHub repository.')
+      if (!gitPutRes.ok) {
+        let errMessage = `HTTP ${gitPutRes.status}: ${gitPutRes.statusText}`
+        try {
+          const errData = await gitPutRes.json()
+          if (errData && errData.message) errMessage += ` (${errData.message})`
+        } catch (_) {}
+        throw new Error(`Failed to push updates to GitHub repository. Details: ${errMessage}`)
+      }
 
       setSteps(prev => {
         const next = [...prev]
@@ -426,7 +455,9 @@ function AdminContent() {
       const gitPutRes = await fetch(dbUrl, {
         method: 'PUT',
         headers: {
-          Authorization: `token ${gitPat}`,
+          'Authorization': `Bearer ${gitPat}`,
+          'Accept': 'application/vnd.github+json',
+          'X-GitHub-Api-Version': '2022-11-28',
           'Content-Type': 'application/json'
         },
         body: JSON.stringify({
@@ -436,7 +467,14 @@ function AdminContent() {
         })
       })
 
-      if (!gitPutRes.ok) throw new Error('Failed to push deletion commit to GitHub.')
+      if (!gitPutRes.ok) {
+        let errMessage = `HTTP ${gitPutRes.status}: ${gitPutRes.statusText}`
+        try {
+          const errData = await gitPutRes.json()
+          if (errData && errData.message) errMessage += ` (${errData.message})`
+        } catch (_) {}
+        throw new Error(`Failed to push deletion commit to GitHub. Details: ${errMessage}`)
+      }
 
       setSuccessMessage(`Successfully deleted "${titleVal}" and triggered site rebuild.`)
       fetchResourcesList()
