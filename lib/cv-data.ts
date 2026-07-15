@@ -1603,6 +1603,19 @@ export const coursesData: Course[] = [
 ]
 
 export const studyResourcesData: StudyResource[] = [
+  {
+    id: 1784102231488,
+    title: "test case 1",
+    desc: "",
+    courseCode: "MED104",
+    type: "Video",
+    link: "https://youtu.be/YLeK4pBFEhk?si=BlQoslCff7bsNO2O",
+    
+    duration: "Video class",
+    thumbnail: "https://img.youtube.com/vi/YLeK4pBFEhk/mqdefault.jpg",
+    date: "15 July 2026"
+  },
+
 
 
   {
