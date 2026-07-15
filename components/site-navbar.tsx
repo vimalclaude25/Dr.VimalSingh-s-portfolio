@@ -63,63 +63,15 @@ const nav: NavItem[] = [
     ],
   },
   {
-    label: 'NTA NET Resources',
+    label: 'E-Resources',
     href: '/e-resources',
-    megaMenu: [
-      {
-        title: 'NET Preparation',
-        items: [
-          { label: 'About UGC NET', href: '/e-resources?category=preparation' },
-          { label: 'Exam Pattern', href: '/e-resources?category=preparation' },
-          { label: 'Latest Syllabus', href: '/e-resources?category=preparation' },
-          { label: 'Eligibility', href: '/e-resources?category=preparation' },
-          { label: 'Important Dates', href: '/e-resources?category=preparation' },
-          { label: 'Previous Year Trends', href: '/e-resources?category=preparation' },
-        ],
-      },
-      {
-        title: 'Study Materials',
-        items: [
-          { label: 'Notes', href: '/e-resources?category=materials' },
-          { label: 'PDF Resources', href: '/e-resources?category=materials' },
-          { label: 'PPT Repository', href: '/e-resources?category=materials' },
-          { label: 'Short Notes', href: '/e-resources?category=materials' },
-          { label: 'Mind Maps', href: '/e-resources?category=materials' },
-          { label: 'Flash Cards', href: '/e-resources?category=materials' },
-          { label: 'Infographics', href: '/e-resources?category=materials' },
-        ],
-      },
-      {
-        title: 'MCQ Practice',
-        items: [
-          { label: 'Topic-wise MCQs', href: '/e-resources?category=mcqs' },
-          { label: 'PYQs', href: '/e-resources?category=mcqs' },
-          { label: 'Daily Quiz', href: '/e-resources?category=mcqs' },
-          { label: 'Weekly Test', href: '/e-resources?category=mcqs' },
-          { label: 'Mock Tests', href: '/e-resources?category=mcqs' },
-          { label: 'Full-Length Tests', href: '/e-resources?category=mcqs' },
-        ],
-      },
-      {
-        title: 'Video Library',
-        items: [
-          { label: 'Recorded Classes', href: '/e-resources?category=videos' },
-          { label: 'Research Bytes', href: '/e-resources?category=videos' },
-          { label: 'Short Concept Videos', href: '/e-resources?category=videos' },
-          { label: 'Live Sessions', href: '/e-resources?category=videos' },
-          { label: 'Webinar Recordings', href: '/e-resources?category=videos' },
-        ],
-      },
-      {
-        title: 'Success Stories',
-        items: [
-          { label: 'NET Qualified Students', href: '/e-resources?category=success' },
-          { label: 'JRF Awardees', href: '/e-resources?category=success' },
-          { label: 'Testimonials', href: '/e-resources?category=success' },
-          { label: 'Rank Holders', href: '/e-resources?category=success' },
-          { label: 'Interview Experiences', href: '/e-resources?category=success' },
-        ],
-      },
+    children: [
+      { label: 'UGC NET Syllabus', href: '/e-resources/syllabus' },
+      { label: 'Prep Guides', href: '/e-resources?category=preparation' },
+      { label: 'Study Materials', href: '/e-resources?category=materials' },
+      { label: 'MCQs & Quizzes', href: '/e-resources?category=mcqs' },
+      { label: 'Video Lectures', href: '/e-resources?category=videos' },
+      { label: 'Success Stories', href: '/e-resources?category=success' },
     ],
   },
   {
@@ -156,9 +108,9 @@ export function SiteNavbar() {
     } else if (pathname.includes('research') || pathname.includes('project') || pathname.includes('innovation') || pathname.includes('guidance')) {
       setActive('Research')
     } else if (pathname === '/e-resources') {
-      setActive('NTA NET Resources')
+      setActive('E-Resources')
     } else if (pathname === '/ai-lab') {
-      setActive('NTA NET Resources') // Or highlight home/etc
+      setActive('E-Resources') // Or highlight home/etc
     }
   }, [pathname])
 
@@ -232,7 +184,7 @@ export function SiteNavbar() {
               {/* Mega Menu Dropdown */}
               {item.megaMenu && (
                 <div className="invisible absolute left-1/2 top-full -translate-x-1/2 translate-y-2 rounded-2xl border border-border bg-popover p-6 opacity-0 shadow-2xl transition-all duration-200 group-hover:visible group-hover:translate-y-0 group-hover:opacity-100 w-[550px] xl:w-[840px] max-w-screen-lg">
-                  <div className={`grid gap-6 ${item.label === 'NTA NET Resources' ? 'grid-cols-5' : 'grid-cols-2'}`}>
+                  <div className={`grid gap-6 ${item.megaMenu.length === 5 ? 'grid-cols-5' : 'grid-cols-2'}`}>
                     {item.megaMenu.map((col) => (
                       <div key={col.title}>
                         <h4 className="font-heading text-[10px] font-bold uppercase tracking-wider text-muted-foreground mb-3 border-b border-border pb-1">
