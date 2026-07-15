@@ -14,6 +14,8 @@ import {
   ExternalLink,
   ChevronDown,
   ChevronUp,
+  ChevronLeft,
+  ChevronRight,
   RefreshCw,
   AlertCircle,
   FileDown,
@@ -24,7 +26,7 @@ import { editedBooks2026Data, EditedBook2026 } from '@/lib/cv-data'
 
 export default function EditedBooksPage() {
   const [selectedBook, setSelectedBook] = useState<EditedBook2026 | null>(null)
-  const [activeTab, setActiveTab] = useState<'overview' | 'themes' | 'guidelines' | 'submit'>('overview')
+  const [activeTab, setActiveTab] = useState<'overview' | 'flyer' | 'themes' | 'guidelines' | 'submit'>('overview')
   const [expandedTheme, setExpandedTheme] = useState<number | null>(null)
 
   // Form States
@@ -220,7 +222,7 @@ export default function EditedBooksPage() {
                   </div>
                 </div>
 
-                <div className="mt-6 flex gap-3">
+                <div className="mt-6 flex flex-wrap gap-2.5">
                   <button
                     onClick={(e) => {
                       e.stopPropagation()
@@ -230,15 +232,28 @@ export default function EditedBooksPage() {
                         document.getElementById('book-detail-container')?.scrollIntoView({ behavior: 'smooth' })
                       }, 50)
                     }}
-                    className="flex-1 text-center py-2.5 px-4 text-xs font-bold rounded-xl text-white bg-royal hover:bg-royal-dark transition-all duration-200"
+                    className="flex-1 text-center py-2.5 px-3 text-xs font-bold rounded-xl text-white bg-royal hover:bg-royal-dark transition-all duration-200 min-w-[140px]"
                   >
-                    Submit Chapter Proposal
+                    Submit Chapter
+                  </button>
+                  <button
+                    onClick={(e) => {
+                      e.stopPropagation()
+                      setSelectedBook(book)
+                      setTimeout(() => {
+                        setActiveTab('flyer')
+                        document.getElementById('book-detail-container')?.scrollIntoView({ behavior: 'smooth' })
+                      }, 50)
+                    }}
+                    className="py-2.5 px-3 text-xs font-bold rounded-xl border border-royal/35 text-royal bg-royal/5 hover:bg-royal/10 transition-all duration-200"
+                  >
+                    View Flyer
                   </button>
                   <button
                     onClick={() => setSelectedBook(book)}
-                    className="py-2.5 px-4 text-xs font-bold rounded-xl border border-border text-foreground hover:bg-muted/30 transition-all duration-200"
+                    className="py-2.5 px-3 text-xs font-bold rounded-xl border border-border text-foreground hover:bg-muted/30 transition-all duration-200"
                   >
-                    View Details
+                    Details
                   </button>
                 </div>
               </motion.div>
@@ -301,6 +316,16 @@ export default function EditedBooksPage() {
                 }`}
               >
                 Overview &amp; Highlights
+              </button>
+              <button
+                onClick={() => setActiveTab('flyer')}
+                className={`py-3 px-5 text-sm font-bold border-b-2 transition-all whitespace-nowrap ${
+                  activeTab === 'flyer'
+                    ? 'border-royal text-royal font-extrabold'
+                    : 'border-transparent text-muted-foreground hover:text-foreground'
+                }`}
+              >
+                Flyer Preview
               </button>
               <button
                 onClick={() => setActiveTab('themes')}
@@ -425,6 +450,26 @@ export default function EditedBooksPage() {
                       </div>
                     </div>
                   </div>
+                </motion.div>
+              )}
+
+              {/* Tab 1.5: Flyer Preview */}
+              {activeTab === 'flyer' && selectedBook.flyerImages && (
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  className="space-y-6 max-w-4xl mx-auto"
+                >
+                  <div className="mb-4">
+                    <h3 className="text-base font-bold text-navy dark:text-white uppercase tracking-wider mb-1 font-heading">
+                      Official Book Flyer
+                    </h3>
+                    <p className="text-xs text-muted-foreground">
+                      Below is the official flyer and call-for-chapters brochure containing comprehensive details.
+                    </p>
+                  </div>
+
+                  <FlyerCarousel images={selectedBook.flyerImages} title={selectedBook.title} />
                 </motion.div>
               )}
 
@@ -973,6 +1018,132 @@ export default function EditedBooksPage() {
           </motion.div>
         )}
       </AnimatePresence>
+    </div>
+  )
+}
+
+function FlyerCarousel({ images, title }: { images: string[]; title: string }) {
+  const [current, setCurrent] = useState(0)
+  const [imageErrors, setImageErrors] = useState<boolean[]>(new Array(images.length).fill(false))
+
+  const prev = () => setCurrent((c) => (c === 0 ? images.length - 1 : c - 1))
+  const next = () => setCurrent((c) => (c === images.length - 1 ? 0 : c + 1))
+
+  const handleImageError = (index: number) => {
+    setImageErrors((prevErrors) => {
+      const copy = [...prevErrors]
+      copy[index] = true
+      return copy
+    })
+  }
+
+  return (
+    <div className="relative w-full">
+      <div className="relative w-full h-[500px] sm:h-[650px] overflow-hidden rounded-3xl border border-border bg-muted/20 shadow-inner flex items-center justify-center">
+        {imageErrors[current] ? (
+          <div className="absolute inset-0 p-8 flex flex-col justify-between bg-gradient-to-br from-navy to-royal text-white overflow-y-auto">
+            {/* Fallback Flyer Preview */}
+            <div className="text-center pb-4 border-b border-white/20">
+              <span className="px-3 py-1 bg-gold/25 border border-gold/40 rounded-full text-[10px] font-bold uppercase tracking-wider text-gold">
+                Flyer Preview Mode
+              </span>
+              <h4 className="mt-4 font-heading text-lg font-bold uppercase leading-snug">
+                {title}
+              </h4>
+            </div>
+
+            <div className="py-6 space-y-4 text-xs max-w-xl mx-auto leading-relaxed">
+              <p className="text-white/80 text-center italic">
+                (Visual Preview: Please place the flyer image file at "{images[current]}" inside the public folder to display the official flyer image here).
+              </p>
+
+              <div className="bg-white/5 rounded-2xl p-5 border border-white/10 space-y-3">
+                <div className="flex justify-between border-b border-white/10 pb-1.5 font-bold">
+                  <span>CHAPTER SUBMISSION CALL</span>
+                  <span className="text-gold">OPEN</span>
+                </div>
+                <p>
+                  Researchers, academicians, and practitioners are cordially invited to submit original, unpublished book chapters for this edited volume.
+                </p>
+                <div className="grid grid-cols-2 gap-3 text-[11px] pt-1">
+                  <div>
+                    <strong className="block text-white/50 text-[10px]">CHIEF EDITOR</strong>
+                    <span>Dr. Vimal Singh</span>
+                  </div>
+                  <div>
+                    <strong className="block text-white/50 text-[10px]">NO PUBLICATION FEE</strong>
+                    <span>Free of charge</span>
+                  </div>
+                </div>
+              </div>
+
+              <div className="bg-white/5 rounded-2xl p-5 border border-white/10 space-y-2">
+                <strong className="block text-gold text-[10px] uppercase font-bold tracking-wider">Formatting Checklist</strong>
+                <ul className="list-disc list-inside space-y-1 text-white/90">
+                  <li>Font: Times New Roman, 12pt (1.15/1.5 spacing)</li>
+                  <li>Referencing Style: APA 7th Edition style</li>
+                  <li>Similarity/Plagiarism: Under 10% - 15%</li>
+                  <li>Chapters submitted in MS Word (.doc/.docx)</li>
+                </ul>
+              </div>
+            </div>
+
+            <div className="text-center pt-4 border-t border-white/20 text-[11px] text-white/60">
+              Page {current + 1} of {images.length} • Scan the WhatsApp QR inside "Submit Proposal" tab to join the group.
+            </div>
+          </div>
+        ) : (
+          <div className="relative w-full h-full flex items-center justify-center p-2">
+            <img
+              src={images[current]}
+              alt={`${title} flyer — page ${current + 1}`}
+              className="max-w-full max-h-full object-contain rounded-2xl shadow-md transition-all duration-300"
+              onError={() => handleImageError(current)}
+            />
+          </div>
+        )}
+
+        {images.length > 1 && (
+          <>
+            <button
+              onClick={prev}
+              type="button"
+              className="absolute left-4 top-1/2 -translate-y-1/2 flex h-10 w-10 items-center justify-center rounded-full bg-navy/60 text-white hover:bg-navy/90 hover:scale-105 transition-all backdrop-blur-sm shadow-md"
+              aria-label="Previous page"
+            >
+              <ChevronLeft className="h-5 w-5" />
+            </button>
+            <button
+              onClick={next}
+              type="button"
+              className="absolute right-4 top-1/2 -translate-y-1/2 flex h-10 w-10 items-center justify-center rounded-full bg-navy/60 text-white hover:bg-navy/90 hover:scale-105 transition-all backdrop-blur-sm shadow-md"
+              aria-label="Next page"
+            >
+              <ChevronRight className="h-5 w-5" />
+            </button>
+          </>
+        )}
+
+        <span className="absolute bottom-4 left-1/2 -translate-x-1/2 rounded-full bg-navy/70 px-4 py-1 text-xs font-bold text-white backdrop-blur-sm shadow-sm">
+          Page {current + 1} / {images.length}
+        </span>
+      </div>
+
+      {images.length > 1 && (
+        <div className="mt-3 flex justify-center gap-2">
+          {images.map((_, i) => (
+            <button
+              key={i}
+              onClick={() => setCurrent(i)}
+              type="button"
+              className={`h-2 rounded-full transition-all duration-300 ${
+                i === current ? 'w-6 bg-royal' : 'w-2 bg-border hover:bg-royal/50'
+              }`}
+              aria-label={`Go to page ${i + 1}`}
+            />
+          ))}
+        </div>
+      )}
     </div>
   )
 }

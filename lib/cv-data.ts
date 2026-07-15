@@ -1734,6 +1734,7 @@ export interface EditedBook2026 {
   introduction: string
   highlights: string[]
   features: string[]
+  flyerImages: string[]
   themes: {
     title: string
     subthemes: string[]
@@ -1769,6 +1770,7 @@ export const editedBooks2026Data: EditedBook2026[] = [
     deadline: '15 August 2026',
     whatsappQrUrl: 'https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=https://chat.whatsapp.com/BehindTheAlgorithms2026',
     whatsappGroupUrl: 'https://chat.whatsapp.com/BehindTheAlgorithms2026',
+    flyerImages: ['/flyers/behind-the-algorithms-1.jpg', '/flyers/behind-the-algorithms-2.jpg'],
     introduction: 'Behind the Algorithms examines AI not as a purely technical system but as a human institution shaped by the people who build it. Drawing on original mixed-methods field research with IT professionals across India, this book uncovers the gap between practitioners\' private recognition of bias and their public ethical resistance—revealing how organizational pressure, opaque data pipelines, and normative assumptions sustain inequity.',
     highlights: [
       'Original mixed-methods research with IT professionals in India',
@@ -1852,6 +1854,7 @@ export const editedBooks2026Data: EditedBook2026[] = [
     deadline: '15 October 2026',
     whatsappQrUrl: 'https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=https://chat.whatsapp.com/IMTLiteracy2026',
     whatsappGroupUrl: 'https://chat.whatsapp.com/IMTLiteracy2026',
+    flyerImages: ['/flyers/imt-literacy-1.jpg', '/flyers/imt-literacy-2.jpg'],
     introduction: 'This edited volume explores the triad of Information, Media and Technology Literacy (IMT) and its transformative role in education through digital tools, innovative pedagogies, and the vision of NEP 2020. It brings together research-backed insights, best practices, emerging trends, and future-ready approaches to empower learners, educators, and institutions in a technology-driven world.',
     highlights: [
       'Covers Information, Media & Technology Literacy comprehensively',
@@ -1959,6 +1962,7 @@ export const editedBooks2026Data: EditedBook2026[] = [
     deadline: '31 August 2025',
     whatsappQrUrl: 'https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=https://chat.whatsapp.com/ResearchIndexing2026',
     whatsappGroupUrl: 'https://chat.whatsapp.com/ResearchIndexing2026',
+    flyerImages: ['/flyers/research-indexing-1.jpg', '/flyers/research-indexing-2.jpg'],
     introduction: 'This edited book aims to provide a comprehensive guide to research indexing, citation metrics, and scholarly impact strategies, bringing together perspectives from bibliometricians, academic editors, publishers, librarians, and experienced researchers to maximize visibility and career advancement in the digital age.',
     highlights: [
       'Comprehensive coverage of indexing databases and criteria',
@@ -2073,6 +2077,7 @@ export const editedBooks2026Data: EditedBook2026[] = [
     deadline: '15 August 2026',
     whatsappQrUrl: 'https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=https://chat.whatsapp.com/GenAIOutcomeBasedEducation2026',
     whatsappGroupUrl: 'https://chat.whatsapp.com/GenAIOutcomeBasedEducation2026',
+    flyerImages: ['/flyers/genai-obe-1.jpg', '/flyers/genai-obe-2.jpg'],
     introduction: 'Artificial Intelligence is rapidly reshaping the global education landscape by personalizing learning, enhancing instructional design, automating assessment, and enabling data-driven decision making. Outcome-Based Education (OBE) ensures that learning is aligned with clearly defined outcomes, promoting learner-centricity, accountability and measurable success. This edited book brings together researchers, educators, practitioners and policy makers to explore how Generative AI can strengthen OBE practices across school, higher and technical education.',
     highlights: [
       'International Edited Book with ISBN and DOI for each chapter',
