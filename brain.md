@@ -29,6 +29,7 @@ academic-portfolio-website/
 │   │   ├── layout.tsx        # Shared site layout (Navbar, Footer, Topbar)
 │   │   ├── page.tsx          # Main home page component assembling all sections
 │   │   ├── ai-lab/           # AI & Innovation Lab subpage [NEW]
+│   │   ├── course-resources/ # Course Materials & Resources study hub subpage [NEW]
 │   │   ├── projects-consultancy/ # Government grants & industry consultancy subpage [NEW]
 │   │   ├── publications/     # Full-featured search & filter books/chapters subpage [NEW]
 │   │   ├── research-guidance/ # Interactive Ph.D. & M.Ed. cohorts statistics subpage [NEW]
@@ -72,6 +73,7 @@ academic-portfolio-website/
 1. **Centralized Data Store (`lib/cv-data.ts`)**:
    - Stores CV data including basic info, research projects, publications, activities, education, experience, teaching details, and news/events.
    - Houses `researchNewsData` representing the news coverage archives.
+   - Houses `coursesData` and `studyResourcesData` representing syllabi content for MED104 & MED305 and teaching resources.
    - Provides a single source of truth, making it easy to update content by modifying this file.
 2. **Main Page Layout (`app/page.tsx`)**:
    - Composition of individual section components (now including `ResearchNewsSection`).

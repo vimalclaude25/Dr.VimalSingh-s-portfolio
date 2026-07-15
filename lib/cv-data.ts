@@ -1412,3 +1412,276 @@ export const researchNewsData: ResearchNewsItem[] = [
   },
 ]
 
+export interface Course {
+  code: string
+  title: string
+  semester: string
+  objectives: string[]
+  outcomes: string[]
+  units: {
+    number: number
+    title: string
+    topics: string[]
+  }[]
+  practicum: string[]
+  readings: string[]
+}
+
+export interface StudyResource {
+  id: number
+  title: string
+  desc: string
+  courseCode: 'MED104' | 'MED305' | 'General'
+  type: 'PDF' | 'PPT' | 'Infographic' | 'Video'
+  link: string
+  fileSize?: string
+  duration?: string
+  date: string
+}
+
+export const coursesData: Course[] = [
+  {
+    code: 'MED104',
+    title: 'Research Methods in Education (General Perspectives)',
+    semester: 'M.Ed. Semester I',
+    objectives: [
+      'Understand the meaning of Scientific Method, Scientific Inquiry, Paradigm, Theory and its Implications in Educational Research.',
+      'Explain the Characteristics of Basic, Applied and Action Researches in Education.',
+      'Understand the Different Methods of Educational Research.',
+      'Develop the Research Proposal.',
+      'Familiarize with Various Techniques of Sampling.'
+    ],
+    outcomes: [
+      'Comprehend the concept and types of research.',
+      'Distinguish characteristics and uses of various quantitative and qualitative research approaches.',
+      'Apprehend the various sampling techniques that can be used for data collection.',
+      'Get comprehensive knowledge about review of related literature.'
+    ],
+    units: [
+      {
+        number: 1,
+        title: 'Research - Nature and Concept',
+        topics: [
+          'Research – Nature and its concept.',
+          'Inquiry - Scientific method of inquiry, nature and sources of knowledge.',
+          'Paradigm - Pre-positivist and positivist era, theory, models and approaches their implications for educational research.',
+          'Educational Research: meaning, purpose, scope and areas.',
+          'Types of Educational Research: Basic, Applied and Action research and their characteristics.'
+        ]
+      },
+      {
+        number: 2,
+        title: 'Literature Review and Problem Identification',
+        topics: [
+          'Review of related literature - meaning, purpose and resources.',
+          'References (APA style), selected Bibliography, annotated Bibliography, identification and sources of research problems.',
+          'Conducting the literature search using databases and internet. Internet search tools and quality of internet resources.'
+        ]
+      },
+      {
+        number: 3,
+        title: 'Population, Sampling, and Errors',
+        topics: [
+          'Population & sample and their characteristics.',
+          'Sampling Techniques - Probability & Non-Probability.',
+          'Sampling Errors and ways to reduce them.'
+        ]
+      },
+      {
+        number: 4,
+        title: 'Developing a Research Proposal',
+        topics: [
+          'Problem and its sources, Selection of the problem.',
+          'Variables and its types.',
+          'Objectives – Primary, Secondary and Concomitant.',
+          'Hypothesis - concept, nature, characteristics and types.',
+          'Research Design.'
+        ]
+      }
+    ],
+    practicum: [
+      'Preparation and presentation on given topic through PPT (10 Marks)',
+      'Mid Term Exam (10 Marks)',
+      'Attendance (05 Marks)'
+    ],
+    readings: [
+      'Aggarwal, Y.P. (1998). The Science of Educational Research: A Source book. Nirmal Publication.',
+      'Best, John W. and Kahn James V (1995). Research in Education. Prentice Hall.',
+      'Bryman, A. (1988). Quantity and Quality in Social Science Research. Routledge.',
+      'Burns, R.B. (1991). Introduction to Research in Education. Prentice Hall.',
+      'Creswell, John W. (2015). Educational Research. Pearson.',
+      'Garrett, H.E. (1973). Statistics in psychology and Education. Bombay: Vakils, Feffer and Simon.',
+      'Kerlinger, F.N. (1973). Foundation of Behavioral Research. Holt, Rinehart and Winston.',
+      'Kothari, C. R. (2019). Research Methodology. New Age Publication.',
+      'Koul, Lokesh (1988). Methodology of Educational Research. Vikas, New Delhi.',
+      'McMiliion, James H. and Schumarcher, S. (1989). Research in Education: A Conceptual Introduction. Harper and Collins.',
+      'Mouly, A.J. (1963). The Science of Educational Research. Eurosia.',
+      'Neuman, W.L. (1997). Social Research Methods: Qualitative and Quantitative Approaches. Allyn and Bacon.',
+      'P. and Benjabin Fruchter (1973). Fundamental Statistics in psychology and Education. MacGrawHill.',
+      'Sharma, R. A. (2003). Fundamentals of Educational Research. Loyal Book Depot.',
+      'Travers, R.M.W. (1978). An Introduction to Educational Research. Macmillan.',
+      'Van Delen, D.B. (1962). Understanding Educational Research. MacGraw Hil'
+    ]
+  },
+  {
+    code: 'MED305',
+    title: 'Educational Administration and Planning',
+    semester: 'M.Ed. Semester III',
+    objectives: [
+      'Acquire basic knowledge of educational administration essential for administration jobs and research in educational administration.',
+      'Understand how an educational organization can be effectively managed.',
+      'Comprehend the qualities of resource persons to develop educational administration as a science and an independent field of study.',
+      'Know the trends of educational financing in India.',
+      'Develop skills in managing educational institution, departments and other organizations more effectively.'
+    ],
+    outcomes: [
+      'Understand the significance of educational administration and planning for jobs.',
+      'Develop expertise about how can educational institution be efficiently managed.',
+      'Get acquainted with trends and educational financing in India.',
+      'Get cognizant with various abilities in managing different departments and educational institutions efficiently.'
+    ],
+    units: [
+      {
+        number: 1,
+        title: 'Educational Administration Concepts',
+        topics: [
+          'Educational Administration: meaning, nature, definition, scope and functions.',
+          'Educational administration in India: Concept of educational management and management of educational institution.',
+          'Personnel administration: meaning, functions and importance.',
+          'Conflict management.',
+          'Organizational compliance and decision-making.'
+        ]
+      },
+      {
+        number: 2,
+        title: 'Educational Planning and Approaches',
+        topics: [
+          'Educational Planning: meaning, nature and need.',
+          'Educational Planning in India.',
+          'Approaches of Educational Planning: Manpower approach, Demographic projection model, Social demand approach, Rate of return approach, Social justice approach.',
+          'Educational Planning: Strategic planning, Short-term planning, Management planning, Grass roots level planning, Institutional planning, The Rolling plan concept.'
+        ]
+      },
+      {
+        number: 3,
+        title: 'Educational Financing & Internationalization',
+        topics: [
+          'Factors influencing Educational Financing.',
+          'Financing of higher Education in India: Role of UGC, RUSA.',
+          'Private participation in higher Education: Advantages and Disadvantages.',
+          'Internationalization of Higher Education.'
+        ]
+      },
+      {
+        number: 4,
+        title: 'Educational Leadership and Styles',
+        topics: [
+          'Educational leader: Qualities and Duties.',
+          'Theories of leadership styles.',
+          'Grid concept of leadership styles.',
+          'Measurement of leadership styles.'
+        ]
+      }
+    ],
+    practicum: [
+      'Preparation and presentation on given topic through PPT (10 Marks)',
+      'Mid Term Exam (10 Marks)',
+      'Attendance (05 Marks)',
+      'Internship (One Month): Observation/conduction of school activities (Classroom supervision, lesson planning correction, classroom teaching, guidance & counseling, etc.) in Secondary Teacher Education Institutions.',
+      'Educational Excursion & Report Preparation: Compulsory tour of not less than a week to visit educational sites/institutions.',
+      'Professional Development: sports, yoga, meditation, seminars, workshops, and felicitation of special days.'
+    ],
+    readings: [
+      'Azad, J.L. (2008). Financing and Management of Higher Education in India, New Delhi: Gyan Publishing House.',
+      'Amitai Etzioni (1964). Modern Organizations. Englewood Cliffs, Prentice-Hall, N.J.',
+      'Daniel E. Griffiths (1959). Administrative Theory, New York: Appleton.',
+      'R.P. Bhatnagar and Vidya Agarwal (2001). Educational Administration, Meerut: Surya Publication.',
+      'R.B. Kimbrough and M.Y. Nunnery (1976). Educational Administration, New York: McMillan Publishing Co.'
+    ]
+  }
+]
+
+export const studyResourcesData: StudyResource[] = [
+  {
+    id: 1,
+    title: 'Research Methodology PPT Slides Deck',
+    desc: 'Comprehensive visual guide on descriptive, experimental, and qualitative research designs mapped for MED104.',
+    courseCode: 'MED104',
+    type: 'PPT',
+    link: '/read/educational-systematic-research',
+    fileSize: '3.8 MB',
+    date: '10 July 2026'
+  },
+  {
+    id: 2,
+    title: 'Sampling Techniques Mindmap Infographic',
+    desc: 'Visual flowchart of probability and non-probability sampling methods with their corresponding standard errors.',
+    courseCode: 'MED104',
+    type: 'Infographic',
+    link: '/read/reflective-practices-krishnamurti',
+    fileSize: '1.2 MB',
+    date: '12 July 2026'
+  },
+  {
+    id: 3,
+    title: 'Introduction to Scientific Inquiry in Education',
+    desc: 'Core reading on scientific methods, paradigms (positivist vs. pre-positivist) and theories.',
+    courseCode: 'MED104',
+    type: 'PDF',
+    link: '/read/educational-systematic-research',
+    fileSize: '950 KB',
+    date: '08 July 2026'
+  },
+  {
+    id: 4,
+    title: 'Variables and Hypotheses Testing Lecture Video',
+    desc: 'A recorded concept video explaining types of variables (independent, dependent, moderator) and formulating hypotheses.',
+    courseCode: 'MED104',
+    type: 'Video',
+    link: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
+    duration: '18 mins',
+    date: '14 July 2026'
+  },
+  {
+    id: 5,
+    title: 'Educational Planning and Strategic Decision Models',
+    desc: 'Handout describing strategic planning, rolling plan concept, and institutional budgeting frameworks.',
+    courseCode: 'MED305',
+    type: 'PDF',
+    link: '/read/cbcs-higher-education',
+    fileSize: '2.1 MB',
+    date: '09 July 2026'
+  },
+  {
+    id: 6,
+    title: 'Approaches to Educational Planning Slides',
+    desc: 'Slides summarizing manpower, demographic projection, social demand, rate of return, and social justice approaches.',
+    courseCode: 'MED305',
+    type: 'PPT',
+    link: '/read/cbcs-higher-education',
+    fileSize: '4.5 MB',
+    date: '11 July 2026'
+  },
+  {
+    id: 7,
+    title: 'Understanding Leadership Styles in Institutions',
+    desc: 'Overview on leadership theories, Blake & Mouton grid concept, and measurement parameters.',
+    courseCode: 'MED305',
+    type: 'PDF',
+    link: '/read/tracing-cbcs-challenges',
+    fileSize: '1.4 MB',
+    date: '05 July 2026'
+  },
+  {
+    id: 8,
+    title: 'Factoring Educational Finance & Funding Trends',
+    desc: 'Recorded lecture analyzing higher education funding, role of UGC & RUSA, and private public partnerships.',
+    courseCode: 'MED305',
+    type: 'Video',
+    link: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
+    duration: '24 mins',
+    date: '13 July 2026'
+  }
+]
+
+

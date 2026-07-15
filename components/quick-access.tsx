@@ -44,7 +44,14 @@ const cards = [
     accent: 'bg-teal-500',
     href: '/ai-lab',
   },
-
+  {
+    icon: Library,
+    title: 'Course Materials & Resources',
+    desc: 'Syllabi and downloadable study materials for MED104 & MED305.',
+    cta: 'Browse Resources',
+    accent: 'bg-royal',
+    href: '/course-resources',
+  },
 ]
 
 export function QuickAccess() {

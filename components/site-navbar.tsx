@@ -62,7 +62,14 @@ const nav: NavItem[] = [
       },
     ],
   },
-
+  {
+    label: 'Course Materials & Resources',
+    href: '/course-resources',
+    children: [
+      { label: 'Courses I Teach', href: '/course-resources?section=courses' },
+      { label: 'Study Materials', href: '/course-resources?section=materials' },
+    ],
+  },
   {
     label: 'Activities',
     href: '/activities',
@@ -96,6 +103,8 @@ export function SiteNavbar() {
       setActive('Publications')
     } else if (pathname.includes('research') || pathname.includes('project') || pathname.includes('innovation') || pathname.includes('guidance')) {
       setActive('Research')
+    } else if (pathname === '/course-resources') {
+      setActive('Course Materials & Resources')
     }
   }, [pathname])
 

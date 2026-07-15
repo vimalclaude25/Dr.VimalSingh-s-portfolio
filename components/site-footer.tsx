@@ -3,7 +3,7 @@ import Image from 'next/image'
 
 const links = {
   'Quick Links': ['Home', 'About', 'Research', 'Publications', 'AI Lab', 'Contact'],
-  Resources: ['Downloads', 'Thesis Repository', 'Blog', 'Gallery'],
+  Resources: ['Course Resources', 'Downloads', 'Thesis Repository', 'Blog', 'Gallery'],
   Academic: ['Google Scholar', 'ResearchGate', 'Scopus', 'ORCID', 'VIDWAN', 'GitHub'],
 }
 
@@ -15,7 +15,7 @@ const getHref = (label: string) => {
   if (label === 'AI Lab') return '/ai-lab'
   if (label === 'Contact') return '/contact'
   if (label === 'Thesis Repository') return '/research-repository'
-
+  if (label === 'Course Resources') return '/course-resources'
   if (label === 'GitHub') return 'https://github.com/vimalclaude25'
   if (label === 'Google Scholar') return 'https://scholar.google.com/citations?user=eq1y6iYAAAAJ&hl=en'
   if (label === 'ResearchGate') return 'https://www.researchgate.net/profile/Vimal-Singh-23'
