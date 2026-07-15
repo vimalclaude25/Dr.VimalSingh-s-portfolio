@@ -96,7 +96,10 @@ export default function EditedBooksPage() {
     }
   }
 
-  // Handle high-fidelity form submission simulation
+  // Web App URL configuration (paste your Google Apps Script URL here)
+  const SUBMISSION_FORM_URL = "YOUR_GOOGLE_APPS_SCRIPT_URL_HERE"
+
+  // Handle form submission to Google Sheets and Drive
   const handleSubmit = (e: React.FormEvent, book: EditedBook2026) => {
     e.preventDefault()
     setFormError(null)
@@ -111,25 +114,86 @@ export default function EditedBooksPage() {
     if (!uploadedFile) return setFormError('Please upload your manuscript file.')
 
     setIsSubmitting(true)
-    setSubmitStep(1)
+    setSubmitStep(1) // "Parsing form entries..."
 
-    // Simulate high-fidelity upload and rename process
-    setTimeout(() => {
-      setSubmitStep(2) // "Connecting to Google Drive folder..."
-      setTimeout(() => {
-        setSubmitStep(3) // "Uploading to Google Drive folder..."
-        setTimeout(() => {
-          setSubmitStep(4) // "Renaming file..."
+    const reader = new FileReader()
+    reader.onload = async () => {
+      try {
+        const base64Data = (reader.result as string).split(',')[1]
+        const mimeType = uploadedFile.type || 'application/octet-stream'
+        const fileExt = uploadedFile.name.split('.').pop()
+        const renamedFileName = `${chapterTitle.replace(/[^a-zA-Z0-9]/g, '_').substring(0, 45)}.${fileExt}`
+
+        setSubmitStep(2) // "Connecting to Google Drive folder..."
+
+        if (SUBMISSION_FORM_URL === "YOUR_GOOGLE_APPS_SCRIPT_URL_HERE") {
+          // Simulation flow fallback
           setTimeout(() => {
-            setSubmitStep(5) // "Finalizing submission..."
+            setSubmitStep(3)
             setTimeout(() => {
-              setIsSubmitting(false)
-              setSubmitSuccess(true)
-            }, 1000)
-          }, 1200)
-        }, 1200)
-      }, 1000)
-    }, 800)
+              setSubmitStep(4)
+              setTimeout(() => {
+                setSubmitStep(5)
+                setTimeout(() => {
+                  setIsSubmitting(false)
+                  setSubmitSuccess(true)
+                }, 1000)
+              }, 1200)
+            }, 1200)
+          }, 1000)
+          return
+        }
+
+        // Real Google Sheets + Drive upload flow
+        setSubmitStep(3) // "Uploading to Google Drive folder..."
+        const payload = {
+          bookId: book.id,
+          bookTitle: book.title,
+          correspondenceAuthor,
+          email: emailId,
+          whatsapp: whatsappNo,
+          numAuthors,
+          chapterTitle,
+          theme: book.themes[parseInt(selectedThemeIndex)]?.title || '',
+          subtheme: selectedSubtheme,
+          fileData: base64Data,
+          fileName: renamedFileName,
+          fileMimeType: mimeType
+        }
+
+        setSubmitStep(4) // "Renaming file and appending spreadsheet entry..."
+        const response = await fetch(SUBMISSION_FORM_URL, {
+          method: 'POST',
+          body: JSON.stringify(payload),
+          headers: {
+            'Content-Type': 'text/plain;charset=utf-8' // Text/plain avoids CORS preflight OPTIONS request failures in Google Apps Scripts
+          }
+        })
+
+        const result = await response.json()
+        
+        if (result.status === 'success') {
+          setSubmitStep(5) // "Compiling receipts..."
+          setTimeout(() => {
+            setIsSubmitting(false)
+            setSubmitSuccess(true)
+          }, 800)
+        } else {
+          setIsSubmitting(false)
+          setFormError(result.message || 'Error occurred while saving your chapter proposal.')
+        }
+      } catch (err: any) {
+        setIsSubmitting(false);
+        setFormError(err.message || 'Network error occurred. Please ensure your Google Apps Script is deployed and try again.');
+      }
+    }
+
+    reader.onerror = () => {
+      setIsSubmitting(false)
+      setFormError('Failed to read manuscript file.')
+    }
+
+    reader.readAsDataURL(uploadedFile)
   }
 
   const toggleThemeExpand = (bookId: string, index: number) => {
