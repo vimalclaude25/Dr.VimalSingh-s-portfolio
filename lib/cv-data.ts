@@ -2105,8 +2105,8 @@ export const editedBooks2026Data: EditedBook2026[] = [
     deadline: '15 August 2026',
     whatsappQrUrl: '/flyers/image5.jpg',
     whatsappGroupUrl: 'https://chat.whatsapp.com/GenAIOutcomeBasedEducation2026',
-    flyerPath: '/flyers/genai-obe.jpg',
-    isPdf: false,
+    flyerPath: '/flyers/genai-obe.pdf',
+    isPdf: true,
     introduction: 'Artificial Intelligence is rapidly reshaping the global education landscape by personalizing learning, enhancing instructional design, automating assessment, and enabling data-driven decision making. Outcome-Based Education (OBE) ensures that learning is aligned with clearly defined outcomes, promoting learner-centricity, accountability and measurable success. This edited book brings together researchers, educators, practitioners and policy makers to explore how Generative AI can strengthen OBE practices across school, higher and technical education.',
     highlights: [
       'International Edited Book with ISBN and DOI for each chapter',
