@@ -1543,6 +1543,19 @@ export const researchNewsData: ResearchNewsItem[] = [
     mediaType: 'Newspaper',
     image: '/digital-education-simplicity.jpg',
     imageOnly: true,
+  },
+  {
+    id: 13,
+    title: 'AI बनेगा विद्यार्थियों का स्मार्ट गुरु: CSJMU के नए शोध ने दिखाया भविष्य का क्लासरूम',
+    source: 'Janmanas',
+    date: '16 June 2026',
+    desc: 'छत्रपति शाहू जी महाराज विश्वविद्यालय (CSJMU) के शिक्षा विभाग के असिस्टेंट प्रोफेसर डॉ. विमल सिंह और शोधार्थी सौम्या त्रिपाठी का एक महत्वपूर्ण शोध पत्र \'Annals of Neurosciences\' जर्नल में प्रकाशित हुआ है। इस शोध के अनुसार, जेनरेटिव एआई (Generative AI) विद्यार्थियों के लिए एक \'स्मार्ट गुरु\' की भूमिका निभा सकता है, जो प्रत्येक छात्र की मानसिक क्षमता और गति के अनुसार पाठ्य सामग्री तैयार कर सकता है। यह तकनीक विशेष रूप से शिक्षा को अधिक छात्र-केंद्रित, सुलभ और व्यक्तिगत बनाने में मददगार सिद्ध होगी।',
+    category: 'media-coverage',
+    subcategory: 'Television Coverage',
+    mediaType: 'TV',
+    image: '/janmanas-ai-guru.jpg',
+    link: 'https://janmanas.in/2026/06/16/csjmu-ai-somya/',
+    imageOnly: false,
   }
 ]
 
