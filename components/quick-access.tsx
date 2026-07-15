@@ -44,14 +44,7 @@ const cards = [
     accent: 'bg-teal-500',
     href: '/ai-lab',
   },
-  {
-    icon: Library,
-    title: 'E-Resources',
-    desc: 'Lecture notes, templates, research methodology & digital library.',
-    cta: 'Browse',
-    accent: 'bg-royal',
-    href: '/e-resources',
-  },
+
 ]
 
 export function QuickAccess() {

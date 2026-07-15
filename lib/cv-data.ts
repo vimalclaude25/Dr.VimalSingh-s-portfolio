@@ -1269,17 +1269,6 @@ export interface ResearchNewsItem {
   imageOnly?: boolean
 }
 
-export interface NtaNetResource {
-  id: number
-  title: string
-  desc: string
-  category: 'preparation' | 'materials' | 'mcqs' | 'videos' | 'success'
-  subcategory: string
-  type: 'PDF' | 'Link' | 'Video' | 'Quiz' | 'Mind Map' | 'PPT' | 'Text'
-  fileSize?: string
-  duration?: string
-  link?: string
-}
 
 export const researchNewsData: ResearchNewsItem[] = [
   {
@@ -1423,38 +1412,3 @@ export const researchNewsData: ResearchNewsItem[] = [
   },
 ]
 
-export const ntaNetResourcesData: NtaNetResource[] = [
-  // NET Preparation
-  { id: 1, title: 'About NTA UGC NET - Comprehensive Guide', desc: 'Understanding the exam structure, qualifications, and core differences between NET and JRF.', category: 'preparation', subcategory: 'About UGC NET', type: 'PDF', fileSize: '1.2 MB', link: '/read/nep-locality-gender', },
-  { id: 2, title: 'UGC NET Paper I & II Exam Pattern Breakdown', desc: 'Detailed scheme of marks, question counts, duration, and marking systems.', category: 'preparation', subcategory: 'Exam Pattern', type: 'Link', link: '/read/cognitive-load-ai', },
-  { id: 3, title: 'Latest UGC NET Education (Paper II) Syllabus', desc: 'Detailed official unit-by-unit syllabus (Unit 1 to Unit 10) for Subject Code 09 (Education) aspirants.', category: 'preparation', subcategory: 'Latest Syllabus', type: 'Link', link: '/read/e-resource-satisfaction', },
-  { id: 4, title: 'UGC NET Eligibility Criteria & Age Limit rules', desc: 'Official guidelines on academic percentage thresholds, age relaxations for JRF/Assistant Professor.', category: 'preparation', subcategory: 'Eligibility', type: 'Link', link: '/read/game-based-learning', },
-  { id: 5, title: 'Important Exam Dates & Notification Center', desc: 'Keep track of application portals, admit card releases, and scheduling dates.', category: 'preparation', subcategory: 'Important Dates', type: 'Text', link: '/read/chatbot-assisted-learning', },
-  { id: 6, title: 'UGC NET Previous Year Cutoff Trends (2020-2025)', desc: 'Analyzed list of category-wise cutoff trends for JRF and Assistant Professorship in Education.', category: 'preparation', subcategory: 'Previous Year Trends', type: 'PDF', fileSize: '1.5 MB', link: '/read/spiritual-intelligence-anxiety', },
-
-  // Study Materials
-  { id: 7, title: 'Unit 1: Educational Studies - Core Notes', desc: 'Complete conceptual summaries on Indian & Western schools of philosophy.', category: 'materials', subcategory: 'Notes', type: 'PDF', fileSize: '2.4 MB', link: '/read/anxiety-undergraduates-review', },
-  { id: 8, title: 'Teaching Aptitude (Paper I) Quick Reference Guide', desc: 'Key methods of teaching, learner characteristics, and evaluation systems.', category: 'materials', subcategory: 'PDF Resources', type: 'PDF', fileSize: '3.1 MB', link: '/read/cbcs-higher-education', },
-  { id: 9, title: 'Research Methodology PPT Slides Deck', desc: 'Slide repository on descriptive, experimental, and qualitative research designs.', category: 'materials', subcategory: 'PPT Repository', type: 'PPT', fileSize: '5.2 MB', link: '/read/vocational-interest-study', },
-  { id: 10, title: 'UGC NET Paper I - Higher Education System Short Notes', desc: 'Handwritten bullet notes on commissions, committees, and policy developments.', category: 'materials', subcategory: 'Short Notes', type: 'PDF', fileSize: '950 KB', link: '/read/neuroeducation-landscape', },
-  { id: 11, title: 'Mind Map: Cognitive & Development Theories', desc: 'Visual connection map for Piaget, Vygotsky, and Erikson models.', category: 'materials', subcategory: 'Mind Maps', type: 'Mind Map', link: '/read/news-framing-student-perceptions', },
-  { id: 12, title: 'Educational Research Vocabulary Flash Cards', desc: 'Study cards for terms like validity, reliability, variables, and hypothesis types.', category: 'materials', subcategory: 'Flash Cards', type: 'Link', link: '/read/educational-systematic-research', },
-  { id: 13, title: 'NEP 2020 High-Yield Key Points Infographic', desc: 'Interactive poster highlighting structural recommendations and bodies.', category: 'materials', subcategory: 'Infographics', type: 'PDF', fileSize: '4.8 MB', link: '/read/challenges-implementing-chatgpt', },
-
-  // MCQ Practice
-  { id: 14, title: 'Topic-wise MCQs: Philosophical Foundations', desc: '50 practice questions covering Sankhya, Yoga, Vedanta, Pragmatism.', category: 'mcqs', subcategory: 'Topic-wise MCQs', type: 'Quiz', link: '/read/spiritual-intelligence-review', },
-  { id: 15, title: 'Education (Paper II) 2025 Solved PYQs', desc: 'Complete solved paper with answers and analytical explanations.', category: 'mcqs', subcategory: 'PYQs', type: 'PDF', fileSize: '2.1 MB', link: '/read/environmental-concerns-education', },
-  { id: 16, title: 'Daily Quiz: Research Aptitude Essentials', desc: 'Take a quick 10-question quiz to test your daily learning progress.', category: 'mcqs', subcategory: 'Daily Quiz', type: 'Quiz', link: '/read/low-self-esteem-holistic-education', },
-  { id: 17, title: 'Weekly Test: Full Paper I Evaluation', desc: '50 questions simulating Paper I timing and curriculum distribution.', category: 'mcqs', subcategory: 'Weekly Test', type: 'Quiz', link: '/read/diabetic-wound-healing-nanomembrane', },
-  { id: 18, title: 'Education Subject Free Mock Test 1', desc: '100 question mock test designed on latest UGC NET syllabus.', category: 'mcqs', subcategory: 'Mock Tests', type: 'Quiz', link: '/read/women-studies-trends', },
-
-  // Video Library
-  { id: 19, title: 'Understanding Bloom’s Taxonomy (Recorded Class)', desc: '1-hour lecture explaining levels of learning objectives with examples.', category: 'videos', subcategory: 'Recorded Classes', type: 'Video', duration: '45 mins', link: '/read/value-education-trends', },
-  { id: 20, title: 'Research Bytes: What is a Type I and Type II Error?', desc: 'Short high-yield video summarizing hypothesis testing errors.', category: 'videos', subcategory: 'Research Bytes', type: 'Video', duration: '5 mins', link: '/read/tracing-cbcs-challenges', },
-  { id: 21, title: 'Qualitative vs Quantitative Research Methods', desc: 'Core concept breakdown under 10 minutes.', category: 'videos', subcategory: 'Short Concept Videos', type: 'Video', duration: '8 mins', link: '/read/happiness-quotient-study', },
-  { id: 22, title: 'Live Q&A: UGC NET Education Prep Strategy', desc: 'Recorded live Q&A session answering student doubts.', category: 'videos', subcategory: 'Live Sessions', type: 'Video', duration: '60 mins', link: '/read/youth-voice-journal-2023', },
-
-  // Success Stories
-  { id: 23, title: 'Aakash Sharma (NET Qualified - 2025)', desc: '"Dr. Singh’s guidance on educational research and research aptitude was crucial for my Paper I score."', category: 'success', subcategory: 'NET Qualified Students', type: 'Text', link: '/read/krishnamurti-philosophy-fear-hindi', },
-  { id: 24, title: 'Priyanka Patel (JRF Awardee - 2024)', desc: '"The unit-wise test series and detailed mind maps helped me secure a JRF in Education in my second attempt."', category: 'success', subcategory: 'JRF Awardees', type: 'Text', link: '/read/facing-fears-krishnamurti', },
-]

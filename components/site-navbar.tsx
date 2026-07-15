@@ -62,18 +62,7 @@ const nav: NavItem[] = [
       },
     ],
   },
-  {
-    label: 'E-Resources',
-    href: '/e-resources',
-    children: [
-      { label: 'UGC NET Syllabus', href: '/e-resources/syllabus' },
-      { label: 'Prep Guides', href: '/e-resources?category=preparation' },
-      { label: 'Study Materials', href: '/e-resources?category=materials' },
-      { label: 'MCQs & Quizzes', href: '/e-resources?category=mcqs' },
-      { label: 'Video Lectures', href: '/e-resources?category=videos' },
-      { label: 'Success Stories', href: '/e-resources?category=success' },
-    ],
-  },
+
   {
     label: 'Activities',
     href: '/activities',
@@ -107,10 +96,6 @@ export function SiteNavbar() {
       setActive('Publications')
     } else if (pathname.includes('research') || pathname.includes('project') || pathname.includes('innovation') || pathname.includes('guidance')) {
       setActive('Research')
-    } else if (pathname === '/e-resources') {
-      setActive('E-Resources')
-    } else if (pathname === '/ai-lab') {
-      setActive('E-Resources') // Or highlight home/etc
     }
   }, [pathname])
 
