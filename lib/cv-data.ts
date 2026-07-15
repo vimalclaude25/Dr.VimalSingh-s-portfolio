@@ -8,7 +8,7 @@ export interface PersonalInfo {
   contact: string[]
   whatsapp: string
   email: string
-  contactFormUrl?: string
+  contactFormUrl: "https://script.google.com/macros/s/AKfycbxgI4c93brtR0JnKR4JCDaM5JCmNMIXyrxC_LlFoiq77Ly0WA4d6sUL2UsaBM73a0fm5A/exec"
   links: {
     vidwan: string
     scopus: string
@@ -165,7 +165,7 @@ export const personalInfo: PersonalInfo = {
   contact: ['+91-7905184427', '+91-9795168526', '+91-6387549445'],
   whatsapp: '+91-9452913556',
   email: 'drvimalsingh@csjmu.ac.in',
-  contactFormUrl: '',
+  contactFormUrl: 'https://script.google.com/macros/s/AKfycbxgI4c93brtR0JnKR4JCDaM5JCmNMIXyrxC_LlFoiq77Ly0WA4d6sUL2UsaBM73a0fm5A/exec',
   links: {
     vidwan: 'https://vidwan.inflibnet.ac.in/profile/346396',
     scopus: 'https://www.scopus.com/authid/detail.uri?authorId=58797837900',
@@ -294,11 +294,11 @@ export const researchGuidance: GuidedScholar = {
     { year: '2022 – 2024', count: 7, status: 'Awarded' },
     { year: '2021 – 2023', count: 8, status: 'Awarded' }, // 07+1* represented as 8
     { year: '2020 – 2022', count: 3, status: 'Awarded' }
-],
+  ],
   phdScholars: [
     { name: 'Ms. Mahima Tripathi', regNo: 'PHD202500001327', session: '2024 - 2025 (IGNOU)' },
     { name: 'Mr. Suraj Gupta', regNo: 'PHD202500000536', session: '2024 - 2025 (IGNOU)' }
-],
+  ],
 }
 
 export const patents: Patent[] = [
@@ -889,115 +889,152 @@ export const bookChapters: BookChapter[] = [
 ]
 
 export const inviteeLectures: InviteeLecture[] = [
-  { id: 1, topic: 'AI Tools for Data Analysis', event: 'Pre-Ph.D. Course Work 2025-26', organizer: 'Department of Education, CSJM University, Kanpur', date: '10 February 2026',
+  {
+    id: 1, topic: 'AI Tools for Data Analysis', event: 'Pre-Ph.D. Course Work 2025-26', organizer: 'Department of Education, CSJM University, Kanpur', date: '10 February 2026',
     link: '/read/nep-locality-gender',
   },
-  { id: 2, topic: 'Role of AI in Modern Research, AI Powered Academic Search Engines', event: 'Pre-Ph.D. Course Work 2025-26', organizer: 'Department of Education, CSJM University, Kanpur', date: '09 February 2026',
+  {
+    id: 2, topic: 'Role of AI in Modern Research, AI Powered Academic Search Engines', event: 'Pre-Ph.D. Course Work 2025-26', organizer: 'Department of Education, CSJM University, Kanpur', date: '09 February 2026',
     link: '/read/cognitive-load-ai',
   },
-  { id: 3, topic: 'Constraints on Social Change In India', event: 'Pre-Ph.D. Course Work 2025-26', organizer: 'Department of Education, CSJM University, Kanpur', date: '15 January 2026',
+  {
+    id: 3, topic: 'Constraints on Social Change In India', event: 'Pre-Ph.D. Course Work 2025-26', organizer: 'Department of Education, CSJM University, Kanpur', date: '15 January 2026',
     link: '/read/e-resource-satisfaction',
   },
-  { id: 4, topic: 'Blended Learning in Education', event: 'Pre-Ph.D. Course Work 2025-26', organizer: 'Department of Education, CSJM University, Kanpur', date: '07 January 2026',
+  {
+    id: 4, topic: 'Blended Learning in Education', event: 'Pre-Ph.D. Course Work 2025-26', organizer: 'Department of Education, CSJM University, Kanpur', date: '07 January 2026',
     link: '/read/game-based-learning',
   },
-  { id: 5, topic: 'Precision and Proof: Advancing through Experimental Research', event: 'Pre-Ph.D. Course Work 2024-25', organizer: 'Atal Bihari Bajpai School of Legal Studies', date: '23 December 2025',
+  {
+    id: 5, topic: 'Precision and Proof: Advancing through Experimental Research', event: 'Pre-Ph.D. Course Work 2024-25', organizer: 'Atal Bihari Bajpai School of Legal Studies', date: '23 December 2025',
     link: '/read/chatbot-assisted-learning',
   },
-  { id: 6, topic: 'Capturing Reality: Mastering the Art of Descriptive Research', event: 'Pre-Ph.D. Course Work 2024-25', organizer: 'Atal Bihari Bajpai School of Legal Studies', date: '22 December 2025',
+  {
+    id: 6, topic: 'Capturing Reality: Mastering the Art of Descriptive Research', event: 'Pre-Ph.D. Course Work 2024-25', organizer: 'Atal Bihari Bajpai School of Legal Studies', date: '22 December 2025',
     link: '/read/spiritual-intelligence-anxiety',
   },
-  { id: 7, topic: 'Quality Management in Education', event: 'Pre-Ph.D. Course Work 2025-26', organizer: 'Department of Education, CSJM University, Kanpur', date: '17 December 2025',
+  {
+    id: 7, topic: 'Quality Management in Education', event: 'Pre-Ph.D. Course Work 2025-26', organizer: 'Department of Education, CSJM University, Kanpur', date: '17 December 2025',
     link: '/read/anxiety-undergraduates-review',
   },
-  { id: 8, topic: "The Researcher's Spectrum: Decoding Diverse Types of Research", event: 'Pre-Ph.D. Course Work 2024-25', organizer: 'Atal Bihari Bajpai School of Legal Studies', date: '16 December 2025',
+  {
+    id: 8, topic: "The Researcher's Spectrum: Decoding Diverse Types of Research", event: 'Pre-Ph.D. Course Work 2024-25', organizer: 'Atal Bihari Bajpai School of Legal Studies', date: '16 December 2025',
     link: '/read/cbcs-higher-education',
   },
-  { id: 9, topic: 'Foundation of Enquiry: Navigating the Basics of Research', event: 'Pre-Ph.D. Course Work 2024-25', organizer: 'Atal Bihari Bajpai School of Legal Studies', date: '15 December 2025',
+  {
+    id: 9, topic: 'Foundation of Enquiry: Navigating the Basics of Research', event: 'Pre-Ph.D. Course Work 2024-25', organizer: 'Atal Bihari Bajpai School of Legal Studies', date: '15 December 2025',
     link: '/read/vocational-interest-study',
   },
-  { id: 10, topic: 'Blooms Taxonomy of Instructional Objectives', event: 'Pre-Ph.D. Course Work 2025-26', organizer: 'Department of Education, CSJM University, Kanpur', date: '20 November 2025',
+  {
+    id: 10, topic: 'Blooms Taxonomy of Instructional Objectives', event: 'Pre-Ph.D. Course Work 2025-26', organizer: 'Department of Education, CSJM University, Kanpur', date: '20 November 2025',
     link: '/read/neuroeducation-landscape',
   },
-  { id: 11, topic: 'Foundation of Knowing: The Epistemic root of Research', event: 'Pre-Ph.D. Course Work 2025-26', organizer: 'Department of Education, CSJM University, Kanpur', date: '18 November 2025',
+  {
+    id: 11, topic: 'Foundation of Knowing: The Epistemic root of Research', event: 'Pre-Ph.D. Course Work 2025-26', organizer: 'Department of Education, CSJM University, Kanpur', date: '18 November 2025',
     link: '/read/news-framing-student-perceptions',
   },
-  { id: 12, topic: 'Code of Conduct', event: 'Workshop on Value Education', organizer: 'IQAC and Value Education Cell, Christ Church Post Graduate College, Kanpur, UP', date: '24 September 2025',
+  {
+    id: 12, topic: 'Code of Conduct', event: 'Workshop on Value Education', organizer: 'IQAC and Value Education Cell, Christ Church Post Graduate College, Kanpur, UP', date: '24 September 2025',
     link: '/read/educational-systematic-research',
   },
-  { id: 13, topic: 'Database Literacy', event: 'Pre-Ph.D. Course Work 2024-25', organizer: 'Department of Education, University of Lucknow, Lucknow UP', date: '29 May 2025',
+  {
+    id: 13, topic: 'Database Literacy', event: 'Pre-Ph.D. Course Work 2024-25', organizer: 'Department of Education, University of Lucknow, Lucknow UP', date: '29 May 2025',
     link: '/read/challenges-implementing-chatgpt',
   },
-  { id: 14, topic: 'Tools for Ethical and Efficient Research', event: 'Pre-Ph.D. Course Work 2024-25', organizer: 'Department of Education, University of Lucknow, Lucknow UP', date: '29 May 2025',
+  {
+    id: 14, topic: 'Tools for Ethical and Efficient Research', event: 'Pre-Ph.D. Course Work 2024-25', organizer: 'Department of Education, University of Lucknow, Lucknow UP', date: '29 May 2025',
     link: '/read/spiritual-intelligence-review',
   },
-  { id: 15, topic: 'Understanding & Formulating Hypothesis', event: 'Pre-Ph.D. Course Work 2024-25', organizer: 'Atal Bihari Bajpai School of Legal Studies', date: '19 May 2025',
+  {
+    id: 15, topic: 'Understanding & Formulating Hypothesis', event: 'Pre-Ph.D. Course Work 2024-25', organizer: 'Atal Bihari Bajpai School of Legal Studies', date: '19 May 2025',
     link: '/read/environmental-concerns-education',
   },
-  { id: 16, topic: 'Experimental Designs: Types and Validation', event: 'Pre-Ph.D. Course Work 2024-25', organizer: 'Department of Education, CSJM University, Kanpur', date: '06 May 2025',
+  {
+    id: 16, topic: 'Experimental Designs: Types and Validation', event: 'Pre-Ph.D. Course Work 2024-25', organizer: 'Department of Education, CSJM University, Kanpur', date: '06 May 2025',
     link: '/read/low-self-esteem-holistic-education',
   },
-  { id: 17, topic: 'Experimental Research: Conceptual Understanding', event: 'Pre-Ph.D. Course Work 2024-25', organizer: 'Department of Education, CSJM University, Kanpur', date: '05 May 2025',
+  {
+    id: 17, topic: 'Experimental Research: Conceptual Understanding', event: 'Pre-Ph.D. Course Work 2024-25', organizer: 'Department of Education, CSJM University, Kanpur', date: '05 May 2025',
     link: '/read/diabetic-wound-healing-nanomembrane',
   },
-  { id: 18, topic: 'Co-Chair for Technical Session', event: 'International Conference on "A Multidisciplinary Approach to Sustainability: A Holistic View towards the Future"', organizer: 'School of Arts, Humanities and Social Sciences & School of Teacher Education, CSJM University Kanpur UP', date: '29 April 2025',
+  {
+    id: 18, topic: 'Co-Chair for Technical Session', event: 'International Conference on "A Multidisciplinary Approach to Sustainability: A Holistic View towards the Future"', organizer: 'School of Arts, Humanities and Social Sciences & School of Teacher Education, CSJM University Kanpur UP', date: '29 April 2025',
     link: '/read/women-studies-trends',
   },
-  { id: 19, topic: 'Empowering Educators: The State of Teacher Education & Competencies in India', event: 'Pre-Ph.D. Course Work 2024-25', organizer: 'Department of Teacher Education, Dayanand Womens Training (DWT) PG College Kanpur UP', date: '25 April 2025',
+  {
+    id: 19, topic: 'Empowering Educators: The State of Teacher Education & Competencies in India', event: 'Pre-Ph.D. Course Work 2024-25', organizer: 'Department of Teacher Education, Dayanand Womens Training (DWT) PG College Kanpur UP', date: '25 April 2025',
     link: '/read/value-education-trends',
   },
-  { id: 20, topic: 'Teacher Education: Theory & Practice', event: 'Pre-Ph.D. Course Work 2024-25', organizer: 'Department of Teacher Education, Dayanand Womens Training (DWT) PG College Kanpur UP', date: '24 April 2025',
+  {
+    id: 20, topic: 'Teacher Education: Theory & Practice', event: 'Pre-Ph.D. Course Work 2024-25', organizer: 'Department of Teacher Education, Dayanand Womens Training (DWT) PG College Kanpur UP', date: '24 April 2025',
     link: '/read/tracing-cbcs-challenges',
   },
-  { id: 21, topic: 'The Roadmap to Success: Mastering PO-CO Mapping & Outcomes', event: 'Workshop on "CO-PO and its Mapping"', organizer: 'Maharana Pratap Group of Institutions, Kanpur UP', date: '05 April 2025',
+  {
+    id: 21, topic: 'The Roadmap to Success: Mastering PO-CO Mapping & Outcomes', event: 'Workshop on "CO-PO and its Mapping"', organizer: 'Maharana Pratap Group of Institutions, Kanpur UP', date: '05 April 2025',
     link: '/read/happiness-quotient-study',
   },
-  { id: 22, topic: 'From Theory to Clarity: Understanding PO-CO Inside Out', event: 'Workshop on "CO-PO and its Mapping"', organizer: 'Maharana Pratap Group of Institutions, Kanpur UP', date: '05 April 2025',
+  {
+    id: 22, topic: 'From Theory to Clarity: Understanding PO-CO Inside Out', event: 'Workshop on "CO-PO and its Mapping"', organizer: 'Maharana Pratap Group of Institutions, Kanpur UP', date: '05 April 2025',
     link: '/read/youth-voice-journal-2023',
   },
-  { id: 23, topic: 'Chair for Technical Session', event: 'International Conference on "A Multidisciplinary Approach to Sustainability: A Holistic View towards the Future"', organizer: 'School of Arts, Humanities and Social Sciences & School of Teacher Education, CSJM University Kanpur UP', date: '02 March 2024',
+  {
+    id: 23, topic: 'Chair for Technical Session', event: 'International Conference on "A Multidisciplinary Approach to Sustainability: A Holistic View towards the Future"', organizer: 'School of Arts, Humanities and Social Sciences & School of Teacher Education, CSJM University Kanpur UP', date: '02 March 2024',
     link: '/read/krishnamurti-philosophy-fear-hindi',
   },
-  { id: 24, topic: 'Types of Research: Experimental Research', event: 'Pre-Ph.D. Course Work 2024-25', organizer: 'Department of Education, CSJM University, Kanpur', date: '24 February 2025',
+  {
+    id: 24, topic: 'Types of Research: Experimental Research', event: 'Pre-Ph.D. Course Work 2024-25', organizer: 'Department of Education, CSJM University, Kanpur', date: '24 February 2025',
     link: '/read/facing-fears-krishnamurti',
   },
-  { id: 25, topic: 'Branches of Research: Basic Research (Pure research), Applied Research, Action Research', event: 'Pre-Ph.D. Course Work 2024-25', organizer: 'Department of Education, CSJM University, Kanpur', date: '18 February 2025',
+  {
+    id: 25, topic: 'Branches of Research: Basic Research (Pure research), Applied Research, Action Research', event: 'Pre-Ph.D. Course Work 2024-25', organizer: 'Department of Education, CSJM University, Kanpur', date: '18 February 2025',
     link: '/read/dealing-slow-fast-learners',
   },
-  { id: 26, topic: 'Research: Meaning, Nature, Scope, Characteristics', event: 'Pre-Ph.D. Course Work 2024-25', organizer: 'Department of Education, CSJM University, Kanpur', date: '17 February 2025',
+  {
+    id: 26, topic: 'Research: Meaning, Nature, Scope, Characteristics', event: 'Pre-Ph.D. Course Work 2024-25', organizer: 'Department of Education, CSJM University, Kanpur', date: '17 February 2025',
     link: '/read/tagore-ideological-insight-hindi',
   },
-  { id: 27, topic: 'Artificial Intelligence and Pedagogical Innovations', event: 'Lecture Series on "Artificial Intelligence Integration in Pedagogical Practices"', organizer: 'Balram Krishan Academy, Atrauli, Mohanlalganj Lucknow – 226301 UP', date: '26 October 2024',
+  {
+    id: 27, topic: 'Artificial Intelligence and Pedagogical Innovations', event: 'Lecture Series on "Artificial Intelligence Integration in Pedagogical Practices"', organizer: 'Balram Krishan Academy, Atrauli, Mohanlalganj Lucknow – 226301 UP', date: '26 October 2024',
     link: '/read/industry-academia-collaboration',
   },
-  { id: 28, topic: 'Use of Artificial Intelligence in the Process of Research', event: 'Lecture Series on "Artificial Intelligence Integration in Pedagogical Practices"', organizer: 'Balram Krishan Academy, Atrauli, Mohanlalganj Lucknow – 226301 UP', date: '25 October 2024',
+  {
+    id: 28, topic: 'Use of Artificial Intelligence in the Process of Research', event: 'Lecture Series on "Artificial Intelligence Integration in Pedagogical Practices"', organizer: 'Balram Krishan Academy, Atrauli, Mohanlalganj Lucknow – 226301 UP', date: '25 October 2024',
     link: '/read/reflective-practices-krishnamurti',
   },
-  { id: 29, topic: 'Artificial Intelligence Tools and Educational Canvas', event: 'Lecture Series on "Artificial Intelligence Integration in Pedagogical Practices"', organizer: 'Balram Krishan Academy, Atrauli, Mohanlalganj Lucknow – 226301 UP', date: '24 October 2024',
+  {
+    id: 29, topic: 'Artificial Intelligence Tools and Educational Canvas', event: 'Lecture Series on "Artificial Intelligence Integration in Pedagogical Practices"', organizer: 'Balram Krishan Academy, Atrauli, Mohanlalganj Lucknow – 226301 UP', date: '24 October 2024',
     link: '/read/aurobindo-ideological-implications',
   },
-  { id: 30, topic: 'Programme Outcomes and Course Outcomes: Formulation & Mapping', event: 'Training Session on "NAAC Preparation and Process"', organizer: 'Maharana Pratap Group of Institutions, Kanpur UP', date: '15 July 2024',
+  {
+    id: 30, topic: 'Programme Outcomes and Course Outcomes: Formulation & Mapping', event: 'Training Session on "NAAC Preparation and Process"', organizer: 'Maharana Pratap Group of Institutions, Kanpur UP', date: '15 July 2024',
     link: '/read/swami-vivekananda-reflections',
   },
-  { id: 31, topic: 'ICT Mediated Teaching Methods', event: 'Faculty Development Programme on "Effective teaching through Modern Technologies"', organizer: 'Academic and Administrative Development Centre (AIU-IU-AADC) Integral University Lucknow', date: '07 March 2024',
+  {
+    id: 31, topic: 'ICT Mediated Teaching Methods', event: 'Faculty Development Programme on "Effective teaching through Modern Technologies"', organizer: 'Academic and Administrative Development Centre (AIU-IU-AADC) Integral University Lucknow', date: '07 March 2024',
     link: '/read/global-trends-learning-styles',
   },
-  { id: 32, topic: 'Co-chair for Technical Session', event: 'ICSSR Sponsored National Seminar on "Reconditioning Indian Tradition and Culture through NEP 2020: Multilingual, Multicultural and Multidisciplinary"', organizer: 'Department of Lifelong Learning and Extension, CSJM University Kanpur UP', date: '02 March 2024',
+  {
+    id: 32, topic: 'Co-chair for Technical Session', event: 'ICSSR Sponsored National Seminar on "Reconditioning Indian Tradition and Culture through NEP 2020: Multilingual, Multicultural and Multidisciplinary"', organizer: 'Department of Lifelong Learning and Extension, CSJM University Kanpur UP', date: '02 March 2024',
     link: '/read/emotional-intelligence-teacher-education',
   },
-  { id: 33, topic: 'Skills of Measurement; Concept and Levels', event: 'Pre-Ph.D. Course Work 2023-24', organizer: 'Research & Development Cell, CSJM University, Kanpur', date: '09 February 2024',
+  {
+    id: 33, topic: 'Skills of Measurement; Concept and Levels', event: 'Pre-Ph.D. Course Work 2023-24', organizer: 'Research & Development Cell, CSJM University, Kanpur', date: '09 February 2024',
     link: '/read/environmental-moral-reasoning',
   },
-  { id: 34, topic: 'Hypothesis; Concept Types & Formulation', event: 'Pre-Ph.D. Course Work 2023-24', organizer: 'Research & Development Cell, CSJM University, Kanpur', date: '09 February 2024',
+  {
+    id: 34, topic: 'Hypothesis; Concept Types & Formulation', event: 'Pre-Ph.D. Course Work 2023-24', organizer: 'Research & Development Cell, CSJM University, Kanpur', date: '09 February 2024',
     link: '/read/emotional-intelligence-academic-achievement-hindi',
   },
-  { id: 35, topic: 'Planning of Research; Identification, Selection & Formulation', event: 'Pre-Ph.D. Course Work 2023-24', organizer: 'Research & Development Cell, CSJM University, Kanpur', date: '07 February 2024',
+  {
+    id: 35, topic: 'Planning of Research; Identification, Selection & Formulation', event: 'Pre-Ph.D. Course Work 2023-24', organizer: 'Research & Development Cell, CSJM University, Kanpur', date: '07 February 2024',
     link: '/read/focus-group-discussion-qualitative',
   },
-  { id: 36, topic: 'Nature and Limitations of Research Process', event: 'Pre-Ph.D. Course Work 2023-24', organizer: 'Research & Development Cell, CSJM University, Kanpur', date: '02 February 2024',
+  {
+    id: 36, topic: 'Nature and Limitations of Research Process', event: 'Pre-Ph.D. Course Work 2023-24', organizer: 'Research & Development Cell, CSJM University, Kanpur', date: '02 February 2024',
     link: '/read/academic-achievement-adjustment-study-hindi',
   },
-  { id: 37, topic: 'Foundations of Research: Meaning, Concept, Purpose, Scope & Characteristics', event: 'Pre-Ph.D. Course Work 2023-24', organizer: 'Research & Development Cell, CSJM University, Kanpur', date: '31 January 2024',
+  {
+    id: 37, topic: 'Foundations of Research: Meaning, Concept, Purpose, Scope & Characteristics', event: 'Pre-Ph.D. Course Work 2023-24', organizer: 'Research & Development Cell, CSJM University, Kanpur', date: '31 January 2024',
     link: '/read/adjustment-emotional-intelligence-study-hindi',
   },
   { id: 38, topic: 'An Orientation Programme on Pre-Ph.D. Course Work', event: 'Pre-Ph.D. Course Work 2023-24', organizer: 'Research & Development Cell, CSJM University, Kanpur', date: '31 January 2024' },
@@ -1023,226 +1060,297 @@ export const inviteeLectures: InviteeLecture[] = [
 ]
 
 export const fdpsAndWorkshops: FdpWorkshop[] = [
-  { id: 1, course: 'Applications of Artificial Intelligence in Research & Education', organizer: 'Institute of Advance Studies in Education (Deemed to be University) Rajasthan', from: '07 April 2026', to: '13 April 2026',
+  {
+    id: 1, course: 'Applications of Artificial Intelligence in Research & Education', organizer: 'Institute of Advance Studies in Education (Deemed to be University) Rajasthan', from: '07 April 2026', to: '13 April 2026',
     link: '/read/nep-locality-gender',
   },
-  { id: 2, course: 'AI Innovation Workshop', organizer: 'AcadLearn and Department of Education, CSJM University Kanpur UP', from: '09 March 2026', to: '15 March 2026',
+  {
+    id: 2, course: 'AI Innovation Workshop', organizer: 'AcadLearn and Department of Education, CSJM University Kanpur UP', from: '09 March 2026', to: '15 March 2026',
     link: '/read/cognitive-load-ai',
   },
-  { id: 3, course: 'Pedagogy 5.0: Advancing Teaching & Research with AI and Technology', organizer: 'Department of Education, CSJM University Kanpur UP', from: '01 September 2025', to: '05 September 2025',
+  {
+    id: 3, course: 'Pedagogy 5.0: Advancing Teaching & Research with AI and Technology', organizer: 'Department of Education, CSJM University Kanpur UP', from: '01 September 2025', to: '05 September 2025',
     link: '/read/e-resource-satisfaction',
   },
-  { id: 4, course: 'Two Week FDP on Fostering Expertise AI Agent Mastery', organizer: 'Chhatrapati Shahu Ji Maharaj University Kanpur UP & Gignaati, AI Academy', from: '16 June 2025', to: '12 July 2025',
+  {
+    id: 4, course: 'Two Week FDP on Fostering Expertise AI Agent Mastery', organizer: 'Chhatrapati Shahu Ji Maharaj University Kanpur UP & Gignaati, AI Academy', from: '16 June 2025', to: '12 July 2025',
     link: '/read/game-based-learning',
   },
-  { id: 5, course: 'One Week FDP on Empowering Higher Education Institutions in Technology-enabled Learning and Blended Learning', organizer: 'Association of Indian University (AIU), Integral University, Aryabhatta Knowledge University & C.O.L. CEMCA', sponsor: 'Academic and Administrative Development Centre (AIU-IU AADC)', from: '07 April 2025', to: '12 April 2025',
+  {
+    id: 5, course: 'One Week FDP on Empowering Higher Education Institutions in Technology-enabled Learning and Blended Learning', organizer: 'Association of Indian University (AIU), Integral University, Aryabhatta Knowledge University & C.O.L. CEMCA', sponsor: 'Academic and Administrative Development Centre (AIU-IU AADC)', from: '07 April 2025', to: '12 April 2025',
     link: '/read/chatbot-assisted-learning',
   },
-  { id: 6, course: 'One Week Capacity Development Programme on Innovation, Incubation and Entrepreneurship', organizer: 't-Hub Government of Telangana', from: '10 March 2025', to: '13 March 2025',
+  {
+    id: 6, course: 'One Week Capacity Development Programme on Innovation, Incubation and Entrepreneurship', organizer: 't-Hub Government of Telangana', from: '10 March 2025', to: '13 March 2025',
     link: '/read/spiritual-intelligence-anxiety',
   },
-  { id: 7, course: 'One Week FDP on Statistical Analysis for Research: Techniques & Software', organizer: 'Association of Indian University (AIU) & Integral University', sponsor: 'Academic and Administrative Development Centre (AIU-IU AADC)', from: '21 November 2024', to: '26 November 2024',
+  {
+    id: 7, course: 'One Week FDP on Statistical Analysis for Research: Techniques & Software', organizer: 'Association of Indian University (AIU) & Integral University', sponsor: 'Academic and Administrative Development Centre (AIU-IU AADC)', from: '21 November 2024', to: '26 November 2024',
     link: '/read/anxiety-undergraduates-review',
   },
-  { id: 8, course: 'One Week FDP on Artificial Intelligence in Teaching and Research Paper Writing', organizer: 'Association of Indian University (AIU) & Integral University', sponsor: 'Academic and Administrative Development Centre (AIU-IU AADC)', from: '26 June 2024', to: '30 June 2024',
+  {
+    id: 8, course: 'One Week FDP on Artificial Intelligence in Teaching and Research Paper Writing', organizer: 'Association of Indian University (AIU) & Integral University', sponsor: 'Academic and Administrative Development Centre (AIU-IU AADC)', from: '26 June 2024', to: '30 June 2024',
     link: '/read/cbcs-higher-education',
   },
-  { id: 9, course: 'Two Weeks Refresher Course in Education', organizer: 'Teaching Learning Centre, Ramanujan College, University of Delhi, India', sponsor: 'Ministry of Education, Government of India', from: '31 January 2024', to: '06 February 2024',
+  {
+    id: 9, course: 'Two Weeks Refresher Course in Education', organizer: 'Teaching Learning Centre, Ramanujan College, University of Delhi, India', sponsor: 'Ministry of Education, Government of India', from: '31 January 2024', to: '06 February 2024',
     link: '/read/vocational-interest-study',
   },
-  { id: 10, course: 'One Week FDP on ICT for Teaching and Learning', organizer: 'Teaching Learning Centre, Ramanujan College, University of Delhi, India', sponsor: 'Ministry of Education, Government of India', from: '17 October 2023', to: '23 October 2023',
+  {
+    id: 10, course: 'One Week FDP on ICT for Teaching and Learning', organizer: 'Teaching Learning Centre, Ramanujan College, University of Delhi, India', sponsor: 'Ministry of Education, Government of India', from: '17 October 2023', to: '23 October 2023',
     link: '/read/neuroeducation-landscape',
   },
-  { id: 11, course: '4 Week Faculty Induction/Orientation Programme', organizer: 'Teaching Learning Centre, Ramanujan College, University of Delhi, India', sponsor: 'Ministry of Education, Government of India', from: '20 January 2023', to: '18 February 2023',
+  {
+    id: 11, course: '4 Week Faculty Induction/Orientation Programme', organizer: 'Teaching Learning Centre, Ramanujan College, University of Delhi, India', sponsor: 'Ministry of Education, Government of India', from: '20 January 2023', to: '18 February 2023',
     link: '/read/news-framing-student-perceptions',
   },
-  { id: 12, course: 'One Week Online Faculty Development Programme on Research Paper Writing for High Index Journal', organizer: 'Institute of Advanced Studies in Education (Deemed to be University), Sardarshahr, Rajasthan', from: '24 May 2021', to: '30 May 2021',
+  {
+    id: 12, course: 'One Week Online Faculty Development Programme on Research Paper Writing for High Index Journal', organizer: 'Institute of Advanced Studies in Education (Deemed to be University), Sardarshahr, Rajasthan', from: '24 May 2021', to: '30 May 2021',
     link: '/read/educational-systematic-research',
   },
-  { id: 13, course: 'Online Workshop on Teaching-Learning Through Moodle', organizer: 'Mahatma Gandhi Central University, Bihar & Babasaheb Bhimrao Ambedkar University, Lucknow UP', from: '23 May 2020', to: '23 May 2020',
+  {
+    id: 13, course: 'Online Workshop on Teaching-Learning Through Moodle', organizer: 'Mahatma Gandhi Central University, Bihar & Babasaheb Bhimrao Ambedkar University, Lucknow UP', from: '23 May 2020', to: '23 May 2020',
     link: '/read/challenges-implementing-chatgpt',
   },
-  { id: 14, course: 'National Workshop on Anti-Plagiarism in Research', organizer: 'Integral University, Lucknow', sponsor: 'Human Resource Development Centre (HRDC)', from: '03 August 2019', to: '03 August 2019',
+  {
+    id: 14, course: 'National Workshop on Anti-Plagiarism in Research', organizer: 'Integral University, Lucknow', sponsor: 'Human Resource Development Centre (HRDC)', from: '03 August 2019', to: '03 August 2019',
     link: '/read/spiritual-intelligence-review',
   },
-  { id: 15, course: 'National Workshop on How to Prepare Research Proposal', organizer: 'International Researchers Journal', sponsor: 'S.R.S. Publications and Distributions', from: '10 December 2017', to: '10 December 2017',
+  {
+    id: 15, course: 'National Workshop on How to Prepare Research Proposal', organizer: 'International Researchers Journal', sponsor: 'S.R.S. Publications and Distributions', from: '10 December 2017', to: '10 December 2017',
     link: '/read/environmental-concerns-education',
   },
-  { id: 16, course: 'Orientation Programme on Qualitative Methods in Educational Research', organizer: 'Bhartiya Shiksha Shodh Sansthan, Lucknow', from: '24 April 2017', to: '01 May 2017',
+  {
+    id: 16, course: 'Orientation Programme on Qualitative Methods in Educational Research', organizer: 'Bhartiya Shiksha Shodh Sansthan, Lucknow', from: '24 April 2017', to: '01 May 2017',
     link: '/read/low-self-esteem-holistic-education',
   },
-  { id: 17, course: 'Orientation Programme on Application of R Software in Statistical Analysis of Data', organizer: 'Bhartiya Shiksha Shodh Sansthan, Lucknow', from: '02 February 2017', to: '08 February 2017',
+  {
+    id: 17, course: 'Orientation Programme on Application of R Software in Statistical Analysis of Data', organizer: 'Bhartiya Shiksha Shodh Sansthan, Lucknow', from: '02 February 2017', to: '08 February 2017',
     link: '/read/diabetic-wound-healing-nanomembrane',
   },
-  { id: 18, course: 'National Workshop on Research Methodology', organizer: 'Babasaheb Bhimrao Ambedkar University, Lucknow', from: '11 January 2017', to: '25 January 2017',
+  {
+    id: 18, course: 'National Workshop on Research Methodology', organizer: 'Babasaheb Bhimrao Ambedkar University, Lucknow', from: '11 January 2017', to: '25 January 2017',
     link: '/read/women-studies-trends',
   },
-  { id: 19, course: 'Research Methodology Programme', organizer: 'Human Resource Development Centre, University of Lucknow', sponsor: 'UGC', from: '28 November 2016', to: '30 November 2016',
+  {
+    id: 19, course: 'Research Methodology Programme', organizer: 'Human Resource Development Centre, University of Lucknow', sponsor: 'UGC', from: '28 November 2016', to: '30 November 2016',
     link: '/read/value-education-trends',
   },
-  { id: 20, course: 'Workshop on Swami Vivekananda and Human Excellence', organizer: 'Department of Education, University of Lucknow', sponsor: 'MHRD & ICPR', from: '01 May 2014', to: '07 May 2014',
+  {
+    id: 20, course: 'Workshop on Swami Vivekananda and Human Excellence', organizer: 'Department of Education, University of Lucknow', sponsor: 'MHRD & ICPR', from: '01 May 2014', to: '07 May 2014',
     link: '/read/tracing-cbcs-challenges',
   }
 ]
 
 export const committees: CommitteeRole[] = [
-  { id: 1, name: 'State Level: Regional Quality Assurance Cell (RQAC)', role: 'Member', year: '2024',
+  {
+    id: 1, name: 'State Level: Regional Quality Assurance Cell (RQAC)', role: 'Member', year: '2024',
     link: '/read/nep-locality-gender',
   },
-  { id: 2, name: 'Student Welfare Schemes Committee', role: 'Member', year: '2024',
+  {
+    id: 2, name: 'Student Welfare Schemes Committee', role: 'Member', year: '2024',
     link: '/read/cognitive-load-ai',
   },
-  { id: 3, name: 'Ph.D. Entrance Exam Committee', role: 'Member', year: '2024',
+  {
+    id: 3, name: 'Ph.D. Entrance Exam Committee', role: 'Member', year: '2024',
     link: '/read/e-resource-satisfaction',
   },
-  { id: 4, name: 'Confidential Correction Committee', role: 'Member', year: '2024',
+  {
+    id: 4, name: 'Confidential Correction Committee', role: 'Member', year: '2024',
     link: '/read/game-based-learning',
   },
-  { id: 5, name: 'Anti Ragging Squad', role: 'Member', year: '2024',
+  {
+    id: 5, name: 'Anti Ragging Squad', role: 'Member', year: '2024',
     link: '/read/chatbot-assisted-learning',
   },
-  { id: 6, name: 'IQAC Scrutiny Committee', role: 'Member', year: '2024',
+  {
+    id: 6, name: 'IQAC Scrutiny Committee', role: 'Member', year: '2024',
     link: '/read/spiritual-intelligence-anxiety',
   },
-  { id: 7, name: 'Non-Teaching Scrutiny Committee', role: 'Member', year: '2024',
+  {
+    id: 7, name: 'Non-Teaching Scrutiny Committee', role: 'Member', year: '2024',
     link: '/read/anxiety-undergraduates-review',
   },
-  { id: 8, name: 'Institute Innovation Committee', role: 'Member', year: '2024',
+  {
+    id: 8, name: 'Institute Innovation Committee', role: 'Member', year: '2024',
     link: '/read/cbcs-higher-education',
   },
-  { id: 9, name: 'Constituent College Screening Committee', role: 'Coordinator', year: '2023',
+  {
+    id: 9, name: 'Constituent College Screening Committee', role: 'Coordinator', year: '2023',
     link: '/read/vocational-interest-study',
   },
-  { id: 10, name: 'Affiliation/ Inspection Committee', role: 'Member', year: '2023',
+  {
+    id: 10, name: 'Affiliation/ Inspection Committee', role: 'Member', year: '2023',
     link: '/read/neuroeducation-landscape',
   },
-  { id: 11, name: 'Answer Key Jumbling Committee', role: 'Member', year: '2023',
+  {
+    id: 11, name: 'Answer Key Jumbling Committee', role: 'Member', year: '2023',
     link: '/read/news-framing-student-perceptions',
   },
-  { id: 12, name: 'NAAC Steering Committee', role: 'Member', year: '2022',
+  {
+    id: 12, name: 'NAAC Steering Committee', role: 'Member', year: '2022',
     link: '/read/educational-systematic-research',
   },
-  { id: 13, name: 'NAAC Core Committee', role: 'Member', year: '2022',
+  {
+    id: 13, name: 'NAAC Core Committee', role: 'Member', year: '2022',
     link: '/read/challenges-implementing-chatgpt',
   },
-  { id: 14, name: 'Answer Key Jumbling Committee (Second Term)', role: 'Member', year: '2022',
+  {
+    id: 14, name: 'Answer Key Jumbling Committee (Second Term)', role: 'Member', year: '2022',
     link: '/read/spiritual-intelligence-review',
   },
-  { id: 15, name: 'Answer Book Tender Committee', role: 'Member', year: '2022',
+  {
+    id: 15, name: 'Answer Book Tender Committee', role: 'Member', year: '2022',
     link: '/read/environmental-concerns-education',
   },
-  { id: 16, name: 'Board of Studies, Department of Education CSJMU', role: 'Member', year: '2022',
+  {
+    id: 16, name: 'Board of Studies, Department of Education CSJMU', role: 'Member', year: '2022',
     link: '/read/low-self-esteem-holistic-education',
   },
-  { id: 17, name: 'Government Degree College, Lotna Purwa Unnao, Handover Committee', role: 'Co-coordinator', year: '2022',
+  {
+    id: 17, name: 'Government Degree College, Lotna Purwa Unnao, Handover Committee', role: 'Co-coordinator', year: '2022',
     link: '/read/diabetic-wound-healing-nanomembrane',
   },
-  { id: 18, name: 'Digital Marketing Committee', role: 'Member', year: '2022',
+  {
+    id: 18, name: 'Digital Marketing Committee', role: 'Member', year: '2022',
     link: '/read/women-studies-trends',
   },
-  { id: 19, name: 'Curriculum Revision Committee (M.Ed.)', role: 'Member', year: '2024 (Dept Level)',
+  {
+    id: 19, name: 'Curriculum Revision Committee (M.Ed.)', role: 'Member', year: '2024 (Dept Level)',
     link: '/read/value-education-trends',
   },
-  { id: 20, name: 'Internal Academic Monitoring Committee', role: 'Coordinator', year: '2022 (Dept Level)',
+  {
+    id: 20, name: 'Internal Academic Monitoring Committee', role: 'Coordinator', year: '2022 (Dept Level)',
     link: '/read/tracing-cbcs-challenges',
   },
-  { id: 21, name: 'Orientation and Admission Committee', role: 'Member', year: '2022 (Dept Level)',
+  {
+    id: 21, name: 'Orientation and Admission Committee', role: 'Member', year: '2022 (Dept Level)',
     link: '/read/happiness-quotient-study',
   },
-  { id: 22, name: 'Internship Management Committee', role: 'Member', year: '2022 (Dept Level)',
+  {
+    id: 22, name: 'Internship Management Committee', role: 'Member', year: '2022 (Dept Level)',
     link: '/read/youth-voice-journal-2023',
   },
-  { id: 23, name: 'Departmental Quality Assurance Cell', role: 'Member', year: '2022 (Dept Level)',
+  {
+    id: 23, name: 'Departmental Quality Assurance Cell', role: 'Member', year: '2022 (Dept Level)',
     link: '/read/krishnamurti-philosophy-fear-hindi',
   }
 ]
 
 export const administrativeResponsibilities: AdminResponsibility[] = [
-  { id: 1, responsibility: 'Deputy Director (Technical), Dronacharya Centre for Online and Distance Education (D-CODE), Centre for Distance and Online Education, CSJM University Kanpur UP', date: '06.08.2025 to present',
+  {
+    id: 1, responsibility: 'Deputy Director (Technical), Dronacharya Centre for Online and Distance Education (D-CODE), Centre for Distance and Online Education, CSJM University Kanpur UP', date: '06.08.2025 to present',
     link: '/read/nep-locality-gender',
   },
-  { id: 2, responsibility: 'Observer, B.Ed. JEE 2025', date: '30.05.2025',
+  {
+    id: 2, responsibility: 'Observer, B.Ed. JEE 2025', date: '30.05.2025',
     link: '/read/cognitive-load-ai',
   },
-  { id: 3, responsibility: 'Associate Chief Proctor, CSJM University Kanpur UP', date: '03.03.2025 to till date',
+  {
+    id: 3, responsibility: 'Associate Chief Proctor, CSJM University Kanpur UP', date: '03.03.2025 to till date',
     link: '/read/e-resource-satisfaction',
   },
-  { id: 4, responsibility: 'Co-coordinator, Ph.D. Entrance Examination', date: '2024 – 2025',
+  {
+    id: 4, responsibility: 'Co-coordinator, Ph.D. Entrance Examination', date: '2024 – 2025',
     link: '/read/game-based-learning',
   },
-  { id: 5, responsibility: 'Observer, B.Ed. JEE 2024', date: '06.06.2024',
+  {
+    id: 5, responsibility: 'Observer, B.Ed. JEE 2024', date: '06.06.2024',
     link: '/read/chatbot-assisted-learning',
   },
-  { id: 6, responsibility: 'Officiating Principal, Government Degree College Lotna Purwa Unnao', date: '01.06.2024 to 27.06.2024',
+  {
+    id: 6, responsibility: 'Officiating Principal, Government Degree College Lotna Purwa Unnao', date: '01.06.2024 to 27.06.2024',
     link: '/read/spiritual-intelligence-anxiety',
   },
-  { id: 7, responsibility: 'Programme Coordinator, Dronacharya Centre for Online and Distance Education (D-CODE), CSJM University Kanpur', date: '2024',
+  {
+    id: 7, responsibility: 'Programme Coordinator, Dronacharya Centre for Online and Distance Education (D-CODE), CSJM University Kanpur', date: '2024',
     link: '/read/anxiety-undergraduates-review',
   },
-  { id: 8, responsibility: 'Nodal Officer, Pre-Ph.D. Course Work', date: '2023 – 2024',
+  {
+    id: 8, responsibility: 'Nodal Officer, Pre-Ph.D. Course Work', date: '2023 – 2024',
     link: '/read/cbcs-higher-education',
   },
-  { id: 9, responsibility: 'Member, Institute Innovation Council (IIC 6.0)', date: '15.03.2024',
+  {
+    id: 9, responsibility: 'Member, Institute Innovation Council (IIC 6.0)', date: '15.03.2024',
     link: '/read/vocational-interest-study',
   },
-  { id: 10, responsibility: 'Assistant Dean, Research & Development Cell, CSJM University Kanpur UP', date: '28.04.2023 to 28.02.2025',
+  {
+    id: 10, responsibility: 'Assistant Dean, Research & Development Cell, CSJM University Kanpur UP', date: '28.04.2023 to 28.02.2025',
     link: '/read/neuroeducation-landscape',
   },
-  { id: 11, responsibility: 'Nodal Officer, Scholarship, Government Degree College Lotna Purwa Unnao', date: 'Since 2023',
+  {
+    id: 11, responsibility: 'Nodal Officer, Scholarship, Government Degree College Lotna Purwa Unnao', date: 'Since 2023',
     link: '/read/news-framing-student-perceptions',
   },
-  { id: 12, responsibility: 'Observer B.Ed. JEE 2023', date: '10.06.2023',
+  {
+    id: 12, responsibility: 'Observer B.Ed. JEE 2023', date: '10.06.2023',
     link: '/read/educational-systematic-research',
   },
-  { id: 13, responsibility: 'Coordinator, RM-B2 Group, Pre-Ph.D. Course Work', date: '2022 - 2023',
+  {
+    id: 13, responsibility: 'Coordinator, RM-B2 Group, Pre-Ph.D. Course Work', date: '2022 - 2023',
     link: '/read/challenges-implementing-chatgpt',
   },
-  { id: 14, responsibility: 'Member, Board of Studies, Department of Education CSJMU', date: 'Since 2022',
+  {
+    id: 14, responsibility: 'Member, Board of Studies, Department of Education CSJMU', date: 'Since 2022',
     link: '/read/spiritual-intelligence-review',
   },
-  { id: 15, responsibility: 'In-charge, Departmental Website', date: 'Since 2022',
+  {
+    id: 15, responsibility: 'In-charge, Departmental Website', date: 'Since 2022',
     link: '/read/environmental-concerns-education',
   },
-  { id: 16, responsibility: 'In-charge, Department Alumni Association', date: 'Since 2022',
+  {
+    id: 16, responsibility: 'In-charge, Department Alumni Association', date: 'Since 2022',
     link: '/read/low-self-esteem-holistic-education',
   },
-  { id: 17, responsibility: 'Coordinator, Government Degree College Lotna Purwa Unnao', date: '07.06.2022 to 18.04.2026',
+  {
+    id: 17, responsibility: 'Coordinator, Government Degree College Lotna Purwa Unnao', date: '07.06.2022 to 18.04.2026',
     link: '/read/diabetic-wound-healing-nanomembrane',
   },
-  { id: 18, responsibility: 'Observer, B.Ed. JEE 2022', date: '02.07.2022',
+  {
+    id: 18, responsibility: 'Observer, B.Ed. JEE 2022', date: '02.07.2022',
     link: '/read/women-studies-trends',
   }
 ]
 
 export const coCurricularActivities: CoCurricularActivity[] = [
-  { id: 1, description: 'Pedagogy 5.0: Advancing Teaching & Research with AI and Technology', from: '01 September 2025', to: '05 September 2025',
+  {
+    id: 1, description: 'Pedagogy 5.0: Advancing Teaching & Research with AI and Technology', from: '01 September 2025', to: '05 September 2025',
     link: '/read/nep-locality-gender',
   },
-  { id: 2, description: 'Student Entrepreneurship Training (SET) Bootcamp 2025', from: '26 May 2025', to: '31 May 2025',
+  {
+    id: 2, description: 'Student Entrepreneurship Training (SET) Bootcamp 2025', from: '26 May 2025', to: '31 May 2025',
     link: '/read/cognitive-load-ai',
   },
-  { id: 3, description: 'One Day Orientation Programme on Startup Shiksha with the Collaboration of CSJM Innovation Foundation (CSJMIF)', from: '11 April 2025', to: '11 April 2025',
+  {
+    id: 3, description: 'One Day Orientation Programme on Startup Shiksha with the Collaboration of CSJM Innovation Foundation (CSJMIF)', from: '11 April 2025', to: '11 April 2025',
     link: '/read/e-resource-satisfaction',
   },
-  { id: 4, description: 'One Day Orientation Programme on NTA-NET Preparation Under the State Government Scheme "Mukhyamantri Abhyuday Yojna"', from: '07 April 2025', to: '07 April 2025',
+  {
+    id: 4, description: 'One Day Orientation Programme on NTA-NET Preparation Under the State Government Scheme "Mukhyamantri Abhyuday Yojna"', from: '07 April 2025', to: '07 April 2025',
     link: '/read/game-based-learning',
   },
-  { id: 5, description: 'Two Day Lecture Series on Ethics in Writing Dissertation', from: '20 February 2025', to: '21 February 2025',
+  {
+    id: 5, description: 'Two Day Lecture Series on Ethics in Writing Dissertation', from: '20 February 2025', to: '21 February 2025',
     link: '/read/chatbot-assisted-learning',
   },
-  { id: 6, description: 'One Day Orientation Ph.D. Orientation Programme', from: '08 February 2025', to: '08 February 2025',
+  {
+    id: 6, description: 'One Day Orientation Ph.D. Orientation Programme', from: '08 February 2025', to: '08 February 2025',
     link: '/read/spiritual-intelligence-anxiety',
   },
-  { id: 7, description: 'Organization of Debate and Speech Contest on 148th Birth Anniversary of Sardar Vallabh Bhai Patel and National Unity Day', from: '14 November 2024', to: '14 November 2024',
+  {
+    id: 7, description: 'Organization of Debate and Speech Contest on 148th Birth Anniversary of Sardar Vallabh Bhai Patel and National Unity Day', from: '14 November 2024', to: '14 November 2024',
     link: '/read/anxiety-undergraduates-review',
   },
-  { id: 8, description: 'Two Week Workshop on "Understanding of Research Methodology; Paradigms, Practices and Processes"', from: '14 October 2024', to: '27 October 2025',
+  {
+    id: 8, description: 'Two Week Workshop on "Understanding of Research Methodology; Paradigms, Practices and Processes"', from: '14 October 2024', to: '27 October 2025',
     link: '/read/cbcs-higher-education',
   },
-  { id: 9, description: 'Ten Days Workshop on "Understanding of Research Methodology; Paradigms, Practices and Processes"', from: '24 November 2023', to: '03 December 2023',
+  {
+    id: 9, description: 'Ten Days Workshop on "Understanding of Research Methodology; Paradigms, Practices and Processes"', from: '24 November 2023', to: '03 December 2023',
     link: '/read/vocational-interest-study',
   },
-  { id: 10, description: 'One Day National Conference on Understanding Learning Disability: Strategical Review, Practices & Processes', from: '28 October 2023', to: '28 October 2023',
+  {
+    id: 10, description: 'One Day National Conference on Understanding Learning Disability: Strategical Review, Practices & Processes', from: '28 October 2023', to: '28 October 2023',
     link: '/read/neuroeducation-landscape',
   }
 ]
@@ -1287,7 +1395,7 @@ export const researchNewsData: ResearchNewsItem[] = [
       '/digital-diet-1.jpg',
       '/digital-diet-2.jpg',
       '/digital-diet-3.jpg'
-],
+    ],
   },
   {
     id: 2,
@@ -1304,7 +1412,7 @@ export const researchNewsData: ResearchNewsItem[] = [
       '/ai-mansi-2.jpg',
       '/ai-mansi-3.jpg',
       '/ai-mansi-4.jpg'
-],
+    ],
   },
   {
     id: 3,
@@ -1391,7 +1499,7 @@ export const researchNewsData: ResearchNewsItem[] = [
       '/anxiety-scale-2.jpg',
       '/anxiety-scale-3.jpg',
       '/anxiety-scale-4.jpg'
-],
+    ],
     imageOnly: true,
   },
   {
@@ -1409,7 +1517,7 @@ export const researchNewsData: ResearchNewsItem[] = [
       '/grup-scale-3.jpg',
       '/grup-scale-4.jpg',
       '/grup-scale-5.jpg'
-],
+    ],
     imageOnly: true,
   }
 ]
