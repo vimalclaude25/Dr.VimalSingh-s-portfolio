@@ -192,16 +192,11 @@ function AdminContent() {
   // --- Submit Upload Flow ---
   const handleUploadSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    if (resType !== 'Video' && !selectedFile) {
-      setErrorMessage('Please select a file to upload.')
-      return
-    }
-    if (resType === 'Video' && !videoUrl) {
-      setErrorMessage('Please enter the Video URL link.')
-      return
-    }
-    if (resType !== 'Video' && !googleToken) {
-      setErrorMessage('Please connect your Google Drive first.')
+    
+    // Check if Google Drive access is needed (only if a file is selected for upload)
+    const hasFileUpload = resType !== 'Video' && !!selectedFile
+    if (hasFileUpload && !googleToken) {
+      setErrorMessage('Please connect your Google Drive first to upload the selected file.')
       return
     }
 
@@ -211,7 +206,7 @@ function AdminContent() {
 
     // Initialize tracking steps
     const newSteps: StatusStep[] = []
-    if (resType !== 'Video') {
+    if (hasFileUpload) {
       newSteps.push({ label: 'Uploading file to Google Drive', status: 'running' })
       newSteps.push({ label: 'Setting sharing permissions to public', status: 'idle' })
     }
@@ -220,12 +215,12 @@ function AdminContent() {
     newSteps.push({ label: 'Committing updates back to GitHub', status: 'idle' })
     setSteps(newSteps)
 
-    let finalLink = videoUrl
+    let finalLink = resType === 'Video' ? videoUrl : ''
     let fileSizeStr = ''
 
     try {
-      // 1. Upload File to Google Drive (if not video)
-      if (resType !== 'Video' && selectedFile) {
+      // 1. Upload File to Google Drive (if a file is selected)
+      if (hasFileUpload && selectedFile) {
         // Calculate readable file size
         const sizeInMb = selectedFile.size / (1024 * 1024)
         fileSizeStr = sizeInMb < 1 
@@ -287,7 +282,7 @@ function AdminContent() {
           return next
         })
       } else {
-        // Video step initialization logic matching
+        // Non-file step initialization logic
         setSteps(prev => {
           const next = [...prev]
           next[0].status = 'running'
@@ -295,7 +290,7 @@ function AdminContent() {
         })
       }
 
-      const gitFetchStepIndex = resType === 'Video' ? 0 : 2
+      const gitFetchStepIndex = hasFileUpload ? 2 : 0
       const gitSpliceStepIndex = gitFetchStepIndex + 1
       const gitCommitStepIndex = gitFetchStepIndex + 2
 
@@ -724,10 +719,9 @@ function AdminContent() {
               {/* Description */}
               <div>
                 <label className="block text-xs font-bold text-navy dark:text-white uppercase mb-2">
-                  Brief Description
+                  Brief Description (Optional)
                 </label>
                 <textarea
-                  required
                   rows={3}
                   placeholder="Explain what study notes or slides are covered inside this resource..."
                   value={desc}
@@ -740,11 +734,10 @@ function AdminContent() {
               {resType === 'Video' ? (
                 <div>
                   <label className="block text-xs font-bold text-navy dark:text-white uppercase mb-2">
-                    Video URL Link (YouTube/Vimeo/Drive)
+                    Video URL Link (YouTube/Vimeo/Drive) (Optional)
                   </label>
                   <input
                     type="url"
-                    required
                     placeholder="https://www.youtube.com/watch?v=..."
                     value={videoUrl}
                     onChange={(e) => setVideoUrl(e.target.value)}
@@ -754,7 +747,7 @@ function AdminContent() {
               ) : (
                 <div>
                   <label className="block text-xs font-bold text-navy dark:text-white uppercase mb-2">
-                    Select Resource File
+                    Select Resource File (Optional)
                   </label>
                   <div className="relative border-2 border-dashed border-border/80 hover:border-royal/50 rounded-2xl p-6 text-center transition-all bg-muted/20">
                     <input

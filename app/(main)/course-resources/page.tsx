@@ -380,25 +380,29 @@ function CourseResourcesContent() {
                             </span>
                           </span>
                           
-                          {resource.type === 'Video' ? (
-                            <a
-                              href={resource.link}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              className="inline-flex items-center gap-1.5 rounded-xl bg-gold px-3.5 py-2 text-[10px] font-bold text-navy hover:bg-gold/90 transition-colors"
-                            >
-                              Watch Video <ExternalLink className="h-3 w-3" />
-                            </a>
+                          {resource.link ? (
+                            resource.type === 'Video' ? (
+                              <a
+                                href={resource.link}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="inline-flex items-center gap-1.5 rounded-xl bg-gold px-3.5 py-2 text-[10px] font-bold text-navy hover:bg-gold/90 transition-colors"
+                              >
+                                Watch Video <ExternalLink className="h-3 w-3" />
+                              </a>
+                            ) : (
+                              <a
+                                href={resource.link}
+                                target={resource.link.startsWith('/read/') ? undefined : '_blank'}
+                                rel={resource.link.startsWith('/read/') ? undefined : 'noopener noreferrer'}
+                                className="inline-flex items-center gap-1.5 rounded-xl bg-royal px-3.5 py-2 text-[10px] font-bold text-white hover:bg-royal/95 transition-colors"
+                              >
+                                {resource.link.startsWith('/read/') ? 'Read Online' : 'Download'}
+                                <Download className="h-3 w-3" />
+                              </a>
+                            )
                           ) : (
-                            <a
-                              href={resource.link}
-                              target={resource.link.startsWith('/read/') ? undefined : '_blank'}
-                              rel={resource.link.startsWith('/read/') ? undefined : 'noopener noreferrer'}
-                              className="inline-flex items-center gap-1.5 rounded-xl bg-royal px-3.5 py-2 text-[10px] font-bold text-white hover:bg-royal/95 transition-colors"
-                            >
-                              {resource.link.startsWith('/read/') ? 'Read Online' : 'Download'}
-                              <Download className="h-3 w-3" />
-                            </a>
+                            <span className="text-[10px] text-muted-foreground italic bg-muted px-2.5 py-1.5 rounded-xl border border-border/40">No file attachment</span>
                           )}
                         </div>
                       </motion.div>
