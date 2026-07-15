@@ -49,6 +49,9 @@ function AdminContent() {
   const [courseCode, setCourseCode] = useState<'MED104' | 'MED305' | 'General'>('MED104')
   const [resType, setResType] = useState<'PDF' | 'PPT' | 'Infographic' | 'Video'>('PDF')
   const [videoUrl, setVideoUrl] = useState('')
+  const [externalUrl, setExternalUrl] = useState('')
+  const [thumbnailUrl, setThumbnailUrl] = useState('')
+  const [isResolvingThumbnail, setIsResolvingThumbnail] = useState(false)
   const [selectedFile, setSelectedFile] = useState<File | null>(null)
 
   // --- UI Operations State ---
@@ -99,6 +102,67 @@ function AdminContent() {
       if (savedGToken) setGoogleToken(savedGToken)
     }
   }, [])
+
+  // --- Thumbnail Helper Functions ---
+  const getYoutubeId = (url: string) => {
+    const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/
+    const match = url.match(regExp)
+    return match && match[2].length === 11 ? match[2] : null
+  }
+
+  const getGoogleDriveId = (url: string) => {
+    const match1 = url.match(/\/file\/d\/([a-zA-Z0-9_-]+)/)
+    if (match1) return match1[1]
+    const match2 = url.match(/id=([a-zA-Z0-9_-]+)/)
+    if (match2) return match2[1]
+    return null
+  }
+
+  // --- Thumbnail Resolution Effect ---
+  useEffect(() => {
+    const targetUrl = resType === 'Video' ? videoUrl : externalUrl
+    if (!targetUrl) {
+      setThumbnailUrl('')
+      return
+    }
+
+    // 1. Check if Google Drive link
+    const driveId = getGoogleDriveId(targetUrl)
+    if (driveId) {
+      setThumbnailUrl(`https://drive.google.com/thumbnail?id=${driveId}&sz=w600`)
+      return
+    }
+
+    // 2. Check if YouTube link
+    const ytId = getYoutubeId(targetUrl)
+    if (ytId) {
+      setThumbnailUrl(`https://img.youtube.com/vi/${ytId}/mqdefault.jpg`)
+      return
+    }
+
+    // 3. Otherwise, fetch from Microlink API (only if it looks like a valid http link)
+    if (targetUrl.startsWith('http://') || targetUrl.startsWith('https://')) {
+      const delayDebounceFn = setTimeout(() => {
+        setIsResolvingThumbnail(true)
+        fetch(`https://api.microlink.io?url=${encodeURIComponent(targetUrl)}`)
+          .then((res) => res.json())
+          .then((data) => {
+            if (data.status === 'success' && data.data.image?.url) {
+              setThumbnailUrl(data.data.image.url)
+            } else if (data.status === 'success' && data.data.screenshot?.url) {
+              setThumbnailUrl(data.data.screenshot.url)
+            } else {
+              setThumbnailUrl('')
+            }
+          })
+          .catch(() => setThumbnailUrl(''))
+          .finally(() => setIsResolvingThumbnail(false))
+      }, 800) // Debounce API calls by 800ms
+      return () => clearTimeout(delayDebounceFn)
+    } else {
+      setThumbnailUrl('')
+    }
+  }, [videoUrl, externalUrl, resType])
 
   // --- Fetch Resources from GitHub to enable Delete ---
   useEffect(() => {
@@ -215,7 +279,7 @@ function AdminContent() {
     newSteps.push({ label: 'Committing updates back to GitHub', status: 'idle' })
     setSteps(newSteps)
 
-    let finalLink = resType === 'Video' ? videoUrl : ''
+    let finalLink = resType === 'Video' ? videoUrl : (selectedFile ? '' : externalUrl)
     let fileSizeStr = ''
 
     try {
@@ -334,6 +398,15 @@ function AdminContent() {
         year: 'numeric'
       })
 
+      // Resolve final thumbnail directly from finalLink if we just uploaded to Drive
+      let finalThumbnail = thumbnailUrl
+      if (resType !== 'Video' && selectedFile && finalLink) {
+        const driveId = getGoogleDriveId(finalLink)
+        if (driveId) {
+          finalThumbnail = `https://drive.google.com/thumbnail?id=${driveId}&sz=w600`
+        }
+      }
+
       const newItemString = `  {
     id: ${Date.now()},
     title: ${JSON.stringify(title)},
@@ -343,6 +416,7 @@ function AdminContent() {
     link: ${JSON.stringify(finalLink)},
     ${fileSizeStr ? `fileSize: ${JSON.stringify(fileSizeStr)},` : ''}
     ${resType === 'Video' ? `duration: "Video class",` : ''}
+    ${finalThumbnail ? `thumbnail: ${JSON.stringify(finalThumbnail)},` : ''}
     date: ${JSON.stringify(dateStr)}
   }`
 
@@ -400,6 +474,8 @@ function AdminContent() {
       setDesc('')
       setSelectedFile(null)
       setVideoUrl('')
+      setExternalUrl('')
+      setThumbnailUrl('')
       
       // Reload resource list
       setTimeout(() => fetchResourcesList(), 3000)
@@ -659,162 +735,236 @@ function AdminContent() {
             </div>
           </div>
 
-          {/* Form */}
-          <div className="bg-card border border-border rounded-3xl p-6 sm:p-8 shadow-sm space-y-6">
-            <h3 className="font-heading text-lg font-bold text-navy dark:text-white border-b border-border pb-3">
-              Upload New Study Resource
-            </h3>
+          {/* Form and Preview Layout Grid */}
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
+            {/* Form */}
+            <div className="lg:col-span-8 bg-card border border-border rounded-3xl p-6 sm:p-8 shadow-sm space-y-6">
+              <h3 className="font-heading text-lg font-bold text-navy dark:text-white border-b border-border pb-3">
+                Upload New Study Resource
+              </h3>
 
-            <form onSubmit={handleUploadSubmit} className="space-y-4">
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                {/* Course Selection */}
-                <div>
-                  <label className="block text-xs font-bold text-navy dark:text-white uppercase mb-2">
-                    Associate Course
-                  </label>
-                  <select
-                    value={courseCode}
-                    onChange={(e) => setCourseCode(e.target.value as any)}
-                    className="w-full rounded-xl border border-border bg-muted/40 py-2.5 px-4 text-xs font-bold outline-none focus:border-royal focus:bg-card"
-                  >
-                    <option value="MED104">MED104 Research in Education</option>
-                    <option value="MED305">MED305 Educational Administration &amp; Planning</option>
-                    <option value="General">General / All Courses</option>
-                  </select>
+              <form onSubmit={handleUploadSubmit} className="space-y-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  {/* Course Selection */}
+                  <div>
+                    <label className="block text-xs font-bold text-navy dark:text-white uppercase mb-2">
+                      Associate Course
+                    </label>
+                    <select
+                      value={courseCode}
+                      onChange={(e) => setCourseCode(e.target.value as any)}
+                      className="w-full rounded-xl border border-border bg-muted/40 py-2.5 px-4 text-xs font-bold outline-none focus:border-royal focus:bg-card"
+                    >
+                      <option value="MED104">MED104 Research in Education</option>
+                      <option value="MED305">MED305 Educational Administration &amp; Planning</option>
+                      <option value="General">General / All Courses</option>
+                    </select>
+                  </div>
+
+                  {/* Resource Type */}
+                  <div>
+                    <label className="block text-xs font-bold text-navy dark:text-white uppercase mb-2">
+                      Resource Category Type
+                    </label>
+                    <select
+                      value={resType}
+                      onChange={(e) => setResType(e.target.value as any)}
+                      className="w-full rounded-xl border border-border bg-muted/40 py-2.5 px-4 text-xs font-bold outline-none focus:border-royal focus:bg-card"
+                    >
+                      <option value="PDF">PDF Handout</option>
+                      <option value="PPT">PPT Slide Deck</option>
+                      <option value="Infographic">Infographic Poster</option>
+                      <option value="Video">Video Lecture URL</option>
+                    </select>
+                  </div>
                 </div>
 
-                {/* Resource Type */}
+                {/* Title */}
                 <div>
                   <label className="block text-xs font-bold text-navy dark:text-white uppercase mb-2">
-                    Resource Category Type
-                  </label>
-                  <select
-                    value={resType}
-                    onChange={(e) => setResType(e.target.value as any)}
-                    className="w-full rounded-xl border border-border bg-muted/40 py-2.5 px-4 text-xs font-bold outline-none focus:border-royal focus:bg-card"
-                  >
-                    <option value="PDF">PDF Handout</option>
-                    <option value="PPT">PPT Slide Deck</option>
-                    <option value="Infographic">Infographic Poster</option>
-                    <option value="Video">Video Lecture URL</option>
-                  </select>
-                </div>
-              </div>
-
-              {/* Title */}
-              <div>
-                <label className="block text-xs font-bold text-navy dark:text-white uppercase mb-2">
-                  Resource Title
-                </label>
-                <input
-                  type="text"
-                  required
-                  placeholder="e.g. Sampling Errors and Standard Distributions Guide"
-                  value={title}
-                  onChange={(e) => setTitle(e.target.value)}
-                  className="w-full rounded-xl border border-border bg-muted/40 py-2.5 px-4 text-xs font-semibold outline-none focus:border-royal focus:bg-card"
-                />
-              </div>
-
-              {/* Description */}
-              <div>
-                <label className="block text-xs font-bold text-navy dark:text-white uppercase mb-2">
-                  Brief Description (Optional)
-                </label>
-                <textarea
-                  rows={3}
-                  placeholder="Explain what study notes or slides are covered inside this resource..."
-                  value={desc}
-                  onChange={(e) => setDesc(e.target.value)}
-                  className="w-full rounded-xl border border-border bg-muted/40 py-2.5 px-4 text-xs font-semibold outline-none focus:border-royal focus:bg-card"
-                />
-              </div>
-
-              {/* File upload or link */}
-              {resType === 'Video' ? (
-                <div>
-                  <label className="block text-xs font-bold text-navy dark:text-white uppercase mb-2">
-                    Video URL Link (YouTube/Vimeo/Drive) (Optional)
+                    Resource Title
                   </label>
                   <input
-                    type="url"
-                    placeholder="https://www.youtube.com/watch?v=..."
-                    value={videoUrl}
-                    onChange={(e) => setVideoUrl(e.target.value)}
+                    type="text"
+                    required
+                    placeholder="e.g. Sampling Errors and Standard Distributions Guide"
+                    value={title}
+                    onChange={(e) => setTitle(e.target.value)}
                     className="w-full rounded-xl border border-border bg-muted/40 py-2.5 px-4 text-xs font-semibold outline-none focus:border-royal focus:bg-card"
                   />
                 </div>
-              ) : (
+
+                {/* Description */}
                 <div>
                   <label className="block text-xs font-bold text-navy dark:text-white uppercase mb-2">
-                    Select Resource File (Optional)
+                    Brief Description (Optional)
                   </label>
-                  <div className="relative border-2 border-dashed border-border/80 hover:border-royal/50 rounded-2xl p-6 text-center transition-all bg-muted/20">
+                  <textarea
+                    rows={3}
+                    placeholder="Explain what study notes or slides are covered inside this resource..."
+                    value={desc}
+                    onChange={(e) => setDesc(e.target.value)}
+                    className="w-full rounded-xl border border-border bg-muted/40 py-2.5 px-4 text-xs font-semibold outline-none focus:border-royal focus:bg-card"
+                  />
+                </div>
+
+                {/* File upload or link */}
+                {resType === 'Video' ? (
+                  <div>
+                    <label className="block text-xs font-bold text-navy dark:text-white uppercase mb-2">
+                      Video URL Link (YouTube/Vimeo/Drive) (Optional)
+                    </label>
                     <input
-                      type="file"
-                      onChange={(e) => setSelectedFile(e.target.files?.[0] || null)}
-                      className="absolute inset-0 w-full h-full opacity-0 cursor-pointer"
+                      type="url"
+                      placeholder="https://www.youtube.com/watch?v=..."
+                      value={videoUrl}
+                      onChange={(e) => setVideoUrl(e.target.value)}
+                      className="w-full rounded-xl border border-border bg-muted/40 py-2.5 px-4 text-xs font-semibold outline-none focus:border-royal focus:bg-card"
                     />
-                    <UploadCloud className="h-8 w-8 mx-auto text-muted-foreground mb-2" />
-                    <p className="text-xs font-bold text-navy dark:text-white">
-                      {selectedFile ? selectedFile.name : 'Click to select or drag file here'}
-                    </p>
-                    <p className="text-[10px] text-muted-foreground mt-1">
-                      Supports PDFs, PPTs, Images, Audios up to 50 MB
-                    </p>
                   </div>
-                </div>
-              )}
-
-              {/* Status Message boxes */}
-              {errorMessage && (
-                <div className="flex gap-2 p-4 rounded-xl bg-red-500/10 border border-red-500/20 text-xs text-red-500 font-semibold">
-                  <AlertCircle className="h-4 w-4 shrink-0" /> {errorMessage}
-                </div>
-              )}
-
-              {successMessage && (
-                <div className="flex gap-2 p-4 rounded-xl bg-emerald-500/10 border border-emerald-500/20 text-xs text-emerald-500 leading-relaxed font-semibold">
-                  <CheckCircle2 className="h-4 w-4 shrink-0 mt-0.5" /> {successMessage}
-                </div>
-              )}
-
-              {/* Progress Console */}
-              {isSubmitting && (
-                <div className="p-4 bg-muted/30 border border-border/60 rounded-2xl space-y-2">
-                  <h5 className="text-[10px] font-extrabold uppercase tracking-widest text-muted-foreground mb-3 flex items-center gap-1.5">
-                    <Loader2 className="h-3.5 w-3.5 animate-spin text-royal" /> Operations Live Console
-                  </h5>
-                  <div className="space-y-1.5 text-xs">
-                    {steps.map((step, idx) => (
-                      <div key={idx} className="flex items-center justify-between">
-                        <span className={step.status === 'running' ? 'text-royal font-bold' : step.status === 'success' ? 'text-emerald-500' : 'text-muted-foreground'}>
-                          • {step.label}
-                        </span>
-                        <span className="text-[10px] font-bold uppercase">
-                          {step.status === 'idle' && 'Waiting'}
-                          {step.status === 'running' && 'In Progress...'}
-                          {step.status === 'success' && 'Done ✓'}
-                          {step.status === 'error' && 'Failed ✗'}
-                        </span>
+                ) : (
+                  <div className="space-y-4">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                      <div>
+                        <label className="block text-xs font-bold text-navy dark:text-white uppercase mb-2">
+                          Upload File Option
+                        </label>
+                        <div className="relative border-2 border-dashed border-border/80 hover:border-royal/50 rounded-2xl p-5 text-center transition-all bg-muted/20">
+                          <input
+                            type="file"
+                            onChange={(e) => {
+                              setSelectedFile(e.target.files?.[0] || null)
+                              if (e.target.files?.[0]) setExternalUrl('') // Clear external url if file chosen
+                            }}
+                            className="absolute inset-0 w-full h-full opacity-0 cursor-pointer"
+                          />
+                          <UploadCloud className="h-7 w-7 mx-auto text-muted-foreground mb-1.5" />
+                          <p className="text-[11px] font-bold text-navy dark:text-white truncate">
+                            {selectedFile ? selectedFile.name : 'Click to select file'}
+                          </p>
+                        </div>
                       </div>
-                    ))}
+
+                      <div>
+                        <label className="block text-xs font-bold text-navy dark:text-white uppercase mb-2">
+                          OR External Web Link (Optional)
+                        </label>
+                        <input
+                          type="url"
+                          placeholder="https://example.com/handout.pdf"
+                          value={externalUrl}
+                          onChange={(e) => {
+                            setExternalUrl(e.target.value)
+                            if (e.target.value) setSelectedFile(null) // Clear file if link entered
+                          }}
+                          className="w-full rounded-xl border border-border bg-muted/40 py-2.5 px-4 text-xs font-semibold outline-none focus:border-royal focus:bg-card h-[78px]"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                )}
+
+                {/* Status Message boxes */}
+                {errorMessage && (
+                  <div className="flex gap-2 p-4 rounded-xl bg-red-500/10 border border-red-500/20 text-xs text-red-500 font-semibold">
+                    <AlertCircle className="h-4 w-4 shrink-0" /> {errorMessage}
+                  </div>
+                )}
+
+                {successMessage && (
+                  <div className="flex gap-2 p-4 rounded-xl bg-emerald-500/10 border border-emerald-500/20 text-xs text-emerald-500 leading-relaxed font-semibold">
+                    <CheckCircle2 className="h-4 w-4 shrink-0 mt-0.5" /> {successMessage}
+                  </div>
+                )}
+
+                {/* Progress Console */}
+                {isSubmitting && (
+                  <div className="p-4 bg-muted/30 border border-border/60 rounded-2xl space-y-2">
+                    <h5 className="text-[10px] font-extrabold uppercase tracking-widest text-muted-foreground mb-3 flex items-center gap-1.5">
+                      <Loader2 className="h-3.5 w-3.5 animate-spin text-royal" /> Operations Live Console
+                    </h5>
+                    <div className="space-y-1.5 text-xs">
+                      {steps.map((step, idx) => (
+                        <div key={idx} className="flex items-center justify-between">
+                          <span className={step.status === 'running' ? 'text-royal font-bold' : step.status === 'success' ? 'text-emerald-500' : 'text-muted-foreground'}>
+                            • {step.label}
+                          </span>
+                          <span className="text-[10px] font-bold uppercase">
+                            {step.status === 'idle' && 'Waiting'}
+                            {step.status === 'running' && 'In Progress...'}
+                            {step.status === 'success' && 'Done ✓'}
+                            {step.status === 'error' && 'Failed ✗'}
+                          </span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                )}
+
+                <div className="pt-4 border-t border-border/60">
+                  <button
+                    type="submit"
+                    disabled={isSubmitting}
+                    className={`inline-flex items-center gap-2 rounded-xl bg-royal text-white px-6 py-3 text-xs font-bold hover:bg-royal/95 transition-colors cursor-pointer ${
+                      isSubmitting ? 'opacity-60 cursor-not-allowed' : ''
+                    }`}
+                  >
+                    {isSubmitting ? 'Uploading & Splicing...' : 'Upload Resource & Push'}
+                  </button>
+                </div>
+              </form>
+            </div>
+
+            {/* Live Preview Card Panel */}
+            <div className="lg:col-span-4 space-y-6">
+              <div className="bg-card border border-border rounded-3xl p-6 shadow-sm space-y-4 sticky top-24">
+                <h4 className="font-heading text-xs font-bold text-muted-foreground uppercase tracking-wider border-b border-border pb-2 flex items-center gap-1.5">
+                  <CloudLightning className="h-4.5 w-4.5 text-royal animate-pulse" /> Live Card Preview
+                </h4>
+                
+                <div className="border border-border bg-card rounded-2xl p-5 shadow-sm overflow-hidden flex flex-col justify-between min-h-[220px] hover:border-royal/30 hover:shadow-lg transition-all">
+                  <div>
+                    {/* Image Preview Box */}
+                    <div className="aspect-video w-full rounded-xl bg-muted overflow-hidden relative mb-4 border border-border/40">
+                      {isResolvingThumbnail ? (
+                        <div className="absolute inset-0 flex items-center justify-center bg-muted/60">
+                          <Loader2 className="h-5 w-5 animate-spin text-royal" />
+                        </div>
+                      ) : thumbnailUrl ? (
+                        <img
+                          src={thumbnailUrl}
+                          alt="Link preview"
+                          className="h-full w-full object-cover"
+                          onError={() => setThumbnailUrl('')}
+                        />
+                      ) : (
+                        <div className="absolute inset-0 flex flex-col items-center justify-center text-muted-foreground text-[10px] gap-1 p-4 bg-muted/40">
+                          <Layers className="h-5 w-5 opacity-40 text-royal" />
+                          <span className="font-bold">Auto Link Preview</span>
+                        </div>
+                      )}
+                    </div>
+
+                    {/* Metadata Badges */}
+                    <div className="flex items-center gap-2 mb-2.5">
+                      <span className="inline-flex rounded-full bg-royal/10 px-2 py-0.5 text-[9px] font-bold text-royal uppercase">
+                        {courseCode}
+                      </span>
+                      <span className="inline-flex rounded bg-muted px-1.5 py-0.5 text-[9px] font-bold text-muted-foreground uppercase">
+                        {resType}
+                      </span>
+                    </div>
+
+                    <h4 className="text-xs font-bold text-navy dark:text-white truncate">
+                      {title || 'Resource Title'}
+                    </h4>
+                    <p className="text-[10px] text-muted-foreground line-clamp-2 mt-1 leading-relaxed">
+                      {desc || 'Provide resource details above to see preview here...'}
+                    </p>
                   </div>
                 </div>
-              )}
-
-              <div className="pt-4 border-t border-border/60">
-                <button
-                  type="submit"
-                  disabled={isSubmitting}
-                  className={`inline-flex items-center gap-2 rounded-xl bg-royal text-white px-6 py-3 text-xs font-bold hover:bg-royal/95 transition-colors cursor-pointer ${
-                    isSubmitting ? 'opacity-60 cursor-not-allowed' : ''
-                  }`}
-                >
-                  {isSubmitting ? 'Uploading & Splicing...' : 'Upload Resource & Push'}
-                </button>
               </div>
-            </form>
+            </div>
           </div>
 
           {/* Delete section list */}

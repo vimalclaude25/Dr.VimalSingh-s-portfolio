@@ -343,6 +343,17 @@ function CourseResourcesContent() {
                         className="flex flex-col justify-between rounded-3xl border border-border bg-card p-6 shadow-sm hover:border-royal/30 hover:shadow-lg transition-all"
                       >
                         <div>
+                          {/* Thumbnail preview image if present */}
+                          {resource.thumbnail && (
+                            <div className="aspect-video w-full overflow-hidden rounded-2xl mb-4 border border-border/40 bg-muted relative">
+                              <img
+                                src={resource.thumbnail}
+                                alt={resource.title}
+                                className="h-full w-full object-cover transition-transform duration-500 hover:scale-105"
+                                loading="lazy"
+                              />
+                            </div>
+                          )}
                           {/* Header bar */}
                           <div className="flex items-center justify-between gap-2 mb-3.5">
                             <span className="inline-flex items-center gap-1 rounded-full bg-royal/10 px-2.5 py-0.5 text-[9px] font-bold text-royal uppercase tracking-wider">

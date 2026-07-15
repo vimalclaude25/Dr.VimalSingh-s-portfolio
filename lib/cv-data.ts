@@ -1437,6 +1437,7 @@ export interface StudyResource {
   fileSize?: string
   duration?: string
   date: string
+  thumbnail?: string
 }
 
 export const coursesData: Course[] = [
