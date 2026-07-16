@@ -1815,48 +1815,7 @@ export const coursesData: Course[] = [
 ]
 
 export const studyResourcesData: StudyResource[] = [
-  {
-    id: 1,
-    title: 'Philosophizing Research: Understanding the Philosophical Foundations of Research',
-    desc: 'A comprehensive visual guide exploring the connection between philosophy and research, detailing branches of philosophy (Metaphysics, Epistemology, Axiology, Logic, Ethics, Aesthetics) and philosophical paradigms (Positivism, Interpretivism, Pragmatism, Critical Theory).',
-    courseCode: 'MED104',
-    type: 'Infographic',
-    link: '/philosophizing-research-infographic.jpg',
-    fileSize: '673 KB',
-    date: '16 July 2026',
-    thumbnail: '/philosophizing-research-infographic.jpg'
-  },
-  {
-    id: 2,
-    title: 'Philosophical Foundation of Research: Etymological Meaning of Philosophy',
-    desc: 'Handwritten lecture notes explaining the etymological meaning of philosophy (Philos + Sophia = Love for Wisdom), comparing knowledge, intelligence, and wisdom, and demonstrating how philosophy guides search for research truth.',
-    courseCode: 'MED104',
-    type: 'Infographic',
-    link: '/philosophical-foundation-notes.jpg',
-    fileSize: '93 KB',
-    date: '14 July 2026',
-    thumbnail: '/philosophical-foundation-notes.jpg'
-  },
-  {
-    id: 3,
-    title: 'Constructing Educational Inquiry: Research Methods in Education (Lecture 1)',
-    desc: 'Lecture slides detailing course orientation program in Research in Education for M.A., M.Ed., Ph.D., and NET/JRF candidates. Explores the master plan, syllabus roadmap, and four phases of construction (Foundation, Scaffolding, Materials, Assembly).',
-    courseCode: 'MED104',
-    type: 'PDF',
-    link: '/research-methods-lecture1.pdf',
-    fileSize: '267 KB',
-    date: '10 July 2026'
-  },
-  {
-    id: 4,
-    title: 'Philosophizing Research: Course Orientation Program',
-    desc: 'Orientation program presentation on research methodology, detailing the philosophical foundations of research, dominant research paradigms (Positivism, Interpretivism, Pragmatism, Critical Theory), and the destination of meaningful knowledge.',
-    courseCode: 'MED104',
-    type: 'PDF',
-    link: '/philosophizing-research-lecture.pdf',
-    fileSize: '265 KB',
-    date: '10 July 2026'
-  }
+
 ]
 
 export interface EditedBook2026 {
