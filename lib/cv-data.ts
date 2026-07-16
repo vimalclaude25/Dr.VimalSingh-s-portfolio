@@ -1608,6 +1608,19 @@ export const researchNewsData: ResearchNewsItem[] = [
     image: '/janmanas-awareness-scale.jpg',
     link: 'https://janmanas.in/2026/06/28/csjmu-education-research/',
     imageOnly: false,
+  },
+  {
+    id: 18,
+    title: '1600 शोधों को खंगालकर कानपुर ने दिया “बेहतर डिजिटल पढ़ाई” का फॉर्मूला',
+    source: 'Janmanas',
+    date: '16 July 2026',
+    desc: 'छत्रपति शाहू जी महाराज विश्वविद्यालय (CSJMU), कानपुर के शोधकर्ताओं ने वर्ष 2021 से 2025 के बीच प्रकाशित 1600 से अधिक वैश्विक शोध पत्रों का विश्लेषण कर डिजिटल शिक्षा को अधिक प्रभावी बनाने का एक नया फॉर्मूला तैयार किया है। यह महत्वपूर्ण शोध प्रसिद्ध अंतरराष्ट्रीय जर्नल \'Annals of Neurosciences\' (SAGE Publications) में प्रकाशित हुआ है। शोध में डिजिटल पढ़ाई को बेहतर बनाने के लिए तीन मुख्य सिद्धांत—सरल बनाना, विद्यार्थी-केंद्रित दृष्टिकोण और याद रखने योग्य सामग्री तैयार करना—दिए गए हैं।',
+    category: 'media-coverage',
+    subcategory: 'Television Coverage',
+    mediaType: 'TV',
+    image: '/janmanas-digital-education.jpg',
+    link: 'https://janmanas.in/2026/07/16/research-csjmu-kanpur-digital-education/',
+    imageOnly: false,
   }
 ]
 
