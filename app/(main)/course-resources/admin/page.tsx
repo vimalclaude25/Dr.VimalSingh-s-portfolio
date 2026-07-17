@@ -52,7 +52,7 @@ function AdminContent() {
   const [externalUrl, setExternalUrl] = useState('')
   const [thumbnailUrl, setThumbnailUrl] = useState('')
   const [isResolvingThumbnail, setIsResolvingThumbnail] = useState(false)
-  const [selectedFile, setSelectedFile] = useState<File | null>(null)
+  const [selectedFiles, setSelectedFiles] = useState<File[]>([])
 
   // --- UI Operations State ---
   const [isSubmitting, setIsSubmitting] = useState(false)
@@ -257,10 +257,10 @@ function AdminContent() {
   const handleUploadSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     
-    // Check if Google Drive access is needed (only if a file is selected for upload)
-    const hasFileUpload = resType !== 'Video' && !!selectedFile
-    if (hasFileUpload && !googleToken) {
-      setErrorMessage('Please connect your Google Drive first to upload the selected file.')
+    // Check if Google Drive access is needed (only if files are selected for upload)
+    const hasFilesUpload = resType !== 'Video' && selectedFiles.length > 0
+    if (hasFilesUpload && !googleToken) {
+      setErrorMessage('Please connect your Google Drive first to upload the selected files.')
       return
     }
 
@@ -270,81 +270,104 @@ function AdminContent() {
 
     // Initialize tracking steps
     const newSteps: StatusStep[] = []
-    if (hasFileUpload) {
-      newSteps.push({ label: 'Uploading file to Google Drive', status: 'running' })
-      newSteps.push({ label: 'Setting sharing permissions to public', status: 'idle' })
+    if (hasFilesUpload) {
+      selectedFiles.forEach((file, idx) => {
+        newSteps.push({ label: `Uploading file ${idx + 1}/${selectedFiles.length}: ${file.name}`, status: 'idle' })
+        newSteps.push({ label: `Setting sharing permissions for ${file.name}`, status: 'idle' })
+      })
+    } else {
+      newSteps.push({ label: 'Preparing non-file resource details', status: 'idle' })
     }
     newSteps.push({ label: 'Fetching cv-data.ts from GitHub', status: 'idle' })
-    newSteps.push({ label: 'Splicing resource entry into code', status: 'idle' })
+    newSteps.push({ label: 'Splicing resource entries into code', status: 'idle' })
     newSteps.push({ label: 'Committing updates back to GitHub', status: 'idle' })
     setSteps(newSteps)
 
-    let finalLink = resType === 'Video' ? videoUrl : (selectedFile ? '' : externalUrl)
-    let fileSizeStr = ''
+    const uploadedResources: { title: string; link: string; fileSizeStr: string; thumbnail: string }[] = []
+    let stepOffset = 0
 
     try {
-      // 1. Upload File to Google Drive (if a file is selected)
-      if (hasFileUpload && selectedFile) {
-        // Calculate readable file size
-        const sizeInMb = selectedFile.size / (1024 * 1024)
-        fileSizeStr = sizeInMb < 1 
-          ? `${Math.round(selectedFile.size / 1024)} KB` 
-          : `${sizeInMb.toFixed(1)} MB`
-
-        // Google Drive Multipart Upload API
-        const metadata = {
-          name: `${courseCode}_${Date.now()}_${selectedFile.name}`,
-          mimeType: selectedFile.type
-        }
-        
-        const formData = new FormData()
-        formData.append('metadata', new Blob([JSON.stringify(metadata)], { type: 'application/json' }))
-        formData.append('file', selectedFile)
-
-        const uploadRes = await fetch('https://www.googleapis.com/upload/drive/v3/files?uploadType=multipart&fields=id', {
-          method: 'POST',
-          headers: {
-            Authorization: `Bearer ${googleToken}`
-          },
-          body: formData
-        })
-
-        if (!uploadRes.ok) throw new Error('Google Drive upload failed. Please reconnect OAuth.')
-        const uploadData = await uploadRes.json()
-        const fileId = uploadData.id
-
-        // Update progress step
-        setSteps(prev => {
-          const next = [...prev]
-          next[0].status = 'success'
-          next[1].status = 'running'
-          return next
-        })
-
-        // 2. Set Public Sharing on Google Drive File
-        const permRes = await fetch(`https://www.googleapis.com/drive/v3/files/${fileId}/permissions`, {
-          method: 'POST',
-          headers: {
-            Authorization: `Bearer ${googleToken}`,
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify({
-            role: 'reader',
-            type: 'anyone'
+      if (hasFilesUpload) {
+        for (let i = 0; i < selectedFiles.length; i++) {
+          const file = selectedFiles[i]
+          
+          setSteps(prev => {
+            const next = [...prev]
+            next[i * 2].status = 'running'
+            return next
           })
-        })
 
-        if (!permRes.ok) throw new Error('Failed to set public view permissions on Google Drive.')
-        
-        // Link to file viewer on Google Drive
-        finalLink = `https://drive.google.com/file/d/${fileId}/view`
+          // Calculate readable file size
+          const sizeInMb = file.size / (1024 * 1024)
+          const fileSizeStr = sizeInMb < 1 
+            ? `${Math.round(file.size / 1024)} KB` 
+            : `${sizeInMb.toFixed(1)} MB`
 
-        setSteps(prev => {
-          const next = [...prev]
-          next[1].status = 'success'
-          next[2].status = 'running'
-          return next
-        })
+          // Google Drive Multipart Upload API
+          const metadata = {
+            name: `${courseCode}_${Date.now()}_${file.name}`,
+            mimeType: file.type
+          }
+          
+          const formData = new FormData()
+          formData.append('metadata', new Blob([JSON.stringify(metadata)], { type: 'application/json' }))
+          formData.append('file', file)
+
+          const uploadRes = await fetch('https://www.googleapis.com/upload/drive/v3/files?uploadType=multipart&fields=id', {
+            method: 'POST',
+            headers: {
+              Authorization: `Bearer ${googleToken}`
+            },
+            body: formData
+          })
+
+          if (!uploadRes.ok) throw new Error(`Google Drive upload failed for file: ${file.name}. Please reconnect OAuth.`)
+          const uploadData = await uploadRes.json()
+          const fileId = uploadData.id
+
+          setSteps(prev => {
+            const next = [...prev]
+            next[i * 2].status = 'success'
+            next[i * 2 + 1].status = 'running'
+            return next
+          })
+
+          // 2. Set Public Sharing on Google Drive File
+          const permRes = await fetch(`https://www.googleapis.com/drive/v3/files/${fileId}/permissions`, {
+            method: 'POST',
+            headers: {
+              Authorization: `Bearer ${googleToken}`,
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+              role: 'reader',
+              type: 'anyone'
+            })
+          })
+
+          if (!permRes.ok) throw new Error(`Failed to set public view permissions on Google Drive for: ${file.name}`)
+          
+          const finalLink = `https://drive.google.com/file/d/${fileId}/view`
+          const finalThumbnail = `https://drive.google.com/thumbnail?id=${fileId}&sz=w600`
+
+          setSteps(prev => {
+            const next = [...prev]
+            next[i * 2 + 1].status = 'success'
+            return next
+          })
+
+          const fileTitle = selectedFiles.length > 1
+            ? `${title} - ${file.name.replace(/\.[^/.]+$/, "")}`
+            : title
+
+          uploadedResources.push({
+            title: fileTitle,
+            link: finalLink,
+            fileSizeStr,
+            thumbnail: finalThumbnail
+          })
+        }
+        stepOffset = selectedFiles.length * 2
       } else {
         // Non-file step initialization logic
         setSteps(prev => {
@@ -352,11 +375,33 @@ function AdminContent() {
           next[0].status = 'running'
           return next
         })
+
+        let finalLink = resType === 'Video' ? videoUrl : externalUrl
+        
+        setSteps(prev => {
+          const next = [...prev]
+          next[0].status = 'success'
+          return next
+        })
+
+        uploadedResources.push({
+          title,
+          link: finalLink,
+          fileSizeStr: '',
+          thumbnail: thumbnailUrl
+        })
+        stepOffset = 1
       }
 
-      const gitFetchStepIndex = hasFileUpload ? 2 : 0
+      const gitFetchStepIndex = stepOffset
       const gitSpliceStepIndex = gitFetchStepIndex + 1
       const gitCommitStepIndex = gitFetchStepIndex + 2
+
+      setSteps(prev => {
+        const next = [...prev]
+        next[gitFetchStepIndex].status = 'running'
+        return next
+      })
 
       // 3. Fetch current cv-data.ts from GitHub
       const dbUrl = `https://api.github.com/repos/${gitOwner}/${gitRepo}/contents/lib/cv-data.ts`
@@ -374,7 +419,7 @@ function AdminContent() {
           const errData = await gitGetRes.json()
           if (errData && errData.message) errMessage += ` (${errData.message})`
         } catch (_) {}
-        throw new Error(`Failed to read cv-data.ts from your GitHub repository. Details: ${errMessage}. Please verify that your GitHub Token has 'repo' permission, and that the Username (${gitOwner}) and Repo Name (${gitRepo}) are correct.`)
+        throw new Error(`Failed to read cv-data.ts from your GitHub repository. Details: ${errMessage}. Please verify repository config settings.`)
       }
       const gitData = await gitGetRes.json()
       const decodedContent = decodeURIComponent(escape(atob(gitData.content)))
@@ -387,7 +432,7 @@ function AdminContent() {
         return next
       })
 
-      // 4. Splice new resource entry in content string
+      // 4. Splice new resource entries in content string
       let updatedContent = decodedContent
       const arrayStart = 'export const studyResourcesData: StudyResource[] = ['
       const emptyArray = 'export const studyResourcesData: StudyResource[] = []'
@@ -398,32 +443,25 @@ function AdminContent() {
         year: 'numeric'
       })
 
-      // Resolve final thumbnail directly from finalLink if we just uploaded to Drive
-      let finalThumbnail = thumbnailUrl
-      if (resType !== 'Video' && selectedFile && finalLink) {
-        const driveId = getGoogleDriveId(finalLink)
-        if (driveId) {
-          finalThumbnail = `https://drive.google.com/thumbnail?id=${driveId}&sz=w600`
-        }
-      }
-
-      const newItemString = `  {
-    id: ${Date.now()},
-    title: ${JSON.stringify(title)},
+      const newItemsString = uploadedResources.map((res, index) => {
+        return `  {
+    id: ${Date.now() + index},
+    title: ${JSON.stringify(res.title)},
     desc: ${JSON.stringify(desc)},
     courseCode: ${JSON.stringify(courseCode)},
     type: ${JSON.stringify(resType)},
-    link: ${JSON.stringify(finalLink)},
-    ${fileSizeStr ? `fileSize: ${JSON.stringify(fileSizeStr)},` : ''}
+    link: ${JSON.stringify(res.link)},
+    ${res.fileSizeStr ? `fileSize: ${JSON.stringify(res.fileSizeStr)},` : ''}
     ${resType === 'Video' ? `duration: "Video class",` : ''}
-    ${finalThumbnail ? `thumbnail: ${JSON.stringify(finalThumbnail)},` : ''}
+    ${res.thumbnail ? `thumbnail: ${JSON.stringify(res.thumbnail)},` : ''}
     date: ${JSON.stringify(dateStr)}
   }`
+      }).join(',\n')
 
       if (updatedContent.includes(emptyArray)) {
-        updatedContent = updatedContent.replace(emptyArray, `${arrayStart}\n${newItemString}\n]`)
+        updatedContent = updatedContent.replace(emptyArray, `${arrayStart}\n${newItemsString}\n]`)
       } else if (updatedContent.includes(arrayStart)) {
-        updatedContent = updatedContent.replace(arrayStart, `${arrayStart}\n${newItemString},\n`)
+        updatedContent = updatedContent.replace(arrayStart, `${arrayStart}\n${newItemsString},\n`)
       } else {
         throw new Error('Syllabus data array anchor signature not found in cv-data.ts')
       }
@@ -446,7 +484,7 @@ function AdminContent() {
           'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-          message: `feat(resources): add new study material "${title}"`,
+          message: `feat(resources): add new study materials (${uploadedResources.length} files)`,
           content: encodedNewContent,
           sha: fileSha
         })
@@ -467,15 +505,18 @@ function AdminContent() {
         return next
       })
 
-      setSuccessMessage('Successfully uploaded file to Google Drive and registered metadata in cv-data.ts! The build pipeline has been triggered. Please wait 1-2 minutes for Vercel/GitHub Pages to deploy the update.')
+      setSuccessMessage(`Successfully uploaded ${uploadedResources.length} file(s) to Google Drive and registered metadata in cv-data.ts! The build pipeline has been triggered. Please wait 1-2 minutes for Vercel/GitHub Pages to deploy the update.`)
       
       // Reset Form fields
       setTitle('')
       setDesc('')
-      setSelectedFile(null)
+      setSelectedFiles([])
       setVideoUrl('')
       setExternalUrl('')
       setThumbnailUrl('')
+      
+      // Reload resource list
+      setTimeout(() => fetchResourcesList(), 3000)
       
       // Reload resource list
       setTimeout(() => fetchResourcesList(), 3000)
@@ -830,17 +871,21 @@ function AdminContent() {
                           Upload File Option
                         </label>
                         <div className="relative border-2 border-dashed border-border/80 hover:border-royal/50 rounded-2xl p-5 text-center transition-all bg-muted/20">
-                          <input
+                           <input
                             type="file"
+                            multiple
                             onChange={(e) => {
-                              setSelectedFile(e.target.files?.[0] || null)
-                              if (e.target.files?.[0]) setExternalUrl('') // Clear external url if file chosen
+                              const files = Array.from(e.target.files || [])
+                              setSelectedFiles(files)
+                              if (files.length > 0) setExternalUrl('') // Clear external url if files chosen
                             }}
                             className="absolute inset-0 w-full h-full opacity-0 cursor-pointer"
                           />
                           <UploadCloud className="h-7 w-7 mx-auto text-muted-foreground mb-1.5" />
                           <p className="text-[11px] font-bold text-navy dark:text-white truncate">
-                            {selectedFile ? selectedFile.name : 'Click to select file'}
+                            {selectedFiles.length > 0
+                              ? `${selectedFiles.length} file(s) selected: ${selectedFiles.map(f => f.name).join(', ')}`
+                              : 'Click to select files'}
                           </p>
                         </div>
                       </div>
@@ -855,7 +900,7 @@ function AdminContent() {
                           value={externalUrl}
                           onChange={(e) => {
                             setExternalUrl(e.target.value)
-                            if (e.target.value) setSelectedFile(null) // Clear file if link entered
+                            if (e.target.value) setSelectedFiles([]) // Clear files if link entered
                           }}
                           className="w-full rounded-xl border border-border bg-muted/40 py-2.5 px-4 text-xs font-semibold outline-none focus:border-royal focus:bg-card h-[78px]"
                         />
