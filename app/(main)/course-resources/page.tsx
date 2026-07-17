@@ -31,8 +31,8 @@ function CourseResourcesContent() {
   const searchParams = useSearchParams()
   const sectionParam = searchParams.get('section')
   
-  // Section Navigation (Courses i teach vs Study Materials vs Infographics)
-  const [activeTab, setActiveTab] = useState<'courses' | 'materials' | 'infographics'>('courses')
+  // Section Navigation (Courses i teach vs Study Materials & Resources)
+  const [activeTab, setActiveTab] = useState<'courses' | 'materials'>('courses')
   
   // Selected course for details
   const [selectedCourseCode, setSelectedCourseCode] = useState<string>('MED104')
@@ -50,12 +50,10 @@ function CourseResourcesContent() {
   const [infoExpandedSection, setInfoExpandedSection] = useState<number | null>(0)
 
   useEffect(() => {
-    if (sectionParam === 'materials') {
+    if (sectionParam === 'materials' || sectionParam === 'infographics') {
       setActiveTab('materials')
     } else if (sectionParam === 'courses') {
       setActiveTab('courses')
-    } else if (sectionParam === 'infographics') {
-      setActiveTab('infographics')
     }
   }, [sectionParam])
 
@@ -71,9 +69,6 @@ function CourseResourcesContent() {
     const matchesType = typeFilter === 'All' || resource.type === typeFilter
     return matchesSearch && matchesType
   })
-
-  // Filter infographics specifically for the infographics tab
-  const infographicsResources = studyResourcesData.filter((resource) => resource.type === 'Infographic')
 
   const getIcon = (type: string) => {
     switch (type) {
@@ -109,16 +104,6 @@ function CourseResourcesContent() {
             }`}
           >
             Study Materials & Resources
-          </button>
-          <button
-            onClick={() => setActiveTab('infographics')}
-            className={`pb-4 text-sm font-bold tracking-wide transition-all border-b-2 cursor-pointer ${
-              activeTab === 'infographics'
-                ? 'border-royal text-royal font-extrabold'
-                : 'border-transparent text-muted-foreground hover:text-royal'
-            }`}
-          >
-            Educational Infographics
           </button>
         </div>
       </div>
@@ -299,7 +284,7 @@ function CourseResourcesContent() {
               </div>
             </div>
           </motion.div>
-        ) : activeTab === 'materials' ? (
+        ) : (
           <motion.div
             key="materials"
             initial={{ opacity: 0, y: 15 }}
@@ -355,91 +340,119 @@ function CourseResourcesContent() {
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                   {filteredResources.map((resource) => {
                     const TypeIcon = getIcon(resource.type)
+                    const isInfographic = resource.type === 'Infographic'
                     return (
-                      <motion.div
-                        key={resource.id}
-                        layout
-                        initial={{ opacity: 0, scale: 0.96 }}
-                        animate={{ opacity: 1, scale: 1 }}
-                        exit={{ opacity: 0, scale: 0.96 }}
-                        transition={{ duration: 0.2 }}
-                        className="flex flex-col justify-between rounded-3xl border border-border bg-card p-6 shadow-sm hover:border-royal/30 hover:shadow-lg transition-all"
-                      >
-                        <div>
-                          {/* Thumbnail preview image if present */}
-                          {resource.thumbnail && (
-                            <div className="aspect-video w-full overflow-hidden rounded-2xl mb-4 border border-border/40 bg-muted relative">
-                              <img
-                                src={resource.thumbnail}
-                                alt={resource.title}
-                                className="h-full w-full object-cover transition-transform duration-500 hover:scale-105"
-                                loading="lazy"
-                              />
+                        <motion.div
+                          key={resource.id}
+                          layout
+                          initial={{ opacity: 0, scale: 0.96 }}
+                          animate={{ opacity: 1, scale: 1 }}
+                          exit={{ opacity: 0, scale: 0.96 }}
+                          transition={{ duration: 0.2 }}
+                          className={`flex flex-col justify-between rounded-3xl border border-border bg-card p-6 shadow-sm hover:border-royal/30 hover:shadow-lg transition-all ${
+                            isInfographic ? 'cursor-pointer group' : ''
+                          }`}
+                          onClick={
+                            isInfographic
+                              ? () => {
+                                  setSelectedInfographic(resource)
+                                  setInfoExpandedSection(0)
+                                }
+                              : undefined
+                          }
+                        >
+                          <div>
+                            {/* Thumbnail preview image if present */}
+                            {resource.thumbnail && (
+                              <div className={`w-full overflow-hidden rounded-2xl mb-4 border border-border/40 bg-muted relative ${
+                                isInfographic ? 'aspect-[3/4]' : 'aspect-video'
+                              }`}>
+                                <img
+                                  src={resource.thumbnail}
+                                  alt={resource.title}
+                                  className={`h-full w-full object-cover transition-transform duration-500 ${
+                                    isInfographic ? 'group-hover:scale-105' : 'hover:scale-105'
+                                  }`}
+                                  loading="lazy"
+                                />
+                                {isInfographic && (
+                                  <div className="absolute inset-0 bg-black/25 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                                    <span className="bg-white/95 text-navy dark:bg-navy/95 dark:text-white text-xs font-bold px-3.5 py-2 rounded-full flex items-center gap-1.5 shadow-md">
+                                      <Maximize2 className="h-3.5 w-3.5 text-royal" /> Preview Poster
+                                    </span>
+                                  </div>
+                                )}
+                              </div>
+                            )}
+                            {/* Header bar */}
+                            <div className="flex items-center justify-between gap-2 mb-3.5">
+                              <span className="inline-flex items-center gap-1 rounded-full bg-royal/10 px-2.5 py-0.5 text-[9px] font-bold text-royal uppercase tracking-wider">
+                                {resource.courseCode}
+                              </span>
+                              <span className="inline-flex items-center gap-1 rounded bg-muted px-2 py-0.5 text-[9px] font-bold text-muted-foreground uppercase">
+                                <TypeIcon className="h-3 w-3 text-royal" /> {resource.type}
+                              </span>
                             </div>
-                          )}
-                          {/* Header bar */}
-                          <div className="flex items-center justify-between gap-2 mb-3.5">
-                            <span className="inline-flex items-center gap-1 rounded-full bg-royal/10 px-2.5 py-0.5 text-[9px] font-bold text-royal uppercase tracking-wider">
-                              {resource.courseCode}
-                            </span>
-                            <span className="inline-flex items-center gap-1 rounded bg-muted px-2 py-0.5 text-[9px] font-bold text-muted-foreground uppercase">
-                              <TypeIcon className="h-3 w-3 text-royal" /> {resource.type}
-                            </span>
+
+                            {/* Title & Desc */}
+                            <h3 className={`font-heading text-base font-bold text-navy dark:text-white leading-snug line-clamp-2 ${
+                              isInfographic ? 'group-hover:text-royal transition-colors' : ''
+                            }`}>
+                              {resource.title}
+                            </h3>
+                            <p className="mt-2 text-xs leading-relaxed text-muted-foreground line-clamp-3">
+                              {resource.desc}
+                            </p>
                           </div>
 
-                          {/* Title & Desc */}
-                          <h3 className="font-heading text-base font-bold text-navy dark:text-white leading-snug line-clamp-2">
-                            {resource.title}
-                          </h3>
-                          <p className="mt-2 text-xs leading-relaxed text-muted-foreground line-clamp-3">
-                            {resource.desc}
-                          </p>
-                        </div>
-
-                        {/* Actions / Metadata */}
-                        <div className="mt-6 flex justify-between items-center border-t border-border/60 pt-4 text-xs font-semibold">
-                          <span className="text-[10px] text-muted-foreground flex items-center gap-2">
-                            {resource.fileSize && (
+                          {/* Actions / Metadata */}
+                          <div className="mt-6 flex justify-between items-center border-t border-border/60 pt-4 text-xs font-semibold">
+                            <span className="text-[10px] text-muted-foreground flex items-center gap-2">
+                              {resource.fileSize && (
+                                <span className="flex items-center gap-1">
+                                  <FileText className="h-3 w-3 opacity-60" /> {resource.fileSize}
+                                </span>
+                              )}
+                              {resource.duration && (
+                                <span className="flex items-center gap-1">
+                                  <Clock className="h-3 w-3 opacity-60" /> {resource.duration}
+                                </span>
+                              )}
                               <span className="flex items-center gap-1">
-                                <FileText className="h-3 w-3 opacity-60" /> {resource.fileSize}
+                                <Calendar className="h-3 w-3 opacity-60" /> {resource.date}
                               </span>
-                            )}
-                            {resource.duration && (
-                              <span className="flex items-center gap-1">
-                                <Clock className="h-3 w-3 opacity-60" /> {resource.duration}
-                              </span>
-                            )}
-                            <span className="flex items-center gap-1">
-                              <Calendar className="h-3 w-3 opacity-60" /> {resource.date}
                             </span>
-                          </span>
-                          
-                          {resource.link ? (
-                            resource.type === 'Video' ? (
-                              <a
-                                href={resource.link}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="inline-flex items-center gap-1.5 rounded-xl bg-gold px-3.5 py-2 text-[10px] font-bold text-navy hover:bg-gold/90 transition-colors"
-                              >
-                                Watch Video <ExternalLink className="h-3 w-3" />
-                              </a>
+                            
+                            {resource.link ? (
+                              resource.type === 'Video' ? (
+                                <a
+                                  href={resource.link}
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                  className="inline-flex items-center gap-1.5 rounded-xl bg-gold px-3.5 py-2 text-[10px] font-bold text-navy hover:bg-gold/90 transition-colors"
+                                >
+                                  Watch Video <ExternalLink className="h-3 w-3" />
+                                </a>
+                              ) : isInfographic ? (
+                                <span className="inline-flex items-center gap-1 text-[10px] text-royal font-bold">
+                                  View Details &rarr;
+                                </span>
+                              ) : (
+                                <a
+                                  href={resource.link}
+                                  target={resource.link.startsWith('/read/') ? undefined : '_blank'}
+                                  rel={resource.link.startsWith('/read/') ? undefined : 'noopener noreferrer'}
+                                  className="inline-flex items-center gap-1.5 rounded-xl bg-royal px-3.5 py-2 text-[10px] font-bold text-white hover:bg-royal/95 transition-colors"
+                                >
+                                  {resource.link.startsWith('/read/') ? 'Read Online' : 'Download'}
+                                  <Download className="h-3 w-3" />
+                                </a>
+                              )
                             ) : (
-                              <a
-                                href={resource.link}
-                                target={resource.link.startsWith('/read/') ? undefined : '_blank'}
-                                rel={resource.link.startsWith('/read/') ? undefined : 'noopener noreferrer'}
-                                className="inline-flex items-center gap-1.5 rounded-xl bg-royal px-3.5 py-2 text-[10px] font-bold text-white hover:bg-royal/95 transition-colors"
-                              >
-                                {resource.link.startsWith('/read/') ? 'Read Online' : 'Download'}
-                                <Download className="h-3 w-3" />
-                              </a>
-                            )
-                          ) : (
-                            <span className="text-[10px] text-muted-foreground italic bg-muted px-2.5 py-1.5 rounded-xl border border-border/40">No file attachment</span>
-                          )}
-                        </div>
-                      </motion.div>
+                              <span className="text-[10px] text-muted-foreground italic bg-muted px-2.5 py-1.5 rounded-xl border border-border/40">No file attachment</span>
+                            )}
+                          </div>
+                        </motion.div>
                     )
                   })}
                 </div>
@@ -447,108 +460,6 @@ function CourseResourcesContent() {
                 <div className="py-24 text-center text-muted-foreground text-sm flex flex-col items-center justify-center gap-2 bg-card border border-border rounded-3xl">
                   <Layers className="h-10 w-10 text-muted-foreground/60 mb-2" />
                   No resources found matching the parameters.
-                </div>
-              )}
-            </div>
-          </motion.div>
-        ) : (
-          <motion.div
-            key="infographics"
-            initial={{ opacity: 0, y: 15 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -15 }}
-            transition={{ duration: 0.25 }}
-            className="space-y-8"
-            id="infographics"
-          >
-            {/* Search for Infographics */}
-            <div className="flex flex-col md:flex-row gap-4 items-center justify-between bg-card border border-border rounded-3xl p-5 shadow-sm">
-              <div className="relative w-full md:max-w-md">
-                <Search className="absolute left-3.5 top-3 h-4.5 w-4.5 text-muted-foreground" />
-                <input
-                  type="text"
-                  placeholder="Search infographics by title, description..."
-                  value={searchQuery}
-                  onChange={(e) => setSearchQuery(e.target.value)}
-                  className="w-full rounded-2xl border border-border bg-muted/40 py-2.5 pl-11 pr-4 text-xs font-semibold text-foreground outline-none transition-colors focus:border-royal focus:bg-card"
-                />
-              </div>
-              <div className="text-xs text-muted-foreground font-semibold">
-                Showing {infographicsResources.filter(r => 
-                  r.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-                  r.desc.toLowerCase().includes(searchQuery.toLowerCase())
-                ).length} infographics
-              </div>
-            </div>
-
-            {/* Infographics Gallery */}
-            <div className="min-h-[300px]">
-              {infographicsResources.filter(r => 
-                r.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-                r.desc.toLowerCase().includes(searchQuery.toLowerCase())
-              ).length > 0 ? (
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                  {infographicsResources.filter(r => 
-                    r.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-                    r.desc.toLowerCase().includes(searchQuery.toLowerCase())
-                  ).map((resource) => (
-                    <motion.div
-                      key={resource.id}
-                      layout
-                      initial={{ opacity: 0, scale: 0.96 }}
-                      animate={{ opacity: 1, scale: 1 }}
-                      exit={{ opacity: 0, scale: 0.96 }}
-                      transition={{ duration: 0.2 }}
-                      className="flex flex-col justify-between rounded-3xl border border-border bg-card p-6 shadow-sm hover:border-royal/30 hover:shadow-lg transition-all cursor-pointer group"
-                      onClick={() => {
-                        setSelectedInfographic(resource)
-                        setInfoExpandedSection(0)
-                      }}
-                    >
-                      <div>
-                        {resource.thumbnail && (
-                          <div className="aspect-[3/4] w-full overflow-hidden rounded-2xl mb-4 border border-border/40 bg-muted relative">
-                            <img
-                              src={resource.thumbnail}
-                              alt={resource.title}
-                              className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-                              loading="lazy"
-                            />
-                            <div className="absolute inset-0 bg-black/25 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                              <span className="bg-white/95 text-navy dark:bg-navy/95 dark:text-white text-xs font-bold px-3.5 py-2 rounded-full flex items-center gap-1.5 shadow-md">
-                                <Maximize2 className="h-3.5 w-3.5 text-royal" /> Preview Poster
-                              </span>
-                            </div>
-                          </div>
-                        )}
-                        <div className="flex items-center gap-2 mb-3.5">
-                          <span className="inline-flex items-center gap-1 rounded-full bg-royal/10 px-2.5 py-0.5 text-[9px] font-bold text-royal uppercase tracking-wider">
-                            {resource.courseCode}
-                          </span>
-                        </div>
-                        <h3 className="font-heading text-base font-bold text-navy dark:text-white leading-snug line-clamp-2 group-hover:text-royal transition-colors">
-                          {resource.title}
-                        </h3>
-                        <p className="mt-2 text-xs leading-relaxed text-muted-foreground line-clamp-3">
-                          {resource.desc}
-                        </p>
-                      </div>
-
-                      <div className="mt-6 flex justify-between items-center border-t border-border/60 pt-4 text-xs font-semibold">
-                        <span className="text-[10px] text-muted-foreground flex items-center gap-1">
-                          <Calendar className="h-3 w-3 opacity-60" /> {resource.date}
-                        </span>
-                        <span className="inline-flex items-center gap-1 text-[10px] text-royal font-bold">
-                          View Details &rarr;
-                        </span>
-                      </div>
-                    </motion.div>
-                  ))}
-                </div>
-              ) : (
-                <div className="py-24 text-center text-muted-foreground text-sm flex flex-col items-center justify-center gap-2 bg-card border border-border rounded-3xl">
-                  <Layers className="h-10 w-10 text-muted-foreground/60 mb-2" />
-                  No infographics found matching the parameters.
                 </div>
               )}
             </div>
