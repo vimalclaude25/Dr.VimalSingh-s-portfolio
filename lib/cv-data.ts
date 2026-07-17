@@ -1817,6 +1817,31 @@ export const coursesData: Course[] = [
 
 export const studyResourcesData: StudyResource[] = [
   {
+    id: 1784279800284,
+    title: "What is Knowledge - Knowlwdge 2",
+    desc: "Let's understand the basics of philosophy and research through easy explanations, stories, and real-life examples. These notes will help you see how knowledge grows into intelligence and finally into wisdom.Let's understand the basics of philosophy and research through easy explanations, stories, and real-life examples. These notes will help you see how knowledge grows into intelligence and finally into wisdom.",
+    courseCode: "MED104",
+    type: "Infographic",
+    link: "https://drive.google.com/file/d/1PNCCexWzP0HCtpdJdeg_-hWxSs12sugC/view",
+    fileSize: "275 KB",
+    
+    thumbnail: "https://drive.google.com/thumbnail?id=1PNCCexWzP0HCtpdJdeg_-hWxSs12sugC&sz=w600",
+    date: "17 July 2026"
+  },
+  {
+    id: 1784279800285,
+    title: "What is Knowledge - what is knowlwdge",
+    desc: "Let's understand the basics of philosophy and research through easy explanations, stories, and real-life examples. These notes will help you see how knowledge grows into intelligence and finally into wisdom.Let's understand the basics of philosophy and research through easy explanations, stories, and real-life examples. These notes will help you see how knowledge grows into intelligence and finally into wisdom.",
+    courseCode: "MED104",
+    type: "Infographic",
+    link: "https://drive.google.com/file/d/1d9Dr6OhuxUFmnhmlVpFvfibDShiedUdC/view",
+    fileSize: "225 KB",
+    
+    thumbnail: "https://drive.google.com/thumbnail?id=1d9Dr6OhuxUFmnhmlVpFvfibDShiedUdC&sz=w600",
+    date: "17 July 2026"
+  },
+
+  {
     id: 1784279733633,
     title: "What is Knowledge - Knowlwdge 2",
     desc: "Let's understand the basics of philosophy and research through easy explanations, stories, and real-life examples. These notes will help you see how knowledge grows into intelligence and finally into wisdom.",
