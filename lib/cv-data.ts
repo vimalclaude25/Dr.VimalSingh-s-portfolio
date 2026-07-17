@@ -1817,6 +1817,31 @@ export const coursesData: Course[] = [
 
 export const studyResourcesData: StudyResource[] = [
   {
+    id: 1784279733633,
+    title: "What is Knowledge - Knowlwdge 2",
+    desc: "Let's understand the basics of philosophy and research through easy explanations, stories, and real-life examples. These notes will help you see how knowledge grows into intelligence and finally into wisdom.",
+    courseCode: "MED104",
+    type: "Infographic",
+    link: "https://drive.google.com/file/d/1Tmb0MvkE1mau39DWU5PjNdq6NSPjimH1/view",
+    fileSize: "275 KB",
+    
+    thumbnail: "https://drive.google.com/thumbnail?id=1Tmb0MvkE1mau39DWU5PjNdq6NSPjimH1&sz=w600",
+    date: "17 July 2026"
+  },
+  {
+    id: 1784279733634,
+    title: "What is Knowledge - what is knowlwdge",
+    desc: "Let's understand the basics of philosophy and research through easy explanations, stories, and real-life examples. These notes will help you see how knowledge grows into intelligence and finally into wisdom.",
+    courseCode: "MED104",
+    type: "Infographic",
+    link: "https://drive.google.com/file/d/1xffTpCMU0OhY_8GdFnkuBqu-a30Qk3x8/view",
+    fileSize: "225 KB",
+    
+    thumbnail: "https://drive.google.com/thumbnail?id=1xffTpCMU0OhY_8GdFnkuBqu-a30Qk3x8&sz=w600",
+    date: "17 July 2026"
+  },
+
+  {
     id: 3,
     title: 'Constructing Educational Inquiry (MED104 Course Orientation Slide Deck)',
     desc: 'Comprehensive course orientation slide deck for MED104: Research Methods in Education (General Perspectives), illustrating the four phases of educational research construction (Foundation, Scaffolding, Materials, and Assembly), scientific inquiry methods, paradigm shifts, sampling matrix, research proposals, and evaluation blueprint.',
