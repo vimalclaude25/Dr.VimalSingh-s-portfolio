@@ -226,10 +226,7 @@ export default function EditedBooksPage() {
         {editedBooks2026Data.map((book) => {
           const isFormOpen = activeFormBookId === book.id
           const currentExpandedTheme = expandedThemeIndex[book.id] ?? null
-          const isLocalhost = origin.includes('localhost') || origin.includes('127.0.0.1')
-          const pdfEmbedUrl = isLocalhost 
-            ? `${book.flyerPath}#toolbar=0&navpanes=0&statusbar=0` 
-            : `https://docs.google.com/gview?url=${encodeURIComponent(origin + book.flyerPath)}&embedded=true`
+          const pdfEmbedUrl = `${book.flyerPath}#toolbar=0&navpanes=0&statusbar=0`
 
           return (
             <div
