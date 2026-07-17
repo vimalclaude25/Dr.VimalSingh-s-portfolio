@@ -27,6 +27,80 @@ interface StatusStep {
   status: 'idle' | 'running' | 'success' | 'error'
 }
 
+// --- Helper functions for robust bracket parsing ---
+function getArrayContent(content: string, searchKey: string): string | null {
+  const startIndex = content.indexOf(searchKey)
+  if (startIndex === -1) return null
+  const braceStartIndex = content.indexOf('[', startIndex)
+  if (braceStartIndex === -1) return null
+  
+  let depth = 1
+  let index = braceStartIndex + 1
+  while (depth > 0 && index < content.length) {
+    if (content[index] === '[') {
+      depth++
+    } else if (content[index] === ']') {
+      depth--
+    }
+    index++
+  }
+  if (depth === 0) {
+    return content.substring(braceStartIndex + 1, index - 1)
+  }
+  return null
+}
+
+function removeResourceById(content: string, id: number): string {
+  const idStr = `id: ${id}`
+  const idIndex = content.indexOf(idStr)
+  if (idIndex === -1) return content
+  
+  let braceDepth = 0
+  let startIndex = -1
+  for (let i = idIndex; i >= 0; i--) {
+    if (content[i] === '}') braceDepth++
+    if (content[i] === '{') {
+      if (braceDepth === 0) {
+        startIndex = i
+        break
+      } else {
+        braceDepth--
+      }
+    }
+  }
+  
+  if (startIndex === -1) return content
+  
+  let depth = 1
+  let endIndex = -1
+  for (let i = startIndex + 1; i < content.length; i++) {
+    if (content[i] === '{') depth++
+    if (content[i] === '}') {
+      depth--
+      if (depth === 0) {
+        endIndex = i
+        break
+      }
+    }
+  }
+  
+  if (endIndex === -1) return content
+  
+  let sliceStart = startIndex
+  let sliceEnd = endIndex + 1
+  
+  while (sliceEnd < content.length && (content[sliceEnd] === ' ' || content[sliceEnd] === '\r' || content[sliceEnd] === '\n')) {
+    sliceEnd++
+  }
+  if (sliceEnd < content.length && content[sliceEnd] === ',') {
+    sliceEnd++
+  }
+  
+  const before = content.substring(0, sliceStart)
+  const after = content.substring(sliceEnd)
+  return before + after
+}
+
 function AdminContent() {
   const searchParams = useSearchParams()
   const router = useRouter()
@@ -193,16 +267,16 @@ function AdminContent() {
       const data = await res.json()
       const rawContent = decodeURIComponent(escape(atob(data.content)))
       
-      // Extract the studyResourcesData array content using regex
-      const match = rawContent.match(/export const studyResourcesData: StudyResource\[\] = \[\s*([\s\S]*?)\s*\]/)
-      if (match && match[1]) {
+      // Extract the studyResourcesData array content using robust bracket counting helper
+      const arrayContent = getArrayContent(rawContent, 'export const studyResourcesData: StudyResource[] =')
+      if (arrayContent) {
         // Parse resources manually by converting array content back to an object array
-        // We use dynamic Function evaluation inside safe bounds to parse the raw JS array syntax safely
         try {
-          const parsed = new Function(`return [${match[1]}]`)()
+          const parsed = new Function(`return [${arrayContent}]`)()
           setExistingResources(parsed)
         } catch (e) {
           console.error("Failed parsing array string", e)
+          setExistingResources([])
         }
       } else {
         setExistingResources([])
@@ -553,14 +627,8 @@ function AdminContent() {
       const decodedContent = decodeURIComponent(escape(atob(gitData.content)))
       const fileSha = gitData.sha
 
-      // 2. Remove matching ID block
-      let content = decodedContent
-      // Regex matches object inside array by finding object containing `id: id,`
-      const regex = new RegExp(`\\s*\\{\\s*id:\\s*${id},[\\s\\S]*?\\},?`, 'g')
-      content = content.replace(regex, '')
-
-      // Fix any double commas or commas before closing array bracket
-      content = content.replace(/,\s*\]/g, '\n]')
+      // 2. Remove matching ID block using robust bracket counting
+      const content = removeResourceById(decodedContent, id)
 
       // 3. Push commit back to GitHub
       const encodedNewContent = btoa(unescape(encodeURIComponent(content)))
