@@ -68,6 +68,7 @@ const nav: NavItem[] = [
     children: [
       { label: 'Courses I Teach', href: '/course-resources?section=courses' },
       { label: 'Study Materials', href: '/course-resources?section=materials' },
+      { label: 'Educational Infographics', href: '/course-resources?section=infographics' },
     ],
   },
   {

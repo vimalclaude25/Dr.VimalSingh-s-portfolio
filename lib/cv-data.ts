@@ -1650,6 +1650,7 @@ export interface StudyResource {
   duration?: string
   date: string
   thumbnail?: string
+  details?: { sectionTitle: string; points: string[] }[]
 }
 
 export const coursesData: Course[] = [
@@ -1815,7 +1816,130 @@ export const coursesData: Course[] = [
 ]
 
 export const studyResourcesData: StudyResource[] = [
-
+  {
+    id: 1,
+    title: 'Philosophizing Research: Understanding the Philosophical Foundations of Research',
+    desc: 'An educational infographic detailing the philosophical foundations of research, including branches of philosophy (metaphysics, epistemology, axiology, logic, ethics, aesthetics), research connection, paradigms, and guides for research stages.',
+    courseCode: 'MED104',
+    type: 'Infographic',
+    link: '/infographics/philosophizing-research.jpg',
+    thumbnail: '/infographics/philosophizing-research.jpg',
+    date: '14 July 2026',
+    fileSize: '312 KB',
+    details: [
+      {
+        sectionTitle: 'What is Philosophy? | दर्शन क्या है?',
+        points: [
+          '"Philosophy is the love of wisdom. It helps us understand reality, knowledge, values, reasoning, and human existence. Research without philosophy is like a journey without a compass."',
+          '"दर्शन ज्ञान के प्रति प्रेम है। यह हमें वास्तविकता, ज्ञान, मूल्य, तर्क और मानव अस्तित्व को समझने में मदद करता है। दर्शन के बिना शोध, बिना दिशा वाला सफर है।"',
+          'Research Connection (शोध से संबंध): Philosophy (दर्शन) -> Thinking (विचार) -> Research Questions (शोध प्रश्न) -> Methodology (पद्धति) -> Findings (निष्कर्ष) -> Knowledge (ज्ञान)'
+        ]
+      },
+      {
+        sectionTitle: 'Why Philosophy Matters in Research | शोध में दर्शन क्यों महत्वपूर्ण है?',
+        points: [
+          'Defines what reality is. | वास्तविकता को परिभाषित करता है।',
+          'Explains how knowledge is created. | ज्ञान कैसे निर्मित होता है, यह समझाता है।',
+          'Guides research methodology. | शोध पद्धति का मार्गदर्शन करता है।',
+          'Shapes ethical decision making. | नैतिक निर्णय लेने को आकार देता है।',
+          'Improves logical reasoning. | तार्किक तर्कशक्ति को बेहतर बनाता है।',
+          'Gives meaning to research findings. | शोध निष्कर्षों को अर्थ देता है।'
+        ]
+      },
+      {
+        sectionTitle: 'Branches of Philosophy with Daily Life Examples | दर्शन की शाखाएँ और दैनिक जीवन के उदाहरण',
+        points: [
+          'METAPHYSICS (तत्त्वमीमांसा) - Question: क्या वास्तविकता क्या है? | Daily Example: "क्या सफलता भाग्य से तय होती है या मेहनत से?" | Research Example: "सीखने की वास्तविक प्रकृति क्या है?"',
+          'EPISTEMOLOGY (ज्ञानमीमांसा) - Question: हम कैसे जानते हैं कि कोई बात सत्य है? | Daily Example: "मोबाइल फोन खरीदने से पहले ऑनलाइन समीक्षाएँ (Reviews) पढ़ना।" | Research Example: "सर्वे और प्रयोगों के माध्यम से डेटा एकत्र करना।"',
+          'AXIOLOGY (मूल्यमीमांसा) - Question: क्या मूल्यवान है? (Includes: Ethics, Values, Morality) | Daily Example: "किसी का गुम हुआ बटुआ बिना कोई पैसे वापस करना।" | Research Example: "प्रतिभागियों की गोपनीयता (Confidentiality) बनाए रखना।"',
+          'LOGIC (तर्कशास्त्र) - Question: क्या मेरा तर्क सही है? | Daily Example: "अगर ट्रैफिक ज्यादा है, तो मुझे जल्दी निकलना चाहिए।" | Research Example: "साक्ष्य (Evidence) के आधार पर निष्कर्ष निकालना।"',
+          'ETHICS (नीतिशास्त्र) - Question: क्या सही कार्य करना चाहिए? | Daily Example: "किसी और के कार्य का श्रेय (Credit) देना।" | Research Example: "प्लेजिअरिज़्म (Plagiarism) से बचना और सूचित सहमति (Informed Consent) लेना।"',
+          'AESTHETICS (सौंदर्यशास्त्र) - Question: सौंदर्य और रचनात्मकता क्या है? | Daily Example: "एक आकर्षक कक्षा (Classroom) डिजाइन करना।" | Research Example: "शोध को प्रभावी दृश्य (Visuals) और इन्फोग्राफिक्स के माध्यम से प्रस्तुत करना।"'
+        ]
+      },
+      {
+        sectionTitle: 'Philosophical Paradigms in Research | शोध में दार्शनिक प्रतिमान',
+        points: [
+          'Positivism (सकारात्मकवाद) - Reality: Objective (वस्तुनिष्ठ) | Method: Quantitative (परिमाणात्मक)',
+          'Interpretivism (व्याख्यात्मकवाद) - Reality: Multiple Realities (अनेक वास्तविकताएँ) | Method: Qualitative (गुणात्मक)',
+          'Pragmatism (प्रयोगवाद) - Reality: Practical Solutions (व्यावहारिक समाधान) | Method: Mixed Methods (मिश्रित पद्धतियाँ)',
+          'Critical Theory (आलोचनात्मक सिद्धांत) - Reality: Social Change (सामाजिक परिवर्तन) | Method: Participatory (सहभागी)'
+        ]
+      },
+      {
+        sectionTitle: 'Philosophy Guides Every Stage of Research | दर्शन शोध की हर अवस्था का मार्गदर्शन करता है',
+        points: [
+          'Research Problem (शोध समस्या) -> Research Questions (शोध प्रश्न) -> Research Design (शोध रूपरेखा) -> Data Collection (डेटा संग्रह) -> Data Analysis (डेटा विश्लेषण) -> Interpretation (व्याख्या) -> Knowledge Creation (ज्ञान निर्माण)'
+        ]
+      },
+      {
+        sectionTitle: 'Remember | याद रखें',
+        points: [
+          '"A researcher does not merely collect data; a researcher first develops a philosophical lens to understand the world."',
+          '"एक शोधकर्ता केवल डेटा एकत्र नहीं करता; एक शोधकर्ता पहले विश्व को समझने के लिए एक दार्शनिक दृष्टिकोण विकसित करता है।"'
+        ]
+      }
+    ]
+  },
+  {
+    id: 2,
+    title: 'Philosophical Foundation of Research - Etymological Meaning of Philosophy (Lecture Notes)',
+    desc: 'Handwritten-style comprehensive notes explaining the etymological meaning of philosophy, the difference between knowledge, intelligence, and wisdom, and the philosophical framework for research.',
+    courseCode: 'MED104',
+    type: 'Infographic',
+    link: '/infographics/philosophical-foundation-notes.jpg',
+    thumbnail: '/infographics/philosophical-foundation-notes.jpg',
+    date: '14 July 2026',
+    fileSize: '245 KB',
+    details: [
+      {
+        sectionTitle: 'Etymological Meaning of Philosophy',
+        points: [
+          'Philos = Love, Sophia = Wisdom. Philosophy = Love for Wisdom (ज्ञान के प्रति प्रेम).',
+          'So, Philosophy means "Love for Wisdom".'
+        ]
+      },
+      {
+        sectionTitle: 'Why "Love for Wisdom" and not "Love for Intelligence" or "Love for Knowledge"?',
+        points: [
+          'Philosophy is not just about collecting knowledge; it is not only about being intelligent.',
+          'Philosophy is a deep, lifelong love and search for the highest truth and goodness.',
+          'It includes curiosity, reflection, questioning, thinking, and living a meaningful life.',
+          'It goes beyond facts and skills to understand the real nature of life and existence.',
+          'Love for Wisdom = A deep and sincere desire to understand the Truth, the Good and the Beautiful and to live accordingly.'
+        ]
+      },
+      {
+        sectionTitle: 'Difference Between Knowledge, Intelligence and Wisdom',
+        points: [
+          'Basis of Meaning: Knowledge is information/facts acquired. Intelligence is ability to understand/solve problems logically. Wisdom is right understanding/judgment about what is true, good and lasting.',
+          'Basis of Focus: Knowledge: "What is". Intelligence: "How to do". Wisdom: "What is right and best".',
+          'Basis of Nature: Knowledge: External. Intelligence: Mental. Wisdom: Deep and Reflective.',
+          'Basis of Example: Knowledge: Knowing that smoking is harmful. Intelligence: Using logic to stop smoking. Wisdom: Choosing a healthy life for well-being of self and others.',
+          'Basis of Level: Knowledge: Information. Intelligence: Ability. Wisdom: Judgement + Values.',
+          'Summary: *Knowledge gives us facts, Intelligence uses them, but Wisdom chooses what is best and meaningful.*'
+        ]
+      },
+      {
+        sectionTitle: 'A Story to Understand (Kunal, Manav, and Vivek)',
+        points: [
+          'Once there were three friends - Kunal, Manav and Vivek.',
+          'Kunal had a lot of knowledge. He read many books.',
+          'Manav was intelligent. He could solve difficult problems quickly.',
+          'Vivek was wise. He used his knowledge and intelligence to help others and made right decisions in life.',
+          'Moral: Knowledge informs, Intelligence performs, but Wisdom transforms.'
+        ]
+      },
+      {
+        sectionTitle: 'Conclusion',
+        points: [
+          'Philosophy is the love and search for wisdom. It guides us to use knowledge and intelligence for a meaningful and better life.',
+          'Path: Philosophy -> Search for Wisdom -> Better Life -> Better World',
+          'Think Deep... Ask Why... Seek Truth... That is Research.'
+        ]
+      }
+    ]
+  }
 ]
 
 export interface EditedBook2026 {

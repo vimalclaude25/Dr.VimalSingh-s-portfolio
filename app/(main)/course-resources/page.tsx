@@ -19,7 +19,10 @@ import {
   ChevronDown,
   BookMarked,
   Presentation,
-  Award
+  Award,
+  X,
+  Maximize2,
+  Info
 } from 'lucide-react'
 import Link from 'next/link'
 import { coursesData, studyResourcesData, Course, StudyResource } from '@/lib/cv-data'
@@ -28,8 +31,8 @@ function CourseResourcesContent() {
   const searchParams = useSearchParams()
   const sectionParam = searchParams.get('section')
   
-  // Section Navigation (Courses i teach vs Study Materials)
-  const [activeTab, setActiveTab] = useState<'courses' | 'materials'>('courses')
+  // Section Navigation (Courses i teach vs Study Materials vs Infographics)
+  const [activeTab, setActiveTab] = useState<'courses' | 'materials' | 'infographics'>('courses')
   
   // Selected course for details
   const [selectedCourseCode, setSelectedCourseCode] = useState<string>('MED104')
@@ -41,11 +44,18 @@ function CourseResourcesContent() {
   const [searchQuery, setSearchQuery] = useState<string>('')
   const [typeFilter, setTypeFilter] = useState<'All' | 'PDF' | 'PPT' | 'Infographic' | 'Video'>('All')
 
+  // Selected infographic for interactive lightbox modal
+  const [selectedInfographic, setSelectedInfographic] = useState<StudyResource | null>(null)
+  // Expanded section index inside the infographic details modal
+  const [infoExpandedSection, setInfoExpandedSection] = useState<number | null>(0)
+
   useEffect(() => {
     if (sectionParam === 'materials') {
       setActiveTab('materials')
     } else if (sectionParam === 'courses') {
       setActiveTab('courses')
+    } else if (sectionParam === 'infographics') {
+      setActiveTab('infographics')
     }
   }, [sectionParam])
 
@@ -61,6 +71,9 @@ function CourseResourcesContent() {
     const matchesType = typeFilter === 'All' || resource.type === typeFilter
     return matchesSearch && matchesType
   })
+
+  // Filter infographics specifically for the infographics tab
+  const infographicsResources = studyResourcesData.filter((resource) => resource.type === 'Infographic')
 
   const getIcon = (type: string) => {
     switch (type) {
@@ -96,6 +109,16 @@ function CourseResourcesContent() {
             }`}
           >
             Study Materials & Resources
+          </button>
+          <button
+            onClick={() => setActiveTab('infographics')}
+            className={`pb-4 text-sm font-bold tracking-wide transition-all border-b-2 cursor-pointer ${
+              activeTab === 'infographics'
+                ? 'border-royal text-royal font-extrabold'
+                : 'border-transparent text-muted-foreground hover:text-royal'
+            }`}
+          >
+            Educational Infographics
           </button>
         </div>
       </div>
@@ -276,7 +299,7 @@ function CourseResourcesContent() {
               </div>
             </div>
           </motion.div>
-        ) : (
+        ) : activeTab === 'materials' ? (
           <motion.div
             key="materials"
             initial={{ opacity: 0, y: 15 }}
@@ -428,6 +451,251 @@ function CourseResourcesContent() {
               )}
             </div>
           </motion.div>
+        ) : (
+          <motion.div
+            key="infographics"
+            initial={{ opacity: 0, y: 15 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -15 }}
+            transition={{ duration: 0.25 }}
+            className="space-y-8"
+            id="infographics"
+          >
+            {/* Search for Infographics */}
+            <div className="flex flex-col md:flex-row gap-4 items-center justify-between bg-card border border-border rounded-3xl p-5 shadow-sm">
+              <div className="relative w-full md:max-w-md">
+                <Search className="absolute left-3.5 top-3 h-4.5 w-4.5 text-muted-foreground" />
+                <input
+                  type="text"
+                  placeholder="Search infographics by title, description..."
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                  className="w-full rounded-2xl border border-border bg-muted/40 py-2.5 pl-11 pr-4 text-xs font-semibold text-foreground outline-none transition-colors focus:border-royal focus:bg-card"
+                />
+              </div>
+              <div className="text-xs text-muted-foreground font-semibold">
+                Showing {infographicsResources.filter(r => 
+                  r.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+                  r.desc.toLowerCase().includes(searchQuery.toLowerCase())
+                ).length} infographics
+              </div>
+            </div>
+
+            {/* Infographics Gallery */}
+            <div className="min-h-[300px]">
+              {infographicsResources.filter(r => 
+                r.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+                r.desc.toLowerCase().includes(searchQuery.toLowerCase())
+              ).length > 0 ? (
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                  {infographicsResources.filter(r => 
+                    r.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+                    r.desc.toLowerCase().includes(searchQuery.toLowerCase())
+                  ).map((resource) => (
+                    <motion.div
+                      key={resource.id}
+                      layout
+                      initial={{ opacity: 0, scale: 0.96 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      exit={{ opacity: 0, scale: 0.96 }}
+                      transition={{ duration: 0.2 }}
+                      className="flex flex-col justify-between rounded-3xl border border-border bg-card p-6 shadow-sm hover:border-royal/30 hover:shadow-lg transition-all cursor-pointer group"
+                      onClick={() => {
+                        setSelectedInfographic(resource)
+                        setInfoExpandedSection(0)
+                      }}
+                    >
+                      <div>
+                        {resource.thumbnail && (
+                          <div className="aspect-[3/4] w-full overflow-hidden rounded-2xl mb-4 border border-border/40 bg-muted relative">
+                            <img
+                              src={resource.thumbnail}
+                              alt={resource.title}
+                              className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                              loading="lazy"
+                            />
+                            <div className="absolute inset-0 bg-black/25 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                              <span className="bg-white/95 text-navy dark:bg-navy/95 dark:text-white text-xs font-bold px-3.5 py-2 rounded-full flex items-center gap-1.5 shadow-md">
+                                <Maximize2 className="h-3.5 w-3.5 text-royal" /> Preview Poster
+                              </span>
+                            </div>
+                          </div>
+                        )}
+                        <div className="flex items-center gap-2 mb-3.5">
+                          <span className="inline-flex items-center gap-1 rounded-full bg-royal/10 px-2.5 py-0.5 text-[9px] font-bold text-royal uppercase tracking-wider">
+                            {resource.courseCode}
+                          </span>
+                        </div>
+                        <h3 className="font-heading text-base font-bold text-navy dark:text-white leading-snug line-clamp-2 group-hover:text-royal transition-colors">
+                          {resource.title}
+                        </h3>
+                        <p className="mt-2 text-xs leading-relaxed text-muted-foreground line-clamp-3">
+                          {resource.desc}
+                        </p>
+                      </div>
+
+                      <div className="mt-6 flex justify-between items-center border-t border-border/60 pt-4 text-xs font-semibold">
+                        <span className="text-[10px] text-muted-foreground flex items-center gap-1">
+                          <Calendar className="h-3 w-3 opacity-60" /> {resource.date}
+                        </span>
+                        <span className="inline-flex items-center gap-1 text-[10px] text-royal font-bold">
+                          View Details &rarr;
+                        </span>
+                      </div>
+                    </motion.div>
+                  ))}
+                </div>
+              ) : (
+                <div className="py-24 text-center text-muted-foreground text-sm flex flex-col items-center justify-center gap-2 bg-card border border-border rounded-3xl">
+                  <Layers className="h-10 w-10 text-muted-foreground/60 mb-2" />
+                  No infographics found matching the parameters.
+                </div>
+              )}
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      {/* Lightbox / Modal with Details */}
+      <AnimatePresence>
+        {selectedInfographic && (
+          <div className="fixed inset-0 z-50 overflow-y-auto">
+            {/* Backdrop */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={() => setSelectedInfographic(null)}
+              className="fixed inset-0 bg-black/80 backdrop-blur-sm"
+            />
+
+            {/* Modal Body Container */}
+            <div className="flex min-h-screen items-center justify-center p-4 sm:p-6 lg:p-8">
+              <motion.div
+                initial={{ scale: 0.95, y: 20, opacity: 0 }}
+                animate={{ scale: 1, y: 0, opacity: 1 }}
+                exit={{ scale: 0.95, y: 20, opacity: 0 }}
+                transition={{ type: 'spring', damping: 25, stiffness: 250 }}
+                className="relative w-full max-w-6xl rounded-3xl border border-border bg-card shadow-2xl overflow-hidden flex flex-col md:flex-row max-h-[90vh] md:max-h-[85vh] z-10"
+              >
+                {/* Close Button */}
+                <button
+                  onClick={() => setSelectedInfographic(null)}
+                  className="absolute right-4 top-4 z-20 flex h-10 w-10 items-center justify-center rounded-full bg-black/40 text-white hover:bg-black/60 hover:scale-105 transition-all cursor-pointer shadow-md"
+                  aria-label="Close modal"
+                >
+                  <X className="h-5 w-5" />
+                </button>
+
+                {/* Left Side: High-res Scrollable Image */}
+                <div className={`flex flex-col flex-1 p-6 ${selectedInfographic.details ? 'md:w-1/2 border-b md:border-b-0 md:border-r border-border/60' : 'w-full'} bg-muted/30 overflow-hidden`}>
+                  <div className="flex items-center justify-between mb-4 pr-10">
+                    <div>
+                      <span className="inline-flex items-center gap-1 rounded-full bg-royal/10 px-2.5 py-0.5 text-[9px] font-bold text-royal uppercase tracking-wider mb-1">
+                        {selectedInfographic.courseCode} Infographic
+                      </span>
+                      <h3 className="font-heading text-lg font-bold text-navy dark:text-white leading-tight">
+                        {selectedInfographic.title}
+                      </h3>
+                    </div>
+                  </div>
+                  
+                  {/* Scrollable image container */}
+                  <div className="flex-1 overflow-y-auto rounded-2xl border border-border/40 bg-black/5 dark:bg-white/5 relative flex items-start justify-center p-2 scrollbar-thin scrollbar-thumb-border">
+                    <img
+                      src={selectedInfographic.link}
+                      alt={selectedInfographic.title}
+                      className="max-w-full h-auto object-contain rounded-lg shadow-sm"
+                    />
+                  </div>
+
+                  {/* Actions */}
+                  <div className="mt-4 flex gap-3">
+                    <a
+                      href={selectedInfographic.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex-1 inline-flex items-center justify-center gap-1.5 rounded-xl bg-muted px-4 py-2.5 text-xs font-bold text-foreground border border-border hover:bg-muted/70 transition-colors"
+                    >
+                      <ExternalLink className="h-4 w-4 text-royal" /> Open High Resolution
+                    </a>
+                    <a
+                      href={selectedInfographic.link}
+                      download
+                      className="flex-1 inline-flex items-center justify-center gap-1.5 rounded-xl bg-royal px-4 py-2.5 text-xs font-bold text-white hover:bg-royal/95 transition-colors"
+                    >
+                      <Download className="h-4 w-4" /> Download Poster
+                    </a>
+                  </div>
+                </div>
+
+                {/* Right Side: Text Transcription / Details Panel */}
+                {selectedInfographic.details && selectedInfographic.details.length > 0 && (
+                  <div className="flex flex-col md:w-1/2 p-6 overflow-hidden bg-card">
+                    <div className="flex items-center gap-2 border-b border-border/60 pb-3.5 mb-4">
+                      <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-royal/10 text-royal">
+                        <Info className="h-4 w-4" />
+                      </div>
+                      <div>
+                        <h4 className="font-heading text-sm font-bold text-navy dark:text-white">
+                          Infographic Overview & Text
+                        </h4>
+                        <p className="text-[10px] text-muted-foreground leading-none mt-0.5">
+                          Detailed content transcript & explanation
+                        </p>
+                      </div>
+                    </div>
+
+                    {/* Scrollable Content */}
+                    <div className="flex-1 overflow-y-auto pr-1 space-y-3.5 scrollbar-thin scrollbar-thumb-border">
+                      {selectedInfographic.details.map((section, idx) => {
+                        const isExpanded = infoExpandedSection === idx
+                        return (
+                          <div
+                            key={idx}
+                            className="border border-border/50 rounded-2xl overflow-hidden transition-all bg-muted/10 hover:bg-muted/20"
+                          >
+                            <button
+                              onClick={() => setInfoExpandedSection(isExpanded ? null : idx)}
+                              className="w-full flex items-center justify-between p-4 text-left font-semibold text-navy dark:text-white hover:bg-muted/30 transition-colors cursor-pointer"
+                            >
+                              <span className="text-xs font-bold text-navy dark:text-white">
+                                {section.sectionTitle}
+                              </span>
+                              <ChevronDown className={`h-4 w-4 text-muted-foreground transition-transform duration-200 ${isExpanded ? 'rotate-180' : ''}`} />
+                            </button>
+
+                            <AnimatePresence initial={false}>
+                              {isExpanded && (
+                                <motion.div
+                                  initial={{ height: 0 }}
+                                  animate={{ height: 'auto' }}
+                                  exit={{ height: 0 }}
+                                  transition={{ duration: 0.25 }}
+                                  className="overflow-hidden"
+                                >
+                                  <div className="p-4 pt-0 border-t border-border/20">
+                                    <ul className="space-y-3 mt-3">
+                                      {section.points.map((pt, pIdx) => (
+                                        <li key={pIdx} className="flex gap-2.5 items-start text-xs leading-relaxed text-muted-foreground">
+                                          <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-gold" />
+                                          <span className="whitespace-pre-line">{pt}</span>
+                                        </li>
+                                      ))}
+                                    </ul>
+                                  </div>
+                                </motion.div>
+                              )}
+                            </AnimatePresence>
+                          </div>
+                        )
+                      })}
+                    </div>
+                  </div>
+                )}
+              </motion.div>
+            </div>
+          </div>
         )}
       </AnimatePresence>
     </div>
