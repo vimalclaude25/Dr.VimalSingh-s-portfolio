@@ -75,7 +75,7 @@ academic-portfolio-website/
 1. **Centralized Data Store (`lib/cv-data.ts`)**:
    - Stores CV data including basic info, research projects, publications, activities, education, experience, teaching details, and news/events.
    - Houses `researchNewsData` representing the news coverage archives.
-   - Houses `coursesData` and `studyResourcesData` representing syllabi content for MED104 & MED305 and teaching resources.
+   - Houses `coursesData` and `studyResourcesData` representing M.Ed. syllabi content, study resources, and detailed educational infographics (with text transcriptions for interactive lightbox modals).
    - Provides a single source of truth, making it easy to update content by modifying this file.
 2. **Main Page Layout (`app/page.tsx`)**:
    - Composition of individual section components (now including `ResearchNewsSection`).
