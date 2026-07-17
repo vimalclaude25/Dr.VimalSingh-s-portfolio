@@ -1817,60 +1817,6 @@ export const coursesData: Course[] = [
 
 export const studyResourcesData: StudyResource[] = [
   {
-    id: 5,
-    title: 'What is Knowledge? & Sources of Knowledge',
-    desc: 'An educational infographic detailing the definition and characteristics of knowledge, along with the six primary sources of knowledge: Authority, Traditions, Experiences, Inductive, Deductive, and the Scientific Method.',
-    courseCode: 'MED104',
-    type: 'Infographic',
-    link: '/infographics/sources-of-knowledge.jpg',
-    thumbnail: '/infographics/sources-of-knowledge.jpg',
-    date: '17 July 2026',
-    fileSize: '411 KB',
-    details: [
-      {
-        sectionTitle: 'What is Knowledge? | ज्ञान क्या है?',
-        points: [
-          '"Knowledge is a justified true belief. It is the understanding of reality obtained through experience, reason, or study."',
-          '"ज्ञान एक न्यायसंगत सत्य विश्वास है। यह अनुभव, तर्क या अध्ययन के माध्यम से प्राप्त वास्तविकता की समझ है।"',
-          '"Knowledge is not just information, it is understanding with meaning."',
-          '"ज्ञान केवल सूचना नहीं है, यह अर्थ के साथ समझ है।"'
-        ]
-      },
-      {
-        sectionTitle: 'Characteristics of Knowledge | ज्ञान की विशेषताएँ',
-        points: [
-          'Truthful - It corresponds to reality. | सत्यता - यह वास्तविकता के अनुरूप होता है।',
-          'Justified - It has logical or evidence-based reasons. | न्यायसंगत - इसके तार्किक या साक्ष्य-आधारित कारण होते हैं।',
-          'Reliable - It can be trusted. | विश्वसनीय - इस पर भरोसा किया जा सकता है।',
-          'Systematic - It is organized and structured. | व्यवस्थित - यह संगठित और संरचित होता है।',
-          'Verifiable - It can be tested and verified. | परीक्षणीय/सत्यापनीय - इसका परीक्षण और सत्यापन किया जा सकता है।'
-        ]
-      },
-      {
-        sectionTitle: 'Sources of Knowledge (Part 1) | ज्ञान के स्रोत (भाग १)',
-        points: [
-          '1. AUTHORITY (अधिकार/सत्तातंत्र) - Knowledge obtained from experts, teachers, books or trusted persons who have specialized knowledge or experience. Example: Textbooks, Scholars, Experts. | विशेषज्ञों, शिक्षकों, पुस्तकों या विश्वसनीय व्यक्तियों से प्राप्त ज्ञान जिनके पास विशिष्ट ज्ञान या अनुभव हो। उदाहरण: पाठ्यपुस्तकें, विद्वान, विशेषज्ञ।',
-          '2. TRADITIONS (परंपराएँ) - Knowledge passed down through generations as customs, beliefs, values and practices. Example: Cultural practices, Folklores. | रीति-रिवाजों, विश्वासों, मूल्यों और प्रथाओं के रूप में पीढ़ियों से चला आ रहा ज्ञान। उदाहरण: सांस्कृतिक प्रथाएँ, लोककथाएँ।',
-          '3. EXPERIENCES (अनुभव) - Knowledge gained through personal observations, events and daily life interactions. Example: Learning to ride a bicycle. | व्यक्तिगत अवलोकनों, घटनाओं और दैनिक जीवन की बातचीत के माध्यम से प्राप्त ज्ञान। उदाहरण: साइकिल चलाना सीखना।'
-        ]
-      },
-      {
-        sectionTitle: 'Sources of Knowledge (Part 2) | ज्ञान के स्रोत (भाग २)',
-        points: [
-          '4. INDUCTIVE (आगमनात्मक) - Knowledge gained from specific observations to form general conclusions. Example: Observing many swans are white, we conclude all swans are white. | सामान्य निष्कर्ष बनाने के लिए विशिष्ट अवलोकनों से प्राप्त ज्ञान। उदाहरण: कई हंसों को सफेद देखकर, हम निष्कर्ष निकालते हैं कि सभी हंस सफेद हैं।',
-          '5. DEDUCTIVE (निगमनात्मक) - Knowledge gained from general principles to specific conclusions. Example: All humans are mortal. Socrates is a human. Therefore, Socrates is mortal. | सामान्य सिद्धांतों से विशिष्ट निष्कर्षों तक प्राप्त ज्ञान। उदाहरण: सभी मनुष्य मरणशील हैं। सुकरात एक मनुष्य है। इसलिए, सुकरात मरणशील है।',
-          '6. SCIENTIFIC METHOD (वैज्ञानिक पद्धति) - Knowledge obtained through systematic steps - observation, hypothesis, experimentation, analysis and conclusion. Example: Research in laboratories, surveys, experiments. | व्यवस्थित चरणों - अवलोकन, परिकल्पना, प्रयोग, विश्लेषण और निष्कर्ष के माध्यम से प्राप्त ज्ञान। उदाहरण: प्रयोगशालाओं में अनुसंधान, सर्वेक्षण, प्रयोग।'
-        ]
-      },
-      {
-        sectionTitle: 'Significance | महत्व',
-        points: [
-          'Knowledge helps us to understand, explain, predict and improve life. | ज्ञान हमें जीवन को समझने, व्याख्या करने, भविष्यवाणी करने और सुधारने में मदद करता है।'
-        ]
-      }
-    ]
-  },
-  {
     id: 3,
     title: 'Constructing Educational Inquiry (MED104 Course Orientation Slide Deck)',
     desc: 'Comprehensive course orientation slide deck for MED104: Research Methods in Education (General Perspectives), illustrating the four phases of educational research construction (Foundation, Scaffolding, Materials, and Assembly), scientific inquiry methods, paradigm shifts, sampling matrix, research proposals, and evaluation blueprint.',
