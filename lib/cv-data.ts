@@ -2364,111 +2364,142 @@ export const editedBooks2026Data: EditedBook2026[] = [
   },
   {
     id: 'genai-obe',
-    title: 'Integrating Generative Artificial Intelligence and Outcome-Based Education (OBE)',
-    subtitle: 'Transforming Teaching, Learning, Assessment and Educational Innovation in the Age of Artificial Intelligence',
+    title: 'Artificial Intelligence and Outcome-Based Education',
+    subtitle: 'In the Context of NEP 2020',
     editor: 'Dr. Vimal Singh',
-    editorTitle: 'Chief Editor / Assistant Professor, Department of Education',
+    editorTitle: 'Assistant Professor, Department of Education',
     editorAffiliation: 'Chhatrapati Shahu Ji Maharaj University, Kanpur',
     coEditor: 'Saumya Tripathi',
-    coEditorTitle: 'Co-Editor / Post Graduate Scholar',
+    coEditorTitle: 'Postgraduate Scholar, Department of Education',
     coEditorAffiliation: 'Department of Education, Chhatrapati Shahu Ji Maharaj University, Kanpur',
     email: 'genai.obe.editedbook@gmail.com',
-    submissionPeriod: '15th July 2026 to 15th August 2026',
+    submissionPeriod: '15 July 2026 to 15 August 2026',
     deadline: '15 August 2026',
     whatsappQrUrl: '/flyers/image5.jpg',
     whatsappGroupUrl: 'https://chat.whatsapp.com/GenAIOutcomeBasedEducation2026',
     flyerPath: '/flyers/genai-obe.pdf',
     isPdf: true,
-    introduction: 'Artificial Intelligence is rapidly reshaping the global education landscape by personalizing learning, enhancing instructional design, automating assessment, and enabling data-driven decision making. Outcome-Based Education (OBE) ensures that learning is aligned with clearly defined outcomes, promoting learner-centricity, accountability and measurable success. This edited book brings together researchers, educators, practitioners and policy makers to explore how Generative AI can strengthen OBE practices across school, higher and technical education.',
+    introduction: 'This edited book aims to explore the transformative potential of Artificial Intelligence in strengthening Outcome-Based Education (OBE) within the framework of NEP 2020. It invites academicians, researchers, teachers, scholars, and practitioners to contribute original chapters that highlight innovative practices, research findings, frameworks, and models. The focus is on how AI can enhance curriculum design, pedagogy, assessment, learning analytics, personalization, and quality assurance in an outcome-driven educational ecosystem.',
     highlights: [
-      'International Edited Book with ISBN and DOI for each chapter',
-      'Double Blind Peer Review with an international editorial board',
-      'No publication fee (all services provided free of charge)',
-      'Provides wide academic visibility and networking opportunities'
+      'DOI (Digital Object Identifier) for the chapter',
+      'Soft Copy (PDF) of the Published Book',
+      'Certificate of Publication (if applicable)',
+      'Wide Academic Visibility',
+      'Opportunity to contribute to a high-impact edited volume',
+      'Recognition as a contributor in the field of AI and OBE'
     ],
     features: [
-      'Explore cutting-edge GenAI applications for educational transformation',
-      'Rigorous peer review and high publishing standards',
-      'Enhance academic citations and dissemination',
-      'Contribute to inclusive, ethical, and learner-centered educational environments'
+      'Publish your research in an ISBN-edited volume',
+      'Receive a DOI for your chapter',
+      'Enhance your academic profile and research visibility',
+      'Share innovative ideas and best practices with a global audience',
+      'Support NEP 2020, Outcome-Based Education and SDG 4 (Quality Education)',
+      'Create impact through research, practice and policy contributions',
+      'Collaborate with academicians, researchers, and professionals across disciplines'
     ],
     themes: [
       {
-        title: '01 Generative AI and the Implementation of NEP 2020',
+        title: '01 AI for Outcome-Based Curriculum Design and Innovation',
         subthemes: [
-          'AI-driven policies, curricular reforms, and institutional readiness under NEP 2020'
+          'AI-Assisted Curriculum Design',
+          'PO, PSO and CO Mapping',
+          'Competency-Based Curriculum',
+          'Curriculum Review and Continuous Improvement',
+          'Interdisciplinary Curriculum',
+          'Industry-Aligned Curriculum',
+          'NEP 2020 Curriculum Reforms',
+          '21st-Century Skills Integration'
         ]
       },
       {
-        title: '02 Generative AI for Achieving SDG 4: Quality Education',
+        title: '02 AI-Enabled Outcome-Based Pedagogy and Learning',
         subthemes: [
-          'Roles of GenAI in promoting inclusive, equitable, and lifelong learning opportunities'
+          'Outcome-Based Teaching and Learning',
+          'AI-Powered Lesson Planning',
+          'Personalized Learning',
+          'Active and Collaborative Learning',
+          'Blended and Flipped Learning',
+          'Intelligent Tutoring Systems',
+          'Project-Based and Experiential Learning',
+          'Digital Learning Environments'
         ]
       },
       {
-        title: '03 Ethical, Responsible and Inclusive Use of AI in Education',
+        title: '03 AI-Driven Outcome-Based Assessment, Evaluation and Learning Analytics',
         subthemes: [
-          'Addressing bias, privacy, equity, and access in AI-integrated learning systems'
+          'Competency-Based Assessment',
+          'Formative and Summative Assessment',
+          'Authentic and Performance-Based Assessment',
+          'AI-Generated Feedback',
+          'Learning Analytics',
+          'Rubric Design and Automated Evaluation',
+          'Adaptive Assessment',
+          'Outcome Attainment and Quality Assurance'
         ]
       },
       {
-        title: '04 AI-Driven Learning Analytics and Educational Data Intelligence',
+        title: '04 AI for Personalized, Competency-Based and Inclusive Learning',
         subthemes: [
-          'Predictive modeling, performance tracking, and diagnostics for personalized interventions'
+          'Adaptive Learning',
+          'Personalized Learning Pathways',
+          'Mastery Learning',
+          'Competency Development',
+          'Differentiated Instruction',
+          'Inclusive and Special Education',
+          'Learner Support through AI',
+          'Lifelong Learning'
         ]
       },
       {
-        title: '05 AI-Assisted Lesson Planning, Content Development and Instructional Design',
+        title: '05 AI in Teacher Education and Professional Development',
         subthemes: [
-          'Automating resources creation, multi-modal content curation, and custom learning pathways'
+          'AI Literacy for Educators',
+          'Teacher Education and Capacity Building',
+          'AI-Supported Instructional Design',
+          'Faculty Professional Development',
+          'AI for Educational Research',
+          'Academic Writing with AI',
+          'Teaching Innovation',
+          'Future-Ready Educators'
         ]
       },
       {
-        title: '06 Academic Integrity, Assessment Security and Responsible AI Use',
+        title: '06 AI, Educational Leadership and Institutional Transformation',
         subthemes: [
-          'Rethinking plagiarism, cheating prevention, and novel assessment frameworks for AI age'
+          'Educational Leadership',
+          'Academic Administration',
+          'Institutional Governance',
+          'Quality Assurance and Accreditation',
+          'Educational Data Analytics',
+          'Smart Campuses',
+          'Institutional Innovation',
+          'AI-Enabled Decision Making'
         ]
       },
       {
-        title: '07 AI in Teacher Education and Professional Development',
+        title: '07 Ethical, Responsible and Sustainable AI in Outcome-Based Education',
         subthemes: [
-          'Empowering educators with AI competencies, digital tutoring, and reflective teaching practices'
+          'Ethical AI in Education',
+          'Responsible AI Practices',
+          'Academic Integrity',
+          'Data Privacy and Security',
+          'AI Bias, Fairness and Transparency',
+          'AI Policy and Governance',
+          'Human-Centered AI',
+          'SDG 4 and Sustainable Education'
         ]
       },
       {
-        title: '08 AI-Supported Research, Academic Writing and Scholarly Communication',
+        title: '08 AI, NEP 2020 and the Future of Outcome-Based Education',
         subthemes: [
-          'Leveraging AI as a writing co-pilot, data analyzer, and literature reviewer responsibly'
-        ]
-      },
-      {
-        title: '09 AI for Inclusive, Accessible and Equitable Education',
-        subthemes: [
-          'Assisting diverse learners, including students with special education needs (SEN)'
-        ]
-      },
-      {
-        title: '10 Future Classrooms: Smart Learning Environments and Educational Innovation',
-        subthemes: [
-          'Integrating VR/AR, voice assistants, adaptive learning systems, and IoT in future schools'
-        ]
-      },
-      {
-        title: '11 AI Applications in School, Higher and Technical Education',
-        subthemes: [
-          'Domain-specific implementations, engineering and medical training innovations'
-        ]
-      },
-      {
-        title: '12 Policy, Governance and Leadership for AI-Integrated Education',
-        subthemes: [
-          'Guidelines, risk management, and administrative strategies for educational leaders'
-        ]
-      },
-      {
-        title: '13 Case Studies, Best Practices and Innovative Models of AI-Integrated OBE',
-        subthemes: [
-          'Real-world institutional deployments, evaluation metrics, and lessons learned'
+          'AI for NEP 2020 Implementation',
+          'Competency-Based Education',
+          'Education 5.0',
+          'Future Workforce Skills',
+          'Generative AI and Large Language Models',
+          'Emerging Educational Technologies',
+          'Global Best Practices',
+          'Future Trends in AI and OBE'
         ]
       }
     ],
@@ -2476,14 +2507,14 @@ export const editedBooks2026Data: EditedBook2026[] = [
       font: 'Times New Roman',
       bodySize: '12 pt',
       lineSpacing: '1.5',
-      margins: '1-inch margin on all sides',
+      margins: '1 inch on all sides',
       alignment: 'Justified',
       citation: 'APA 7th Edition',
-      wordLimit: '4,000 to 7,000 words',
-      originality: 'Maximum 10% AI-generated content (must be properly edited and verified). Plagiarism/similarity index must be below 10%.',
+      wordLimit: '4,000 to 7,000 words (including references)',
+      originality: 'Only original and unpublished work will be considered. Plagiarism tolerance: Maximum 15%.',
       fileFormat: 'MS Word (.doc/.docx) format only',
-      peerReview: 'Double Blind',
-      figures: '300 dpi editable'
+      peerReview: 'Double Blind Peer Review',
+      figures: 'Maximum 5 tables/figures (if any)'
     }
   }
 ]
