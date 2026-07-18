@@ -834,11 +834,10 @@ function AdminContent() {
                 {/* Abstract */}
                 <div>
                   <label className="block text-xs font-bold text-navy dark:text-white uppercase mb-2">
-                    Detailed Abstract
+                    Detailed Abstract (Optional)
                   </label>
                   <textarea
                     rows={4}
-                    required
                     placeholder="Provide a comprehensive summary of the research study, design, and objectives..."
                     value={abstract}
                     onChange={(e) => setAbstract(e.target.value)}
