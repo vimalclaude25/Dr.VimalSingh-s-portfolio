@@ -36,6 +36,28 @@ interface ProposalDoc {
 
 const repositoryData: ProposalDoc[] = [
   {
+    id: 1784372986811,
+    title: "Effectiveness of Chunk Technology Intervention Programme (CTIP) on 21st Century Skills of Secondary School Students",
+    author: "Mahima Tripathi",
+    supervisor: "Dr. Vimal Singh (Supervisor)",
+    type: "phd",
+    status: "Proposal Approved",
+    year: 2025,
+    institution: "Department of Education, School of Teacher Education, CSJMU Kanpur",
+    abstract: "",
+    pdfPath: "https://drive.google.com/file/d/1Pf1ZTTvxc-FTW1ywXMK6tsXfpZNvzgnK/view",
+    pages: [
+      {
+        title: "Synopsis Details",
+        content: [
+          "Author: Mahima Tripathi | Supervisor: Dr. Vimal Singh (Supervisor)",
+          ""
+        ]
+      }
+    ]
+  },
+
+  {
     id: 3,
     title: "Effectiveness of Traditional Educational Games Model (TEGM) on Achievement in Mathematics of Middle Stage Students of Public Schools of Fatehpur",
     author: "Anjali Devi",
