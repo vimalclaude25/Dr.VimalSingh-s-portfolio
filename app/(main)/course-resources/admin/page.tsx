@@ -165,6 +165,14 @@ function AdminContent() {
     if (hash) {
       const params = new URLSearchParams(hash.replace('#', '?'))
       const accessToken = params.get('access_token')
+      const state = params.get('state')
+
+      // Relay the token to the research repository admin if state matches
+      if (state === 'research-repository-admin') {
+        router.replace(`/research-repository/admin#${hash.replace('#', '')}`)
+        return
+      }
+
       if (accessToken) {
         sessionStorage.setItem('google_access_token', accessToken)
         setGoogleToken(accessToken)
@@ -175,7 +183,7 @@ function AdminContent() {
       const savedGToken = sessionStorage.getItem('google_access_token')
       if (savedGToken) setGoogleToken(savedGToken)
     }
-  }, [])
+  }, [router])
 
   // --- Thumbnail Helper Functions ---
   const getYoutubeId = (url: string) => {

@@ -248,18 +248,20 @@ function AdminContent() {
     setIsAuthorized(true)
   }
 
-  // --- Trigger Google OAuth redirect ---
+  // --- Trigger Google OAuth redirect via relay ---
   const handleGoogleConnect = () => {
     if (!googleClientId) {
       alert('Please configure your Google OAuth Client ID first under the Config Settings.')
       setShowConfig(true)
       return
     }
-    const redirectUri = window.location.origin + window.location.pathname
+    // Use the authorized /course-resources/admin path as the redirect URI
+    const redirectUri = window.location.origin + '/course-resources/admin'
     const scope = 'https://www.googleapis.com/auth/drive.file'
+    const state = 'research-repository-admin'
     const oauthUrl = `https://accounts.google.com/o/oauth2/v2/auth?client_id=${googleClientId}&redirect_uri=${encodeURIComponent(
       redirectUri
-    )}&response_type=token&scope=${encodeURIComponent(scope)}`
+    )}&response_type=token&scope=${encodeURIComponent(scope)}&state=${state}`
     
     router.push(oauthUrl)
   }
@@ -643,6 +645,9 @@ function AdminContent() {
               />
               <p className="mt-1.5 text-[10px] leading-relaxed text-muted-foreground">
                 Set Authorized JavaScript Origins to: <code className="bg-muted px-1.5 py-0.5 rounded font-bold">{window.location.origin}</code>
+              </p>
+              <p className="mt-1 text-[10px] leading-relaxed text-muted-foreground">
+                <strong>Authentication Relay:</strong> Uses the approved redirect URI <code className="bg-muted px-1.5 py-0.5 rounded font-bold">/course-resources/admin</code> to automatically forward the access token here, meaning you do not need to register a new redirect URI in Google Cloud Console.
               </p>
             </div>
 
