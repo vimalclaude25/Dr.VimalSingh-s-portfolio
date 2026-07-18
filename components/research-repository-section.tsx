@@ -35,27 +35,7 @@ interface ProposalDoc {
 }
 
 const repositoryData: ProposalDoc[] = [
-  {
-    id: 1784373897749,
-    title: "Generative Artificial Intelligence (GAI) and Outcome Based Education (OBE): An Experimental Study",
-    author: "Saumya Tripathi",
-    supervisor: "Dr. Vimal Singh (Supervisor)",
-    type: "med",
-    status: "Proposal Approved",
-    year: 2025,
-    institution: "Department of Education, School of Teacher Education, CSJMU Kanpur",
-    abstract: "",
-    pdfPath: "https://drive.google.com/file/d/1HCkVrFE1I8rjnQdKby3rmnMTBBuDAGjj/preview",
-    pages: [
-      {
-        title: "Synopsis Details",
-        content: [
-          "Author: Saumya Tripathi | Supervisor: Dr. Vimal Singh (Supervisor)",
-          ""
-        ]
-      }
-    ]
-  },
+  
 
   
 
