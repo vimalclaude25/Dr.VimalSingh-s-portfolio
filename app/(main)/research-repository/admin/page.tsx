@@ -350,7 +350,7 @@ function AdminContent() {
 
         if (!permRes.ok) throw new Error(`Failed to set public view permissions on Google Drive for PDF.`)
         
-        finalPdfPath = `https://drive.google.com/file/d/${fileId}/view`
+        finalPdfPath = `https://drive.google.com/file/d/${fileId}/preview`
 
         setSteps(prev => {
           const next = [...prev]

@@ -267,6 +267,14 @@ const repositoryData: ProposalDoc[] = [
   }
 ]
 
+const getEmbedUrl = (url?: string) => {
+  if (!url) return ''
+  if (url.includes('drive.google.com') && url.includes('/view')) {
+    return url.replace('/view', '/preview')
+  }
+  return url
+}
+
 export function ResearchRepositorySection() {
   const [activeTab, setActiveTab] = useState<'all' | 'phd' | 'med'>('all')
   const [searchQuery, setSearchQuery] = useState('')
@@ -519,7 +527,7 @@ export function ResearchRepositorySection() {
               <div className={`flex-1 ${selectedDoc.pdfPath ? 'p-0 overflow-hidden' : 'overflow-y-auto p-6 md:p-8 flex justify-center'} bg-[#f0f2f5] dark:bg-[#121824]`}>
                 {selectedDoc.pdfPath ? (
                   <iframe
-                    src={`${selectedDoc.pdfPath}#toolbar=0&navpanes=0&scrollbar=1`}
+                    src={`${getEmbedUrl(selectedDoc.pdfPath)}#toolbar=0&navpanes=0&scrollbar=1`}
                     className="w-full h-full border-none bg-white"
                     title={selectedDoc.title}
                     onContextMenu={(e) => e.preventDefault()}
