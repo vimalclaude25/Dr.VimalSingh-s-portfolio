@@ -36,6 +36,28 @@ interface ProposalDoc {
 
 const repositoryData: ProposalDoc[] = [
   {
+    id: 1784373850427,
+    title: "A Study of Effect of Gamification Tool Approach (GTA) on Cognitive Load (CL) of Senior Secondary Students of Government and Private Schools of Kanpur City",
+    author: "Rashi Tripathi",
+    supervisor: "Dr. Vimal Singh (Supervisor)",
+    type: "med",
+    status: "Proposal Approved",
+    year: 2025,
+    institution: "Department of Education, School of Teacher Education, CSJMU Kanpur",
+    abstract: "",
+    pdfPath: "https://drive.google.com/file/d/1ijczLCJVGr4pTJ1th1yiS63j4K3Vf5YK/preview",
+    pages: [
+      {
+        title: "Synopsis Details",
+        content: [
+          "Author: Rashi Tripathi | Supervisor: Dr. Vimal Singh (Supervisor)",
+          ""
+        ]
+      }
+    ]
+  },
+
+  {
     id: 1784373802625,
     title: "A STUDY OF EFFECT OF CONCRETE JOYFUL LEARNING ON ACHIEVEMENT IN MATHEMATICS OF MIDDLE STAGE STUDENTS OF PUBLIC SCHOOLS OF KANPUR CITY",
     author: "Prashant tripathi",
