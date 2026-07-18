@@ -31,7 +31,10 @@ interface StatusStep {
 function getArrayContent(content: string, searchKey: string): string | null {
   const startIndex = content.indexOf(searchKey)
   if (startIndex === -1) return null
-  const braceStartIndex = content.indexOf('[', startIndex)
+  // Find the equals sign first to skip type annotation brackets (e.g. StudyResource[])
+  const equalsIndex = content.indexOf('=', startIndex)
+  if (equalsIndex === -1) return null
+  const braceStartIndex = content.indexOf('[', equalsIndex)
   if (braceStartIndex === -1) return null
   
   let depth = 1
