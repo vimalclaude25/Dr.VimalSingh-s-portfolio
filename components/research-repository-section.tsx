@@ -246,6 +246,7 @@ const repositoryData: ProposalDoc[] = [
 ]
 
 export function ResearchRepositorySection() {
+  const [activeTab, setActiveTab] = useState<'all' | 'phd' | 'med'>('all')
   const [searchQuery, setSearchQuery] = useState('')
   const [selectedDoc, setSelectedDoc] = useState<ProposalDoc | null>(null)
   
@@ -273,11 +274,12 @@ export function ResearchRepositorySection() {
   }, [selectedDoc])
 
   const filteredDocs = repositoryData.filter((doc) => {
+    const matchesTab = activeTab === 'all' || doc.type === activeTab
     const matchesSearch =
       doc.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
       doc.author.toLowerCase().includes(searchQuery.toLowerCase()) ||
       doc.abstract.toLowerCase().includes(searchQuery.toLowerCase())
-    return matchesSearch
+    return matchesTab && matchesSearch
   })
 
   const openDocument = (doc: ProposalDoc) => {
@@ -299,16 +301,41 @@ export function ResearchRepositorySection() {
             <Shield className="h-3 w-3" /> Secure Research Repository
           </div>
           <h2 className="font-heading text-3xl font-bold tracking-tight text-navy dark:text-white sm:text-4xl">
-            M.Ed. Proposals Repository
+            Synopses &amp; Proposals Repository
           </h2>
           <p className="mx-auto mt-3 max-w-3xl text-sm text-muted-foreground">
-            A read-only archive of approved postgraduate (M.Ed.) thesis proposals.
+            A read-only archive of approved doctoral (Ph.D.) research synopses and postgraduate (M.Ed.) thesis proposals.
             All documents are secure and formatted for online reading only.
           </p>
         </div>
 
         {/* Filters and Search */}
-        <div className="mb-8 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-end">
+        <div className="mb-8 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+          {/* Subsections Toggle */}
+          <div className="flex gap-1.5 rounded-xl bg-muted/80 p-1 border border-border max-w-md">
+            {[
+              { id: 'all', label: 'All Projects', icon: BookOpen },
+              { id: 'phd', label: 'Ph.D. Synopses', icon: Shield },
+              { id: 'med', label: 'M.Ed. Proposals', icon: FileSpreadsheet }
+            ].map((tab) => {
+              const Icon = tab.icon
+              return (
+                <button
+                  key={tab.id}
+                  onClick={() => setActiveTab(tab.id as any)}
+                  className={`flex items-center gap-2 rounded-lg px-4 py-2 text-xs font-semibold transition-all ${
+                    activeTab === tab.id
+                      ? 'bg-navy text-white shadow-sm'
+                      : 'text-muted-foreground hover:bg-muted hover:text-navy dark:hover:text-white'
+                  }`}
+                >
+                  <Icon className="h-3.5 w-3.5" />
+                  {tab.label}
+                </button>
+              )
+            })}
+          </div>
+
           {/* Search bar */}
           <div className="relative max-w-xs w-full">
             <Search className="absolute top-1/2 left-3 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
