@@ -36,6 +36,28 @@ interface ProposalDoc {
 
 const repositoryData: ProposalDoc[] = [
   {
+    id: 1784374372193,
+    title: "Generative Artificial Intelligence (GAI) and Outcome Based Education (OBE): An Experimental Study",
+    author: "Saumya Tripathi",
+    supervisor: "Dr. Vimal Singh (Supervisor)",
+    type: "med",
+    status: "Proposal Approved",
+    year: 2025,
+    institution: "Department of Education, School of Teacher Education, CSJMU Kanpur",
+    abstract: "",
+    pdfPath: "https://drive.google.com/file/d/1sNR7UkliLVhgcIlDy8W4Pwldx54PO2fz/preview",
+    pages: [
+      {
+        title: "Synopsis Details",
+        content: [
+          "Author: Saumya Tripathi | Supervisor: Dr. Vimal Singh (Supervisor)",
+          ""
+        ]
+      }
+    ]
+  },
+
+  {
     id: 1784374272940,
     title: "A Study of Effect of Gamification Tool Approach (GTA) on Cognitive Load (CL) of Senior Secondary Students of Government and Private Schools of Kanpur City",
     author: "Rashi Tripathi",
