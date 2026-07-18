@@ -35,6 +35,28 @@ interface ProposalDoc {
 }
 
 const repositoryData: ProposalDoc[] = [
+  {
+    id: 1784374208220,
+    title: "A STUDY OF EFFECT OF CONCRETE JOYFUL LEARNING ON ACHIEVEMENT IN MATHEMATICS OF MIDDLE STAGE STUDENTS OF PUBLIC SCHOOLS OF KANPUR CITY",
+    author: "Prashant Tripathi",
+    supervisor: "Dr. Vimal Singh (Supervisor)",
+    type: "med",
+    status: "Proposal Approved",
+    year: 2025,
+    institution: "Department of Education, School of Teacher Education, CSJMU Kanpur",
+    abstract: "Mathematics is one of the most fundamental disciplines for developing logical reasoning, critical thinking, problem-solving ability, and analytical skills among school students. Despite its importance, a large proportion of middle-stage learners perceive mathematics as a difficult, abstract, and anxiety-inducing subject, resulting in low motivation, poor classroom participation, and unsatisfactory academic achievement. Conventional teacher-centered instructional approaches often emphasize memorization and procedural learning rather than conceptual understanding, limiting students' opportunities for active engagement and meaningful learning. In response to these challenges, contemporary educational practices advocate learner-centered pedagogies that integrate activity-based, experiential, and emotionally engaging instructional strategies. One such innovative approach is Concrete Joyful Learning (CJL), which combines hands-on learning experiences with enjoyable classroom activities to make mathematical concepts meaningful, accessible, and interesting for learners. The present study has been undertaken to investigate the effectiveness of Concrete Joyful Learning in enhancing mathematics achievement among middle-stage students studying in public schools of Kanpur City.\n\nConcrete Joyful Learning is rooted in the principles of constructivism and experiential learning, emphasizing learning through direct manipulation of concrete materials, educational games, storytelling, puzzles, collaborative activities, and real-life contextualization of mathematical concepts. This pedagogical approach seeks to create a positive emotional climate in the classroom where students actively participate, explore ideas, construct knowledge, and develop confidence in solving mathematical problems. Existing research indicates that joyful learning enhances students' motivation, curiosity, creativity, conceptual understanding, and long-term retention while simultaneously reducing mathematics anxiety and promoting positive attitudes toward learning. However, limited empirical evidence is available regarding the effectiveness of Concrete Joyful Learning among Indian middle-stage learners, particularly within the context of public schools. This study therefore attempts to bridge this gap by providing experimental evidence from Kanpur City.",
+    pdfPath: "https://drive.google.com/file/d/1b-RclHfATvJhN9tqZT7F06JiATIhej9W/preview",
+    pages: [
+      {
+        title: "Synopsis Details",
+        content: [
+          "Author: Prashant Tripathi | Supervisor: Dr. Vimal Singh (Supervisor)",
+          "Mathematics is one of the most fundamental disciplines for developing logical reasoning, critical thinking, problem-solving ability, and analytical skills among school students. Despite its importance, a large proportion of middle-stage learners perceive mathematics as a difficult, abstract, and anxiety-inducing subject, resulting in low motivation, poor classroom participation, and unsatisfactory academic achievement. Conventional teacher-centered instructional approaches often emphasize memorization and procedural learning rather than conceptual understanding, limiting students' opportunities for active engagement and meaningful learning. In response to these challenges, contemporary educational practices advocate learner-centered pedagogies that integrate activity-based, experiential, and emotionally engaging instructional strategies. One such innovative approach is Concrete Joyful Learning (CJL), which combines hands-on learning experiences with enjoyable classroom activities to make mathematical concepts meaningful, accessible, and interesting for learners. The present study has been undertaken to investigate the effectiveness of Concrete Joyful Learning in enhancing mathematics achievement among middle-stage students studying in public schools of Kanpur City.\n\nConcrete Joyful Learning is rooted in the principles of constructivism and experiential learning, emphasizing learning through direct manipulation of concrete materials, educational games, storytelling, puzzles, collaborative activities, and real-life contextualization of mathematical concepts. This pedagogical approach seeks to create a positive emotional climate in the classroom where students actively participate, explore ideas, construct knowledge, and develop confidence in solving mathematical problems. Existing research indicates that joyful learning enhances students' motivation, curiosity, creativity, conceptual understanding, and long-term retention while simultaneously reducing mathematics anxiety and promoting positive attitudes toward learning. However, limited empirical evidence is available regarding the effectiveness of Concrete Joyful Learning among Indian middle-stage learners, particularly within the context of public schools. This study therefore attempts to bridge this gap by providing experimental evidence from Kanpur City."
+        ]
+      }
+    ]
+  },
+
   
 
   
