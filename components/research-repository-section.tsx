@@ -36,109 +36,6 @@ interface ProposalDoc {
 
 const repositoryData: ProposalDoc[] = [
   {
-    id: 1,
-    title: "Effectiveness of Chunk Technology Intervention Programme (CTIP) on 21st Century Skills of Secondary School Students",
-    author: "Ms. Mahima Tripathi",
-    supervisor: "Dr. Vimal Singh (Supervisor)",
-    type: 'phd',
-    status: 'Completed / Awarded',
-    year: 2025,
-    institution: "School of Teacher Education, CSJMU / IGNOU",
-    abstract: "This doctoral study investigates the effectiveness of the Chunk Technology Intervention Programme (CTIP) on the development of 21st-century skills and life skills (Flexibility, Leadership, Initiative, Productivity, and Social Skills - FLIPS) among secondary school students. Grounded in Cognitive Load Theory and Constructivism, the program implements a five-phase intervention over 20 weeks to simplify complex learning and foster holistic student growth.",
-    pages: [
-      {
-        title: "Introduction & Rationale",
-        content: [
-          "DOCTORAL THESIS SYNOPSIS",
-          "Title: Effectiveness of Chunk Technology Intervention Programme (CTIP) on 21st Century Skills of Secondary School Students",
-          "Author: Ms. Mahima Tripathi | Supervisor: Dr. Vimal Singh",
-          "1. BACKGROUND OF THE STUDY",
-          "It is no longer just an opinion but a fact that the only way to prevent a catastrophic future for humanity on a planetary scale is to introduce sustainable practices in all areas of human endeavour. The key role in these processes is activity to education. So our education should balance the sustainable practices with the progressive approach.",
-          "The development of 21st-century skills has become essential for individuals to navigate the complexities of modern life. These competencies enable individuals to adapt, thrive, and contribute meaningfully to society. Drawing upon frameworks from the World Health Organization (WHO), UNICEF, and the CBSE 21st Century Skills Handbook (2020), this study delves into the significance, components, and implementation of life skills (Flexibility, Leadership, Initiative, Productivity, Social & Cross-cultural skills - FLIPS).",
-          "2. CHUNK TECHNOLOGY AS AN INTERVENTION",
-          "CHUNK Technology—which stands for Competency, Heuristic, Unity, Nurture, and Knowledge Retention—emerges as a game-changing educational approach in a time when learners' attention and memory are challenged by an abundance of information. Chunking, which has its roots in cognitive load theory and is bolstered by Miller's (1956) research on the brain's ability to process 7±2 units of information at a time, makes it possible to break down complex stuff into digestible, meaningful chunks. This approach mirrors ancient Indian education, where knowledge was delivered in oral, poetic units like mantras, sutras, and shlokas (Rigveda, Taittiriya Upanishad), fostering long-term retention and moral insight."
-        ]
-      },
-      {
-        title: "Objectives & Hypotheses",
-        content: [
-          "3. OBJECTIVES OF THE STUDY",
-          "- To Design and Develop the Chunk Technology Intervention Programme (CTIP) for life skills under 21st century skills for IX standard students.",
-          "- To construct and standardize the life skills assessment test for IX standard students.",
-          "- To compare the mean scores of life skills under 21st century skills of IX standard students before and after CTIP intervention.",
-          "- To compare the mean scores of life skills between male and female students, and between urban and rural students.",
-          "4. HYPOTHESES",
-          "H1: There will be a significant difference in the mean scores of life skills under 21st century skills of IX standard students before and after CTIP intervention.",
-          "H2: There will be a significant difference in the mean scores of Flexibility, Leadership, Initiative, Productivity, and Social & Cross-cultural skills before and after the intervention."
-        ]
-      },
-      {
-        title: "Methodology & Delimitation",
-        content: [
-          "5. RESEARCH METHODOLOGY",
-          "This study applies a quantitative approach using Experimental research to establish a cause-and-effect relationship between the Chunk Technology intervention and life skills development.",
-          "- Research Design: Non-equivalent Pre-test, Post-test, Control Group Design under Quasi-experimental design.",
-          "- Sample: Total sample consists of 200 students of class IX residing in urban and rural areas of Kanpur City (100 urban, 100 rural).",
-          "- Intervention Plan: A 20-week systematic execution focusing sequentially on Flexibility (Phase 1, Weeks 1-4), Leadership (Phase 2, Weeks 5-8), Initiative (Phase 3, Weeks 9-12), Productivity (Phase 4, Weeks 13-16), and Social & Cross-cultural skills (Phase 5, Weeks 17-20).",
-          "6. DELIMITATIONS OF THE STUDY",
-          "- Only Life Skills under the 21st century skills framework will be considered.",
-          "- Only class IX standard students will be considered.",
-          "- The study is delimited to Kanpur City only.",
-          "- Only one Government and one Private school will be considered."
-        ]
-      }
-    ]
-  },
-  {
-    id: 2,
-    title: "Effectiveness of Chatbot-Assisted Learning (CbAL) on Cognitive Load and Digital Socratic Engagement among Post-Graduate Students of Kanpur City",
-    author: "Suraj Gupta",
-    supervisor: "Dr. Vimal Singh (Research Guide)",
-    type: 'phd',
-    status: 'Proposal Approved',
-    year: 2025,
-    institution: "Department of Education, CSJM University, Kanpur",
-    abstract: "This doctoral research proposal explores the impact of Chatbot-Assisted Learning (CbAL) on managing cognitive load and fostering digital Socratic engagement among post-graduate students in Kanpur City. Integrating Cognitive Load Theory, Constructivism, and Socratic dialogic methods, the study utilizes the CALiDE Framework to investigate how AI chatbots can serve as cognitive scaffolds and dialogic partners in higher education.",
-    pdfPath: "/papers/chatbot-assisted-learning.pdf",
-    pages: [
-      {
-        title: "Introduction & Theoretical Framework",
-        content: [
-          "DOCTORAL THESIS PROPOSAL",
-          "Title: Effectiveness of Chatbot-Assisted Learning (CbAL) on Cognitive Load and Digital Socratic Engagement among Post-Graduate Students of Kanpur City",
-          "Author: Suraj Gupta | Supervisor: Dr. Vimal Singh",
-          "1. CONTEXT AND INTRODUCTION",
-          "Learning is a lifelong process. Educational psychology emphasises that effective learning is not passive reception but an active process of inquiry, reflection, and participation. Technology-mediated, learner-centred pedagogies represent the evolution from Pedagogy 1.0 (teacher-centred) towards Pedagogy 5.0 (collaborative human-machine learning). Within this trajectory, Chatbot-Assisted Learning (CbAL) provides a vital innovation.",
-          "AI-powered chatbots provide interactive dialogue, instant feedback, and adaptive pathways, reducing extraneous cognitive load and enhancing meaningful engagement. By simulating Socratic questioning, chatbots promote reflective inquiry and critical reasoning, extending the classical Socratic method into the digital age (Digital Socratic Engagement).",
-          "2. CALiDE FRAMEWORK",
-          "The proposed CALiDE Framework (Chatbot-Assisted Learning for Digital Engagement) conceptualizes chatbots as both cognitive scaffolds and dialogic partners. Drawing from Sweller's Cognitive Load Theory (CLT) and Vygotsky's Constructivism, it optimizes content delivery to reduce mental strain while fostering reflective Socratic dialogue."
-        ]
-      },
-      {
-        title: "Objectives & Hypotheses",
-        content: [
-          "3. OBJECTIVES OF THE STUDY",
-          "- To develop and validate a CbAL framework for reducing Cognitive Load and enhancing Digital Socratic Engagement among Post-Graduate Students.",
-          "- To construct a Module on the General Understanding of Research in the context of Cognitive Load and Digital Socratic Engagement.",
-          "- To measure the effectiveness of Chatbot-Assisted Learning (CbAL) on Cognitive Load and Digital Socratic Engagement among Post-Graduate Students in Research Methodology.",
-          "4. HYPOTHESES",
-          "H01: The Post-Graduate Students in the experimental group will show a significantly lower Cognitive Load in Research Methodology in the post-test compared to the pre-test as a result of Chatbot-Assisted Learning (CbAL).",
-          "H02: The Post-Graduate Students in the experimental group will show a significant increase in Digital Socratic Engagement in Research Methodology in the post-test compared to the pre-test due to Chatbot-Assisted Learning (CbAL)."
-        ]
-      },
-      {
-        title: "Methodology & Intervention",
-        content: [
-          "5. RESEARCH METHODOLOGY & DESIGN",
-          "This study adopts a quantitative research approach with an experimental design to examine cause-and-effect relationships.",
-          "- Research Design: Non-Randomised, Pre-test Post-Test, Control Group Design under a quasi-experimental research framework.",
-          "- Sample & Population: 200 Post-Graduate Students (100 male, 100 female) enrolled at Chhatrapati Shahu Ji Maharaj University, Kanpur, selected via purposive and random sampling.",
-          "- Intervention Plan: Based on Fink's Taxonomy of Learning (Foundational Knowledge, Application, Integration, Human Dimension, Caring, Learning How to Learn). Spans a multi-phase implementation: Phase I (Orientation & Preparation - 1 Week), Phase II (Weekly Chatbot-Guided Learning on Research Methodology DTM - 8 Weeks), Phase III (Consolidation & Post-Test - 1 Week), Phase IV (Data Analysis - 2 Weeks), and Phase V (Reporting & Reflection - 1 Week)."
-        ]
-      }
-    ]
-  },
-  {
     id: 3,
     title: "Effectiveness of Traditional Educational Games Model (TEGM) on Achievement in Mathematics of Middle Stage Students of Public Schools of Fatehpur",
     author: "Anjali Devi",
@@ -349,7 +246,6 @@ const repositoryData: ProposalDoc[] = [
 ]
 
 export function ResearchRepositorySection() {
-  const [activeTab, setActiveTab] = useState<'all' | 'phd' | 'med'>('all')
   const [searchQuery, setSearchQuery] = useState('')
   const [selectedDoc, setSelectedDoc] = useState<ProposalDoc | null>(null)
   
@@ -377,12 +273,11 @@ export function ResearchRepositorySection() {
   }, [selectedDoc])
 
   const filteredDocs = repositoryData.filter((doc) => {
-    const matchesTab = activeTab === 'all' || doc.type === activeTab
     const matchesSearch =
       doc.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
       doc.author.toLowerCase().includes(searchQuery.toLowerCase()) ||
       doc.abstract.toLowerCase().includes(searchQuery.toLowerCase())
-    return matchesTab && matchesSearch
+    return matchesSearch
   })
 
   const openDocument = (doc: ProposalDoc) => {
@@ -404,41 +299,16 @@ export function ResearchRepositorySection() {
             <Shield className="h-3 w-3" /> Secure Research Repository
           </div>
           <h2 className="font-heading text-3xl font-bold tracking-tight text-navy dark:text-white sm:text-4xl">
-            Synopses &amp; Proposals Repository
+            M.Ed. Proposals Repository
           </h2>
           <p className="mx-auto mt-3 max-w-3xl text-sm text-muted-foreground">
-            A read-only archive of approved doctoral (Ph.D.) research synopses and postgraduate (M.Ed.) thesis proposals.
+            A read-only archive of approved postgraduate (M.Ed.) thesis proposals.
             All documents are secure and formatted for online reading only.
           </p>
         </div>
 
         {/* Filters and Search */}
-        <div className="mb-8 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-          {/* Subsections Toggle */}
-          <div className="flex gap-1.5 rounded-xl bg-muted/80 p-1 border border-border max-w-md">
-            {[
-              { id: 'all', label: 'All Projects', icon: BookOpen },
-              { id: 'phd', label: 'Ph.D. Synopses', icon: Shield },
-              { id: 'med', label: 'M.Ed. Proposals', icon: FileSpreadsheet }
-            ].map((tab) => {
-              const Icon = tab.icon
-              return (
-                <button
-                  key={tab.id}
-                  onClick={() => setActiveTab(tab.id as any)}
-                  className={`flex items-center gap-2 rounded-lg px-4 py-2 text-xs font-semibold transition-all ${
-                    activeTab === tab.id
-                      ? 'bg-navy text-white shadow-sm'
-                      : 'text-muted-foreground hover:bg-muted hover:text-navy dark:hover:text-white'
-                  }`}
-                >
-                  <Icon className="h-3.5 w-3.5" />
-                  {tab.label}
-                </button>
-              )
-            })}
-          </div>
-
+        <div className="mb-8 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-end">
           {/* Search bar */}
           <div className="relative max-w-xs w-full">
             <Search className="absolute top-1/2 left-3 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
