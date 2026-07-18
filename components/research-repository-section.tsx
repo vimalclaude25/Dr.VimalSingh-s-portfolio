@@ -36,6 +36,28 @@ interface ProposalDoc {
 
 const repositoryData: ProposalDoc[] = [
   {
+    id: 1784374272940,
+    title: "A Study of Effect of Gamification Tool Approach (GTA) on Cognitive Load (CL) of Senior Secondary Students of Government and Private Schools of Kanpur City",
+    author: "Rashi Tripathi",
+    supervisor: "Dr. Vimal Singh (Supervisor)",
+    type: "med",
+    status: "Proposal Approved",
+    year: 2025,
+    institution: "Department of Education, School of Teacher Education, CSJMU Kanpur",
+    abstract: "The rapid advancement of digital technologies has transformed educational practices worldwide, encouraging a shift from traditional teacher-centered instruction to interactive, technology-enabled, and learner-centered pedagogies. Among these innovations, Gamification Tool Approach (GTA) has emerged as an effective instructional strategy that incorporates game design elements such as points, badges, leaderboards, challenges, levels, and rewards into non-game educational contexts to enhance learner engagement, motivation, participation, and cognitive processing. As senior secondary students encounter increasingly complex academic content while preparing for higher education and competitive examinations, managing their cognitive load becomes essential for effective learning. The present study investigates the effect of the Gamification Tool Approach on the cognitive load of senior secondary students studying in government and private schools of Kanpur City.\n\nGamification is founded on motivational and cognitive learning theories that emphasize active learner engagement, immediate feedback, goal-directed behaviour, and meaningful interaction with instructional content. Properly designed gamified learning environments have the potential to improve students' attention, curiosity, persistence, and conceptual understanding while minimizing unnecessary mental effort. According to Cognitive Load Theory (CLT), learning effectiveness depends on the efficient utilization of working memory by balancing three forms of cognitive load: intrinsic cognitive load, determined by the inherent complexity of the learning task; extraneous cognitive load, arising from ineffective instructional design; and germane cognitive load, associated with schema construction and meaningful learning. The Gamification Tool Approach is expected to reduce extraneous cognitive load by organizing learning activities in an engaging and structured manner while simultaneously increasing germane cognitive load through active cognitive engagement and problem-solving activities.",
+    pdfPath: "https://drive.google.com/file/d/1_rb_lLrcyY7sg-Rrjnwz_7fdwtHsoYsi/preview",
+    pages: [
+      {
+        title: "Synopsis Details",
+        content: [
+          "Author: Rashi Tripathi | Supervisor: Dr. Vimal Singh (Supervisor)",
+          "The rapid advancement of digital technologies has transformed educational practices worldwide, encouraging a shift from traditional teacher-centered instruction to interactive, technology-enabled, and learner-centered pedagogies. Among these innovations, Gamification Tool Approach (GTA) has emerged as an effective instructional strategy that incorporates game design elements such as points, badges, leaderboards, challenges, levels, and rewards into non-game educational contexts to enhance learner engagement, motivation, participation, and cognitive processing. As senior secondary students encounter increasingly complex academic content while preparing for higher education and competitive examinations, managing their cognitive load becomes essential for effective learning. The present study investigates the effect of the Gamification Tool Approach on the cognitive load of senior secondary students studying in government and private schools of Kanpur City.\n\nGamification is founded on motivational and cognitive learning theories that emphasize active learner engagement, immediate feedback, goal-directed behaviour, and meaningful interaction with instructional content. Properly designed gamified learning environments have the potential to improve students' attention, curiosity, persistence, and conceptual understanding while minimizing unnecessary mental effort. According to Cognitive Load Theory (CLT), learning effectiveness depends on the efficient utilization of working memory by balancing three forms of cognitive load: intrinsic cognitive load, determined by the inherent complexity of the learning task; extraneous cognitive load, arising from ineffective instructional design; and germane cognitive load, associated with schema construction and meaningful learning. The Gamification Tool Approach is expected to reduce extraneous cognitive load by organizing learning activities in an engaging and structured manner while simultaneously increasing germane cognitive load through active cognitive engagement and problem-solving activities."
+        ]
+      }
+    ]
+  },
+
+  {
     id: 1784374208220,
     title: "A STUDY OF EFFECT OF CONCRETE JOYFUL LEARNING ON ACHIEVEMENT IN MATHEMATICS OF MIDDLE STAGE STUDENTS OF PUBLIC SCHOOLS OF KANPUR CITY",
     author: "Prashant Tripathi",
