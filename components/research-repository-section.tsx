@@ -36,6 +36,28 @@ interface ProposalDoc {
 
 const repositoryData: ProposalDoc[] = [
   {
+    id: 1784373378879,
+    title: "Effectiveness of Chatbot-Assisted Learning (CbAL ) on Cognitive Load and Digital Socratic Engagement among Post-Graduate Students of Kanpur City",
+    author: "Suraj Gupta",
+    supervisor: "Dr. Vimal Singh (Supervisor)",
+    type: "phd",
+    status: "Proposal Approved",
+    year: 2025,
+    institution: "Department of Education, School of Teacher Education, CSJMU Kanpur",
+    abstract: "",
+    pdfPath: "https://drive.google.com/file/d/1-CJRU7OnJEv9qvAyBsZYl10VeG6j3eXi/preview",
+    pages: [
+      {
+        title: "Synopsis Details",
+        content: [
+          "Author: Suraj Gupta | Supervisor: Dr. Vimal Singh (Supervisor)",
+          ""
+        ]
+      }
+    ]
+  },
+
+  {
     id: 1784372986811,
     title: "Effectiveness of Chunk Technology Intervention Programme (CTIP) on 21st Century Skills of Secondary School Students",
     author: "Mahima Tripathi",
