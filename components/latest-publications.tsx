@@ -1,7 +1,6 @@
 'use client'
 
 import { useState } from 'react'
-import Image from 'next/image'
 import { FileText, ChevronLeft, ChevronRight, ExternalLink, Download, User, ArrowRight } from 'lucide-react'
 
 const filters = ['All', 'Scopus', 'Web of Science', 'UGC CARE', 'Books', 'Book Chapters']
@@ -72,17 +71,7 @@ export function LatestPublications() {
         </div>
 
         <div className="rounded-3xl border border-border bg-card p-5 shadow-sm sm:p-7">
-          <div className="grid items-center gap-6 sm:grid-cols-[120px_1fr_auto]">
-            <div className="mx-auto h-40 w-28 overflow-hidden rounded-xl border border-border shadow-md sm:mx-0">
-              <Image
-                src="/journal-cover.png"
-                alt={`Cover of ${pub.journal}`}
-                width={140}
-                height={200}
-                className="h-full w-full object-cover"
-              />
-            </div>
-
+          <div className="grid items-center gap-6 sm:grid-cols-[1fr_auto]">
             <div>
               <span className="inline-block rounded-full bg-emerald-500/10 px-3 py-1 text-xs font-semibold text-emerald-600 dark:text-emerald-400">
                 {pub.tag}
