@@ -148,7 +148,6 @@ const repositoryData: ProposalDoc[] = [
     year: 2025,
     institution: "Department of Education, School of Teacher Education, CSJMU Kanpur",
     abstract: "This dissertation synopsis investigates the effectiveness of the Traditional Educational Games Model (TEGM) on mathematics achievement among middle stage (Class 6) students of public schools in Fatehpur. The study uses a quantitative quasi-experimental pre-test post-test design with a sample size of 50 students to examine if integrating traditional games into the math curriculum enhances performance, engagement, and reduces anxiety in resource-constrained environments.",
-    pdfPath: "/papers/game-based-learning.pdf",
     pages: [
       {
         title: "Introduction & Rationale",
@@ -308,7 +307,6 @@ const repositoryData: ProposalDoc[] = [
     year: 2025,
     institution: "School of Teacher Education, CSJMU Kanpur",
     abstract: "This socio-educational dissertation synopsis examines postgraduate students' perceptions of algorithmic bias and its impact on their intersectional identities (gender, socioeconomic background, geography) in Kanpur City. Utilizing qualitative research methodology with interviews and survey feedback from 200 participants, the study investigates how AI-driven learning tools shape academic identities and user experiences.",
-    pdfPath: "/papers/algorithmic-bias-intersectionality.pdf",
     pages: [
       {
         title: "Introduction & Concepts",
