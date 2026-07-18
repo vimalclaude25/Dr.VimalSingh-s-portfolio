@@ -27,6 +27,7 @@ interface ProposalDoc {
   year: number
   institution: string
   abstract: string
+  pdfPath?: string
   pages: {
     title: string
     content: string[]
@@ -98,6 +99,7 @@ const repositoryData: ProposalDoc[] = [
     year: 2025,
     institution: "Department of Education, CSJM University, Kanpur",
     abstract: "This doctoral research proposal explores the impact of Chatbot-Assisted Learning (CbAL) on managing cognitive load and fostering digital Socratic engagement among post-graduate students in Kanpur City. Integrating Cognitive Load Theory, Constructivism, and Socratic dialogic methods, the study utilizes the CALiDE Framework to investigate how AI chatbots can serve as cognitive scaffolds and dialogic partners in higher education.",
+    pdfPath: "/papers/chatbot-assisted-learning.pdf",
     pages: [
       {
         title: "Introduction & Theoretical Framework",
@@ -142,6 +144,7 @@ export function ResearchRepositorySection() {
   const [activeTab, setActiveTab] = useState<'all' | 'phd' | 'med'>('all')
   const [searchQuery, setSearchQuery] = useState('')
   const [selectedDoc, setSelectedDoc] = useState<ProposalDoc | null>(null)
+  const [viewMode, setViewMode] = useState<'synopsis' | 'pdf'>('synopsis')
   
   // Immersive viewer state
   const [zoomLevel, setZoomLevel] = useState(100)
@@ -178,6 +181,7 @@ export function ResearchRepositorySection() {
   const openDocument = (doc: ProposalDoc) => {
     setSelectedDoc(doc)
     setZoomLevel(100)
+    setViewMode(doc.pdfPath ? 'pdf' : 'synopsis')
   }
 
   const closeDocument = () => {
@@ -330,7 +334,7 @@ export function ResearchRepositorySection() {
             >
               
               {/* Reader Header Toolbar */}
-              <div className="flex items-center justify-between bg-navy px-6 py-4 text-white">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between bg-navy px-6 py-4 text-white gap-4">
                 <div className="flex items-center gap-3">
                   <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-white/10 text-gold">
                     <Lock className="h-4 w-4" />
@@ -339,33 +343,57 @@ export function ResearchRepositorySection() {
                     <span className="rounded bg-royal px-1.5 py-0.5 text-[9px] font-bold uppercase tracking-wide">
                       {selectedDoc.type === 'phd' ? 'Ph.D.' : 'M.Ed.'} Reference Only
                     </span>
-                    <h3 className="font-heading text-sm font-semibold truncate max-w-md sm:max-w-xl">
+                    <h3 className="font-heading text-sm font-semibold truncate max-w-xs sm:max-w-md md:max-w-lg">
                       {selectedDoc.title}
                     </h3>
                   </div>
                 </div>
 
-                <div className="flex items-center gap-4">
-                  {/* Zoom Controls */}
-                  <div className="hidden items-center gap-1.5 rounded-lg bg-white/10 p-0.5 sm:flex">
-                    <button
-                      onClick={() => setZoomLevel(Math.max(75, zoomLevel - 15))}
-                      className="rounded p-1 hover:bg-white/10"
-                      title="Zoom Out"
-                    >
-                      <ZoomOut className="h-3.5 w-3.5" />
-                    </button>
-                    <span className="text-[10px] font-semibold w-10 text-center">
-                      {zoomLevel}%
-                    </span>
-                    <button
-                      onClick={() => setZoomLevel(Math.min(150, zoomLevel + 15))}
-                      className="rounded p-1 hover:bg-white/10"
-                      title="Zoom In"
-                    >
-                      <ZoomIn className="h-3.5 w-3.5" />
-                    </button>
-                  </div>
+                <div className="flex items-center justify-between sm:justify-end gap-4 shrink-0">
+                  {/* View Mode Toggle */}
+                  {selectedDoc.pdfPath && (
+                    <div className="flex rounded-xl bg-white/10 p-0.5 text-xs font-semibold border border-white/5">
+                      <button
+                        onClick={() => setViewMode('synopsis')}
+                        className={`rounded-lg px-3.5 py-1.5 transition-all cursor-pointer ${
+                          viewMode === 'synopsis' ? 'bg-white text-navy font-bold shadow-sm' : 'text-white/80 hover:text-white'
+                        }`}
+                      >
+                        Synopsis
+                      </button>
+                      <button
+                        onClick={() => setViewMode('pdf')}
+                        className={`rounded-lg px-3.5 py-1.5 transition-all cursor-pointer ${
+                          viewMode === 'pdf' ? 'bg-white text-navy font-bold shadow-sm' : 'text-white/80 hover:text-white'
+                        }`}
+                      >
+                        Full PDF
+                      </button>
+                    </div>
+                  )}
+
+                  {/* Zoom Controls (only shown for Synopsis text reader) */}
+                  {viewMode === 'synopsis' && (
+                    <div className="hidden items-center gap-1.5 rounded-lg bg-white/10 p-0.5 sm:flex">
+                      <button
+                        onClick={() => setZoomLevel(Math.max(75, zoomLevel - 15))}
+                        className="rounded p-1 hover:bg-white/10"
+                        title="Zoom Out"
+                      >
+                        <ZoomOut className="h-3.5 w-3.5" />
+                      </button>
+                      <span className="text-[10px] font-semibold w-10 text-center">
+                        {zoomLevel}%
+                      </span>
+                      <button
+                        onClick={() => setZoomLevel(Math.min(150, zoomLevel + 15))}
+                        className="rounded p-1 hover:bg-white/10"
+                        title="Zoom In"
+                      >
+                        <ZoomIn className="h-3.5 w-3.5" />
+                      </button>
+                    </div>
+                  )}
 
                   <button
                     onClick={closeDocument}
@@ -384,56 +412,65 @@ export function ResearchRepositorySection() {
                 </div>
               </div>
 
-              {/* Reader Body (Paper Container) */}
-              <div className="flex-1 overflow-y-auto p-6 md:p-8 flex justify-center bg-[#f0f2f5] dark:bg-[#121824]">
-                <div
-                  style={{ transform: `scale(${zoomLevel / 100})`, transformOrigin: 'top center' }}
-                  className="w-full max-w-3xl transition-transform duration-200"
-                >
-                  
-                  {/* Document Pages Loop */}
-                  {selectedDoc.pages.map((page, pIdx) => (
-                    <div
-                      key={pIdx}
-                      className="relative min-h-[700px] bg-white text-gray-800 shadow-lg rounded-2xl border border-gray-200 p-12 mb-8 overflow-hidden select-none font-serif leading-relaxed text-sm"
-                    >
-                      
-                      {/* Secure Watermark Backdrop */}
-                      <div className="absolute inset-0 flex items-center justify-center select-none pointer-events-none opacity-[0.03] rotate-45">
-                        <span className="text-4xl font-sans font-bold tracking-widest text-navy text-center uppercase whitespace-pre-line leading-loose w-[800px]">
-                          DR. VIMAL SINGH RESEARCH REPOSITORY{"\n"}
-                          FOR READ ONLY REFERENCE - DO NOT COPY
-                        </span>
-                      </div>
+              {/* Reader Body (Paper Container or Iframe) */}
+              <div className={`flex-1 ${viewMode === 'pdf' ? 'p-0 overflow-hidden' : 'overflow-y-auto p-6 md:p-8 flex justify-center'} bg-[#f0f2f5] dark:bg-[#121824]`}>
+                {viewMode === 'pdf' && selectedDoc.pdfPath ? (
+                  <iframe
+                    src={`${selectedDoc.pdfPath}#toolbar=0&navpanes=0&scrollbar=1`}
+                    className="w-full h-full border-none bg-white"
+                    title={selectedDoc.title}
+                    onContextMenu={(e) => e.preventDefault()}
+                  />
+                ) : (
+                  <div
+                    style={{ transform: `scale(${zoomLevel / 100})`, transformOrigin: 'top center' }}
+                    className="w-full max-w-3xl transition-transform duration-200"
+                  >
+                    
+                    {/* Document Pages Loop */}
+                    {selectedDoc.pages.map((page, pIdx) => (
+                      <div
+                        key={pIdx}
+                        className="relative min-h-[700px] bg-white text-gray-800 shadow-lg rounded-2xl border border-gray-200 p-12 mb-8 overflow-hidden select-none font-serif leading-relaxed text-sm"
+                      >
+                        
+                        {/* Secure Watermark Backdrop */}
+                        <div className="absolute inset-0 flex items-center justify-center select-none pointer-events-none opacity-[0.03] rotate-45">
+                          <span className="text-4xl font-sans font-bold tracking-widest text-navy text-center uppercase whitespace-pre-line leading-loose w-[800px]">
+                            DR. VIMAL SINGH RESEARCH REPOSITORY{"\n"}
+                            FOR READ ONLY REFERENCE - DO NOT COPY
+                          </span>
+                        </div>
 
-                      {/* Page Header */}
-                      <div className="flex justify-between items-center border-b border-gray-200 pb-3 mb-6 text-xs font-sans text-gray-400 tracking-wider">
-                        <span>DR. VIMAL SINGH — RESEARCH REPOSITORY</span>
-                        <span>SECTION: {selectedDoc.type.toUpperCase()}</span>
-                      </div>
+                        {/* Page Header */}
+                        <div className="flex justify-between items-center border-b border-gray-200 pb-3 mb-6 text-xs font-sans text-gray-400 tracking-wider">
+                          <span>DR. VIMAL SINGH — RESEARCH REPOSITORY</span>
+                          <span>SECTION: {selectedDoc.type.toUpperCase()}</span>
+                        </div>
 
-                      {/* Page Title */}
-                      <h4 className="font-sans text-base font-bold text-[#0F1E36] border-l-4 border-royal pl-3.5 mb-6 uppercase tracking-wide">
-                        {page.title}
-                      </h4>
+                        {/* Page Title */}
+                        <h4 className="font-sans text-base font-bold text-[#0F1E36] border-l-4 border-royal pl-3.5 mb-6 uppercase tracking-wide">
+                          {page.title}
+                        </h4>
 
-                      {/* Page Content paragraphs */}
-                      <div className="space-y-4 text-justify text-[13px] text-gray-700 whitespace-pre-line">
-                        {page.content.map((paragraph, paraIdx) => (
-                          <p key={paraIdx} className="indent-4">
-                            {paragraph}
-                          </p>
-                        ))}
-                      </div>
+                        {/* Page Content paragraphs */}
+                        <div className="space-y-4 text-justify text-[13px] text-gray-700 whitespace-pre-line">
+                          {page.content.map((paragraph, paraIdx) => (
+                            <p key={paraIdx} className="indent-4">
+                              {paragraph}
+                            </p>
+                          ))}
+                        </div>
 
-                      {/* Page Footer */}
-                      <div className="absolute bottom-6 left-12 right-12 flex justify-between items-center text-[10px] font-sans text-gray-400 border-t border-gray-100 pt-3">
-                        <span>Institution: {selectedDoc.institution}</span>
-                        <span>Page {pIdx + 1} of {selectedDoc.pages.length}</span>
+                        {/* Page Footer */}
+                        <div className="absolute bottom-6 left-12 right-12 flex justify-between items-center text-[10px] font-sans text-gray-400 border-t border-gray-100 pt-3">
+                          <span>Institution: {selectedDoc.institution}</span>
+                          <span>Page {pIdx + 1} of {selectedDoc.pages.length}</span>
+                        </div>
                       </div>
-                    </div>
-                  ))}
-                </div>
+                    ))}
+                  </div>
+                )}
               </div>
 
               {/* Reader Status Bar */}

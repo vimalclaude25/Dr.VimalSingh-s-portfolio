@@ -35,7 +35,8 @@ academic-portfolio-website/
 │   │   ├── projects-consultancy/ # Government grants & industry consultancy subpage [NEW]
 │   │   ├── publications/     # Full-featured search & filter books/chapters subpage [NEW]
 │   │   ├── research-guidance/ # Interactive Ph.D. & M.Ed. cohorts statistics subpage [NEW]
-│   │   └── research-innovation/ # Core specializations & patent showcase subpage [NEW]
+│   │   ├── research-innovation/ # Core specializations & patent showcase subpage [NEW]
+│   │   └── research-repository/ # Ph.D. & M.Ed. synopses secure archive [NEW]
 │   ├── globals.css           # Global CSS and Tailwind directives
 │   ├── layout.tsx            # Main HTML layout, providers, fonts
 │   └── read/                 # Sub-routes for reading articles/essays
@@ -52,6 +53,7 @@ academic-portfolio-website/
 │   ├── news-events.tsx       # Dynamic updates feed
 │   ├── publications-section.tsx# Searchable/filterable list of publications (books, articles, patents)
 │   ├── research-news-section.tsx # Displays newspaper, press releases, digital interviews [NEW]
+│   ├── research-repository-section.tsx # Secure Ph.D./M.Ed. thesis reader panel [NEW]
 │   ├── quick-access.tsx      # Navigational links/actions for quick discovery
 │   ├── research-section.tsx  # Detailed research projects, grants, and areas
 │   ├── site-footer.tsx       # Footer with contact details and copyrights
