@@ -352,7 +352,6 @@ export function ResearchRepositorySection() {
   const [activeTab, setActiveTab] = useState<'all' | 'phd' | 'med'>('all')
   const [searchQuery, setSearchQuery] = useState('')
   const [selectedDoc, setSelectedDoc] = useState<ProposalDoc | null>(null)
-  const [viewMode, setViewMode] = useState<'synopsis' | 'pdf'>('synopsis')
   
   // Immersive viewer state
   const [zoomLevel, setZoomLevel] = useState(100)
@@ -389,7 +388,6 @@ export function ResearchRepositorySection() {
   const openDocument = (doc: ProposalDoc) => {
     setSelectedDoc(doc)
     setZoomLevel(100)
-    setViewMode(doc.pdfPath ? 'pdf' : 'synopsis')
   }
 
   const closeDocument = () => {
@@ -558,30 +556,8 @@ export function ResearchRepositorySection() {
                 </div>
 
                 <div className="flex items-center justify-between sm:justify-end gap-4 shrink-0">
-                  {/* View Mode Toggle */}
-                  {selectedDoc.pdfPath && (
-                    <div className="flex rounded-xl bg-white/10 p-0.5 text-xs font-semibold border border-white/5">
-                      <button
-                        onClick={() => setViewMode('synopsis')}
-                        className={`rounded-lg px-3.5 py-1.5 transition-all cursor-pointer ${
-                          viewMode === 'synopsis' ? 'bg-white text-navy font-bold shadow-sm' : 'text-white/80 hover:text-white'
-                        }`}
-                      >
-                        Synopsis
-                      </button>
-                      <button
-                        onClick={() => setViewMode('pdf')}
-                        className={`rounded-lg px-3.5 py-1.5 transition-all cursor-pointer ${
-                          viewMode === 'pdf' ? 'bg-white text-navy font-bold shadow-sm' : 'text-white/80 hover:text-white'
-                        }`}
-                      >
-                        Full PDF
-                      </button>
-                    </div>
-                  )}
-
-                  {/* Zoom Controls (only shown for Synopsis text reader) */}
-                  {viewMode === 'synopsis' && (
+                  {/* Zoom Controls (only shown for Synopsis text reader when PDF is not available) */}
+                  {!selectedDoc.pdfPath && (
                     <div className="hidden items-center gap-1.5 rounded-lg bg-white/10 p-0.5 sm:flex">
                       <button
                         onClick={() => setZoomLevel(Math.max(75, zoomLevel - 15))}
@@ -621,8 +597,8 @@ export function ResearchRepositorySection() {
               </div>
 
               {/* Reader Body (Paper Container or Iframe) */}
-              <div className={`flex-1 ${viewMode === 'pdf' ? 'p-0 overflow-hidden' : 'overflow-y-auto p-6 md:p-8 flex justify-center'} bg-[#f0f2f5] dark:bg-[#121824]`}>
-                {viewMode === 'pdf' && selectedDoc.pdfPath ? (
+              <div className={`flex-1 ${selectedDoc.pdfPath ? 'p-0 overflow-hidden' : 'overflow-y-auto p-6 md:p-8 flex justify-center'} bg-[#f0f2f5] dark:bg-[#121824]`}>
+                {selectedDoc.pdfPath ? (
                   <iframe
                     src={`${selectedDoc.pdfPath}#toolbar=0&navpanes=0&scrollbar=1`}
                     className="w-full h-full border-none bg-white"
