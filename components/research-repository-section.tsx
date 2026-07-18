@@ -148,6 +148,7 @@ const repositoryData: ProposalDoc[] = [
     year: 2025,
     institution: "Department of Education, School of Teacher Education, CSJMU Kanpur",
     abstract: "This dissertation synopsis investigates the effectiveness of the Traditional Educational Games Model (TEGM) on mathematics achievement among middle stage (Class 6) students of public schools in Fatehpur. The study uses a quantitative quasi-experimental pre-test post-test design with a sample size of 50 students to examine if integrating traditional games into the math curriculum enhances performance, engagement, and reduces anxiety in resource-constrained environments.",
+    pdfPath: "/papers/synopsis-anjali-devi.pdf",
     pages: [
       {
         title: "Introduction & Rationale",
@@ -199,7 +200,7 @@ const repositoryData: ProposalDoc[] = [
     year: 2025,
     institution: "Department of Education, School of Teacher Education, CSJMU Kanpur",
     abstract: "This M.Ed. dissertation synopsis investigates user satisfaction and usage patterns of electronic resources (e-resources) among postgraduate level students (M.Ed. and M.Sc. Biotech) at CSJMU Kanpur. Using a descriptive survey research design with a sample size of 200 students, the research identifies key factors influencing user satisfaction, examines the frequency of e-resource utilization, and provides insights into enhancing digital libraries.",
-    pdfPath: "/papers/e-resource-satisfaction.pdf",
+    pdfPath: "/papers/synopsis-divya-rajput.pdf",
     pages: [
       {
         title: "Introduction & Context",
@@ -254,7 +255,7 @@ const repositoryData: ProposalDoc[] = [
     year: 2025,
     institution: "Department of Education, School of Teacher Education, CSJMU Kanpur",
     abstract: "This dissertation proposal assesses the level of awareness of the National Education Policy (NEP 2020) among primary school teachers in Kanpur City. Utilizing a descriptive survey research design with a sample of 200 teachers from government and private primary schools, the study compares awareness levels across gender and school categories to identify critical gaps and recommend targeted professional development.",
-    pdfPath: "/papers/nep-locality-gender.pdf",
+    pdfPath: "/papers/synopsis-rachana-yadav.pdf",
     pages: [
       {
         title: "Introduction & Context",
@@ -307,6 +308,7 @@ const repositoryData: ProposalDoc[] = [
     year: 2025,
     institution: "School of Teacher Education, CSJMU Kanpur",
     abstract: "This socio-educational dissertation synopsis examines postgraduate students' perceptions of algorithmic bias and its impact on their intersectional identities (gender, socioeconomic background, geography) in Kanpur City. Utilizing qualitative research methodology with interviews and survey feedback from 200 participants, the study investigates how AI-driven learning tools shape academic identities and user experiences.",
+    pdfPath: "/papers/synopsis-mansi-singh.pdf",
     pages: [
       {
         title: "Introduction & Concepts",
