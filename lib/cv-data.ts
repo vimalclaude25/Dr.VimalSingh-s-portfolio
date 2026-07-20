@@ -890,173 +890,227 @@ export const bookChapters: BookChapter[] = [
 
 export const inviteeLectures: InviteeLecture[] = [
   {
-    id: 1, topic: 'AI Tools for Data Analysis', event: 'Pre-Ph.D. Course Work 2025-26', organizer: 'Department of Education, CSJM University, Kanpur', date: '10 February 2026',
-    link: '/read/nep-locality-gender',
+    id: 1, topic: 'Outcome-Based Education (OBE): Designing Effective Course Outcomes (COs) and Program Outcomes (POs) for Quality Assurance', event: 'Workshop on "CO-PO and its Mapping"', organizer: 'Maharana Pratap Group of Institutions, Kanpur UP', date: '26 May 2026'
   },
   {
-    id: 2, topic: 'Role of AI in Modern Research, AI Powered Academic Search Engines', event: 'Pre-Ph.D. Course Work 2025-26', organizer: 'Department of Education, CSJM University, Kanpur', date: '09 February 2026',
-    link: '/read/cognitive-load-ai',
+    id: 2, topic: 'CO-PO Mapping, Attainment Calculation and NBA Documentation: Practical Strategies for Outcome Assessment', event: 'Workshop on "CO-PO and its Mapping"', organizer: 'Maharana Pratap Group of Institutions, Kanpur UP', date: '26 May 2026'
   },
   {
-    id: 3, topic: 'Constraints on Social Change In India', event: 'Pre-Ph.D. Course Work 2025-26', organizer: 'Department of Education, CSJM University, Kanpur', date: '15 January 2026',
-    link: '/read/e-resource-satisfaction',
+    id: 3, topic: 'Statistical Inference and Hypothesis Testing for Public Health Research: Foundations of Evidence-Based Decision Making', event: 'MPH (Master of Public Health) programme', organizer: 'Department of Public Health, School of Arts, Humanities and Social Sciences CSJM University, Kanpur', date: '27 April 2026'
   },
   {
-    id: 4, topic: 'Blended Learning in Education', event: 'Pre-Ph.D. Course Work 2025-26', organizer: 'Department of Education, CSJM University, Kanpur', date: '07 January 2026',
-    link: '/read/game-based-learning',
+    id: 4, topic: 'Hypothesis Testing and Statistical Analysis in Public Health: Parametric and Non-Parametric Approaches', event: 'MPH (Master of Public Health) programme', organizer: 'Department of Public Health, School of Arts, Humanities and Social Sciences CSJM University, Kanpur', date: '29 April 2026'
   },
   {
-    id: 5, topic: 'Precision and Proof: Advancing through Experimental Research', event: 'Pre-Ph.D. Course Work 2024-25', organizer: 'Atal Bihari Bajpai School of Legal Studies', date: '23 December 2025',
-    link: '/read/chatbot-assisted-learning',
+    id: 5, topic: 'Applied Biostatistics for Public Health Research: Correlation Analysis, Interpretation and Research Applications', event: 'MPH (Master of Public Health) programme', organizer: 'Department of Public Health, School of Arts, Humanities and Social Sciences CSJM University, Kanpur', date: '30 April 2026'
   },
   {
-    id: 6, topic: 'Capturing Reality: Mastering the Art of Descriptive Research', event: 'Pre-Ph.D. Course Work 2024-25', organizer: 'Atal Bihari Bajpai School of Legal Studies', date: '22 December 2025',
-    link: '/read/spiritual-intelligence-anxiety',
+    id: 6, topic: 'AI Tools for Data Analysis', event: 'Pre-Ph.D. Course Work 2025-26', organizer: 'Department of Education, CSJM University, Kanpur', date: '10 February 2026', link: '/read/nep-locality-gender'
   },
   {
-    id: 7, topic: 'Quality Management in Education', event: 'Pre-Ph.D. Course Work 2025-26', organizer: 'Department of Education, CSJM University, Kanpur', date: '17 December 2025',
-    link: '/read/anxiety-undergraduates-review',
+    id: 7, topic: 'Role of AI in Modern Research, AI Powered Academic Search Engines', event: 'Pre-Ph.D. Course Work 2025-26', organizer: 'Department of Education, CSJM University, Kanpur', date: '09 February 2026', link: '/read/cognitive-load-ai'
   },
   {
-    id: 8, topic: "The Researcher's Spectrum: Decoding Diverse Types of Research", event: 'Pre-Ph.D. Course Work 2024-25', organizer: 'Atal Bihari Bajpai School of Legal Studies', date: '16 December 2025',
-    link: '/read/cbcs-higher-education',
+    id: 8, topic: 'Constraints on Social Change In India', event: 'Pre-Ph.D. Course Work 2025-26', organizer: 'Department of Education, CSJM University, Kanpur', date: '15 January 2026', link: '/read/e-resource-satisfaction'
   },
   {
-    id: 9, topic: 'Foundation of Enquiry: Navigating the Basics of Research', event: 'Pre-Ph.D. Course Work 2024-25', organizer: 'Atal Bihari Bajpai School of Legal Studies', date: '15 December 2025',
-    link: '/read/vocational-interest-study',
+    id: 9, topic: 'Blended Learning in Education', event: 'Pre-Ph.D. Course Work 2025-26', organizer: 'Department of Education, CSJM University, Kanpur', date: '07 January 2026', link: '/read/game-based-learning'
   },
   {
-    id: 10, topic: 'Blooms Taxonomy of Instructional Objectives', event: 'Pre-Ph.D. Course Work 2025-26', organizer: 'Department of Education, CSJM University, Kanpur', date: '20 November 2025',
-    link: '/read/neuroeducation-landscape',
+    id: 10, topic: 'Precision and Proof: Advancing through Experimental Research', event: 'Pre-Ph.D. Course Work 2024-25', organizer: 'Atal Bihari Bajpai School of Legal Studies', date: '23 December 2025', link: '/read/chatbot-assisted-learning'
   },
   {
-    id: 11, topic: 'Foundation of Knowing: The Epistemic root of Research', event: 'Pre-Ph.D. Course Work 2025-26', organizer: 'Department of Education, CSJM University, Kanpur', date: '18 November 2025',
-    link: '/read/news-framing-student-perceptions',
+    id: 11, topic: 'Capturing Reality: Mastering the Art of Descriptive Research', event: 'Pre-Ph.D. Course Work 2024-25', organizer: 'Atal Bihari Bajpai School of Legal Studies', date: '22 December 2025', link: '/read/spiritual-intelligence-anxiety'
   },
   {
-    id: 12, topic: 'Code of Conduct', event: 'Workshop on Value Education', organizer: 'IQAC and Value Education Cell, Christ Church Post Graduate College, Kanpur, UP', date: '24 September 2025',
-    link: '/read/educational-systematic-research',
+    id: 12, topic: 'Quality Management in Education', event: 'Pre-Ph.D. Course Work 2025-26', organizer: 'Department of Education, CSJM University, Kanpur', date: '17 December 2025', link: '/read/anxiety-undergraduates-review'
   },
   {
-    id: 13, topic: 'Database Literacy', event: 'Pre-Ph.D. Course Work 2024-25', organizer: 'Department of Education, University of Lucknow, Lucknow UP', date: '29 May 2025',
-    link: '/read/challenges-implementing-chatgpt',
+    id: 13, topic: 'The Researcher\'s Spectrum: Decoding Diverse Types of Research', event: 'Pre-Ph.D. Course Work 2024-25', organizer: 'Atal Bihari Bajpai School of Legal Studies', date: '16 December 2025', link: '/read/cbcs-higher-education'
   },
   {
-    id: 14, topic: 'Tools for Ethical and Efficient Research', event: 'Pre-Ph.D. Course Work 2024-25', organizer: 'Department of Education, University of Lucknow, Lucknow UP', date: '29 May 2025',
-    link: '/read/spiritual-intelligence-review',
+    id: 14, topic: 'Foundation of Enquiry: Navigating the Basics of Research', event: 'Pre-Ph.D. Course Work 2024-25', organizer: 'Atal Bihari Bajpai School of Legal Studies', date: '15 December 2025', link: '/read/vocational-interest-study'
   },
   {
-    id: 15, topic: 'Understanding & Formulating Hypothesis', event: 'Pre-Ph.D. Course Work 2024-25', organizer: 'Atal Bihari Bajpai School of Legal Studies', date: '19 May 2025',
-    link: '/read/environmental-concerns-education',
+    id: 15, topic: 'Blooms Taxonomy of Instructional Objectives', event: 'Pre-Ph.D. Course Work 2025-26', organizer: 'Department of Education, CSJM University, Kanpur', date: '20 November 2025', link: '/read/neuroeducation-landscape'
   },
   {
-    id: 16, topic: 'Experimental Designs: Types and Validation', event: 'Pre-Ph.D. Course Work 2024-25', organizer: 'Department of Education, CSJM University, Kanpur', date: '06 May 2025',
-    link: '/read/low-self-esteem-holistic-education',
+    id: 16, topic: 'Foundation of Knowing: The Epistemic root of Research', event: 'Pre-Ph.D. Course Work 2025-26', organizer: 'Department of Education, CSJM University, Kanpur', date: '18 November 2025', link: '/read/news-framing-student-perceptions'
   },
   {
-    id: 17, topic: 'Experimental Research: Conceptual Understanding', event: 'Pre-Ph.D. Course Work 2024-25', organizer: 'Department of Education, CSJM University, Kanpur', date: '05 May 2025',
-    link: '/read/diabetic-wound-healing-nanomembrane',
+    id: 17, topic: 'Statistics in Behavioural Sciences: Transforming Psychological Data into Meaningful Evidence', event: 'M.A. Clinical Psychology programme', organizer: 'Department of Clinical Psychology, School of Arts, Humanities and Social Sciences CSJM University, Kanpur', date: '18 November 2025'
   },
   {
-    id: 18, topic: 'Co-Chair for Technical Session', event: 'International Conference on "A Multidisciplinary Approach to Sustainability: A Holistic View towards the Future"', organizer: 'School of Arts, Humanities and Social Sciences & School of Teacher Education, CSJM University Kanpur UP', date: '29 April 2025',
-    link: '/read/women-studies-trends',
+    id: 18, topic: 'Beyond Correlation: Mastering Multiple Regression for Behavioural and Clinical Research', event: 'M.A. Clinical Psychology programme', organizer: 'Department of Clinical Psychology, School of Arts, Humanities and Social Sciences CSJM University, Kanpur', date: '14 October 2025'
   },
   {
-    id: 19, topic: 'Empowering Educators: The State of Teacher Education & Competencies in India', event: 'Pre-Ph.D. Course Work 2024-25', organizer: 'Department of Teacher Education, Dayanand Womens Training (DWT) PG College Kanpur UP', date: '25 April 2025',
-    link: '/read/value-education-trends',
+    id: 19, topic: 'Code of Conduct', event: 'Workshop on Value Education', organizer: 'IQAC and Value Education Cell, Christ Church Post Graduate College, Kanpur, UP', date: '24 September 2025', link: '/read/educational-systematic-research'
   },
   {
-    id: 20, topic: 'Teacher Education: Theory & Practice', event: 'Pre-Ph.D. Course Work 2024-25', organizer: 'Department of Teacher Education, Dayanand Womens Training (DWT) PG College Kanpur UP', date: '24 April 2025',
-    link: '/read/tracing-cbcs-challenges',
+    id: 20, topic: 'Database Literacy', event: 'Pre-Ph.D. Course Work 2024-25', organizer: 'Department of Education, University of Lucknow, Lucknow UP', date: '29 May 2025', link: '/read/challenges-implementing-chatgpt'
   },
   {
-    id: 21, topic: 'The Roadmap to Success: Mastering PO-CO Mapping & Outcomes', event: 'Workshop on "CO-PO and its Mapping"', organizer: 'Maharana Pratap Group of Institutions, Kanpur UP', date: '05 April 2025',
-    link: '/read/happiness-quotient-study',
+    id: 21, topic: 'Tools for Ethical and Efficient Research', event: 'Pre-Ph.D. Course Work 2024-25', organizer: 'Department of Education, University of Lucknow, Lucknow UP', date: '29 May 2025', link: '/read/spiritual-intelligence-review'
   },
   {
-    id: 22, topic: 'From Theory to Clarity: Understanding PO-CO Inside Out', event: 'Workshop on "CO-PO and its Mapping"', organizer: 'Maharana Pratap Group of Institutions, Kanpur UP', date: '05 April 2025',
-    link: '/read/youth-voice-journal-2023',
+    id: 22, topic: 'Understanding & Formulating Hypothesis', event: 'Pre-Ph.D. Course Work 2024-25', organizer: 'Atal Bihari Bajpai School of Legal Studies', date: '19 May 2025', link: '/read/environmental-concerns-education'
   },
   {
-    id: 23, topic: 'Chair for Technical Session', event: 'International Conference on "A Multidisciplinary Approach to Sustainability: A Holistic View towards the Future"', organizer: 'School of Arts, Humanities and Social Sciences & School of Teacher Education, CSJM University Kanpur UP', date: '02 March 2024',
-    link: '/read/krishnamurti-philosophy-fear-hindi',
+    id: 23, topic: 'Experimental Designs: Types and Validation', event: 'Pre-Ph.D. Course Work 2024-25', organizer: 'Department of Education, CSJM University, Kanpur', date: '06 May 2025', link: '/read/low-self-esteem-holistic-education'
   },
   {
-    id: 24, topic: 'Types of Research: Experimental Research', event: 'Pre-Ph.D. Course Work 2024-25', organizer: 'Department of Education, CSJM University, Kanpur', date: '24 February 2025',
-    link: '/read/facing-fears-krishnamurti',
+    id: 24, topic: 'Experimental Research: Conceptual Understanding', event: 'Pre-Ph.D. Course Work 2024-25', organizer: 'Department of Education, CSJM University, Kanpur', date: '05 May 2025', link: '/read/diabetic-wound-healing-nanomembrane'
   },
   {
-    id: 25, topic: 'Branches of Research: Basic Research (Pure research), Applied Research, Action Research', event: 'Pre-Ph.D. Course Work 2024-25', organizer: 'Department of Education, CSJM University, Kanpur', date: '18 February 2025',
-    link: '/read/dealing-slow-fast-learners',
+    id: 25, topic: 'Co-Chair for Technical Session', event: 'International Conference on "A Multidisciplinary Approach to Sustainability: A Holistic View towards the Future"', organizer: 'School of Arts, Humanities and Social Sciences & School of Teacher Education, CSJM University Kanpur UP', date: '29 April 2025', link: '/read/women-studies-trends'
   },
   {
-    id: 26, topic: 'Research: Meaning, Nature, Scope, Characteristics', event: 'Pre-Ph.D. Course Work 2024-25', organizer: 'Department of Education, CSJM University, Kanpur', date: '17 February 2025',
-    link: '/read/tagore-ideological-insight-hindi',
+    id: 26, topic: 'Empowering Educators: The State of Teacher Education & Competencies in India', event: 'Pre-Ph.D. Course Work 2024-25', organizer: 'Department of Teacher Education, Dayanand Womens Training (DWT) PG College Kanpur UP', date: '25 April 2025', link: '/read/value-education-trends'
   },
   {
-    id: 27, topic: 'Artificial Intelligence and Pedagogical Innovations', event: 'Lecture Series on "Artificial Intelligence Integration in Pedagogical Practices"', organizer: 'Balram Krishan Academy, Atrauli, Mohanlalganj Lucknow – 226301 UP', date: '26 October 2024',
-    link: '/read/industry-academia-collaboration',
+    id: 27, topic: 'Teacher Education: Theory & Practice', event: 'Pre-Ph.D. Course Work 2024-25', organizer: 'Department of Teacher Education, Dayanand Womens Training (DWT) PG College Kanpur UP', date: '24 April 2025', link: '/read/tracing-cbcs-challenges'
   },
   {
-    id: 28, topic: 'Use of Artificial Intelligence in the Process of Research', event: 'Lecture Series on "Artificial Intelligence Integration in Pedagogical Practices"', organizer: 'Balram Krishan Academy, Atrauli, Mohanlalganj Lucknow – 226301 UP', date: '25 October 2024',
-    link: '/read/reflective-practices-krishnamurti',
+    id: 28, topic: 'The Roadmap to Success: Mastering PO-CO Mapping & Outcomes', event: 'Workshop on "CO-PO and its Mapping"', organizer: 'Maharana Pratap Group of Institutions, Kanpur UP', date: '05 April 2025', link: '/read/happiness-quotient-study'
   },
   {
-    id: 29, topic: 'Artificial Intelligence Tools and Educational Canvas', event: 'Lecture Series on "Artificial Intelligence Integration in Pedagogical Practices"', organizer: 'Balram Krishan Academy, Atrauli, Mohanlalganj Lucknow – 226301 UP', date: '24 October 2024',
-    link: '/read/aurobindo-ideological-implications',
+    id: 29, topic: 'From Theory to Clarity: Understanding PO-CO Inside Out', event: 'Workshop on "CO-PO and its Mapping"', organizer: 'Maharana Pratap Group of Institutions, Kanpur UP', date: '05 April 2025', link: '/read/youth-voice-journal-2023'
   },
   {
-    id: 30, topic: 'Programme Outcomes and Course Outcomes: Formulation & Mapping', event: 'Training Session on "NAAC Preparation and Process"', organizer: 'Maharana Pratap Group of Institutions, Kanpur UP', date: '15 July 2024',
-    link: '/read/swami-vivekananda-reflections',
+    id: 30, topic: 'Chair for Technical Session', event: 'International Conference on "A Multidisciplinary Approach to Sustainability: A Holistic View towards the Future"', organizer: 'School of Arts, Humanities and Social Sciences & School of Teacher Education, CSJM University Kanpur UP', date: '02 March 2024', link: '/read/krishnamurti-philosophy-fear-hindi'
   },
   {
-    id: 31, topic: 'ICT Mediated Teaching Methods', event: 'Faculty Development Programme on "Effective teaching through Modern Technologies"', organizer: 'Academic and Administrative Development Centre (AIU-IU-AADC) Integral University Lucknow', date: '07 March 2024',
-    link: '/read/global-trends-learning-styles',
+    id: 31, topic: 'Types of Research: Experimental Research', event: 'Pre-Ph.D. Course Work 2024-25', organizer: 'Department of Education, CSJM University, Kanpur', date: '24 February 2025', link: '/read/facing-fears-krishnamurti'
   },
   {
-    id: 32, topic: 'Co-chair for Technical Session', event: 'ICSSR Sponsored National Seminar on "Reconditioning Indian Tradition and Culture through NEP 2020: Multilingual, Multicultural and Multidisciplinary"', organizer: 'Department of Lifelong Learning and Extension, CSJM University Kanpur UP', date: '02 March 2024',
-    link: '/read/emotional-intelligence-teacher-education',
+    id: 32, topic: 'Branches of Research: Basic Research (Pure research), Applied Research, Action Research', event: 'Pre-Ph.D. Course Work 2024-25', organizer: 'Department of Education, CSJM University, Kanpur', date: '18 February 2025', link: '/read/dealing-slow-fast-learners'
   },
   {
-    id: 33, topic: 'Skills of Measurement; Concept and Levels', event: 'Pre-Ph.D. Course Work 2023-24', organizer: 'Research & Development Cell, CSJM University, Kanpur', date: '09 February 2024',
-    link: '/read/environmental-moral-reasoning',
+    id: 33, topic: 'Research: Meaning, Nature, Scope, Characteristics', event: 'Pre-Ph.D. Course Work 2024-25', organizer: 'Department of Education, CSJM University, Kanpur', date: '17 February 2025', link: '/read/tagore-ideological-insight-hindi'
   },
   {
-    id: 34, topic: 'Hypothesis; Concept Types & Formulation', event: 'Pre-Ph.D. Course Work 2023-24', organizer: 'Research & Development Cell, CSJM University, Kanpur', date: '09 February 2024',
-    link: '/read/emotional-intelligence-academic-achievement-hindi',
+    id: 34, topic: 'Artificial Intelligence and Pedagogical Innovations', event: 'Lecture Series on "Artificial Intelligence Integration in Pedagogical Practices"', organizer: 'Balram Krishan Academy, Atrauli, Mohanlalganj Lucknow – 226301 UP', date: '26 October 2024', link: '/read/industry-academia-collaboration'
   },
   {
-    id: 35, topic: 'Planning of Research; Identification, Selection & Formulation', event: 'Pre-Ph.D. Course Work 2023-24', organizer: 'Research & Development Cell, CSJM University, Kanpur', date: '07 February 2024',
-    link: '/read/focus-group-discussion-qualitative',
+    id: 35, topic: 'Use of Artificial Intelligence in the Process of Research', event: 'Lecture Series on "Artificial Intelligence Integration in Pedagogical Practices"', organizer: 'Balram Krishan Academy, Atrauli, Mohanlalganj Lucknow – 226301 UP', date: '25 October 2024', link: '/read/reflective-practices-krishnamurti'
   },
   {
-    id: 36, topic: 'Nature and Limitations of Research Process', event: 'Pre-Ph.D. Course Work 2023-24', organizer: 'Research & Development Cell, CSJM University, Kanpur', date: '02 February 2024',
-    link: '/read/academic-achievement-adjustment-study-hindi',
+    id: 36, topic: 'Artificial Intelligence Tools and Educational Canvas', event: 'Lecture Series on "Artificial Intelligence Integration in Pedagogical Practices"', organizer: 'Balram Krishan Academy, Atrauli, Mohanlalganj Lucknow – 226301 UP', date: '24 October 2024', link: '/read/aurobindo-ideological-implications'
   },
   {
-    id: 37, topic: 'Foundations of Research: Meaning, Concept, Purpose, Scope & Characteristics', event: 'Pre-Ph.D. Course Work 2023-24', organizer: 'Research & Development Cell, CSJM University, Kanpur', date: '31 January 2024',
-    link: '/read/adjustment-emotional-intelligence-study-hindi',
+    id: 37, topic: 'Programme Outcomes and Course Outcomes: Formulation & Mapping', event: 'Training Session on "NAAC Preparation and Process"', organizer: 'Maharana Pratap Group of Institutions, Kanpur UP', date: '15 July 2024', link: '/read/swami-vivekananda-reflections'
   },
-  { id: 38, topic: 'An Orientation Programme on Pre-Ph.D. Course Work', event: 'Pre-Ph.D. Course Work 2023-24', organizer: 'Research & Development Cell, CSJM University, Kanpur', date: '31 January 2024' },
-  { id: 39, topic: 'Teaching-Learning Pedagogy', event: 'Training Session on "NAAC Preparation and Process"', organizer: 'School of Health Sciences and School of Hotel Management & IQAC CSJM University Kanpur UP', date: '04 July 2023' },
-  { id: 40, topic: 'Teaching-Learning Pedagogy', event: 'Training Session on "NAAC Preparation and Process"', organizer: 'School of Life Sciences and Biotechnology & IQAC CSJM University Kanpur UP', date: '03 July 2023' },
-  { id: 41, topic: 'Teaching-Learning Pedagogy', event: 'Training Session on "NAAC Preparation and Process"', organizer: 'School of Teacher Education, School of Languages and School of Advanced Agriculture, Science and Technology & IQAC, CSJM University Kanpur UP', date: '02 July 2023' },
-  { id: 42, topic: 'Teaching-Learning Pedagogy', event: 'Training Session on "NAAC Preparation and Process"', organizer: 'School of Pharmaceutical Sciences and School of Creative and Performing Arts & IQAC, CSJM University Kanpur UP', date: '30 June 2023' },
-  { id: 43, topic: 'Teaching-Learning Pedagogy', event: 'Training Session on "NAAC Preparation and Process"', organizer: 'School of Arts, Humanities & Social Sciences & IQAC CSJM University Kanpur UP', date: '28 June 2023' },
-  { id: 44, topic: 'Teaching-Learning Pedagogy', event: 'Training Session on "NAAC Preparation and Process"', organizer: 'School of Engineering & Technology and School of Basic Sciences & IQAC CSJM University Kanpur UP', date: '27 June 2023' },
-  { id: 45, topic: 'Teaching-Learning Pedagogy', event: 'Training Session on "NAAC Preparation and Process"', organizer: 'School of Business Management and Atal Bihari Bajpai School of Legal Studies & IQAC CSJM University Kanpur UP', date: '26 June 2023' },
-  { id: 46, topic: 'Nature and Limitations of Research Process', event: 'Pre-Ph.D. Course Work 2022-23', organizer: 'Research & Development Cell, CSJM University, Kanpur', date: '08 September 2022' },
-  { id: 47, topic: 'Foundations of Research: Meaning, Concept, Purpose, Scope & Characteristics', event: 'Pre-Ph.D. Course Work 2022-23', organizer: 'Research & Development Cell, CSJM University, Kanpur', date: '03 September 2022' },
-  { id: 48, topic: 'An Orientation Programme on Pre-Ph.D. Course Work', event: 'Pre-Ph.D. Course Work 2022-23', organizer: 'Research & Development Cell, CSJM University, Kanpur', date: '02 September 2022' },
-  { id: 49, topic: 'Preparation of Project Report', event: 'Two Days Webinar on "Fundamentals of Project Report Writing"', organizer: 'Cult the Cultural Society, Lucknow', date: '13 June 2021' },
-  { id: 50, topic: 'Basics of Project Report Writing', event: 'Two Days Webinar on "Fundamentals of Project Report Writing"', organizer: 'Cult the Cultural Society, Lucknow', date: '09 June 2021' },
-  { id: 51, topic: 'Covid-19 Vaccine – A Ray of Hope', event: 'One-Day Seminar on "Covid – 19 Vaccination Drive"', organizer: 'Balram Krishan Academy, Lucknow', date: '14 April 2021' },
-  { id: 52, topic: 'Sri Aurobindo International Centre of Education – An Example of Sri Aurobindo’s Ideology', event: 'One Day Seminar on "श्री माँ श्री अरविन्द की शिक्षा के विविध आयाम"', organizer: 'Bharatiya Shiksha Shodh Sansthan, Lucknow', date: '13 March 2021' },
-  { id: 53, topic: 'Basics of Project Report Writing (Online)', event: 'Two-Day Webinar on "Fundamentals of Project Report Writing"', organizer: 'Cult the Cultural Society (CTCS), Lucknow', date: '09 June 2021' },
-  { id: 54, topic: 'Preparation of Project Report (Online)', event: 'Two Days Webinar on "Fundamentals of Project Report Writing"', organizer: 'Cult the Cultural Society (CTCS), Lucknow', date: '13 June 2021' },
-  { id: 55, topic: 'B.Ed. Internship Programme', event: 'Special Lecture', organizer: 'Charak Institute of Education (Affiliated with University of Lucknow), Lucknow', date: '27 April 2019' },
-  { id: 56, topic: 'Formulation of Hypothesis & Operational Definition of Variables', event: 'Workshop on "Development of Research Proposal"', organizer: 'Department of Education, University of Lucknow, Lucknow', date: '08 to 15 February 2019' },
-  { id: 57, topic: 'Development of Writing Instructional Objectives, Creating Set and Introducing the Lesson', event: 'Workshop on "Development of Micro Teaching Skills"', organizer: 'Department of Education, University of Lucknow, Lucknow', date: '24 to 29 December 2018' }
+  {
+    id: 38, topic: 'ICT Mediated Teaching Methods', event: 'Faculty Development Programme on "Effective teaching through Modern Technologies"', organizer: 'Academic and Administrative Development Centre (AIU-IU-AADC) Integral University Lucknow', date: '07 March 2024', link: '/read/global-trends-learning-styles'
+  },
+  {
+    id: 39, topic: 'Co-chair for Technical Session', event: 'ICSSR Sponsored National Seminar on "Reconditioning Indian Tradition and Culture through NEP 2020: Multilingual, Multicultural and Multidisciplinary"', organizer: 'Department of Lifelong Learning and Extension, CSJM University Kanpur UP', date: '02 March 2024', link: '/read/emotional-intelligence-teacher-education'
+  },
+  {
+    id: 40, topic: 'Skills of Measurement; Concept and Levels', event: 'Pre-Ph.D. Course Work 2023-24', organizer: 'Research & Development Cell, CSJM University, Kanpur', date: '09 February 2024', link: '/read/environmental-moral-reasoning'
+  },
+  {
+    id: 41, topic: 'Hypothesis; Concept Types & Formulation', event: 'Pre-Ph.D. Course Work 2023-24', organizer: 'Research & Development Cell, CSJM University, Kanpur', date: '09 February 2024', link: '/read/emotional-intelligence-academic-achievement-hindi'
+  },
+  {
+    id: 42, topic: 'Planning of Research; Identification, Selection & Formulation', event: 'Pre-Ph.D. Course Work 2023-24', organizer: 'Research & Development Cell, CSJM University, Kanpur', date: '07 February 2024', link: '/read/focus-group-discussion-qualitative'
+  },
+  {
+    id: 43, topic: 'Nature and Limitations of Research Process', event: 'Pre-Ph.D. Course Work 2023-24', organizer: 'Research & Development Cell, CSJM University, Kanpur', date: '02 February 2024', link: '/read/academic-achievement-adjustment-study-hindi'
+  },
+  {
+    id: 44, topic: 'Foundations of Research: Meaning, Concept, Purpose, Scope & Characteristics', event: 'Pre-Ph.D. Course Work 2023-24', organizer: 'Research & Development Cell, CSJM University, Kanpur', date: '31 January 2024', link: '/read/adjustment-emotional-intelligence-study-hindi'
+  },
+  {
+    id: 45, topic: 'An Orientation Programme on Pre-Ph.D. Course Work', event: 'Pre-Ph.D. Course Work 2023-24', organizer: 'Research & Development Cell, CSJM University, Kanpur', date: '31 January 2024'
+  },
+  {
+    id: 46, topic: 'Teaching-Learning Pedagogy', event: 'Training Session on "NAAC Preparation and Process"', organizer: 'School of Health Sciences and School of Hotel Management & IQAC CSJM University Kanpur UP', date: '04 July 2023'
+  },
+  {
+    id: 47, topic: 'Teaching-Learning Pedagogy', event: 'Training Session on "NAAC Preparation and Process"', organizer: 'School of Life Sciences and Biotechnology & IQAC CSJM University Kanpur UP', date: '03 July 2023'
+  },
+  {
+    id: 48, topic: 'Teaching-Learning Pedagogy', event: 'Training Session on "NAAC Preparation and Process"', organizer: 'School of Teacher Education, School of Languages and School of Advanced Agriculture, Science and Technology & IQAC, CSJM University Kanpur UP', date: '02 July 2023'
+  },
+  {
+    id: 49, topic: 'Teaching-Learning Pedagogy', event: 'Training Session on "NAAC Preparation and Process"', organizer: 'School of Pharmaceutical Sciences and School of Creative and Performing Arts & IQAC, CSJM University Kanpur UP', date: '30 June 2023'
+  },
+  {
+    id: 50, topic: 'Teaching-Learning Pedagogy', event: 'Training Session on "NAAC Preparation and Process"', organizer: 'School of Arts, Humanities & Social Sciences & IQAC CSJM University Kanpur UP', date: '28 June 2023'
+  },
+  {
+    id: 51, topic: 'Teaching-Learning Pedagogy', event: 'Training Session on "NAAC Preparation and Process"', organizer: 'School of Engineering & Technology and School of Basic Sciences & IQAC CSJM University Kanpur UP', date: '27 June 2023'
+  },
+  {
+    id: 52, topic: 'Teaching-Learning Pedagogy', event: 'Training Session on "NAAC Preparation and Process"', organizer: 'School of Business Management and Atal Bihari Bajpai School of Legal Studies & IQAC CSJM University Kanpur UP', date: '26 June 2023'
+  },
+  {
+    id: 53, topic: 'Nature and Limitations of Research Process', event: 'Pre-Ph.D. Course Work 2022-23', organizer: 'Research & Development Cell, CSJM University, Kanpur', date: '08 September 2022'
+  },
+  {
+    id: 54, topic: 'Foundations of Research: Meaning, Concept, Purpose, Scope & Characteristics', event: 'Pre-Ph.D. Course Work 2022-23', organizer: 'Research & Development Cell, CSJM University, Kanpur', date: '03 September 2022'
+  },
+  {
+    id: 55, topic: 'An Orientation Programme on Pre-Ph.D. Course Work', event: 'Pre-Ph.D. Course Work 2022-23', organizer: 'Research & Development Cell, CSJM University, Kanpur', date: '02 September 2022'
+  },
+  {
+    id: 56, topic: 'Preparation of Project Report', event: 'Two Days Webinar on "Fundamentals of Project Report Writing"', organizer: 'Cult the Cultural Society, Lucknow', date: '13 June 2021'
+  },
+  {
+    id: 57, topic: 'Basics of Project Report Writing', event: 'Two Days Webinar on "Fundamentals of Project Report Writing"', organizer: 'Cult the Cultural Society, Lucknow', date: '09 June 2021'
+  },
+  {
+    id: 58, topic: 'Covid-19 Vaccine – A Ray of Hope', event: 'One-Day Seminar on "Covid – 19 Vaccination Drive"', organizer: 'Balram Krishan Academy, Lucknow', date: '14 April 2021'
+  },
+  {
+    id: 59, topic: 'Sri Aurobindo International Centre of Education – An Example of Sri Aurobindo’s Ideology', event: 'One Day Seminar on "श्री माँ श्री अरविन्द की शिक्षा के विविध आयाम"', organizer: 'Bharatiya Shiksha Shodh Sansthan, Lucknow', date: '13 March 2021'
+  },
+  {
+    id: 60, topic: 'Basics of Project Report Writing (Online)', event: 'Two-Day Webinar on "Fundamentals of Project Report Writing"', organizer: 'Cult the Cultural Society (CTCS), Lucknow', date: '09 June 2021'
+  },
+  {
+    id: 61, topic: 'Preparation of Project Report (Online)', event: 'Two Days Webinar on "Fundamentals of Project Report Writing"', organizer: 'Cult the Cultural Society (CTCS), Lucknow', date: '13 June 2021'
+  },
+  {
+    id: 62, topic: 'B.Ed. Internship Programme', event: 'Special Lecture', organizer: 'Charak Institute of Education (Affiliated with University of Lucknow), Lucknow', date: '27 April 2019'
+  },
+  {
+    id: 63, topic: 'Formulation of Hypothesis & Operational Definition of Variables', event: 'Workshop on "Development of Research Proposal"', organizer: 'Department of Education, University of Lucknow, Lucknow', date: '08 to 15 February 2019'
+  },
+  {
+    id: 64, topic: 'Development of Writing Instructional Objectives, Creating Set and Introducing the Lesson', event: 'Workshop on "Development of Micro Teaching Skills"', organizer: 'Department of Education, University of Lucknow, Lucknow', date: '24 to 29 December 2018'
+  },
+  {
+    id: 65, topic: 'Development of Stimulus Variation Skill in Prospective Teachers', event: 'Seven Day Workshop titled "Development of Teaching Skills in Prospective Teachers" for B.Ed. Students', organizer: 'Department of Education, University of Lucknow, Lucknow', date: '11th to 18th January 2018'
+  },
+  {
+    id: 66, topic: 'Construction of A Tool: Plan and Procedure', event: 'Seven Day Workshop titled "Developing A Good Research Tool" for M.A. & M.Ed. Students', organizer: 'Department of Education, University of Lucknow, Lucknow', date: '11th to 18th January 2018'
+  },
+  {
+    id: 67, topic: 'Action Research', event: 'Special Lecture', organizer: 'Basudev Degree College, Affiliated with the University of Lucknow', date: '17 February 2017'
+  },
+  {
+    id: 68, topic: 'Facing Realities and Improve Teaching through Action Research', event: 'Special Lecture for Teacher Trainees', organizer: 'Block Resource Center, Block Chittaura (Deeha), District Bahraich UP', date: '14/06/2016'
+  },
+  {
+    id: 69, topic: 'Measurement and Evaluation in Education', event: 'Special Lecture', organizer: 'Department of Education, University of Lucknow, Lucknow', date: '05 May 2016'
+  },
+  {
+    id: 70, topic: 'Statistical Applications in Education', event: 'Special Lecture', organizer: 'Department of Education, University of Lucknow, Lucknow', date: '21 April 2016'
+  },
+  {
+    id: 71, topic: 'Research Methods in Education', event: 'Special Lecture', organizer: 'Department of Education, University of Lucknow, Lucknow', date: '09 April 2016'
+  },
+  {
+    id: 72, topic: 'Three Days Orientation Programme for UGC-NET/JRF in Education', event: 'Orientation Programme', organizer: 'Department of Education, University of Lucknow, Lucknow', date: '05/04/2016 to 07/04/2016'
+  },
+  {
+    id: 73, topic: 'Certificate Programme for the Professional Development of Primary Teachers (CPPDPT) KVS', event: 'Workshop', organizer: 'IGNOU at Kendriya Vidyalaya AMC, Lucknow', date: '23 Nov. To 07 Dec 2014'
+  },
+  {
+    id: 74, topic: 'Workshop of B. Ed. Course', event: 'Workshop for the sessions 2013-14, 2014-15 & 2015 -16', organizer: 'Department of Education, University of Lucknow, Lucknow conducted by IGNOU', date: '2013-2016'
+  }
 ]
 
 export const fdpsAndWorkshops: FdpWorkshop[] = [
