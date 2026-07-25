@@ -1871,6 +1871,16 @@ export const coursesData: Course[] = [
 
 export const studyResourcesData: StudyResource[] = [
   {
+    id: 1784279800286,
+    title: "General Orientation on Methodology",
+    desc: "General Orientation lecture on Research Methodology by Dr. Vimal Singh, delivered at Chhatrapati Shahu Ji Maharaj University (CSJMU), Kanpur.",
+    courseCode: "MED104",
+    type: "Video",
+    link: "https://www.youtube.com/watch?v=icvEOqrBcho&list=PL_CW-GSOrTifeJlc4oCHQhmgWr7UxLQB3",
+    thumbnail: "https://img.youtube.com/vi/icvEOqrBcho/hqdefault.jpg",
+    date: "25 July 2026"
+  },
+  {
     id: 1784279800284,
     title: "What is Knowledge - Knowlwdge 2",
     desc: "Let's understand the basics of philosophy and research through easy explanations, stories, and real-life examples. These notes will help you see how knowledge grows into intelligence and finally into wisdom.Let's understand the basics of philosophy and research through easy explanations, stories, and real-life examples. These notes will help you see how knowledge grows into intelligence and finally into wisdom.",
@@ -2060,6 +2070,64 @@ export const studyResourcesData: StudyResource[] = [
           'Philosophy is the love and search for wisdom. It guides us to use knowledge and intelligence for a meaningful and better life.',
           'Path: Philosophy -> Search for Wisdom -> Better Life -> Better World',
           'Think Deep... Ask Why... Seek Truth... That is Research.'
+        ]
+      }
+    ]
+  },
+  {
+    id: 5,
+    title: 'What Epistemology Is?',
+    desc: 'An educational infographic detailing the philosophical concept of Epistemology, exploring key questions, core points, its significance, and main branches/approaches like Empiricism, Rationalism, Constructivism, and Critical Theory.',
+    courseCode: 'MED104',
+    type: 'Infographic',
+    link: '/infographics/what-is-epistemology.png',
+    thumbnail: '/infographics/what-is-epistemology.png',
+    date: '22 July 2026',
+    fileSize: '2.3 MB',
+    details: [
+      {
+        sectionTitle: 'What Epistemology Is?',
+        points: [
+          'Epistemology is the branch of philosophy that studies the nature, sources, methods, and limits of knowledge.',
+          'In simple words, epistemology asks the question: "How do we know what we know?"'
+        ]
+      },
+      {
+        sectionTitle: 'It explores:',
+        points: [
+          'What is knowledge?',
+          'How do we acquire knowledge?',
+          'What is the meaning of knowledge?',
+          'What are the criteria of true knowledge?',
+          'What is the relationship between the knower and the known?'
+        ]
+      },
+      {
+        sectionTitle: 'Key Points',
+        points: [
+          '1. Nature of Knowledge - What knowledge is and what it is not.',
+          '2. Sources of Knowledge - From where knowledge is obtained (e.g., perception, reason, testimony, experience).',
+          '3. Methods of Knowledge - How we come to know (e.g., observation, inference, intuition, logic).',
+          '4. Limits of Knowledge - What we can know and what is beyond our knowledge.',
+          '5. Justification of Knowledge - How we determine that knowledge is true or valid.'
+        ]
+      },
+      {
+        sectionTitle: 'Importance of Epistemology',
+        points: [
+          'It helps us to distinguish between true and false beliefs.',
+          'It provides the foundation for all sciences and disciplines.',
+          'It develops critical thinking and logical reasoning.',
+          'It guides research, inquiry and decision-making.'
+        ]
+      },
+      {
+        sectionTitle: 'Branches / Approaches in Epistemology',
+        points: [
+          'Empiricism - Knowledge comes from experience and observation.',
+          'Rationalism - Knowledge comes from reason and logical thinking.',
+          'Constructivism - Knowledge is constructed by the mind.',
+          'Critical Theory - Knowledge is influenced by social and cultural factors.'
         ]
       }
     ]
