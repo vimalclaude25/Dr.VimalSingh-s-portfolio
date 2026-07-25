@@ -1871,6 +1871,83 @@ export const coursesData: Course[] = [
 
 export const studyResourcesData: StudyResource[] = [
   {
+    id: 1784959655227,
+    title: 'Why Research is a Process (Not a Single Event)',
+    desc: 'An educational blackboard-style infographic explaining the six key steps of the research cycle and why a structured process is essential.',
+    courseCode: 'MED104',
+    type: 'Infographic',
+    link: '/infographics/why-research-is-a-process.jpg',
+    thumbnail: '/infographics/why-research-is-a-process.jpg',
+    date: '14 July 2026',
+    fileSize: '520 KB',
+    details: [
+      {
+        sectionTitle: 'Introduction: Myth vs Reality | प्रस्तावना: भ्रम बनाम वास्तविकता',
+        points: [
+          'MYTH: Research is finding a fact and writing it down. | भ्रम: शोध केवल किसी तथ्य को ढूंढना और उसे लिख देना है।',
+          'REALITY: Research is a living cycle of inquiry. | वास्तविकता: शोध जिज्ञासा और जांच का एक जीवंत चक्र है।'
+        ]
+      },
+      {
+        sectionTitle: '1. Inquiry & Curiosity (The Spark) | पूछताछ और जिज्ञासा (चिनगारी)',
+        points: [
+          'Concept: Identify the Problem. You start with a question, not an answer. This stage involves defining the "gap" in your knowledge. | अवधारणा: समस्या की पहचान करना। आप एक प्रश्न से शुरू करते हैं, उत्तर से नहीं। इस चरण में आपके ज्ञान में मौजूद "अंतराल" को परिभाषित करना शामिल है।',
+          'ACTION: "What am I trying to solve or understand?" | कार्य: "मैं क्या हल करने या समझने की कोशिश कर रहा हूँ?"'
+        ]
+      },
+      {
+        sectionTitle: '2. Planning & Strategy (The Blueprint) | योजना और रणनीति (खाका)',
+        points: [
+          'Concept: Develop a Methodology. How will you find the answer? You choose your tools (surveys, experiments, library databases). | अवधारणा: कार्यप्रणाली विकसित करना। आप उत्तर कैसे ढूंढेंगे? आप अपने उपकरण चुनते हैं (जैसे सर्वेक्षण, प्रयोग, पुस्तकालय डेटाबेस)।',
+          'ACTION: "What sources are credible? What is my timeline?" | कार्य: "कौन से स्रोत विश्वसनीय हैं? मेरी समय-सीमा क्या है?"'
+        ]
+      },
+      {
+        sectionTitle: '3. Data Collection (The Grind) | डेटा संग्रह (कठिन परिश्रम)',
+        points: [
+          'Concept: Gathering Evidence. This is the execution phase. You read, interview, observe, or run tests. It is messy and takes time. | अवधारणा: साक्ष्य एकत्र करना। यह निष्पादन का चरण है। आप पढ़ते हैं, साक्षात्कार लेते हैं, अवलोकन करते हैं, या परीक्षण करते हैं। यह प्रक्रिया जटिल और समय लेने वाली होती है।',
+          'ACTION: Reading, observing, and taking raw notes. | कार्य: पढ़ना, अवलोकन करना और कच्चे नोट्स (raw notes) तैयार करना।'
+        ]
+      },
+      {
+        sectionTitle: '4. Analysis & Interpretation (The Sense-Making) | विश्लेषण और व्याख्या (अर्थ निकालना)',
+        points: [
+          'Concept: Finding the Pattern. Raw data is useless until sorted. You look for trends, anomalies, and relationships in what you found. | अवधारणा: पैटर्न खोजना। कच्चा डेटा तब तक बेकार है जब तक उसे छांटा न जाए। आप अपने द्वारा खोजे गए डेटा में रुझान, विसंगतियां और संबंध तलाशते हैं।',
+          'ACTION: "What does this data actually mean?" | कार्य: "इस डेटा का वास्तव में क्या अर्थ है?"'
+        ]
+      },
+      {
+        sectionTitle: '5. Evaluation & Revision (The Reality Check) | मूल्यांकन और संशोधन (वास्तविकता की जांच)',
+        points: [
+          'Concept: Questioning Your Findings. Did you miss a variable? Is your source biased? This is where the process loops backward. | अवधारणा: अपने निष्कर्षों पर सवाल उठाना। क्या आपने कोई चर (variable) छोड़ दिया? क्या आपका स्रोत पक्षपाती है? यही वह जगह है जहां प्रक्रिया वापस पीछे की ओर चक्रित (loop) होती है।',
+          'ACTION: "If I change this variable, do I get the same result?" | कार्य: "अगर मैं इस चर को बदलूं, तो क्या मुझे वही परिणाम मिलेगा?"'
+        ]
+      },
+      {
+        sectionTitle: '6. Conclusion & Sharing (The Output) | निष्कर्ष और साझाकरण (परिणाम)',
+        points: [
+          'Concept: The "Temporary" Answer. You present your findings. But in research, an answer usually leads to more questions, starting the cycle over. | अवधारणा: "अस्थायी" उत्तर। आप अपने निष्कर्षों को प्रस्तुत करते हैं। लेकिन शोध में, एक उत्तर आमतौर पर अधिक प्रश्नों की ओर ले जाता है, जिससे चक्र फिर से शुरू हो जाता है।',
+          'ACTION: Publishing, presenting, or writing the final paper. | कार्य: प्रकाशन, प्रस्तुतीकरण, या अंतिम शोध पत्र लिखना।'
+        ]
+      },
+      {
+        sectionTitle: 'Why Does This Process Matter? | यह प्रक्रिया क्यों महत्वपूर्ण है?',
+        points: [
+          'It ensures Accuracy: Rushing leads to false conclusions (bias). | यह सटीकता सुनिश्चित करता है: जल्दबाजी करने से गलत निष्कर्ष (पूर्वाग्रह) निकल सकते हैं।',
+          'It builds Credibility: Peer review and revision separate "opinion" from "fact". | यह विश्वसनीयता बनाता है: सहकर्मी समीक्षा (peer review) और संशोधन "राय" को "तथ्य" से अलग करते हैं।',
+          'It allows for Replication: A process allows others to check your work or build upon it. | यह पुनरावृत्ति की अनुमति देता है: एक सुव्यवस्थित प्रक्रिया दूसरों को आपके काम की जांच करने या उस पर आगे काम करने की अनुमति देती है।',
+          'It embraces Failure: In research, finding a "dead end" is still progress because it tells you where not to look next. | यह विफलता को स्वीकार करता है: शोध में, किसी "बंद रास्ते" का मिलना भी प्रगति है क्योंकि यह आपको बताता है कि आगे कहाँ नहीं देखना है।'
+        ]
+      },
+      {
+        sectionTitle: 'Core Takeaway | मुख्य निष्कर्ष',
+        points: [
+          '"Research is never \'finished\'; it is simply \'ready for the next question.\'" | "शोध कभी \'समाप्त\' नहीं होता; यह केवल \'अगले प्रश्न के लिए तैयार\' होता है।"'
+        ]
+      }
+    ]
+  },
+  {
     id: 1784957888319,
     title: 'The Relationship Between Knowledge, Education & Research',
     desc: 'An educational infographic detailing the continuous cycle between knowledge, education, and research for individual growth and societal progress.',
