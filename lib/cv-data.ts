@@ -1675,6 +1675,19 @@ export const researchNewsData: ResearchNewsItem[] = [
     image: '/janmanas-digital-education.jpg',
     link: 'https://janmanas.in/2026/07/16/research-csjmu-kanpur-digital-education/',
     imageOnly: false,
+  },
+  {
+    id: 19,
+    title: "UGC-NET Preparation Strategy & Success Formula - 'Campus Adda' Podcast",
+    source: 'Chhatrapati Shahu Ji Maharaj University, Kanpur',
+    date: '18 July 2026',
+    desc: "An educational guidance talk on UGC-NET preparation strategy by Dr. Vimal Singh, broadcasted on the 'Campus Adda' show of Chhatrapati Shahu Ji Maharaj University (CSJMU), Kanpur. The session covers study schedules, resource selection, paper analysis, and key success factors for aspiring candidates.",
+    category: 'digital-media',
+    subcategory: 'Podcasts',
+    mediaType: 'Podcast',
+    link: 'https://www.youtube.com/watch?v=3ol-3yVnn_0',
+    image: 'https://img.youtube.com/vi/3ol-3yVnn_0/hqdefault.jpg',
+    imageOnly: false,
   }
 ]
 
