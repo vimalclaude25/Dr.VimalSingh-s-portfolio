@@ -1871,6 +1871,141 @@ export const coursesData: Course[] = [
 
 export const studyResourcesData: StudyResource[] = [
   {
+    id: 1784957888319,
+    title: 'The Relationship Between Knowledge, Education & Research',
+    desc: 'An educational infographic detailing the continuous cycle between knowledge, education, and research for individual growth and societal progress.',
+    courseCode: 'MED104',
+    type: 'Infographic',
+    link: '/infographics/relationship-knowledge-education-research.jpg',
+    thumbnail: '/infographics/relationship-knowledge-education-research.jpg',
+    date: '25 July 2026',
+    fileSize: '204 KB',
+    details: [
+      {
+        sectionTitle: 'What is Knowledge? | ज्ञान क्या है?',
+        points: [
+          'Awareness and understanding of reality. | वास्तविकता की जागरूकता और समझ।',
+          'Derived from experience, thinking, reflection, and discovery. | अनुभव, चिंतन, विचार और खोज से प्राप्त।',
+          'The foundation of all learning and inquiry. | सभी प्रकार के सीखने और जिज्ञासा की आधारशिला।',
+          'Key elements: Understanding, Facts, Concepts, Truths & Insights. | प्रमुख तत्व: समझ, तथ्य, अवधारणाएँ, सत्य और अंतर्दृष्टि।'
+        ]
+      },
+      {
+        sectionTitle: 'Sources of Knowledge | ज्ञान के स्रोत',
+        points: [
+          'Experience: Gaining understanding through active participation. | अनुभव: सक्रिय भागीदारी के माध्यम से समझ प्राप्त करना।',
+          'Observation: Watching and gathering information from the surrounding world. | अवलोकन: आस-पास की दुनिया को देखना और जानकारी जुटाना।',
+          'Reason: Using logic and rational thinking to process facts. | तर्कशक्ति: तथ्यों को समझने के लिए तर्क और विवेकपूर्ण सोच का उपयोग करना।',
+          'Authority: Learning from experts, teachers, and trusted figures. | प्राधिकार: विशेषज्ञों, शिक्षकों और विश्वसनीय व्यक्तियों से सीखना।',
+          'Tradition & Culture: Time-tested wisdom passed down through generations. | परंपरा और संस्कृति: पीढ़ियों से चला आ रहा समय-परीक्षित ज्ञान।',
+          'Scientific Inquiry: Systematic exploration, testing, and validation. | वैज्ञानिक जांच: व्यवस्थित अन्वेषण, परीक्षण और सत्यापन।'
+        ]
+      },
+      {
+        sectionTitle: 'Role of Education | शिक्षा की भूमिका',
+        points: [
+          'Transmits existing knowledge to new generations. | मौजूदा ज्ञान को नई पीढ़ियों तक प्रसारित करना।',
+          'Develops skills, values, and positive attitudes. | कौशल, मूल्य और सकारात्मक दृष्टिकोण विकसित करना।',
+          'Encourages critical thinking and reflection. | आलोचनात्मक सोच और चिंतन को प्रोत्साहित करना।',
+          'Prepares individuals for practical life and professional work. | व्यक्तियों को व्यावहारिक जीवन और व्यावसायिक कार्यों के लिए तैयार करना।',
+          'Focus areas: Teaching, Learning, Training, and Skill Development. | फोकस क्षेत्र: शिक्षण, अधिगम, प्रशिक्षण और कौशल विकास।'
+        ]
+      },
+      {
+        sectionTitle: 'Role of Research | शोध की भूमिका',
+        points: [
+          'Explores unknowns, tests ideas, and pushes boundaries. | अज्ञात की खोज करना, विचारों का परीक्षण करना और सीमाओं को आगे बढ़ाना।',
+          'Generates brand new knowledge and concepts. | बिल्कुल नए ज्ञान और अवधारणाओं का निर्माण करना।',
+          'Validates, refines, and updates existing knowledge. | मौजूदा ज्ञान को सत्यापित, परिष्कृत और अद्यतन करना।',
+          'Drives innovation, societal development, and progress. | नवाचार, सामाजिक विकास और प्रगति को संचालित करना।',
+          'Core activities: Systematic Inquiry, Discovery, Innovation & Problem Solving. | मुख्य गतिविधियाँ: व्यवस्थित जांच, खोज, नवाचार और समस्या समाधान।'
+        ]
+      },
+      {
+        sectionTitle: 'The Continuous Cycle | निरंतर चलने वाला चक्र',
+        points: [
+          'Knowledge is organized and transmitted through education. | ज्ञान को शिक्षा के माध्यम से व्यवस्थित और प्रसारित किया जाता है।',
+          'Education inspires questions and prepares the mind for research. | शिक्षा प्रश्नों को प्रेरित करती है और मस्तिष्क को शोध के लिए तैयार करती।',
+          'Research expands, refines, and creates new knowledge. | शोध ज्ञान का विस्तार, परिष्कृत और निर्माण करता है।',
+          'Together, they create a dynamic cycle that builds wisdom, solves problems, and drives progress. | साथ मिलकर, वे एक गतिशील चक्र का निर्माण करते हैं जो ज्ञान का निर्माण करता है, समस्याओं को हल करता है और प्रगति को बढ़ावा देता है।'
+        ]
+      },
+      {
+        sectionTitle: 'How They Work Together & Impact | वे कैसे मिलकर काम करते हैं और प्रभाव डालते हैं',
+        points: [
+          'Knowledge is the foundation. | ज्ञान ही आधारशिला है।',
+          'Education imparts and cultivates knowledge. | शिक्षा ज्ञान प्रदान करती है और उसका पोषण करती है।',
+          'Research investigates and expands knowledge. | शोध ज्ञान की जांच और विस्तार करता है।',
+          'New Knowledge is created to benefit society through better decisions, solutions, and innovation. | बेहतर निर्णयों, समाधानों और नवाचार के माध्यम से समाज को लाभ पहुंचाने के लिए नए ज्ञान का सृजन होता है।',
+          'Impact areas: Personal Growth & Empowerment, Social Progress & Well-being, Economic Development & Innovation, and Sustainable Future for All. | प्रभाव के क्षेत्र: व्यक्तिगत विकास और सशक्तिकरण, सामाजिक प्रगति और कल्याण, आर्थिक विकास और नवाचार, और सभी के लिए एक स्थायी भविष्य।'
+        ]
+      }
+    ]
+  },
+  {
+    id: 1784957888331,
+    title: 'A Day in My Life: How I Learn from Different Sources of Knowledge',
+    desc: 'An illustrative infographic following graduate student Ananya to explain six primary sources of knowledge through daily life situations.',
+    courseCode: 'MED104',
+    type: 'Infographic',
+    link: '/infographics/sources-of-knowledge.jpg',
+    thumbnail: '/infographics/sources-of-knowledge.jpg',
+    date: '25 July 2026',
+    fileSize: '271 KB',
+    details: [
+      {
+        sectionTitle: 'Introduction & Core Message | परिचय और मुख्य संदेश',
+        points: [
+          'Meet Ananya, a graduate student: "Every day, I learn something new. I may not always realize it, but I gain knowledge from many sources that shape my thinking, choices, and actions." | अनन्या से मिलें, जो एक परास्नातक छात्रा है: "हर दिन मैं कुछ नया सीखती हूँ। शायद मुझे हमेशा इसका अहसास न हो, लेकिन मैं कई स्रोतों से ज्ञान प्राप्त करती हूँ जो मेरी सोच, विकल्पों और कार्यों को आकार देते हैं।"',
+          '"Knowledge is everywhere – We just need to be curious and open!" | "ज्ञान हर जगह है - हमें बस जिज्ञासु और खुले विचारों वाला होना चाहिए!"'
+        ]
+      },
+      {
+        sectionTitle: '1. Authority | प्राधिकार / सत्ता',
+        points: [
+          'Daily Situation: "My teacher explains a tough concept in class. I trust her knowledge and guidance because she has studied and experienced more than me." | दैनिक स्थिति: "मेरी शिक्षिका कक्षा में एक कठिन अवधारणा को समझाती हैं। मैं उनके ज्ञान और मार्गदर्शन पर भरोसा करती हूँ क्योंकि उन्होंने मुझसे अधिक अध्ययन और अनुभव किया है।"',
+          'Slate Lesson: "Water boils at 100°C at standard pressure." | स्लेट का पाठ: "पानी मानक दबाव पर 100 डिग्री सेल्सियस पर उबलता है।"',
+          'Summary: "I learn from people who are experts and trustworthy." | सारांश: "मैं उन लोगों से सीखती हूँ जो विशेषज्ञ और भरोसेमंद हैं।"'
+        ]
+      },
+      {
+        sectionTitle: '2. Tradition | परंपरा',
+        points: [
+          'Daily Situation: "During a festival, I follow rituals that have been practiced in my family for generations." | दैनिक स्थिति: "एक त्योहार के दौरान, मैं उन रीति-रिवाजों का पालन करती हूँ जो मेरे परिवार में पीढ़ियों से चले आ रहे हैं।"',
+          'Summary: "Traditions give us time-tested wisdom and a sense of identity." | सारांश: "परंपराएं हमें समय-परीक्षित ज्ञान और पहचान की भावना देती हैं।"'
+        ]
+      },
+      {
+        sectionTitle: '3. Experiences | अनुभव',
+        points: [
+          'Daily Situation: "I learned to ride a bicycle by falling, trying again and practice. My own experiences teach me lessons that stay with me." | दैनिक स्थिति: "मैंने गिरकर, बार-बार कोशिश करके और अभ्यास करके साइकिल चलाना सीखा। मेरे अपने अनुभव मुझे ऐसे सबक सिखाते हैं जो मेरे साथ रहते हैं।"',
+          'Summary: "Experience is a great teacher; it helps me learn by doing." | सारांश: "अनुभव एक महान शिक्षक है; यह मुझे काम करके सीखने में मदद करता है।"'
+        ]
+      },
+      {
+        sectionTitle: '4. Inductive Reasoning | आगमनात्मक तर्क',
+        points: [
+          'Daily Situation: "I notice that every day the sun rises in the east. From many observations, I conclude that the sun usually rises in the east." | दैनिक स्थिति: "मैं देखती हूँ कि हर दिन सूर्य पूर्व में उगता है। कई अवलोकनों से, मैं निष्कर्ष निकालती हूँ कि सूर्य सामान्यतः पूर्व में उगता है।"',
+          'Summary: "From specific observations, I reach a general conclusion." | सारांश: "विशिष्ट अवलोकनों से, मैं एक सामान्य निष्कर्ष पर पहुँचती हूँ (विशेष से सामान्य की ओर)।"'
+        ]
+      },
+      {
+        sectionTitle: '5. Deductive Reasoning | निगमनात्मक तर्क',
+        points: [
+          'Daily Situation: "I know that all humans need food to live. I am a human. Therefore, I need food to live." | दैनिक स्थिति: "मुझे पता है कि सभी मनुष्यों को जीवित रहने के लिए भोजन की आवश्यकता होती है। मैं एक मनुष्य हूँ। इसलिए, मुझे जीवित रहने के लिए भोजन की आवश्यकता है।"',
+          'Summary: "From a general rule, I reach a specific conclusion." | सारांश: "एक सामान्य नियम से, मैं एक विशिष्ट निष्कर्ष पर पहुँचती हूँ (सामान्य से विशेष की ओर)।"'
+        ]
+      },
+      {
+        sectionTitle: '6. Scientific Method | वैज्ञानिक विधि',
+        points: [
+          'Daily Situation: "When I noticed plants in my room grew towards the window, I formed a hypothesis, tested it by changing their position and observed the results." | दैनिक स्थिति: "जब मैंने देखा कि मेरे कमरे में पौधे खिड़की की ओर बढ़ रहे हैं, तो मैंने एक परिकल्पना बनाई, उनकी स्थिति बदलकर इसका परीक्षण किया और परिणामों का अवलोकन किया।"',
+          'Summary: "Systematic steps of observation, hypothesis, experiment, and conclusion help me discover new knowledge." | सारांश: "अवलोकन, परिकल्पना, प्रयोग और निष्कर्ष के व्यवस्थित कदम मुझे नए ज्ञान की खोज करने में मदद करते हैं।"'
+        ]
+      }
+    ]
+  },
+  {
     id: 1784279800286,
     title: "General Orientation on Methodology",
     desc: "General Orientation lecture on Research Methodology by Dr. Vimal Singh, delivered at Chhatrapati Shahu Ji Maharaj University (CSJMU), Kanpur.",
