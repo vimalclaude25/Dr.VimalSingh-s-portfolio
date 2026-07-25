@@ -1871,6 +1871,16 @@ export const coursesData: Course[] = [
 
 export const studyResourcesData: StudyResource[] = [
   {
+    id: 1784279800288,
+    title: "UGC-NET Preparation Strategy - 'Campus Adda' Interview",
+    desc: "A guidance session and interview on UGC-NET preparation strategy by Dr. Vimal Singh, broadcasted on the 'Campus Adda' show of Chhatrapati Shahu Ji Maharaj University (CSJMU), Kanpur.",
+    courseCode: "MED104",
+    type: "Video",
+    link: "https://www.youtube.com/watch?v=3ol-3yVnn_0",
+    thumbnail: "https://img.youtube.com/vi/3ol-3yVnn_0/hqdefault.jpg",
+    date: "25 July 2026"
+  },
+  {
     id: 1784959655227,
     title: 'Why Research is a Process (Not a Single Event)',
     desc: 'An educational blackboard-style infographic explaining the six key steps of the research cycle and why a structured process is essential.',
