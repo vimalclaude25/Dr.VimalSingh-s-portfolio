@@ -296,8 +296,8 @@ export const researchGuidance: GuidedScholar = {
     { year: '2020 – 2022', count: 3, status: 'Awarded' }
   ],
   phdScholars: [
-    { name: 'Ms. Mahima Tripathi', regNo: 'PHD202500001327', session: '2024 - 2025 (IGNOU)' },
-    { name: 'Mr. Suraj Gupta', regNo: 'PHD202500000536', session: '2024 - 2025 (IGNOU)' }
+    { name: 'Ms. Mahima Tripathi', regNo: 'PHD202500001327', session: '2024 - 2025' },
+    { name: 'Mr. Suraj Gupta', regNo: 'PHD202500000536', session: '2024 - 2025' }
   ],
 }
 

@@ -160,9 +160,6 @@ export default function ResearchGuidancePage() {
                   key={idx}
                   className="rounded-2xl border border-border/60 bg-muted/30 p-4 relative overflow-hidden transition-all hover:border-gold/30"
                 >
-                  <span className="absolute top-2 right-2 inline-flex items-center gap-1 rounded-full bg-gold/10 px-2 py-0.5 text-[9px] font-bold text-gold">
-                    IGNOU Registered
-                  </span>
                   <h4 className="font-heading text-base font-bold text-navy dark:text-white mt-1">
                     {scholar.name}
                   </h4>
