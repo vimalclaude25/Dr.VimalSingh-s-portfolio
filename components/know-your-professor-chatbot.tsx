@@ -5,6 +5,21 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { motion, AnimatePresence } from 'framer-motion'
 import { MessageSquare, X, Send, Bot, Sparkles, User, HelpCircle } from 'lucide-react'
+import {
+  personalInfo,
+  teachingExperience,
+  academicAchievements,
+  professionalQualifications,
+  researchGuidance,
+  patents,
+  researchProjects,
+  consultancy,
+  books,
+  scales,
+  journalPublications,
+  bookChapters,
+  inviteeLectures
+} from '@/lib/cv-data'
 
 interface Message {
   id: string
@@ -20,6 +35,58 @@ const SUGGESTIONS = [
   { text: 'Get contact information', icon: HelpCircle },
 ]
 
+interface Intent {
+  name: string
+  keywords: string[]
+}
+
+const INTENTS: Intent[] = [
+  {
+    name: 'GREETING',
+    keywords: ['hi', 'hello', 'hey', 'greetings', 'morning', 'afternoon', 'evening', 'welcome', 'howdy', 'hola', 'namaste']
+  },
+  {
+    name: 'WHO_ARE_YOU',
+    keywords: ['who are you', 'your name', 'introduce yourself', 'introduce', 'who is vimal', 'about you', 'tell me about yourself', 'biography', 'bio', 'who is dr vimal', 'profile', 'summary']
+  },
+  {
+    name: 'DESIGNATION_WORK',
+    keywords: ['where do you work', 'designation', 'job', 'role', 'university', 'department', 'school of teacher', 'csjmu', 'kanpur', 'assistant professor', 'current position', 'position', 'institute']
+  },
+  {
+    name: 'CONTACT',
+    keywords: ['email', 'phone', 'contact', 'number', 'whatsapp', 'address', 'location', 'reach', 'office', 'mail', 'write to you', 'message', 'call', 'details', 'mobile']
+  },
+  {
+    name: 'QUALIFICATIONS',
+    keywords: ['qualification', 'education', 'degree', 'phd', 'ph.d', 'm.ed', 'med', 'b.ed', 'bed', 'net', 'jrf', 'study', 'where did you study', 'academic qualifications', 'university of lucknow', 'qualifications']
+  },
+  {
+    name: 'EXPERIENCE',
+    keywords: ['experience', 'how long', 'career', 'work history', 'teaching history', 'years', 'unacademy', 'lucknow university', 'balram krishan', 'teaching experience']
+  },
+  {
+    name: 'PATENTS',
+    keywords: ['patent', 'invent', 'design number', 'designno', 'patents published', 'augmented reality system', 'device reduction']
+  },
+  {
+    name: 'PROJECTS',
+    keywords: ['project', 'projects', 'grant', 'funding', 'funded', 'agency', 'sanction', 'minor research', 'centre of excellence', 'consultancy']
+  },
+  {
+    name: 'SCHOLARS',
+    keywords: ['scholar', 'scholars', 'guidance', 'guide', 'supervise', 'supervision', 'phd scholar', 'med scholar', 'student', 'students', 'thesis', 'dissertation', 'mahima', 'suraj']
+  },
+  {
+    name: 'RESOURCES_LAB',
+    keywords: ['ai lab', 'innovation', 'repository', 'infographics', 'syllabus', 'course resource', 'study material', 'synopses', 'resources']
+  },
+  {
+    name: 'HELP',
+    keywords: ['help', 'what can you do', 'menu', 'features', 'options', 'assistance', 'commands']
+  }
+]
+
 export function KnowYourProfessorChatbot() {
   const [isOpen, setIsOpen] = useState(false)
   const [messages, setMessages] = useState<Message[]>([])
@@ -28,7 +95,6 @@ export function KnowYourProfessorChatbot() {
   const [showWelcomeBubble, setShowWelcomeBubble] = useState(false)
   const messagesEndRef = useRef<HTMLDivElement>(null)
 
-  // Show a welcome prompt bubble above the avatar after 3 seconds, then hide it after 11 seconds
   useEffect(() => {
     const showTimer = setTimeout(() => {
       setShowWelcomeBubble(true)
@@ -44,12 +110,10 @@ export function KnowYourProfessorChatbot() {
     }
   }, [])
 
-  // Scroll to the bottom of the messages container whenever messages update
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' })
   }, [messages, isTyping])
 
-  // Initialize chat with a welcome message from the bot when opened for the first time
   const handleOpen = () => {
     setIsOpen(true)
     setShowWelcomeBubble(false)
@@ -83,9 +147,8 @@ export function KnowYourProfessorChatbot() {
     setInputValue('')
     setIsTyping(true)
 
-    // Simulate bot thinking and responding
     setTimeout(() => {
-      const responseText = getBotResponse(textToSend)
+      const responseText = processQuery(textToSend)
       const botMessage: Message = {
         id: Math.random().toString(36).substring(7),
         sender: 'bot',
@@ -97,103 +160,269 @@ export function KnowYourProfessorChatbot() {
     }, 1200)
   }
 
-  // Basic client-side FAQ matcher for Dr. Vimal's academic details
-  const getBotResponse = (query: string): string => {
+  // Dynamic Portfolio keyword search
+  const searchPortfolio = (query: string): string => {
+    const q = query.toLowerCase().trim()
+    const stopWords = new Set([
+      'a', 'an', 'the', 'do', 'you', 'have', 'any', 'papers', 'paper', 'publication', 'publications',
+      'on', 'about', 'in', 'of', 'for', 'with', 'show', 'me', 'tell', 'us', 'find', 'search',
+      'patent', 'patents', 'project', 'projects', 'book', 'books', 'chapter', 'chapters', 'is', 'are',
+      'your', 'my', 'his', 'her', 'their', 'our', 'what', 'who', 'where', 'how', 'when', 'why',
+      'study', 'write', 'written', 'research', 'articles', 'article', 'lectures', 'lecture'
+    ])
+
+    const words = q.split(/[\s,.\-/?!()]+/).filter(w => w.length > 2 && !stopWords.has(w))
+
+    if (words.length === 0) return ''
+
+    interface SearchResult {
+      type: string
+      title: string
+      detail: string
+      year?: string | number
+      link?: string
+    }
+
+    const results: SearchResult[] = []
+
+    // Search Patents
+    patents.forEach(p => {
+      const titleMatch = words.some(w => p.title.toLowerCase().includes(w))
+      if (titleMatch) {
+        results.push({
+          type: 'Patent',
+          title: p.title,
+          detail: `Role: ${p.role} | Design No: ${p.designNo}`,
+          year: p.dateIssue || p.dateGrant
+        })
+      }
+    })
+
+    // Search Projects
+    researchProjects.forEach(proj => {
+      const match = words.some(w => proj.title.toLowerCase().includes(w) || proj.agency.toLowerCase().includes(w))
+      if (match) {
+        results.push({
+          type: 'Project',
+          title: proj.title,
+          detail: `Role: ${proj.role} | Agency: ${proj.agency} | Amount: ${proj.amount}`,
+          year: proj.dateSanction
+        })
+      }
+    })
+
+    // Search Books
+    books.forEach(b => {
+      const match = words.some(w => b.title.toLowerCase().includes(w))
+      if (match) {
+        results.push({
+          type: 'Book',
+          title: b.title,
+          detail: `Role: ${b.role} | Publisher: ${b.publisher}`,
+          year: b.date
+        })
+      }
+    })
+
+    // Search Scales
+    scales.forEach(s => {
+      const match = words.some(w => s.title.toLowerCase().includes(w))
+      if (match) {
+        results.push({
+          type: 'Scale Published',
+          title: s.title,
+          detail: `Publisher: ${s.publisher}`,
+          year: s.year
+        })
+      }
+    })
+
+    // Search Journal Publications
+    journalPublications.forEach(pub => {
+      const match = words.some(w => pub.title.toLowerCase().includes(w) || pub.journal.toLowerCase().includes(w))
+      if (match) {
+        results.push({
+          type: 'Journal Paper',
+          title: pub.title,
+          detail: `${pub.type} | Journal: ${pub.journal}`,
+          year: pub.year,
+          link: pub.link
+        })
+      }
+    })
+
+    // Search Book Chapters
+    bookChapters.forEach(ch => {
+      const match = words.some(w => ch.chapterTitle.toLowerCase().includes(w) || ch.bookTitle.toLowerCase().includes(w))
+      if (match) {
+        results.push({
+          type: 'Book Chapter',
+          title: ch.chapterTitle,
+          detail: `Book: ${ch.bookTitle} | Publisher: ${ch.publisher}`,
+          year: ch.year,
+          link: ch.link
+        })
+      }
+    })
+
+    // Search Invited Lectures
+    inviteeLectures.forEach(lec => {
+      const match = words.some(w => lec.topic.toLowerCase().includes(w) || lec.organizer.toLowerCase().includes(w))
+      if (match) {
+        results.push({
+          type: 'Invited Lecture',
+          title: lec.topic,
+          detail: `Event: ${lec.event} | Organizer: ${lec.organizer}`,
+          year: lec.date
+        })
+      }
+    })
+
+    if (results.length === 0) return ''
+
+    const topResults = results.slice(0, 5)
+    let response = `I searched my academic portfolio and found these items matching ("${words.join(', ')}"): \n\n`
+    topResults.forEach(r => {
+      const linkStr = r.link ? ` ([Read Online](${r.link}))` : ''
+      response += `• **[${r.type}]** ${r.title} (${r.year || 'N/A'})${linkStr}\n  _${r.detail}_\n\n`
+    })
+
+    if (results.length > 5) {
+      response += `_And ${results.length - 5} other related publications/activities. You can find more details in the respective pages of my website!_`
+    }
+
+    return response
+  }
+
+  // Scoring engine to classify query intent
+  const classifyIntent = (query: string): { intent: string; score: number } => {
+    const q = query.toLowerCase()
+    let bestIntent = 'UNKNOWN'
+    let bestScore = 0
+
+    INTENTS.forEach(intent => {
+      let score = 0
+      intent.keywords.forEach(keyword => {
+        if (q.includes(keyword)) {
+          score += 2
+          const regex = new RegExp(`\\b${keyword}\\b`, 'i')
+          if (regex.test(q)) {
+            score += 3
+          }
+        }
+      })
+      if (score > bestScore) {
+        bestScore = score
+        bestIntent = intent.name
+      }
+    })
+
+    return { intent: bestIntent, score: bestScore }
+  }
+
+  // Main NLP query processor
+  const processQuery = (query: string): string => {
     const q = query.toLowerCase().trim()
 
-    // Greetings
-    if (q.match(/\b(hi|hello|hey|greetings|good morning|good afternoon|good evening|welcome|howdy)\b/)) {
-      return `Greetings! I am Dr. Vimal Singh's digital assistant. How can I help you today? You can ask about my patents, publications, guided scholars, or academic qualifications.`
+    // 1. Try dynamic portfolio keyword search first (for specific queries)
+    // Only run if the query doesn't look like a simple greeting or general profile query
+    const looksLikeGreeting = q.split(' ').length <= 2 && INTENTS[0].keywords.some(k => q.includes(k))
+    const looksLikeBio = q.includes('who') && (q.includes('you') || q.includes('vimal'))
+    
+    if (!looksLikeGreeting && !looksLikeBio) {
+      const searchResult = searchPortfolio(query)
+      if (searchResult) return searchResult
     }
 
-    // Patents
-    if (q.includes('patent') || q.includes('invent') || q.includes('designno') || q.includes('augmented reality') || q.includes('study habits')) {
-      return `I have published 2 Indian National Patents in the field of Education:
+    // 2. Intent classification via score engine
+    const { intent, score } = classifyIntent(query)
 
-1. **Augmented Reality System for Educational Simulations** (Design No: 429777-001, Granted/Published: 2024).
-2. **Method for Enhancing Study Habits Via Digital Device Reduction** (Design No: 202411071925, Published: 2024).
+    if (score >= 2) {
+      switch (intent) {
+        case 'GREETING':
+          return `Greetings! I am Dr. Vimal Singh's digital assistant. How can I help you today? You can ask about my patents, publications, guided scholars, or academic qualifications.`
 
-Both patents focus on utilizing modern technology to support student learning and digital wellness.`
-    }
+        case 'WHO_ARE_YOU':
+          return `${personalInfo.summary}\n\nI hold qualifications: **${personalInfo.qualifications}**. Ask me about my experience or research sections for more insights!`
 
-    // Publications / Books / Papers
-    if (q.includes('publication') || q.includes('paper') || q.includes('journal') || q.includes('scopus') || q.includes('ugc') || q.includes('book') || q.includes('chapter') || q.includes('article') || q.includes('published')) {
-      return `I have an active research profile with the following publications:
-• **38 Research Papers** published in journals and conferences.
-• **24 Publications** indexed in UGC CARE / Scopus list.
-• **1 Authored Book** & **3 Edited Books** on modern pedagogy.
-• **11 Book Chapters** in collaborative academic editions.
+        case 'DESIGNATION_WORK':
+          return `I am currently working as an **${personalInfo.title}** at the *${personalInfo.departmentName}*, ${personalInfo.department}, ${personalInfo.institution}.`
 
-You can browse, filter, and search the full list of titles on the **[Publications](/publications)** page.`
-    }
+        case 'CONTACT':
+          return `You can reach me directly via:
+• **Email**: ${personalInfo.email}
+• **WhatsApp**: ${personalInfo.whatsapp}
+• **Phone**: ${personalInfo.contact.join(', ')}
+• **Office**: ${personalInfo.biographical.address}
 
-    // Guidance / Scholars / PhD / MEd
-    if (q.includes('scholar') || q.includes('guidance') || q.includes('supervis') || q.includes('student') || q.includes('phd') || q.includes('ph.d') || q.includes('med') || q.includes('m.ed') || q.includes('mahima') || q.includes('suraj')) {
-      return `I have guided/supervised a total of **50 academic scholars**:
-• **Ph.D. Scholars**: 2 Registered (Ms. Mahima Tripathi and Mr. Suraj Gupta).
-• **M.Ed. Thesis Supervision**: 34 Completed/Awarded, 16 Ongoing (Pursuing).
+Feel free to submit a message on the **[Contact Form](/#contact)** on the homepage.`
 
-For more detailed stats and cohort lists, please visit the **[Research Guidance](/research-guidance)** dashboard.`
-    }
+        case 'QUALIFICATIONS':
+          let qualList = `My educational qualifications are:\n`
+          professionalQualifications.forEach(q => {
+            qualList += `• **${q.degree}** (${q.institution}, ${q.year})${q.details ? ` — _${q.details}_` : ''}\n`
+          })
+          qualList += `• **UGC Credentials**: ${academicAchievements.join(' ')}`
+          return qualList
 
-    // Projects / Grants / Consultancy
-    if (q.includes('project') || q.includes('grant') || q.includes('consultancy') || q.includes('fund') || q.includes('agency') || q.includes('amount')) {
-      return `I actively lead and participate in sponsored research and consultancies:
-• **Research Projects**: 2 key projects funded by national bodies.
-• **Consultancy**: 1 major government/institutional consultancy.
+        case 'EXPERIENCE':
+          let expList = `I have over **12 years of higher education teaching & research experience**:\n`
+          teachingExperience.forEach(e => {
+            expList += `• **${e.role}** at _${e.organization}_ (${e.duration})\n`
+          })
+          return expList
 
-For specifics about funding amounts, timelines, and sanction dates, visit the **[Projects & Consultancy](/projects-consultancy)** section.`
-    }
+        case 'PATENTS':
+          let patList = `I have published/granted 2 Indian National Patents in Education:\n`
+          patents.forEach((p, idx) => {
+            patList += `${idx + 1}. **${p.title}** (Design No: ${p.designNo}, Granted/Published: ${p.dateGrant})\n`
+          })
+          return patList
 
-    // Contact / Email / Phone / Address / Location / WhatsApp
-    if (q.includes('contact') || q.includes('email') || q.includes('phone') || q.includes('number') || q.includes('whatsapp') || q.includes('address') || q.includes('reach') || q.includes('find') || q.includes('office') || q.includes('mail')) {
-      return `You can get in touch with me directly through the following channels:
-• **Email**: drvimalsingh@csjmu.ac.in
-• **WhatsApp**: +91-9452913556
-• **Phone**: +91-7905184427, +91-9795168526
-• **Office**: Flat No - 04, Block - A, Type - III, New Teachers Building, CSJM University Campus, Kanpur, UP - 208024.
+        case 'PROJECTS':
+          let projList = `I have undertaken the following research projects & consultancies:\n\n**Research Projects**:\n`
+          researchProjects.forEach(p => {
+            projList += `• **${p.title}** funded by _${p.agency}_ (${p.amount}, Sanctioned: ${p.dateSanction})\n`
+          })
+          projList += `\n**Consultancy**:\n• **${consultancy.role}** at _${consultancy.agency}_ (${consultancy.workNature}, ${consultancy.amount})`
+          return projList
 
-You can also send an instant message using the **[Contact Form](/#contact)** on the homepage.`
-    }
+        case 'SCHOLARS':
+          return `I have supervised/guided a total of **50 academic scholars**:
+• **Ph.D. Scholars**: 2 Registered (${researchGuidance.phdScholars?.map(s => s.name).join(', ')}).
+• **M.Ed. Thesis Supervision**: ${researchGuidance.awarded} Completed/Awarded, ${researchGuidance.pursuing} Ongoing (Pursuing).
 
-    // Qualifications / Education / Degree / PhD / University / College
-    if (q.includes('education') || q.includes('qualification') || q.includes('degree') || q.includes('phd') || q.includes('study') || q.includes('lucknow') || q.includes('csjmu') || q.includes('net') || q.includes('jrf')) {
-      return `My educational credentials include:
-• **Ph.D. in Education** (University of Lucknow, 2021) — Thesis on student personality and values under different ideologies.
-• **Master of Education (M.Ed.)** (University of Lucknow, 2014) — First Division.
-• **Bachelor of Education (B.Ed.)** (University of Lucknow, 2013) — First Division.
-• **NET Credentials**: Qualified UGC-NET JRF in Education (multiple times) and UGC-NET in Public Administration.`
-    }
+Check the **[Research Guidance](/research-guidance)** dashboard for details.`
 
-    // Experience / Job / Career / Teaching / History
-    if (q.includes('experience') || q.includes('work') || q.includes('teaching') || q.includes('job') || q.includes('history') || q.includes('professor') || q.includes('career')) {
-      return `I have over **12 years of experience in higher education**:
-• **Assistant Professor** at School of Teacher Education, CSJM University, Kanpur (April 2022 - Present).
-• **Assistant Professor** at Balram Krishan Academy, Lucknow (2021 - 2022 & 2014 - 2016).
-• **Junior/Senior Research Fellow (JRF/SRF)** at University of Lucknow (2016 - 2021).
-• **Verified Educator** at Unacademy (2019 - 2020).`
-    }
-
-    // AI Lab / Technology / Innovation / Research Repository
-    if (q.includes('ai') || q.includes('technology') || q.includes('lab') || q.includes('innovation') || q.includes('synopses') || q.includes('thesis') || q.includes('repository')) {
-      return `I incorporate advanced digital resources in my academic workflow:
+        case 'RESOURCES_LAB':
+          return `I host several digital resources and hubs:
 • **[AI & Innovation Lab](/ai-lab)**: Exploring neuroeducation, AI biases, and chatbot-assisted learning systems.
 • **[Research Repository](/research-repository)**: A digital public repository hosting synopses of Ph.D. & M.Ed. dissertations.
 • **[Course Resources](/course-resources)**: Infographics and syllabi details for M.Ed. students.`
-    }
 
-    // Default / fallback
-    return `I can help you explore details about my:
+        case 'HELP':
+          return `I can help you explore details about my:
 • Patents & Sponsored Projects
 • Research Publications & Books
 • Supervised Ph.D. and M.Ed. Scholars
 • Teaching Experience & Education
 • Contact Details
 
-Please try rephrasing your question or check the search bars available on individual sections of the website!`
+Try typing a specific topic (like 'augmented reality' or 'anxiety') to search my portfolio!`
+      }
+    }
+
+    // Default / fallback
+    return `I can answer queries regarding my:
+• Patents & Sponsored Projects
+• Research Publications & Books
+• Supervised Ph.D. and M.Ed. Scholars
+• Teaching Experience & Education
+• Contact Details
+
+Try typing a specific keyword related to my work (e.g. 'anxiety', 'learning', 'AI') to scan my academic portfolio!`
   }
 
-  // Format link references in message text to actual markdown style Links or rich formatting
   const renderMessageText = (text: string) => {
     const linkRegex = /\[([^\]]+)\]\(([^)]+)\)/g
     const parts = []
@@ -286,7 +515,6 @@ Please try rephrasing your question or check the search bars available on indivi
           <X className="h-6 w-6" />
         ) : (
           <div className="relative h-full w-full overflow-hidden rounded-full p-[2px]">
-            {/* Circular Pulsing Green Status Ring */}
             <span className="absolute right-0 top-0 z-10 flex h-3 w-3">
               <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75"></span>
               <span className="relative inline-flex h-3 w-3 rounded-full bg-emerald-500 border-2 border-navy"></span>
