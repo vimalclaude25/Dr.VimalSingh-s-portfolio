@@ -1,6 +1,7 @@
 import { SiteTopbar } from '@/components/site-topbar'
 import { SiteNavbar } from '@/components/site-navbar'
 import { SiteFooter } from '@/components/site-footer'
+import { KnowYourProfessorChatbot } from '@/components/know-your-professor-chatbot'
 
 export default function MainLayout({
   children,
@@ -15,6 +16,7 @@ export default function MainLayout({
         <main className="flex-1">{children}</main>
       </div>
       <SiteFooter />
+      <KnowYourProfessorChatbot />
     </div>
   )
 }

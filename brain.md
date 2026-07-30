@@ -49,6 +49,7 @@ academic-portfolio-website/
 │   ├── activities-section.tsx# Editorial boards, professional memberships, etc.
 │   ├── animated-counter.tsx  # Dynamic statistics display
 │   ├── hero-section.tsx      # Main intro with profile picture, key statistics, CTAs
+│   ├── know-your-professor-chatbot.tsx # Floating sitewide AI chatbot assistant [NEW]
 │   ├── latest-publications.tsx# Quick grid/list of recent research papers
 │   ├── news-events.tsx       # Dynamic updates feed
 │   ├── publications-section.tsx# Searchable/filterable list of publications (books, articles, patents)
@@ -84,6 +85,10 @@ academic-portfolio-website/
    - Serves as the landing page showing Dr. Vimal Singh's profile comprehensively.
 3. **Animations System**:
    - `framer-motion` handles entrance, scroll-triggered, tab bubble layouts, en-dash shifts, and hover state animations.
+4. **AI Chatbot ("Know Your Professor")**:
+   - Floating widget rendered at root level of main layout.
+   - Mimics a digital twin of Dr. Vimal Singh, replying to questions regarding CV, patents, and qualifications.
+   - Implements keyword matching against local database data structure in `lib/cv-data.ts`.
 
 ---
 
