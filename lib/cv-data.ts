@@ -1884,6 +1884,92 @@ export const coursesData: Course[] = [
 
 export const studyResourcesData: StudyResource[] = [
   {
+    id: 1785478339906,
+    title: 'The 6-Step Research Process: A Real Example in Education',
+    desc: 'An educational infographic explaining the six-step research process with a real-life example in education, comparing weekly low-stakes quizzes against no quizzes.',
+    courseCode: 'MED104',
+    type: 'Infographic',
+    link: '/infographics/the-6-step-research-process.jpg',
+    thumbnail: '/infographics/the-6-step-research-process.jpg',
+    date: '31 July 2026',
+    fileSize: '263 KB',
+    details: [
+      {
+        sectionTitle: 'Research Problem | शोध समस्या',
+        points: [
+          'Does giving weekly low-stakes quizzes improve final exam performance in 9th-grade Science compared to no quizzes? | क्या 9वीं कक्षा के विज्ञान में साप्ताहिक कम-जोखिम वाली प्रश्नोत्तरी देने से बिना प्रश्नोत्तरी की तुलना में अंतिम परीक्षा के प्रदर्शन में सुधार होता है?'
+        ]
+      },
+      {
+        sectionTitle: '1. Inquiry & Curiosity (The Spark) | पूछताछ और जिज्ञासा (चिनगारी)',
+        points: [
+          'Action: Identify the problem. | कार्य: समस्या की पहचान करना।',
+          'Question: Do weekly quizzes actually help students retain Science content better, or do they just add stress? | प्रश्न: क्या साप्ताहिक प्रश्नोत्तरी वास्तव में छात्रों को विज्ञान की सामग्री को बेहतर ढंग से याद रखने में मदद करती है, या वे केवल तनाव बढ़ाती हैं?',
+          'Gap: Many teachers give quizzes instinctively, but little classroom-level data proves their effectiveness in my school context. | अंतराल: कई शिक्षक स्वाभाविक रूप से प्रश्नोत्तरी देते हैं, लेकिन मेरे स्कूल के संदर्भ में उनकी प्रभावशीलता को साबित करने के लिए कक्षा-स्तरीय डेटा बहुत कम है।'
+        ]
+      },
+      {
+        sectionTitle: '2. Planning & Strategy (The Blueprint) | योजना और रणनीति (खाका)',
+        points: [
+          'Action: Develop a methodology. | कार्य: कार्यप्रणाली विकसित करना।',
+          'Research Design: Quasi-experimental (Two similar sections): Group A (Experimental) - Weekly 10-min Quizzes (Fri) vs Group B (Control) - No Quizzes, Regular Homework. | अनुसंधान डिजाइन: अर्ध-प्रायोगिक (दो समान वर्ग): समूह ए (प्रायोगिक) - साप्ताहिक 10-मिनट की प्रश्नोत्तरी (शुक्रवार) बनाम समूह बी (नियंत्रण) - कोई प्रश्नोत्तरी नहीं, नियमित गृहकार्य।',
+          'Sample: Two 9th-grade Science sections, 30 students each (similar previous term grades). | नमूना: दो 9वीं कक्षा के विज्ञान वर्ग, प्रत्येक में 30 छात्र (समान पिछले सत्र के ग्रेड)।',
+          'Duration: 8 weeks (2 weeks planning + 8 weeks execution + 1 week analysis). | अवधि: 8 सप्ताह (2 सप्ताह योजना + 8 सप्ताह निष्पादन + 1 सप्ताह विश्लेषण)।',
+          'Tools: Pre-test, Weekly quizzes, Final exam, Spreadsheet for data. | उपकरण: पूर्व-परीक्षण, साप्ताहिक प्रश्नोत्तरी, अंतिम परीक्षा, डेटा के लिए स्प्रेडशीट।',
+          'Timeline: 2 weeks planning + 8 weeks execution + 1 week analysis. | समय-सीमा: 2 सप्ताह योजना + 8 सप्ताह निष्पादन + 1 सप्ताह विश्लेषण।'
+        ]
+      },
+      {
+        sectionTitle: '3. Data Collection (The Grind) | डेटा संग्रह (कठिन परिश्रम)',
+        points: [
+          'Action: Gather evidence. | कार्य: साक्ष्य एकत्र करना।',
+          'Pre-test (Week 1): Give both groups the same 20-question Science test. | पूर्व-परीक्षण (सप्ताह 1): दोनों समूहों को एक ही 20-प्रश्नों का विज्ञान परीक्षण दें।',
+          'Intervention (Weeks 1–8): Group A: 10-question quiz every Friday. Group B: No quiz, only regular homework. | हस्तक्षेप (सप्ताह 1-8): समूह ए: प्रत्येक शुक्रवार को 10-प्रश्नों की प्रश्नोत्तरी। समूह बी: कोई प्रश्नोत्तरी नहीं, केवल नियमित गृहकार्य।',
+          'Post-test (End of Week 8): Give both groups the same final exam (50 questions, covering the same syllabus). | उत्तर-परीक्षण (सप्ताह 8 का अंत): दोनों समूहों को एक ही अंतिम परीक्षा दें (50 प्रश्न, समान पाठ्यक्रम को कवर करते हुए)।',
+          'Raw Data: Total 60 students (30 per group). | कच्चा डेटा: कुल 60 छात्र (प्रति समूह 30)।'
+        ]
+      },
+      {
+        sectionTitle: '4. Analysis & Interpretation (The Sense-Making) | विश्लेषण और व्याख्या (अर्थ निकालना)',
+        points: [
+          'Action: Find patterns in the data. | कार्य: डेटा में पैटर्न खोजना।',
+          'Calculate improvement score: Improvement = Final Exam % - Pre-test %. | सुधार स्कोर की गणना करें: सुधार = अंतिम परीक्षा % - पूर्व-परीक्षण %।',
+          'Compare the means: Group A (Quiz) average improvement = +18%, Group B (No Quiz) average improvement = +7%. | साधनों की तुलना करें: समूह ए (प्रश्नोत्तरी) औसत सुधार = +18%, समूह बी (कोई प्रश्नोत्तरी नहीं) औसत सुधार = +7%।',
+          'Statistical Test: Independent T-test: p-value = 0.02 -> Statistically significant (p < 0.05). | सांख्यिकीय परीक्षण: स्वतंत्र टी-परीक्षण: पी-मान = 0.02 -> सांख्यिकीय रूप से महत्वपूर्ण (पी < 0.05)।',
+          'Interpretation: Students who received weekly quizzes showed significantly higher improvement (+18% vs +7%) than those who did not. | व्याख्या: साप्ताहिक प्रश्नोत्तरी प्राप्त करने वाले छात्रों ने उन छात्रों की तुलना में काफी अधिक सुधार (+18% बनाम +7%) दिखाया, जिन्होंने नहीं किया।'
+        ]
+      },
+      {
+        sectionTitle: '5. Evaluation & Revision (The Reality Check) | मूल्यांकन और संशोधन (वास्तविकता की जांच)',
+        points: [
+          'Action: Question your own findings. | कार्य: अपने स्वयं के निष्कर्षों पर सवाल उठाना।',
+          'Possible Bias: Were the quiz students more motivated because they knew they were in the "special" group? | संभावित पूर्वाग्रह: क्या प्रश्नोत्तरी वाले छात्र अधिक प्रेरित थे क्योंकि वे जानते थे कि वे "विशेष" समूह में थे?',
+          'Confounding Variable: Did the quiz group spend extra time reviewing because of the quizzes? (That extra time, not the quiz itself, might have caused the improvement). | संकर चर: क्या प्रश्नोत्तरी समूह ने प्रश्नोत्तरी के कारण समीक्षा करने में अतिरिक्त समय बिताया? (वह अतिरिक्त समय, न कि स्वयं प्रश्नोत्तरी, सुधार का कारण हो सकता है)।',
+          'Check: Compare the total study time reported by both groups via a short survey. | जांच: एक संक्षिप्त सर्वेक्षण के माध्यम से दोनों समूहों द्वारा रिपोर्ट किए गए कुल अध्ययन समय की तुलना करें।',
+          'Revision Idea: If extra time is the real factor, then the conclusion should be "Quizzes force more review time, which improves scores" rather than "Quizzes magically improve learning." | संशोधन विचार: यदि अतिरिक्त समय वास्तविक कारक है, तो निष्कर्ष "प्रश्नोत्तरी अधिक समीक्षा समय के लिए मजबूर करती है, जिससे स्कोर में सुधार होता है" होना चाहिए न कि "प्रश्नोत्तरी जादुई रूप से सीखने में सुधार करती है।"'
+        ]
+      },
+      {
+        sectionTitle: '6. Conclusion & Sharing (The Output) | निष्कर्ष और साझाकरण (परिणाम)',
+        points: [
+          'Conclusion: In this 8-week study with 60 9th-grade students, weekly low-stakes quizzes led to a statistically significant improvement (mean +18%) in final exam scores compared to the no-quiz group (+7%). However, this effect may be partly due to increased study time rather than the quiz format itself. | निष्कर्ष: 60 9वीं कक्षा के छात्रों के साथ इस 8-सप्ताह के अध्ययन में, साप्ताहिक कम-जोखिम वाली प्रश्नोत्तरी ने बिना प्रश्नोत्तरी समूह (+7%) की तुलना में अंतिम परीक्षा के अंकों में सांख्यिकीय रूप से महत्वपूर्ण सुधार (औसत +18%) किया। हालांकि, यह प्रभाव आंशिक रूप से प्रश्नोत्तरी प्रारूप के बजाय अध्ययन के बढ़े हुए समय के कारण हो सकता है।',
+          'Temporary Answer: Quizzes are effective, but likely because they encourage regular revision, not because they are magical. | अस्थायी उत्तर: प्रश्नोत्तरी प्रभावी हैं, लेकिन संभवतः इसलिए क्योंकि वे नियमित संशोधन को प्रोत्साहित करती हैं, न कि इसलिए कि वे जादुई हैं।',
+          'New Questions: Does the same effect happen in weaker students vs stronger students? What if we replace quizzes with short summary-writing tasks - is the effect the same? Will this work in Humanities subjects like History? | नए प्रश्न: क्या कमजोर छात्रों बनाम मजबूत छात्रों में भी यही प्रभाव होता है? क्या होगा यदि हम प्रश्नोत्तरी को छोटे सारांश-लेखन कार्यों से बदल दें - क्या प्रभाव समान है? क्या यह इतिहास जैसे मानविकी विषयों में काम करेगा?'
+        ]
+      }
+    ]
+  },
+  {
+    id: 1785478351479,
+    title: 'The Living Cycle of Inquiry: Why Research is a Process (Not a Single Event)',
+    desc: 'An educational study guide exploring why research is a continuous, interconnected loop rather than a linear, one-time task, detailing each of the six phases from Inquiry to Sharing.',
+    courseCode: 'MED104',
+    type: 'PDF',
+    link: '/course-materials/the-living-cycle-of-inquiry.pdf',
+    date: '31 July 2026',
+    fileSize: '9.6 MB'
+  },
+  {
     id: 1784279800288,
     title: "UGC-NET Preparation Strategy - 'Campus Adda' Interview",
     desc: "A guidance session and interview on UGC-NET preparation strategy by Dr. Vimal Singh, broadcasted on the 'Campus Adda' show of Chhatrapati Shahu Ji Maharaj University (CSJMU), Kanpur.",
