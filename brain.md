@@ -92,7 +92,15 @@ academic-portfolio-website/
 
 ---
 
-## 5. Development and Build Instructions
+## 5. Recent Content Updates
+- **August 2026**: Uploaded two newspaper coverage items under the "Newspaper Coverage" tab of the Media Coverage section:
+  1. **CSJMU AI Portfolio Launch Coverage**: Newspaper clipping from *Inext (Kanpur)* dated 3 August 2026, summarizing the official website launch of Dr. Vimal Singh's AI-assisted portfolio by CSJMU VC.
+  2. **Gen Z Digital Influence Scale Coverage**: Newspaper clipping from *My City Reporter (Kanpur)* dated 4 August 2026, detailing the development and implications of the psychometric 'Digital Influence Scale' study on Gen Z.
+- **Images Added**: Saved to `public/portfolio-launch-newspaper.jpg` and `public/digital-influence-scale-newspaper.jpg`.
+
+---
+
+## 6. Development and Build Instructions
 - **Run Locally (Development Dev Server)**:
   `pnpm dev`
 - **Build Production Bundle**:

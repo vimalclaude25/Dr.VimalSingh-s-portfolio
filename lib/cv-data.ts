@@ -1436,6 +1436,30 @@ export interface ResearchNewsItem {
 
 export const researchNewsData: ResearchNewsItem[] = [
   {
+    id: 20,
+    title: 'रिसर्च, टीचिंग, इनोवेशन से जुड़ी उपलब्धियां एक ही प्लेटफॉर्म पर: सीएसजेएमयू ने एआई की मदद से बनाया पोर्टफोलियो, वीसी ने किया लांच',
+    source: 'Inext (Kanpur)',
+    date: '3 August 2026',
+    desc: 'छत्रपति शाहू जी महाराज विश्वविद्यालय (CSJMU), कानपुर के डी-कोड (D-CODE) डिपार्टमेंट के डिप्टी डायरेक्टर डॉ. विमल सिंह ने अपना पर्सनल पोर्टफोलियो (www.drvimalsingh.in) विकसित किया है, जिसे एआई (आर्टिफिशियल इंटेलिजेंस) की मदद से तैयार किया गया है। इसे विश्वविद्यालय के कुलपति प्रो. विनय कुमार पाठक द्वारा लांच किया गया। इस वेबसाइट पर डॉ. सिंह के रिसर्च पेपर, पेटेंट, कॉपीराइट, ई-कंटेंट, वीडियो और शैक्षणिक उपलब्धियां एक ही स्थान पर उपलब्ध हैं। कुलपति ने इस पहल की सराहना करते हुए इसे शोधकर्ताओं और विद्यार्थियों के लिए प्रेरणास्रोत बताया।',
+    category: 'media-coverage',
+    subcategory: 'Newspaper Coverage',
+    mediaType: 'Newspaper',
+    image: '/portfolio-launch-newspaper.jpg',
+    imageOnly: false,
+  },
+  {
+    id: 21,
+    title: 'जेन जी का मिजाज बताएगा डिजिटल इन्फ्लुएंस स्केल: सीएसजेएमयू के शिक्षा विभाग ने जेन जी पर शोधों का अध्ययन किया',
+    source: 'My City Reporter (Kanpur)',
+    date: '4 August 2026',
+    desc: "छत्रपति शाहू जी महाराज विश्वविद्यालय (CSJMU), कानपुर के शिक्षा विभाग के असिस्टेंट प्रोफेसर डॉ. विमल सिंह और शोधकर्ताओं द्वारा जेन जी (Gen Z) के विचारों, व्यवहार, निर्णय क्षमता और सामाजिक दृष्टिकोण पर डिजिटल मीडिया के प्रभाव को मापने के लिए एक 'डिजिटल इन्फ्लुएंस स्केल' तैयार किया गया है। यह 38 प्रश्नों का एक वैज्ञानिक साइकोमेट्रिक उपकरण है जो युवाओं पर डिजिटल मीडिया के निर्भरता, इको चैंबर प्रवृत्ति, ऑनलाइन साथियों के प्रभाव और मानसिक लचीलेपन जैसे 10 प्रमुख आयामों का आकलन करेगा।",
+    category: 'media-coverage',
+    subcategory: 'Newspaper Coverage',
+    mediaType: 'Newspaper',
+    image: '/digital-influence-scale-newspaper.jpg',
+    imageOnly: false,
+  },
+  {
     id: 1,
     title: "CSJMU's 'Digital Diet Model' Shows Landmark Success in Improving Student Concentration & Study Habits",
     source: 'Dainik Jagran / Dinar Times / Amrit Vichar',
