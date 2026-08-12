@@ -2996,4 +2996,80 @@ export const editedBooks2026Data: EditedBook2026[] = [
   }
 ]
 
+export interface PeerReviewJournal {
+  id: number
+  journalName: string
+  publisher: string
+  quartile: 'Q1' | 'Q2' | 'Q3' | 'Q4'
+  role: string
+  statusType: 'completed' | 'invitation'
+  invitationBadge?: string
+  year?: string
+  topics?: string[]
+}
+
+export const peerReviewServiceData = {
+  stats: [
+    { value: '05+', label: 'Journals Reviewed' },
+    { value: 'Q1–Q3', label: 'Journal Quartiles' },
+    { value: 'International', label: 'Publishers (Elsevier, Wiley, SAGE)' },
+    { value: 'Psychometrics • Education • Psychology • Research Methodology', label: 'Core Expertise Domains' }
+  ],
+  journals: [
+    {
+      id: 1,
+      journalName: 'Acta Psychologica',
+      publisher: 'Elsevier',
+      quartile: 'Q1' as const,
+      role: 'Peer Reviewer',
+      statusType: 'completed' as const,
+      year: '2025–2026',
+      topics: ['Psychometrics', 'Cognitive Psychology', 'Research Methodology']
+    },
+    {
+      id: 2,
+      journalName: 'Chronic Stress',
+      publisher: 'SAGE',
+      quartile: 'Q1' as const,
+      role: 'Reviewer Invitation — 2026',
+      statusType: 'invitation' as const,
+      invitationBadge: 'CURRENT REVIEW INVITATION · 2026',
+      year: '2026',
+      topics: ['Stress & Health', 'Psychometrics', 'Educational Psychology']
+    },
+    {
+      id: 3,
+      journalName: 'Journal of Community Psychology',
+      publisher: 'Wiley',
+      quartile: 'Q1' as const,
+      role: 'Peer Reviewer',
+      statusType: 'completed' as const,
+      year: '2025–2026',
+      topics: ['Community Psychology', 'Behavioral Health', 'Educational Research']
+    },
+    {
+      id: 4,
+      journalName: 'Neuroscience Insights',
+      publisher: 'SAGE',
+      quartile: 'Q3' as const,
+      role: 'Peer Reviewer',
+      statusType: 'completed' as const,
+      year: '2025',
+      topics: ['Neuroeducation', 'Cognitive Neuroscience', 'Learning Processes']
+    },
+    {
+      id: 5,
+      journalName: 'Inquiry',
+      publisher: 'SAGE',
+      quartile: 'Q3' as const,
+      role: 'Peer Reviewer',
+      statusType: 'completed' as const,
+      year: '2024–2025',
+      topics: ['Educational Inquiry', 'Higher Education Policy', 'Pedagogy']
+    }
+  ],
+  closingQuote: '“Peer review is not merely an academic responsibility; it is a contribution to the integrity, quality and advancement of scholarly knowledge.”'
+}
+
+
 

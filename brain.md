@@ -32,6 +32,7 @@ academic-portfolio-website/
 │   │   ├── course-resources/ # Course Materials & Resources study hub subpage [NEW]
 │   │   │   └── admin/        # Client-side admin portal with Drive & Git integrations [NEW]
 │   │   ├── edited-book2026/  # Academic Edited Books 2026 details & chapter submission [NEW]
+│   │   ├── peer-review/      # Peer Review & Editorial Service (Q1-Q3 journals, Elsevier, SAGE, Wiley) [NEW]
 │   │   ├── projects-consultancy/ # Government grants & industry consultancy subpage [NEW]
 │   │   ├── publications/     # Full-featured search & filter books/chapters subpage [NEW]
 │   │   ├── research-guidance/ # Interactive Ph.D. & M.Ed. cohorts statistics subpage [NEW]

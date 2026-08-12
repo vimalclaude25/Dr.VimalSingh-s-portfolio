@@ -18,7 +18,8 @@ import {
   scales,
   journalPublications,
   bookChapters,
-  inviteeLectures
+  inviteeLectures,
+  peerReviewServiceData
 } from '@/lib/cv-data'
 
 interface Message {
@@ -31,7 +32,7 @@ interface Message {
 const SUGGESTIONS = [
   { text: 'What are your patents?', icon: Sparkles },
   { text: 'Show publication stats', icon: MessageSquare },
-  { text: 'How many scholars have you guided?', icon: MessageSquare },
+  { text: 'Peer Review & Editorial Service', icon: MessageSquare },
   { text: 'Get contact information', icon: HelpCircle },
 ]
 
@@ -76,6 +77,10 @@ const INTENTS: Intent[] = [
   {
     name: 'SCHOLARS',
     keywords: ['scholar', 'scholars', 'guidance', 'guide', 'supervise', 'supervision', 'phd scholar', 'med scholar', 'student', 'students', 'thesis', 'dissertation', 'mahima', 'suraj']
+  },
+  {
+    name: 'PEER_REVIEW',
+    keywords: ['peer review', 'reviewer', 'editorial', 'elsevier', 'sage', 'wiley', 'referee', 'acta psychologica', 'chronic stress', 'inquiry', 'neuroscience insights', 'q1 journal']
   },
   {
     name: 'RESOURCES_LAB',

@@ -77,8 +77,10 @@ const nav: NavItem[] = [
       { label: 'Special Lectures', href: '/activities?tab=lectures' },
       { label: 'FDPs & Workshops', href: '/activities?tab=fdps' },
       { label: 'Committees & Memberships', href: '/activities?tab=admin' },
+      { label: 'Peer Review & Editorial Service', href: '/peer-review' },
     ],
   },
+  { label: 'Peer Review', href: '/peer-review' },
   { label: 'Contact', href: '/contact' },
 ]
 
@@ -101,6 +103,8 @@ export function SiteNavbar() {
       setActive('Home')
     } else if (pathname === '/publications') {
       setActive('Publications')
+    } else if (pathname === '/peer-review') {
+      setActive('Peer Review')
     } else if (pathname.includes('research') || pathname.includes('project') || pathname.includes('innovation') || pathname.includes('guidance')) {
       setActive('Research')
     } else if (pathname === '/course-resources') {
