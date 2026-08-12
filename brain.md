@@ -93,6 +93,10 @@ academic-portfolio-website/
 ---
 
 ## 5. Recent Content Updates
+- **August 2026**: Added new peer-reviewed journal article under Journal Articles:
+  - **Title**: *From Gurukul to Generative AI: Philosophical Foundations for AI-Enabled Multicultural Education*
+  - **Journal**: *Journal of Computer Science and Information Technology (JCSIT)*, Vol. 3 No. 2, August 11, 2026, ISSN: 3080-3586, DOI: `10.61424/jcsit.v3i2.916`.
+  - **PDF Location**: `public/papers/gurukul-to-generative-ai.pdf` (accessible via `/read/gurukul-to-generative-ai`).
 - **August 2026**: Uploaded two newspaper coverage items under the "Newspaper Coverage" tab of the Media Coverage section:
   1. **CSJMU AI Portfolio Launch Coverage**: Newspaper clipping from *Inext (Kanpur)* dated 3 August 2026, summarizing the official website launch of Dr. Vimal Singh's AI-assisted portfolio by CSJMU VC.
   2. **Gen Z Digital Influence Scale Coverage**: Newspaper clipping from *My City Reporter (Kanpur)* dated 4 August 2026, detailing the development and implications of the psychometric 'Digital Influence Scale' study on Gen Z.

@@ -411,6 +411,16 @@ export const journalPublications: JournalPublication[] = [
   {
     id: 0,
     year: 2026,
+    title: 'From Gurukul to Generative AI: Philosophical Foundations for AI-Enabled Multicultural Education',
+    journal: 'Journal of Computer Science and Information Technology (JCSIT)',
+    type: 'Peer-Reviewed',
+    details: 'Vol. 3 No. 2, August 2026, ISSN: 3080-3586, Page No: 01-10.',
+    doi: '10.61424/jcsit.v3i2.916',
+    link: '/read/gurukul-to-generative-ai',
+  },
+  {
+    id: 1,
+    year: 2026,
     title: 'From Philosophy to Practice: Reflected Values in Learners Shaped by Tagore’s Educational Vision',
     journal: 'RESEARCH REVIEW International Journal of Multidisciplinary, Double-blind peer-reviewed and refereed online Journal',
     type: 'Peer-Reviewed',
