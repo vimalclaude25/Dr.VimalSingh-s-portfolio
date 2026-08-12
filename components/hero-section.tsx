@@ -281,7 +281,7 @@ export function HeroSection() {
           </div>
 
           <div className="mt-4 flex items-center justify-between border-t border-white/10 pt-3 text-[11px] text-white/50">
-            <span>Last Updated: 24 May 2025</span>
+            <span>Last Updated: 12 August 2026</span>
             <span>Counters update automatically</span>
           </div>
         </motion.div>
