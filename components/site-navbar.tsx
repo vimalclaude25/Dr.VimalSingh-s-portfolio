@@ -140,13 +140,7 @@ export function SiteNavbar() {
             <div key={item.label} className="group relative">
               <a
                 href={item.href}
-                onClick={(e) => {
-                  if (item.children || item.megaMenu) {
-                    e.preventDefault()
-                  } else {
-                    setActive(item.label)
-                  }
-                }}
+                onClick={() => setActive(item.label)}
                 className={`flex items-center gap-1 rounded-lg px-3 py-2 text-sm font-semibold transition-colors ${
                   active === item.label
                     ? 'text-royal'
