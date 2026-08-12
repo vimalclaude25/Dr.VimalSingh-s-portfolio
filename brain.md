@@ -94,6 +94,8 @@ academic-portfolio-website/
 ---
 
 ## 5. Recent Content Updates
+- **August 12, 2026**: Updated homepage "Last Updated" timestamp to **12 August 2026**.
+- **August 2026**: Created new **Peer Review & Editorial Service** subpage (`/peer-review`) featuring Q1–Q3 journal referee services for Elsevier, SAGE, and Wiley.
 - **August 2026**: Added new peer-reviewed journal article under Journal Articles:
   - **Title**: *From Gurukul to Generative AI: Philosophical Foundations for AI-Enabled Multicultural Education*
   - **Journal**: *Journal of Computer Science and Information Technology (JCSIT)*, Vol. 3 No. 2, August 11, 2026, ISSN: 3080-3586, DOI: `10.61424/jcsit.v3i2.916`.
