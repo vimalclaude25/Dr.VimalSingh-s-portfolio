@@ -411,6 +411,16 @@ export const journalPublications: JournalPublication[] = [
   {
     id: 0,
     year: 2026,
+    title: 'Vivekananda’s Educational Philosophy and Its Reflections on Student Values: An Empirical Inquiry',
+    journal: 'International Social Sciences and Education Journal (ISSEJ)',
+    type: 'Peer-Reviewed',
+    details: 'Vol. 4 No. 3, August 11, 2026, ISSN: 3005-3463 (Online), Page No: 52-61.',
+    doi: '10.61424/issej.v4i3.923',
+    link: 'https://doi.org/10.61424/issej.v4i3.923',
+  },
+  {
+    id: 1,
+    year: 2026,
     title: 'From Gurukul to Generative AI: Philosophical Foundations for AI-Enabled Multicultural Education',
     journal: 'Journal of Computer Science and Information Technology (JCSIT)',
     type: 'Peer-Reviewed',
