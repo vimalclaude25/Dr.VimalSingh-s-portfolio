@@ -105,6 +105,7 @@ academic-portfolio-website/
   2. **Gen Z Digital Influence Scale Coverage**: Newspaper clipping from *My City Reporter (Kanpur)* dated 6 August 2026 (06.08.2026), detailing the development and implications of the psychometric 'Digital Influence Scale' study on Gen Z. Set at serial position #1 in the homepage **News & Events** section.
 - **August 18, 2026**: Removed "Peer Review & Editorial Service" item from the **Activities** navigation dropdown menu in `site-navbar.tsx`.
 - **August 18, 2026**: Updated the homepage hero dashboard counter for **Research Papers Published** to **40**.
+- **August 18, 2026**: Integrated WhatsApp contact number `+91-7905184427` sitewide across `lib/cv-data.ts`, top bar, contact page (`/contact`), site footer, and AI chatbot ("Know Your Professor").
 - **Images Added**: Saved to `public/portfolio-launch-newspaper.jpg` and `public/digital-influence-scale-newspaper.jpg`.
 
 ---

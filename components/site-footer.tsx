@@ -1,4 +1,4 @@
-import { Phone, Mail, MapPin } from 'lucide-react'
+import { Phone, Mail, MapPin, MessageSquare } from 'lucide-react'
 import Image from 'next/image'
 
 const links = {
@@ -46,6 +46,9 @@ export function SiteFooter() {
           </p>
           <div className="mt-4 space-y-2 text-sm text-white/70">
             <p className="flex items-center gap-2"><Phone className="h-4 w-4 text-gold" /> +91 7905184427</p>
+            <a href="https://wa.me/917905184427" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-emerald-400 hover:underline">
+              <MessageSquare className="h-4 w-4 text-emerald-400" /> WhatsApp: +91 7905184427
+            </a>
             <p className="flex items-center gap-2"><Mail className="h-4 w-4 text-gold" /> drvimalsingh@csjmu.ac.in</p>
             <p className="flex items-center gap-2"><MapPin className="h-4 w-4 text-gold" /> CSJMU Campus, Kanpur — 208024</p>
           </div>

@@ -1,6 +1,6 @@
 'use client'
 
-import { Phone, Mail, MapPin, Moon, Sun } from 'lucide-react'
+import { Phone, Mail, MapPin, Moon, Sun, MessageSquare } from 'lucide-react'
 import { useTheme } from '@/components/theme-provider'
 import { personalInfo } from '@/lib/cv-data'
 
@@ -14,6 +14,15 @@ export function SiteTopbar() {
           <a href="tel:+917905184427" className="flex items-center gap-1.5 opacity-90 transition-opacity hover:opacity-100">
             <Phone className="h-3.5 w-3.5 text-gold" />
             <span>+91 7905184427</span>
+          </a>
+          <a
+            href="https://wa.me/917905184427"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-1.5 opacity-90 transition-opacity hover:opacity-100 text-emerald-400 font-medium"
+          >
+            <MessageSquare className="h-3.5 w-3.5 text-emerald-400" />
+            <span>WhatsApp</span>
           </a>
           <a href="mailto:drvimalsingh@csjmu.ac.in" className="flex items-center gap-1.5 opacity-90 transition-opacity hover:opacity-100">
             <Mail className="h-3.5 w-3.5 text-gold" />

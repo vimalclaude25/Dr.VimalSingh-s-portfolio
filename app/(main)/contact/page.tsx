@@ -107,7 +107,14 @@ function ContactFormContent() {
                   <p className="mt-0.5 font-semibold text-navy dark:text-white">
                     {personalInfo.contact.join(' | ')}
                   </p>
-                  <p className="text-xs text-muted-foreground mt-0.5">WhatsApp: {personalInfo.whatsapp}</p>
+                  <a
+                    href="https://wa.me/917905184427"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 text-xs text-emerald-600 dark:text-emerald-400 font-semibold hover:underline mt-1"
+                  >
+                    <span>WhatsApp: {personalInfo.whatsapp}</span>
+                  </a>
                 </div>
               </div>
             </div>

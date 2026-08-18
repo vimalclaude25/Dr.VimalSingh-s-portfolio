@@ -163,7 +163,7 @@ export const personalInfo: PersonalInfo = {
   departmentName: 'Department Of Advanced Educational Research And Teaching Of Educational Foundations',
   institution: 'Chhatrapati Shahu Ji Maharaj University, Kanpur',
   contact: ['+91-7905184427', '+91-9795168526', '+91-6387549445'],
-  whatsapp: '+91-9452913556',
+  whatsapp: '+91-7905184427',
   email: 'drvimalsingh@csjmu.ac.in',
   contactFormUrl: 'https://script.google.com/macros/s/AKfycbxgI4c93brtR0JnKR4JCDaM5JCmNMIXyrxC_LlFoiq77Ly0WA4d6sUL2UsaBM73a0fm5A/exec',
   links: {
