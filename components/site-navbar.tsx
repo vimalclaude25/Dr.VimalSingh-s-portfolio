@@ -77,7 +77,6 @@ const nav: NavItem[] = [
       { label: 'Special Lectures', href: '/activities?tab=lectures' },
       { label: 'FDPs & Workshops', href: '/activities?tab=fdps' },
       { label: 'Committees & Memberships', href: '/activities?tab=admin' },
-      { label: 'Peer Review & Editorial Service', href: '/peer-review' },
     ],
   },
   { label: 'Peer Review', href: '/peer-review' },
