@@ -102,7 +102,7 @@ academic-portfolio-website/
   - **PDF Location**: `public/papers/gurukul-to-generative-ai.pdf` (accessible via `/read/gurukul-to-generative-ai`).
 - **August 2026**: Uploaded two newspaper coverage items under the "Newspaper Coverage" tab of the Media Coverage section:
   1. **CSJMU AI Portfolio Launch Coverage**: Newspaper clipping from *Inext (Kanpur)* dated 3 August 2026, summarizing the official website launch of Dr. Vimal Singh's AI-assisted portfolio by CSJMU VC.
-  2. **Gen Z Digital Influence Scale Coverage**: Newspaper clipping from *My City Reporter (Kanpur)* dated 4 August 2026, detailing the development and implications of the psychometric 'Digital Influence Scale' study on Gen Z.
+  2. **Gen Z Digital Influence Scale Coverage**: Newspaper clipping from *My City Reporter (Kanpur)* dated 6 August 2026 (06.08.2026), detailing the development and implications of the psychometric 'Digital Influence Scale' study on Gen Z. Set at serial position #1 in the homepage **News & Events** section.
 - **Images Added**: Saved to `public/portfolio-launch-newspaper.jpg` and `public/digital-influence-scale-newspaper.jpg`.
 
 ---
