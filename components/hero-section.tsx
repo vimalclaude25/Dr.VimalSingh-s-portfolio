@@ -41,7 +41,7 @@ const areas = [
 ]
 
 const stats = [
-  { icon: FileText, value: 39, label: 'Research Papers Published', color: 'text-royal' },
+  { icon: FileText, value: 40, label: 'Research Papers Published', color: 'text-royal' },
   { icon: Quote, value: 24, label: 'UGC CARE / Scopus Publications', color: 'text-gold' },
   { icon: BookOpen, value: 1, label: 'Self Authored Books', color: 'text-emerald-400' },
   { icon: BookMarked, value: 3, label: 'Edited Books', color: 'text-emerald-400' },
