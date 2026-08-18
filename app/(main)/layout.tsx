@@ -2,6 +2,7 @@ import { SiteTopbar } from '@/components/site-topbar'
 import { SiteNavbar } from '@/components/site-navbar'
 import { SiteFooter } from '@/components/site-footer'
 import { KnowYourProfessorChatbot } from '@/components/know-your-professor-chatbot'
+import { FloatingWhatsApp } from '@/components/floating-whatsapp'
 
 export default function MainLayout({
   children,
@@ -17,6 +18,7 @@ export default function MainLayout({
       </div>
       <SiteFooter />
       <KnowYourProfessorChatbot />
+      <FloatingWhatsApp />
     </div>
   )
 }

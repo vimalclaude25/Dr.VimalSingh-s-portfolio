@@ -110,6 +110,7 @@ academic-portfolio-website/
 - **August 18, 2026**: Removed "Peer Review & Editorial Service" item from the **Activities** navigation dropdown menu in `site-navbar.tsx`.
 - **August 18, 2026**: Updated the homepage hero dashboard counter for **Research Papers Published** to **40**.
 - **August 18, 2026**: Integrated WhatsApp contact number `+91-7905184427` sitewide across `lib/cv-data.ts`, top bar, contact page (`/contact`), site footer, and AI chatbot ("Know Your Professor").
+- **August 18, 2026**: Created floating WhatsApp action button component (`floating-whatsapp.tsx`) fixed at the bottom-left corner with pulsing live badge and interactive tooltip banner for direct click-to-chat.
 - **Images Added**: Saved to `public/portfolio-launch-newspaper.jpg` and `public/digital-influence-scale-newspaper.jpg`.
 
 ---
