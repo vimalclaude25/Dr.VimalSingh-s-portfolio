@@ -116,6 +116,7 @@ export interface BookChapter {
   isbn: string
   role: string
   pages?: string
+  link?: string
 }
 
 export interface InviteeLecture {
@@ -124,6 +125,7 @@ export interface InviteeLecture {
   event: string
   organizer: string
   date: string
+  link?: string
 }
 
 export interface FdpWorkshop {
@@ -133,6 +135,7 @@ export interface FdpWorkshop {
   sponsor?: string
   from: string
   to: string
+  link?: string
 }
 
 export interface CommitteeRole {
@@ -140,12 +143,14 @@ export interface CommitteeRole {
   name: string
   role: string
   year: string
+  link?: string
 }
 
 export interface AdminResponsibility {
   id: number
   responsibility: string
   date: string
+  link?: string
 }
 
 export interface CoCurricularActivity {
@@ -153,6 +158,7 @@ export interface CoCurricularActivity {
   description: string
   from: string
   to: string
+  link?: string
 }
 
 export const personalInfo: PersonalInfo = {

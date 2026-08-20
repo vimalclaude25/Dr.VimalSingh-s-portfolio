@@ -102,7 +102,7 @@ export default function EditedBooksPage() {
   }
 
   // Web App URL configuration (paste your Google Apps Script URL here)
-  const SUBMISSION_FORM_URL = "https://script.google.com/macros/s/AKfycbwRLrKUjPQm5BvSIVKOt8--Goi5eFLT56OZGb7dSvK4XaNQOoTmcV0nkc8jHOP-Nuozkg/exec"
+  const SUBMISSION_FORM_URL: string = "https://script.google.com/macros/s/AKfycbwRLrKUjPQm5BvSIVKOt8--Goi5eFLT56OZGb7dSvK4XaNQOoTmcV0nkc8jHOP-Nuozkg/exec"
 
   // Handle form submission to Google Sheets and Drive
   const handleSubmit = (e: React.FormEvent, book: EditedBook2026) => {

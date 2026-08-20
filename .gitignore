@@ -16,3 +16,4 @@ node_modules
 
 # User-ignored folders
 /Research Paper/
+*.tsbuildinfo
