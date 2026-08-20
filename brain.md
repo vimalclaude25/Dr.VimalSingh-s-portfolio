@@ -111,7 +111,7 @@ academic-portfolio-website/
 - **August 18, 2026**: Updated the homepage hero dashboard counter for **Research Papers Published** to **40**.
 - **August 18, 2026**: Integrated WhatsApp contact number `+91-7905184427` sitewide across `lib/cv-data.ts`, top bar, contact page (`/contact`), site footer, and AI chatbot ("Know Your Professor").
 - **August 18, 2026**: Created floating WhatsApp action button component (`floating-whatsapp.tsx`) fixed at the bottom-left corner with pulsing live badge and interactive tooltip banner for direct click-to-chat.
-- **August 20, 2026**: Executed test suite (TypeScript type check `npx tsc --noEmit` & production build `pnpm build`). Resolved interface typing missing optional `link` property in `lib/cv-data.ts`, Framer Motion spring variant type in `components/about-section.tsx`, and string type annotation in `app/(main)/edited-book2026/page.tsx`. All 17 static pages and dynamic routes compiled with 0 errors.
+- **August 20, 2026**: Verified removal of "Peer Review & Editorial Service" from the Activities dropdown menu in `site-navbar.tsx` (retained as standalone `/peer-review` primary nav link). Updated research paper publications count to **40** across the dataset (`journalPublications` length = 40) and dashboard counter (`hero-section.tsx`). Integrated WhatsApp direct chat (+91-7905184427) floating chatbot symbol and added direct WhatsApp button inside AI chatbot header in `know-your-professor-chatbot.tsx`.
 - **Images Added**: Saved to `public/portfolio-launch-newspaper.jpg` and `public/digital-influence-scale-newspaper.jpg`.
 
 ---

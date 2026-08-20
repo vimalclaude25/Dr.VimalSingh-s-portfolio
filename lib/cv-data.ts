@@ -791,6 +791,16 @@ export const journalPublications: JournalPublication[] = [
     type: 'Peer-Reviewed',
     details: 'Year 1, Vol 1, No. 2, Oct 2015, ISSN No: 2395-728X, Page: 197-206.',
     link: '/read/adjustment-emotional-intelligence-study-hindi',
+  },
+  {
+    id: 38,
+    year: 2026,
+    title: 'Digital Influence Scale for Gen Z: Development, Validation and Psychometric Evaluation in Higher Education',
+    journal: 'International Journal of Educational Technology and Research',
+    type: 'Peer-Reviewed',
+    details: 'Vol. 12 No. 2, August 2026, ISSN: 2349-882X, Page No: 15-28.',
+    doi: '10.61424/ijetr.v12i2.930',
+    link: '/read/digital-influence-scale-gen-z',
   }
 ]
 
