@@ -340,7 +340,7 @@ function CourseResourcesContent() {
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                   {filteredResources.map((resource) => {
                     const TypeIcon = getIcon(resource.type)
-                    const isInfographic = resource.type === 'Infographic'
+                    const hasDetails = !!resource.details || resource.type === 'Infographic'
                     return (
                         <motion.div
                           key={resource.id}
@@ -350,10 +350,10 @@ function CourseResourcesContent() {
                           exit={{ opacity: 0, scale: 0.96 }}
                           transition={{ duration: 0.2 }}
                           className={`flex flex-col justify-between rounded-3xl border border-border bg-card p-6 shadow-sm hover:border-royal/30 hover:shadow-lg transition-all ${
-                            isInfographic ? 'cursor-pointer group' : ''
+                            hasDetails ? 'cursor-pointer group' : ''
                           }`}
                           onClick={
-                            isInfographic
+                            hasDetails
                               ? () => {
                                   setSelectedInfographic(resource)
                                   setInfoExpandedSection(0)
@@ -363,27 +363,49 @@ function CourseResourcesContent() {
                         >
                           <div>
                             {/* Thumbnail preview image if present */}
-                            {resource.thumbnail && (
+                            {resource.thumbnail ? (
                               <div className={`w-full overflow-hidden rounded-2xl mb-4 border border-border/40 bg-muted relative ${
-                                isInfographic ? 'aspect-[3/4]' : 'aspect-video'
+                                resource.type === 'Infographic' ? 'aspect-[3/4]' : 'aspect-video'
                               }`}>
                                 <img
                                   src={resource.thumbnail}
                                   alt={resource.title}
                                   className={`h-full w-full object-cover transition-transform duration-500 ${
-                                    isInfographic ? 'group-hover:scale-105' : 'hover:scale-105'
+                                    hasDetails ? 'group-hover:scale-105' : 'hover:scale-105'
                                   }`}
                                   loading="lazy"
                                 />
-                                {isInfographic && (
+                                {hasDetails && (
                                   <div className="absolute inset-0 bg-black/25 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
                                     <span className="bg-white/95 text-navy dark:bg-navy/95 dark:text-white text-xs font-bold px-3.5 py-2 rounded-full flex items-center gap-1.5 shadow-md">
-                                      <Maximize2 className="h-3.5 w-3.5 text-royal" /> Preview Poster
+                                      <Maximize2 className="h-3.5 w-3.5 text-royal" /> Preview Slides
                                     </span>
                                   </div>
                                 )}
                               </div>
-                            )}
+                            ) : resource.type === 'PPT' ? (
+                              <div className="w-full aspect-[16/9] rounded-2xl mb-4 border border-royal/20 bg-gradient-to-br from-royal/10 via-navy/5 to-gold/10 p-4 flex flex-col justify-between relative group-hover:border-royal/40 transition-colors">
+                                <div className="flex items-center justify-between">
+                                  <span className="rounded-lg bg-royal/15 px-2.5 py-1 text-[10px] font-bold text-royal uppercase tracking-wider flex items-center gap-1">
+                                    <Presentation className="h-3.5 w-3.5" /> Lecture Deck
+                                  </span>
+                                  <span className="text-[10px] font-bold text-amber-600 dark:text-amber-400 bg-amber-500/10 px-2 py-0.5 rounded">
+                                    M.Ed. Paper IV
+                                  </span>
+                                </div>
+                                <div>
+                                  <p className="text-xs font-extrabold text-navy dark:text-white line-clamp-2">
+                                    {resource.title}
+                                  </p>
+                                  <p className="text-[10px] text-muted-foreground mt-1">Dr. Vimal Singh • CSJMU</p>
+                                </div>
+                                <div className="flex items-center justify-between text-[10px] font-semibold text-royal border-t border-royal/10 pt-2">
+                                  <span>{resource.fileSize || 'Presentation'}</span>
+                                  <span className="group-hover:translate-x-1 transition-transform">Explore Deck &rarr;</span>
+                                </div>
+                              </div>
+                            ) : null}
+
                             {/* Header bar */}
                             <div className="flex items-center justify-between gap-2 mb-3.5">
                               <span className="inline-flex items-center gap-1 rounded-full bg-royal/10 px-2.5 py-0.5 text-[9px] font-bold text-royal uppercase tracking-wider">
@@ -396,7 +418,7 @@ function CourseResourcesContent() {
 
                             {/* Title & Desc */}
                             <h3 className={`font-heading text-base font-bold text-navy dark:text-white leading-snug line-clamp-2 ${
-                              isInfographic ? 'group-hover:text-royal transition-colors' : ''
+                              hasDetails ? 'group-hover:text-royal transition-colors' : ''
                             }`}>
                               {resource.title}
                             </h3>
@@ -433,10 +455,21 @@ function CourseResourcesContent() {
                                 >
                                   Watch Video <ExternalLink className="h-3 w-3" />
                                 </a>
-                              ) : isInfographic ? (
-                                <span className="inline-flex items-center gap-1 text-[10px] text-royal font-bold">
-                                  View Details &rarr;
-                                </span>
+                              ) : hasDetails ? (
+                                <div className="flex items-center gap-2">
+                                  <span className="inline-flex items-center gap-1 text-[10px] text-royal font-bold">
+                                    Slide Details &rarr;
+                                  </span>
+                                  <a
+                                    href={resource.link}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    onClick={(e) => e.stopPropagation()}
+                                    className="inline-flex items-center gap-1 rounded-xl bg-royal px-2.5 py-1 text-[10px] font-bold text-white hover:bg-royal/95 transition-colors"
+                                  >
+                                    <Download className="h-3 w-3" />
+                                  </a>
+                                </div>
                               ) : (
                                 <a
                                   href={resource.link}
@@ -503,7 +536,7 @@ function CourseResourcesContent() {
                   <div className="flex items-center justify-between mb-4 pr-10">
                     <div>
                       <span className="inline-flex items-center gap-1 rounded-full bg-royal/10 px-2.5 py-0.5 text-[9px] font-bold text-royal uppercase tracking-wider mb-1">
-                        {selectedInfographic.courseCode} Infographic
+                        {selectedInfographic.courseCode} {selectedInfographic.type}
                       </span>
                       <h3 className="font-heading text-lg font-bold text-navy dark:text-white leading-tight">
                         {selectedInfographic.title}
@@ -511,13 +544,32 @@ function CourseResourcesContent() {
                     </div>
                   </div>
                   
-                  {/* Scrollable image container */}
+                  {/* Scrollable image / preview container */}
                   <div className="flex-1 overflow-y-auto rounded-2xl border border-border/40 bg-black/5 dark:bg-white/5 relative flex items-start justify-center p-2 scrollbar-thin scrollbar-thumb-border">
-                    <img
-                      src={selectedInfographic.link}
-                      alt={selectedInfographic.title}
-                      className="max-w-full h-auto object-contain rounded-lg shadow-sm"
-                    />
+                    {selectedInfographic.type === 'PPT' ? (
+                      <div className="w-full h-full min-h-[250px] p-6 rounded-xl bg-gradient-to-br from-navy/90 to-royal/90 text-white flex flex-col justify-between shadow-inner">
+                        <div className="flex justify-between items-center">
+                          <span className="bg-gold/20 text-gold text-xs font-extrabold px-3 py-1 rounded-full flex items-center gap-1.5">
+                            <Presentation className="h-4 w-4" /> PPT Presentation Deck
+                          </span>
+                          <span className="text-xs text-white/70 font-mono">RM_104</span>
+                        </div>
+                        <div className="my-6 space-y-2">
+                          <h4 className="font-heading text-xl font-bold leading-snug">{selectedInfographic.title}</h4>
+                          <p className="text-xs text-white/80 leading-relaxed">{selectedInfographic.desc}</p>
+                        </div>
+                        <div className="border-t border-white/15 pt-4 flex items-center justify-between text-xs text-white/70">
+                          <span>Prepared by Dr. Vimal Singh</span>
+                          <span>{selectedInfographic.fileSize || 'Presentation'}</span>
+                        </div>
+                      </div>
+                    ) : (
+                      <img
+                        src={selectedInfographic.link}
+                        alt={selectedInfographic.title}
+                        className="max-w-full h-auto object-contain rounded-lg shadow-sm"
+                      />
+                    )}
                   </div>
 
                   {/* Actions */}
@@ -528,14 +580,14 @@ function CourseResourcesContent() {
                       rel="noopener noreferrer"
                       className="flex-1 inline-flex items-center justify-center gap-1.5 rounded-xl bg-muted px-4 py-2.5 text-xs font-bold text-foreground border border-border hover:bg-muted/70 transition-colors"
                     >
-                      <ExternalLink className="h-4 w-4 text-royal" /> Open High Resolution
+                      <ExternalLink className="h-4 w-4 text-royal" /> {selectedInfographic.type === 'PPT' ? 'Open PDF Presentation' : 'Open High Resolution'}
                     </a>
                     <a
                       href={selectedInfographic.link}
                       download
                       className="flex-1 inline-flex items-center justify-center gap-1.5 rounded-xl bg-royal px-4 py-2.5 text-xs font-bold text-white hover:bg-royal/95 transition-colors"
                     >
-                      <Download className="h-4 w-4" /> Download Poster
+                      <Download className="h-4 w-4" /> {selectedInfographic.type === 'PPT' ? 'Download Slides' : 'Download Poster'}
                     </a>
                   </div>
                 </div>

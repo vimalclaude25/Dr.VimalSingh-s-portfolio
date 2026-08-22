@@ -112,7 +112,13 @@ academic-portfolio-website/
 - **August 18, 2026**: Integrated WhatsApp contact number `+91-7905184427` sitewide across `lib/cv-data.ts`, top bar, contact page (`/contact`), site footer, and AI chatbot ("Know Your Professor").
 - **August 18, 2026**: Created floating WhatsApp action button component (`floating-whatsapp.tsx`) fixed at the bottom-left corner with pulsing live badge and interactive tooltip banner for direct click-to-chat.
 - **August 20, 2026**: Verified removal of "Peer Review & Editorial Service" from the Activities dropdown menu in `site-navbar.tsx` (retained as standalone `/peer-review` primary nav link). Updated research paper publications count to **40** across the dataset (`journalPublications` length = 40) and dashboard counter (`hero-section.tsx`). Integrated WhatsApp direct chat (+91-7905184427) floating chatbot symbol and added direct WhatsApp button inside AI chatbot header in `know-your-professor-chatbot.tsx`. Pushed all commits to `origin/main` for live website deployment on `drvimalsingh.in`.
-- **Images Added**: Saved to `public/portfolio-launch-newspaper.jpg` and `public/digital-influence-scale-newspaper.jpg`.
+- **August 22, 2026**: Uploaded four presentation slide decks under the **PPT** category in **Study Materials & Resources** (`/course-resources?section=materials`) for M.Ed. Semester I (Paper IV: RM_104 Research Methods in Education):
+  1. *Understanding Research: Meaning, Concept & Key Characteristics* (`RM104-understanding-research.pdf`)
+  2. *Purpose of Research: Knowledge Transmission, Conservation & Problem Solving* (`RM104-purpose-of-research.pdf`)
+  3. *Types of Research: General Introduction & Classification Framework* (`RM104-types-of-research-introduction.pdf`)
+  4. *Nature of Research Process: Journey of Knowledge & Key Characteristics* (`RM104-nature-of-research-process.pdf`)
+  - Integrated interactive slide details modal preview for PPT resources in `app/(main)/course-resources/page.tsx`.
+- **Images & Presentations Added**: Saved under `public/course-materials/`.
 
 ---
 

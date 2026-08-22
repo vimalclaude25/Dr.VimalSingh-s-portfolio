@@ -1934,6 +1934,145 @@ export const coursesData: Course[] = [
 
 export const studyResourcesData: StudyResource[] = [
   {
+    id: 1787315000001,
+    title: 'Understanding Research: Meaning, Concept & Key Characteristics',
+    desc: 'Comprehensive presentation slides covering the general & specific meaning of research, scientific methods, characteristics (objective, reliable, valid, verifiable), purposefulness, and relevant disciplines for M.Ed. Semester I (Paper IV: RM 104).',
+    courseCode: 'MED104',
+    type: 'PPT',
+    link: '/course-materials/RM104-understanding-research.pdf',
+    date: '22 August 2026',
+    fileSize: '1.3 MB',
+    details: [
+      {
+        sectionTitle: 'General Meaning and Concept of Research | अनुसंधान का सामान्य अर्थ एवं अवधारणा',
+        points: [
+          'Etymological Breakdown: Re (Repeated, Again & Again, Continuous Process) + Search (Exploration, Solution Of Problem). | शब्दोत्पत्ति: Re (पुनरावृत्ति, बार-बार, सतत प्रक्रिया) + Search (अन्वेषण, समस्या का समाधान)।',
+          'Definition: Research refers to a continuous process, wherein activities are carried out systematically to find out solution of the problem. | परिभाषा: शोध एक सतत प्रक्रिया है जिसमें समस्या का समाधान खोजने के लिए गतिविधियों को व्यवस्थित रूप से संचालित किया जाता है।',
+          'Core Standards: Must be Objective, Valid, Reliable, and Verifiable. | मुख्य मानक: वस्तुनिष्ठ, वैध, विश्वसनीय और सत्यापनीय होना अनिवार्य है।'
+        ]
+      },
+      {
+        sectionTitle: 'Specific Meaning & Scientific Method | विशिष्ट अर्थ एवं वैज्ञानिक पद्धति',
+        points: [
+          'Definition: Research involves application of scientific method. It is concerned with formulating a systematic, objective, and empirically verifiable answer to a meaningful question/problem drawn from a field of knowledge or discipline. | परिभाषा: अनुसंधान में वैज्ञानिक पद्धति का अनुप्रयोग शामिल है। यह ज्ञान के क्षेत्र या विषय से उत्पन्न सार्थक प्रश्न/समस्या का व्यवस्थित, वस्तुनिष्ठ और आनुभविक रूप से सत्यापनीय उत्तर तैयार करने से संबंधित है।',
+          'Key Terms: Scientific Method, Solution/Answer of a Problem, Meaningful Question/Problem, Field of Knowledge or Discipline. | प्रमुख पद: वैज्ञानिक पद्धति, समस्या का समाधान/उत्तर, सार्थक प्रश्न/समस्या, ज्ञान का क्षेत्र या विषय।'
+        ]
+      },
+      {
+        sectionTitle: 'Key Characteristics & Disciplines | मुख्य विशेषताएं एवं विषय',
+        points: [
+          'Characteristics: Objective, Reliable, Valid, Verifiable. | विशेषताएं: वस्तुनिष्ठ, विश्वसनीय, वैध, सत्यापनीय।',
+          'Purposefulness: Relevant, Purposeful, Useful. | प्रयोजनपरकता: प्रासंगिक, उद्देश्यपूर्ण, उपयोगी।',
+          'Examples of Disciplines: Education, Sociology, Public Administration. | विषयों के उदाहरण: शिक्षा, समाजशास्त्र, लोक प्रशासन।'
+        ]
+      }
+    ]
+  },
+  {
+    id: 1787315000002,
+    title: 'Purpose of Research: Knowledge Transmission, Conservation & Problem Solving',
+    desc: 'Educational presentation slides detailing the core purposes of educational research: adventure of ideas, churning and filtration of knowledge, conservation in knowledge banks, transmission across generations, and scientific problem solving for M.Ed. Semester I (Paper IV: RM 104).',
+    courseCode: 'MED104',
+    type: 'PPT',
+    link: '/course-materials/RM104-purpose-of-research.pdf',
+    date: '22 August 2026',
+    fileSize: '1.3 MB',
+    details: [
+      {
+        sectionTitle: 'Philosophical Purpose of Research | शोध का दार्शनिक उद्देश्य',
+        points: [
+          'Adventure of Ideas: Ideas are the key of knowledge. | विचारों का दुस्साहसिक कार्य: विचार ज्ञान की कुंजी हैं।',
+          'Churning of Various Forms of Knowledge: Synthesis and re-synthesis of knowledge. | ज्ञान के विभिन्न रूपों का मंथन: ज्ञान का संश्लेषण और पुनः संश्लेषण।',
+          'Filtration of Knowledge: Critique of Knowledge. | ज्ञान का छानन (Filtration): ज्ञान की आलोचनात्मक परीक्षा।',
+          'Conservation of Knowledge: Universities are known as Knowledge Banks. | ज्ञान का संरक्षण: विश्वविद्यालय ज्ञान बैंक के रूप में जाने जाते हैं।'
+        ]
+      },
+      {
+        sectionTitle: 'Four Primary Operational Purposes | शोध के चार प्राथमिक कार्यात्मक उद्देश्य',
+        points: [
+          '1. Transmission of Knowledge: Passes knowledge from one generation to another. | 1. ज्ञान का संचरण: ज्ञान को एक पीढ़ी से दूसरी पीढ़ी तक पहुँचाता है।',
+          '2. Investigates Existing Situations or Problems: Identifies and examines real-life issues. | 2. मौजूदा स्थितियों या समस्याओं की जांच: वास्तविक जीवन की समस्याओं की पहचान और परीक्षा करता है।',
+          '3. Exploration of Scientific Solution of Problem: Objectivity, Reliability, Validity, Verifiability. | 3. समस्या के वैज्ञानिक समाधान का अन्वेषण: वस्तुनिष्ठता, विश्वसनीयता, वैधता, सत्यापनीयता।',
+          '4. Provides Solution of a Problem: Offers practical and effective solutions. | 4. समस्या का समाधान प्रदान करना: व्यावहारिक और प्रभावी समाधान प्रस्तुत करता है।'
+        ]
+      }
+    ]
+  },
+  {
+    id: 1787315000003,
+    title: 'Types of Research: General Introduction & Classification Framework',
+    desc: 'Comprehensive presentation slides classifying educational research by Nature of Problem (Fundamental, Applied, Action), Nature of Data (Quantitative vs Qualitative), and Time Horizon (Historical, Descriptive, Exploratory, Experimental, Case Study, Philosophical) for M.Ed. Semester I (Paper IV: RM 104).',
+    courseCode: 'MED104',
+    type: 'PPT',
+    link: '/course-materials/RM104-types-of-research-introduction.pdf',
+    date: '22 August 2026',
+    fileSize: '1.3 MB',
+    details: [
+      {
+        sectionTitle: 'Classification by Nature of Problem | समस्या की प्रकृति के आधार पर वर्गीकरण',
+        points: [
+          'Fundamental / Pure / Basic Research: If problem is abstract, reality context. | मौलिक / शुद्ध / मूलभूत अनुसंधान: यदि समस्या अमूर्त एवं सैद्धांतिक संदर्भ में हो।',
+          'Applied Research: If the problem relates to examining applicability or use of certain concepts, ideas or strategy to a specific situation. | अनुप्रयुक्त अनुसंधान: यदि समस्या किसी विशिष्ट स्थिति में अवधारणाओं या रणनीतियों की प्रयोज्यता की जांच से संबंधित हो।',
+          'Action Research: Immediate day to day problems in Teaching Learning Process i.e. Attention, Discipline, Interest etc. | क्रियात्मक अनुसंधान: शिक्षण-अधिगम प्रक्रिया की तात्कालिक दैनिक समस्याएं (जैसे ध्यान, अनुशासन, रुचि आदि)।'
+        ]
+      },
+      {
+        sectionTitle: 'Classification by Nature of Data / Information | डेटा/सूचना की प्रकृति के आधार पर वर्गीकरण',
+        points: [
+          'Quantitative Approach: If data is in the form of numbers (e.g., Measuring Intelligence, Aptitude, Achievement). | मात्रात्मक दृष्टिकोण: यदि डेटा संख्याओं के रूप में हो (जैसे बुद्धिमत्ता, अभिरुचि, उपलब्धि का मापन)।',
+          'Qualitative Approach: If available data is in the form of Fact, Information, Content etc. | गुणात्मक दृष्टिकोण: यदि उपलब्ध डेटा तथ्य, सूचना, विषय-वस्तु के रूप में हो।'
+        ]
+      },
+      {
+        sectionTitle: 'Classification by Time Horizon & Special Approaches | समय-सीमा एवं विशिष्ट दृष्टिकोण के आधार पर वर्गीकरण',
+        points: [
+          'Past Horizon: Historical Research (Scientific Analysis and Explanation of Past Events). | अतीत: ऐतिहासिक अनुसंधान (अतीत की घटनाओं का वैज्ञानिक विश्लेषण एवं व्याख्या)।',
+          'Present Horizon: Descriptive Research (Present Status Analysis), Exploratory Research (Exploration of Relationship), Correlational Survey (Relationship between Variables). | वर्तमान: विवरणात्मक अनुसंधान (वर्तमान स्थिति), अन्वेषणात्मक अनुसंधान (संबंधों का अन्वेषण), सह-संबंधात्मक सर्वेक्षण।',
+          'Future Horizon: Experimental Research (Cause and Effect Causal Relationship, e.g., Study of Effectiveness of Intelligence on Achievement). | भविष्य: प्रायोगिक अनुसंधान (कारण एवं प्रभाव संबंध)।',
+          'Vision & Special: Philosophical Research (Philosophizing an Educational Issue); Case Study (Study of Speciality, e.g., Case Study of Banasthali Vidyapeeth / Delinquent Child). | दृष्टि एवं विशिष्ट: दार्शनिक अनुसंधान (शैक्षिक मुद्दे का दार्शनिक विश्लेषण); केस स्टडी (विशिष्टता का अध्ययन)।'
+        ]
+      }
+    ]
+  },
+  {
+    id: 1787315000004,
+    title: 'Nature of Research Process: Journey of Knowledge & Key Characteristics',
+    desc: 'Presentation slides outlining the research process as a continuous journey from Awareness to Study to Research, key stages from Idea to Principle/Law, RMW Travers insights, and core characteristics for M.Ed. Semester I (Paper IV: RM 104).',
+    courseCode: 'MED104',
+    type: 'PPT',
+    link: '/course-materials/RM104-nature-of-research-process.pdf',
+    date: '22 August 2026',
+    fileSize: '1.3 MB',
+    details: [
+      {
+        sectionTitle: 'Nature of Research Process & Core Maxims | शोध प्रक्रिया की प्रकृति एवं मुख्य सिद्धांत',
+        points: [
+          'Researcher Knowledge: Nature of research process, sources of research problem, evaluative criteria. | शोधकर्ता की आवश्यकताएं: शोध प्रक्रिया की प्रकृति, शोध समस्या के स्रोत, मूल्यांकन मानदंड।',
+          'Famous Maxim: "Much Research and less study leads to intellectual bankruptcy" - RMW Travers. | प्रसिद्ध उक्ति: "अधिक शोध और कम अध्ययन बौद्धिक दिवालियापन की ओर ले जाता है" - आर.एम.डब्ल्यू. ट्रैवर्स।',
+          'Key Premises: Research is creation; Research is teamwork; Research is done in very limited/focused area; Not a magic solution for all life problems. | मुख्य सिद्धांत: शोध सृजन है; शोध सामूहिक कार्य (teamwork) है; शोध बहुत सीमित/केंद्रित क्षेत्र में किया जाता है।'
+        ]
+      },
+      {
+        sectionTitle: 'Awareness to Research - A Journey of Knowledge | जागरूकता से अनुसंधान तक - ज्ञान की यात्रा',
+        points: [
+          'Awareness: To know the things; Outcome = Success in general life, competitive exams. (Wide but shallow base). | जागरूकता: चीजों को जानना; परिणाम = सामान्य जीवन में सफलता। (व्यापक किन्तु उथला)।',
+          'Study: Second step of ladder; Outcome = Provides wisdom. (Depth increases according to level). | अध्ययन: सीढ़ी का दूसरा चरण; परिणाम = ज्ञान-विवेक प्रदान करता है।',
+          'Research: Top step of knowledge; Outcome = Super Specialization, New/Original Knowledge, Production of Knowledge. (Micro level, unlimited depth). | अनुसंधान: ज्ञान का उच्चतम चरण; परिणाम = अति-विशिष्टीकरण, नया/मूल ज्ञान, ज्ञान का उत्पादन।',
+          'Core Synthesis: Awareness is the base, Study gives direction, Research gives depth, and both Open the doors to endless knowledge. | मुख्य संश्लेषण: जागरूकता आधार है, अध्ययन दिशा देता है, अनुसंधान गहराई प्रदान करता है, और दोनों अनंत ज्ञान के द्वार खोलते हैं।'
+        ]
+      },
+      {
+        sectionTitle: 'Journey from Idea to Principle/Law & Key Characteristics | विचार से नियम तक की यात्रा एवं मुख्य विशेषताएं',
+        points: [
+          'Continuous Journey: Idea -> Hypothesis -> Thesis / Antithesis -> Theory -> Principle/Law -> Discipline / Faculty. | सतत यात्रा: विचार -> परिकल्पना -> शोध-प्रबंध / प्रति-प्रबंध -> सिद्धांत -> नियम/कानून -> विषय/संकाय।',
+          'Key Characteristic 1: Research Process is a slow, steady, and long process. | विशेषता 1: शोध प्रक्रिया एक धीमी, स्थिर और लंबी प्रक्रिया है।',
+          'Key Characteristic 2: Research needs specialization and specific domain knowledge. | विशेषता 2: शोध के लिए विशिष्टीकरण और विशेष ज्ञान की आवश्यकता होती है।',
+          'Key Characteristic 3: Research Process is time, money, and energy consuming. | विशेषता 3: शोध प्रक्रिया समय, धन और ऊर्जा की खपत करने वाली होती है।'
+        ]
+      }
+    ]
+  },
+  {
     id: 1785478339906,
     title: 'The 6-Step Research Process: A Real Example in Education',
     desc: 'An educational infographic explaining the six-step research process with a real-life example in education, comparing weekly low-stakes quizzes against no quizzes.',
