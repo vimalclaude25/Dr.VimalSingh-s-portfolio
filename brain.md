@@ -119,6 +119,11 @@ academic-portfolio-website/
   4. *Nature of Research Process: Journey of Knowledge & Key Characteristics* (`RM104-nature-of-research-process.pdf`)
   - Integrated interactive slide details modal preview for PPT resources in `app/(main)/course-resources/page.tsx`.
 - **Images & Presentations Added**: Saved under `public/course-materials/`.
+- **August 24, 2026**: Added three new Special Invitee Lectures delivered at the Sikh Light Infantry Regimental Centre Fatehgarh UP:
+  1. *AI as a Force Multiplier: Practical Applications of Artificial Intelligence for Military Leadership and Administrative Excellence* (08 August 2026)
+  2. *Empowering Army Families through Online and Distance Education: Building Futures beyond Uniform* (06 August 2026)
+  3. *Mission Education: Leveraging Online and Distance Learning for Career Progression and Life Long Professional Development* (06 August 2026)
+- **August 24, 2026**: Updated the homepage "At a Glance" dashboard counter for **Special Invitee Lectures** to **77**.
 
 ---
 

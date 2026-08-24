@@ -916,19 +916,28 @@ export const bookChapters: BookChapter[] = [
 
 export const inviteeLectures: InviteeLecture[] = [
   {
-    id: 1, topic: 'Outcome-Based Education (OBE): Designing Effective Course Outcomes (COs) and Program Outcomes (POs) for Quality Assurance', event: 'Workshop on "CO-PO and its Mapping"', organizer: 'Maharana Pratap Group of Institutions, Kanpur UP', date: '26 May 2026'
+    id: 1, topic: 'AI as a Force Multiplier: Practical Applications of Artificial Intelligence for Military Leadership and Administrative Excellence', event: 'Specialized Interactive Session conducted for Senior Army Officers', organizer: 'Sikh Light Infantry Regimental Centre Fatehgarh UP, at Conference Hall', date: '08 August 2026'
   },
   {
-    id: 2, topic: 'CO-PO Mapping, Attainment Calculation and NBA Documentation: Practical Strategies for Outcome Assessment', event: 'Workshop on "CO-PO and its Mapping"', organizer: 'Maharana Pratap Group of Institutions, Kanpur UP', date: '26 May 2026'
+    id: 2, topic: 'Empowering Army Families through Online and Distance Education: Building Futures beyond Uniform', event: 'Awareness and Orientation Programme', organizer: 'Army Wives Welfare Association (AWWA), Sikh Light Infantry Regimental Centre Fatehgarh UP', date: '06 August 2026'
   },
   {
-    id: 3, topic: 'Statistical Inference and Hypothesis Testing for Public Health Research: Foundations of Evidence-Based Decision Making', event: 'MPH (Master of Public Health) programme', organizer: 'Department of Public Health, School of Arts, Humanities and Social Sciences CSJM University, Kanpur', date: '27 April 2026'
+    id: 3, topic: 'Mission Education: Leveraging Online and Distance Learning for Career Progression and Life Long Professional Development', event: 'Professional interaction session for Junior Commissioned Officers (JCOs) and Other Ranks', organizer: 'Sikh Light Infantry Regimental Centre Fatehgarh UP at KSI Auditorium', date: '06 August 2026'
   },
   {
-    id: 4, topic: 'Hypothesis Testing and Statistical Analysis in Public Health: Parametric and Non-Parametric Approaches', event: 'MPH (Master of Public Health) programme', organizer: 'Department of Public Health, School of Arts, Humanities and Social Sciences CSJM University, Kanpur', date: '29 April 2026'
+    id: 4, topic: 'Outcome-Based Education (OBE): Designing Effective Course Outcomes (COs) and Program Outcomes (POs) for Quality Assurance', event: 'Workshop on "CO-PO and its Mapping"', organizer: 'Maharana Pratap Group of Institutions, Kanpur UP', date: '26 May 2026'
   },
   {
-    id: 5, topic: 'Applied Biostatistics for Public Health Research: Correlation Analysis, Interpretation and Research Applications', event: 'MPH (Master of Public Health) programme', organizer: 'Department of Public Health, School of Arts, Humanities and Social Sciences CSJM University, Kanpur', date: '30 April 2026'
+    id: 5, topic: 'CO-PO Mapping, Attainment Calculation and NBA Documentation: Practical Strategies for Outcome Assessment', event: 'Workshop on "CO-PO and its Mapping"', organizer: 'Maharana Pratap Group of Institutions, Kanpur UP', date: '26 May 2026'
+  },
+  {
+    id: 6, topic: 'Statistical Inference and Hypothesis Testing for Public Health Research: Foundations of Evidence-Based Decision Making', event: 'MPH (Master of Public Health) programme', organizer: 'Department of Public Health, School of Arts, Humanities and Social Sciences CSJM University, Kanpur', date: '27 April 2026'
+  },
+  {
+    id: 7, topic: 'Hypothesis Testing and Statistical Analysis in Public Health: Parametric and Non-Parametric Approaches', event: 'MPH (Master of Public Health) programme', organizer: 'Department of Public Health, School of Arts, Humanities and Social Sciences CSJM University, Kanpur', date: '29 April 2026'
+  },
+  {
+    id: 8, topic: 'Applied Biostatistics for Public Health Research: Correlation Analysis, Interpretation and Research Applications', event: 'MPH (Master of Public Health) programme', organizer: 'Department of Public Health, School of Arts, Humanities and Social Sciences CSJM University, Kanpur', date: '30 April 2026'
   },
   {
     id: 6, topic: 'AI Tools for Data Analysis', event: 'Pre-Ph.D. Course Work 2025-26', organizer: 'Department of Education, CSJM University, Kanpur', date: '10 February 2026', link: '/read/nep-locality-gender'

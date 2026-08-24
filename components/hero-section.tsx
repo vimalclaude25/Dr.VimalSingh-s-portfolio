@@ -62,7 +62,7 @@ const glanceStats = [
   { icon: Presentation, value: 30, label: 'Paper Presentations', color: 'text-emerald-400' },
   { icon: Briefcase, value: 20, label: 'Professional Development Activities', color: 'text-royal' },
   { icon: BookOpen, value: 4, label: 'Design New Curricula', color: 'text-gold' },
-  { icon: Speech, value: 74, label: 'Special Invitee Lectures', color: 'text-emerald-400' },
+  { icon: Speech, value: 77, label: 'Special Invitee Lectures', color: 'text-emerald-400' },
   { icon: Landmark, value: 8, label: 'Policy Contributions', color: 'text-royal' },
   { icon: CalendarCheck, value: 7, label: 'Professional Dev. Activities Organized', color: 'text-gold' },
   { icon: Handshake, value: 1, label: 'Consultancy', color: 'text-emerald-400' },
