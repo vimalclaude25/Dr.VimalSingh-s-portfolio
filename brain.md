@@ -130,6 +130,7 @@ academic-portfolio-website/
   - **Book**: *Entrepreneurial Solutions for Global Challenges (Web of Science)*
   - **Publisher**: Cambridge Scholar Publishing (UK), ISBN: 978-1-0364-7406-5 (2026), Role: Corresponding Author.
 - **August 24, 2026**: Updated homepage hero dashboard statistics counter for **Book Chapters** to **12** (dynamically bound to `bookChapters.length`).
+- **August 24, 2026**: Corrected **Ph.D. Scholar** count on the homepage "At a Glance" dashboard from **3** to **2** (displaying as `02`).
 
 ---
 
