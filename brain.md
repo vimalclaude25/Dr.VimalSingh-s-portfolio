@@ -124,6 +124,7 @@ academic-portfolio-website/
   2. *Empowering Army Families through Online and Distance Education: Building Futures beyond Uniform* (06 August 2026)
   3. *Mission Education: Leveraging Online and Distance Learning for Career Progression and Life Long Professional Development* (06 August 2026)
 - **August 24, 2026**: Updated the homepage "At a Glance" dashboard counter for **Special Invitee Lectures** to **77**.
+- **August 24, 2026**: Updated Google Scholar citation metrics on the homepage "At a Glance" dashboard: **Citations** to **105** and **i10-Index** to **2** (with h-Index at **7**).
 
 ---
 
