@@ -797,6 +797,15 @@ export const journalPublications: JournalPublication[] = [
 export const bookChapters: BookChapter[] = [
   {
     id: 1,
+    chapterTitle: 'Encouraging Entrepreneurial Mindsets: Entrepreneurship Education Through Creative Frameworks',
+    bookTitle: 'Entrepreneurial Solutions for Global Challenges (Web of Science)',
+    publisher: 'Cambridge Scholar Publishing Lady Stephenson Library, Newcastle upon Tyne NE6 2PA, United Kingdom (International)',
+    year: 2026,
+    isbn: '978-1-0364-7406-5',
+    role: 'Corresponding Author',
+  },
+  {
+    id: 2,
     chapterTitle: 'OSHO',
     bookTitle: 'आधुनिक भारत के महान विचारक',
     publisher: 'Rachnakar Publishing House, New Delhi',
@@ -806,7 +815,7 @@ export const bookChapters: BookChapter[] = [
     link: '/read/nep-locality-gender',
   },
   {
-    id: 2,
+    id: 3,
     chapterTitle: 'साम्ययोगी आचार्य विनोबा भावे',
     bookTitle: 'भारतीय शिक्षा एवं आचार्य परम्परा',
     publisher: 'कालिंदी प्रकाशन, आजमगढ़ उ०प्र०',

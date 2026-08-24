@@ -125,6 +125,11 @@ academic-portfolio-website/
   3. *Mission Education: Leveraging Online and Distance Learning for Career Progression and Life Long Professional Development* (06 August 2026)
 - **August 24, 2026**: Updated the homepage "At a Glance" dashboard counter for **Special Invitee Lectures** to **77**.
 - **August 24, 2026**: Updated Google Scholar citation metrics on the homepage "At a Glance" dashboard: **Citations** to **105** and **i10-Index** to **2** (with h-Index at **7**).
+- **August 24, 2026**: Added new international Web of Science indexed book chapter under **Book Chapters**:
+  - **Title**: *Encouraging Entrepreneurial Mindsets: Entrepreneurship Education Through Creative Frameworks*
+  - **Book**: *Entrepreneurial Solutions for Global Challenges (Web of Science)*
+  - **Publisher**: Cambridge Scholar Publishing (UK), ISBN: 978-1-0364-7406-5 (2026), Role: Corresponding Author.
+- **August 24, 2026**: Updated homepage hero dashboard statistics counter for **Book Chapters** to **12** (dynamically bound to `bookChapters.length`).
 
 ---
 

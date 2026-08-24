@@ -29,7 +29,7 @@ import {
   BarChart2,
 } from 'lucide-react'
 import { AnimatedCounter } from '@/components/animated-counter'
-import { personalInfo, journalPublications } from '@/lib/cv-data'
+import { personalInfo, journalPublications, bookChapters } from '@/lib/cv-data'
 
 const areas = [
   'Education',
@@ -45,7 +45,7 @@ const stats = [
   { icon: Quote, value: 24, label: 'UGC CARE / Scopus Publications', color: 'text-gold' },
   { icon: BookOpen, value: 1, label: 'Self Authored Books', color: 'text-emerald-400' },
   { icon: BookMarked, value: 3, label: 'Edited Books', color: 'text-emerald-400' },
-  { icon: Files, value: 11, label: 'Book Chapters', color: 'text-gold' },
+  { icon: Files, value: bookChapters.length, label: 'Book Chapters', color: 'text-gold' },
   { icon: FlaskConical, value: 2, label: 'Research Projects', color: 'text-emerald-400' },
   { icon: Users, value: 41, label: 'Research Scholars Guided', color: 'text-royal' },
   { icon: BadgeCheck, value: 2, label: 'Patents Published', color: 'text-gold' },
