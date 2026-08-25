@@ -3174,6 +3174,9 @@ export interface PeerReviewJournal {
   journalName: string
   publisher: string
   quartile: 'Q1' | 'Q2' | 'Q3' | 'Q4'
+  sjr?: string
+  hIndex?: string
+  issn?: string
   role: string
   statusType: 'completed' | 'invitation'
   invitationBadge?: string
@@ -3183,7 +3186,7 @@ export interface PeerReviewJournal {
 
 export const peerReviewServiceData = {
   stats: [
-    { value: '05+', label: 'Journals Reviewed' },
+    { value: '06+', label: 'Journals Reviewed' },
     { value: 'Q1–Q3', label: 'Journal Quartiles' },
     { value: 'International', label: 'Publishers (Elsevier, Wiley, SAGE)' },
     { value: 'Psychometrics • Education • Psychology • Research Methodology', label: 'Core Expertise Domains' }
@@ -3191,6 +3194,19 @@ export const peerReviewServiceData = {
   journals: [
     {
       id: 1,
+      journalName: 'Depression and Anxiety',
+      publisher: 'John Wiley and Sons Inc',
+      quartile: 'Q1' as const,
+      sjr: '1.135',
+      hIndex: '180',
+      issn: '10914269, 15206394',
+      role: 'Peer Reviewer',
+      statusType: 'completed' as const,
+      year: '2025–2026',
+      topics: ['Psychiatry & Mental Health', 'Clinical Psychology', 'Mood & Anxiety']
+    },
+    {
+      id: 2,
       journalName: 'Acta Psychologica',
       publisher: 'Elsevier',
       quartile: 'Q1' as const,
@@ -3200,7 +3216,7 @@ export const peerReviewServiceData = {
       topics: ['Psychometrics', 'Cognitive Psychology', 'Research Methodology']
     },
     {
-      id: 2,
+      id: 3,
       journalName: 'Chronic Stress',
       publisher: 'SAGE',
       quartile: 'Q1' as const,
@@ -3211,7 +3227,7 @@ export const peerReviewServiceData = {
       topics: ['Stress & Health', 'Psychometrics', 'Educational Psychology']
     },
     {
-      id: 3,
+      id: 4,
       journalName: 'Journal of Community Psychology',
       publisher: 'Wiley',
       quartile: 'Q1' as const,
@@ -3221,7 +3237,7 @@ export const peerReviewServiceData = {
       topics: ['Community Psychology', 'Behavioral Health', 'Educational Research']
     },
     {
-      id: 4,
+      id: 5,
       journalName: 'Neuroscience Insights',
       publisher: 'SAGE',
       quartile: 'Q3' as const,
@@ -3231,7 +3247,7 @@ export const peerReviewServiceData = {
       topics: ['Neuroeducation', 'Cognitive Neuroscience', 'Learning Processes']
     },
     {
-      id: 5,
+      id: 6,
       journalName: 'Inquiry',
       publisher: 'SAGE',
       quartile: 'Q3' as const,

@@ -32,10 +32,6 @@ export function PeerReviewSection() {
 
   const { stats, journals, closingQuote } = peerReviewServiceData
 
-  // Separate top row (3 cards) and bottom row (2 cards) for balanced 3+2 desktop grid
-  const topJournals = journals.slice(0, 3)
-  const bottomJournals = journals.slice(3, 5)
-
   return (
     <div className="mx-auto max-w-8xl px-4 py-12 sm:px-6 lg:px-8">
       {/* Hero / Header */}
@@ -107,9 +103,8 @@ export function PeerReviewSection() {
           </h2>
         </div>
 
-        {/* Top Row - 3 Cards */}
-        <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
-          {topJournals.map((journal) => (
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+          {journals.map((journal) => (
             <motion.div
               key={journal.id}
               variants={itemVariants}
@@ -126,7 +121,17 @@ export function PeerReviewSection() {
                     <BookOpen className="h-3.5 w-3.5 text-royal" /> 0{journal.id}
                   </span>
 
-                  <div className="flex items-center gap-2">
+                  <div className="flex items-center gap-1.5 flex-wrap justify-end">
+                    {journal.sjr && (
+                      <span className="inline-block rounded-full bg-blue-500/10 px-2 py-0.5 text-[10px] font-extrabold text-blue-600 dark:text-blue-400 border border-blue-500/20">
+                        SJR {journal.sjr}
+                      </span>
+                    )}
+                    {journal.hIndex && (
+                      <span className="inline-block rounded-full bg-purple-500/10 px-2 py-0.5 text-[10px] font-extrabold text-purple-600 dark:text-purple-400 border border-purple-500/20">
+                        h-Index {journal.hIndex}
+                      </span>
+                    )}
                     <span
                       className={`inline-block rounded-full px-2.5 py-0.5 text-xs font-bold ${
                         journal.quartile === 'Q1'
@@ -139,7 +144,7 @@ export function PeerReviewSection() {
                   </div>
                 </div>
 
-                {/* Chronic Stress Highlight Badge */}
+                {/* Highlight Badge */}
                 {journal.invitationBadge && (
                   <div className="mb-3">
                     <span className="inline-flex items-center gap-1.5 rounded-full bg-gold/15 px-3 py-1 text-[11px] font-extrabold text-gold dark:text-amber-300 border border-gold/30 animate-pulse">
@@ -191,71 +196,6 @@ export function PeerReviewSection() {
                   ) : (
                     <CheckCircle2 className="h-3.5 w-3.5" />
                   )}
-                  {journal.role}
-                </span>
-              </div>
-            </motion.div>
-          ))}
-        </div>
-
-        {/* Bottom Row - 2 Cards Centered on Desktop */}
-        <div className="grid grid-cols-1 gap-6 md:grid-cols-2 max-w-4xl mx-auto">
-          {bottomJournals.map((journal) => (
-            <motion.div
-              key={journal.id}
-              variants={itemVariants}
-              className="group relative flex flex-col justify-between rounded-3xl border border-border bg-card p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-royal/40 hover:shadow-xl"
-            >
-              <div>
-                {/* Header Badge Strip */}
-                <div className="flex items-center justify-between gap-2 mb-4">
-                  <span className="inline-flex items-center gap-1 text-[11px] font-bold text-muted-foreground uppercase tracking-wider">
-                    <BookOpen className="h-3.5 w-3.5 text-royal" /> 0{journal.id}
-                  </span>
-
-                  <span
-                    className={`inline-block rounded-full px-2.5 py-0.5 text-xs font-bold ${
-                      journal.quartile === 'Q1'
-                        ? 'bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20'
-                        : 'bg-royal/10 text-royal dark:text-sky-300 border border-royal/20'
-                    }`}
-                  >
-                    {journal.quartile}
-                  </span>
-                </div>
-
-                {/* Journal Title */}
-                <h3 className="font-heading text-xl font-bold text-navy dark:text-white group-hover:text-royal transition-colors leading-snug">
-                  {journal.journalName}
-                </h3>
-
-                {/* Publisher */}
-                <p className="mt-2 text-xs font-semibold text-muted-foreground flex items-center gap-1.5">
-                  <Building2 className="h-3.5 w-3.5 text-royal" /> Publisher: <span className="text-navy dark:text-white font-bold">{journal.publisher}</span>
-                </p>
-
-                {/* Topics / Tags */}
-                {journal.topics && (
-                  <div className="mt-4 flex flex-wrap gap-1.5">
-                    {journal.topics.map((t, idx) => (
-                      <span
-                        key={idx}
-                        className="rounded-md bg-muted px-2 py-0.5 text-[10px] font-semibold text-muted-foreground"
-                      >
-                        {t}
-                      </span>
-                    ))}
-                  </div>
-                )}
-              </div>
-
-              {/* Card Footer Role & Status */}
-              <div className="mt-6 border-t border-border/80 pt-4 flex items-center justify-between text-xs">
-                <span className="font-bold text-muted-foreground uppercase tracking-wider text-[10px]">
-                  Official Role
-                </span>
-                <span className="inline-flex items-center gap-1.5 font-bold text-emerald-600 dark:text-emerald-400">
-                  <CheckCircle2 className="h-3.5 w-3.5" />
                   {journal.role}
                 </span>
               </div>

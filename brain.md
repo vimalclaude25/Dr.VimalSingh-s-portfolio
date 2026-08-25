@@ -131,6 +131,7 @@ academic-portfolio-website/
   - **Publisher**: Cambridge Scholar Publishing (UK), ISBN: 978-1-0364-7406-5 (2026), Role: Corresponding Author.
 - **August 24, 2026**: Updated homepage hero dashboard statistics counter for **Book Chapters** to **12** (dynamically bound to `bookChapters.length`).
 - **August 24, 2026**: Corrected **Ph.D. Scholar** count on the homepage "At a Glance" dashboard from **3** to **2** (displaying as `02`).
+- **August 25, 2026**: Added *Depression and Anxiety* (Publisher: John Wiley and Sons Inc, Quartile: Q1, SJR 2025: 1.135, H-Index: 180, ISSN: 10914269, 15206394) to the Scholarly Peer Review & Editorial Service dataset (`peerReviewServiceData`). Updated total journals reviewed count to **06+** and refactored `PeerReviewSection` to render all 6 referee journals cleanly in a dynamic responsive 3-column grid layout with SJR and h-index badges.
 
 ---
 
