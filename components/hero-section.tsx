@@ -49,7 +49,7 @@ const stats = [
   { icon: FlaskConical, value: 2, label: 'Research Projects', color: 'text-emerald-400' },
   { icon: Users, value: 41, label: 'Research Scholars Guided', color: 'text-royal' },
   { icon: BadgeCheck, value: 2, label: 'Patents Published', color: 'text-gold' },
-  { icon: Award, value: 1, label: 'Awards Received', color: 'text-gold' },
+  { icon: Award, value: 2, label: 'Awards Received', color: 'text-gold' },
   { icon: CalendarDays, value: 12, suffix: '+', label: 'Years of Experience', color: 'text-emerald-400' },
 ]
 

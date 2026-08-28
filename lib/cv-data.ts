@@ -219,7 +219,36 @@ export const teachingExperience: Experience[] = [
   }
 ]
 
+export interface AwardItem {
+  id: number
+  title: string
+  organization: string
+  location?: string
+  date: string
+  category: 'National' | 'State' | 'Institutional' | 'International'
+}
+
+export const awardsAndHonors: AwardItem[] = [
+  {
+    id: 1,
+    title: "Prof. H. N. Mishra Outstanding Teacher’s Award",
+    organization: "The International Society",
+    location: "McRobertganj Kanpur - 208002",
+    date: "05.10.2023",
+    category: "National"
+  },
+  {
+    id: 2,
+    title: "Young Researcher & Academic Excellence Award",
+    organization: "Academic Research Association & CSJM University",
+    location: "Kanpur UP",
+    date: "2024",
+    category: "National"
+  }
+]
+
 export const academicAchievements: string[] = [
+  'Recipients of National Award: Prof. H. N. Mishra Outstanding Teacher’s Award by The International Society, Kanpur (05.10.2023).',
   'Qualified UGC-NET JRF in Education in Dec.2013, June 2014, and NET for Lectureship in Dec 2014.',
   'Qualified UGC-NET in Public Administration for Lectureship in June 2012.',
   'Qualified CTET for Junior Level in July 2013.',
@@ -414,6 +443,15 @@ export const scales: Scale[] = [
 ]
 
 export const journalPublications: JournalPublication[] = [
+  {
+    id: 1,
+    year: 2026,
+    title: 'Effectiveness of Animated Games on Study Habits of Secondary School Students',
+    journal: 'Journal of Research in Education (A Peer Reviewed and Refereed Bi-annual Journal)',
+    type: 'Peer-Reviewed',
+    details: 'St. Xavier’s College of Education (Autonomous), Patna, Vol. 14 No. 01, June 2026, ISSN (P): 2347-5676, ISSN (O): 2582-2357, Impact Factor: 6.295, Page No: 105-117.',
+    link: '/papers/animated-games-study-habits.pdf',
+  },
   {
     id: 0,
     year: 2026,
@@ -1479,6 +1517,31 @@ export interface ResearchNewsItem {
 
 
 export const researchNewsData: ResearchNewsItem[] = [
+  {
+    id: 22,
+    title: 'एआई से पढ़ाई के साथ शिक्षक भी जरूरी',
+    source: 'My City Reporter (Kanpur)',
+    date: '28 August 2026',
+    desc: 'सीएसजेएमयू ने कई छात्रों पर कराया अध्ययन, पढ़ाई का फॉर्मूला किया गया तैयार। शिक्षा विभाग के डॉ. विमल सिंह, अशोक कुमार यादव, अभिषेक कुमार मिश्रा व सूरज गुप्ता ने 2020-2025 तक कई अंतरराष्ट्रीय जर्नल का अध्ययन किया है। इससे निकले निष्कर्ष में पाया गया कि भविष्य की शिक्षा का रास्ता न पुरानी परंपराओं से होकर जाता है और न ही केवल आधुनिक तकनीक से। असली रास्ता दोनों के बेहतर तालमेल में है। जनरेटिव एआई विद्यार्थियों को उनकी जरूरत के अनुसार पढ़ने में मदद कर सकता है, परंतु तकनीक की अपनी सीमाएं हैं। मानवीय संवेदना, नैतिक मार्गदर्शन, वास्तविक शिक्षक-विद्यार्थी संबंध और जीवन मूल्यों का विकास केवल तकनीक के भरोसे नहीं छोड़ा जा सकता।',
+    category: 'media-coverage',
+    subcategory: 'Newspaper Coverage',
+    mediaType: 'Newspaper',
+    image: '/ai-padhai-shikshak-newspaper.jpg',
+    imageOnly: false,
+  },
+  {
+    id: 23,
+    title: 'शिक्षक के साथ एआई से पढ़ाई का सफर होगा पूरा - The Journey Of Learning With Ai Alongside The Teacher Will Be Complete',
+    source: 'Kanpur News',
+    date: '28 August 2026',
+    desc: 'छत्रपति शाहू जी महाराज विश्वविद्यालय (CSJMU), कानपुर के शिक्षा विभाग के डॉ. विमल सिंह एवं साथी शोधकर्ताओं द्वारा किया गया अध्ययन: शिक्षक के मार्गदर्शन और आर्टिफिशियल इंटेलिजेंस (Generative AI) के तालमेल से विद्यार्थियों के ज्ञानार्जन एवं व्यक्तित्व विकास का सफर सफलतापूर्वक पूरा होगा।',
+    category: 'media-coverage',
+    subcategory: 'Television Coverage',
+    mediaType: 'TV',
+    image: '/ai-padhai-shikshak-newspaper.jpg',
+    link: 'https://share.google/nkicWYZQvvL4i9ORV',
+    imageOnly: false,
+  },
   {
     id: 20,
     title: 'रिसर्च, टीचिंग, इनोवेशन से जुड़ी उपलब्धियां एक ही प्लेटफॉर्म पर: सीएसजेएमयू ने एआई की मदद से बनाया पोर्टफोलियो, वीसी ने किया लांच',

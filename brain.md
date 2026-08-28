@@ -132,6 +132,12 @@ academic-portfolio-website/
 - **August 24, 2026**: Updated homepage hero dashboard statistics counter for **Book Chapters** to **12** (dynamically bound to `bookChapters.length`).
 - **August 24, 2026**: Corrected **Ph.D. Scholar** count on the homepage "At a Glance" dashboard from **3** to **2** (displaying as `02`).
 - **August 25, 2026**: Added *Depression and Anxiety* (Publisher: John Wiley and Sons Inc, Quartile: Q1, SJR 2025: 1.135, H-Index: 180, ISSN: 10914269, 15206394) to the Scholarly Peer Review & Editorial Service dataset (`peerReviewServiceData`). Updated total journals reviewed count to **06+** and refactored `PeerReviewSection` to render all 6 referee journals cleanly in a dynamic responsive 3-column grid layout with SJR and h-index badges.
+- **August 28, 2026**: Executed 5 major portfolio updates:
+  1. Uploaded Research Paper *Effectiveness of Animated Games on Study Habits of Secondary School Students* (Journal of Research in Education, Vol 14 No 01 June 2026, SJIF IF 6.295, pp. 105-117) to `public/papers/animated-games-study-habits.pdf` and added as item #1 in `journalPublications`. Updated homepage dashboard counter for total research papers to **41** (`journalPublications.length`).
+  2. Added National Award: *Prof. H. N. Mishra Outstanding Teacher’s Award* (The International Society, McRobertganj Kanpur, 05.10.2023, National) to `awardsAndHonors` in `lib/cv-data.ts` and updated homepage hero counter for **Awards Received** to **2**.
+  3. Updated landing page profile portrait `public/dr-vimal-singh.jpeg` with high-resolution portrait uploaded photo.
+  4. Added new newspaper clipping *एआई से पढ़ाई के साथ शिक्षक भी जरूरी* (My City Reporter Kanpur, 28 August 2026) as item #1 under Newspaper Coverage (`/ai-padhai-shikshak-newspaper.jpg`).
+  5. Added new television & digital media coverage item *शिक्षक के साथ एआई से पढ़ाई का सफर होगा पूरा* (Kanpur News, 28 August 2026) with news link `https://share.google/nkicWYZQvvL4i9ORV` under Television Coverage.
 
 ---
 
@@ -144,3 +150,4 @@ academic-portfolio-website/
   `pnpm build`
 - **Start Production Server**:
   `pnpm start`
+
