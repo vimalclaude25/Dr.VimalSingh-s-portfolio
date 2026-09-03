@@ -138,6 +138,7 @@ academic-portfolio-website/
   3. Updated landing page profile portrait `public/dr-vimal-singh.jpeg` with high-resolution portrait uploaded photo.
   4. Added new newspaper clipping *एआई से पढ़ाई के साथ शिक्षक भी जरूरी* (My City Reporter Kanpur, 28 August 2026) as item #1 under Newspaper Coverage (`/ai-padhai-shikshak-newspaper.jpg`).
 - **September 01, 2026**: Updated Google Scholar **h-Index** on the homepage "At a Glance" dashboard from 7 to **3** (displaying as `03`). Refactored homepage **News & Events** feed (`components/news-events.tsx`) to dynamically load and display all latest research media news items (including August 28, 2026 updates: *एआई से पढ़ाई के साथ शिक्षक भी जरूरी* and *शिक्षक के साथ एआई से पढ़ाई का सफर होगा पूरा*) directly from `researchNewsData` in `lib/cv-data.ts`. Ensured modal popup strictly complies with preview layout rules (Heading -> Image -> Text -> Newspaper Source Link).
+- **September 03, 2026**: Updated Google Scholar citation metrics on the homepage "At a Glance" dashboard (`components/hero-section.tsx`): **Citations** to **109**, **h-Index** to **7**, and **i10-Index** to **3** (displaying as `03`). Updated dashboard "Last Updated" timestamp to **03 September 2026**.
 
 ---
 

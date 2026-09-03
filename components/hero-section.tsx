@@ -54,9 +54,9 @@ const stats = [
 ]
 
 const glanceStats = [
-  { icon: Award, value: 3, label: 'h-Index', color: 'text-royal' },
-  { icon: BarChart2, value: 2, label: 'i10-Index', color: 'text-gold' },
-  { icon: TrendingUp, value: 105, label: 'Citations', color: 'text-emerald-400' },
+  { icon: Award, value: 7, label: 'h-Index', color: 'text-royal' },
+  { icon: BarChart2, value: 3, label: 'i10-Index', color: 'text-gold' },
+  { icon: TrendingUp, value: 109, label: 'Citations', color: 'text-emerald-400' },
   { icon: GraduationCap, value: 2, label: 'Ph.D. Scholar', color: 'text-royal' },
   { icon: Bookmark, value: 2, label: 'Scale Published', color: 'text-gold' },
   { icon: Presentation, value: 30, label: 'Paper Presentations', color: 'text-emerald-400' },
@@ -281,7 +281,7 @@ export function HeroSection() {
           </div>
 
           <div className="mt-4 flex items-center justify-between border-t border-white/10 pt-3 text-[11px] text-white/50">
-            <span>Last Updated: 20 August 2026</span>
+            <span>Last Updated: 03 September 2026</span>
             <span>Counters update automatically</span>
           </div>
         </motion.div>
