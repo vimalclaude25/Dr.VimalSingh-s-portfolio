@@ -119,7 +119,7 @@ export function PeerReviewSection() {
                 {/* Header Badge Strip */}
                 <div className="flex items-center justify-between gap-2 mb-4">
                   <span className="inline-flex items-center gap-1 text-[11px] font-bold text-muted-foreground uppercase tracking-wider">
-                    <BookOpen className="h-3.5 w-3.5 text-royal" /> 0{journal.id}
+                    <BookOpen className="h-3.5 w-3.5 text-royal" /> {journal.id < 10 ? `0${journal.id}` : journal.id}
                   </span>
 
                   <div className="flex items-center gap-1.5 flex-wrap justify-end">

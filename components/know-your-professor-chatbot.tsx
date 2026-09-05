@@ -80,7 +80,7 @@ const INTENTS: Intent[] = [
   },
   {
     name: 'PEER_REVIEW',
-    keywords: ['peer review', 'reviewer', 'editorial', 'elsevier', 'sage', 'wiley', 'referee', 'acta psychologica', 'chronic stress', 'inquiry', 'neuroscience insights', 'q1 journal']
+    keywords: ['peer review', 'reviewer', 'editorial', 'elsevier', 'sage', 'wiley', 'springer', 'cultech', 'ghd', 'referee', 'acta psychologica', 'chronic stress', 'inquiry', 'neuroscience insights', 'current psychology', 'behavioral psychology', 'global health dynamics', 'q1 journal']
   },
   {
     name: 'RESOURCES_LAB',
@@ -398,6 +398,14 @@ Feel free to submit a message on the **[Contact Form](/#contact)** on the homepa
 • **M.Ed. Thesis Supervision**: ${researchGuidance.awarded} Completed/Awarded, ${researchGuidance.pursuing} Ongoing (Pursuing).
 
 Check the **[Research Guidance](/research-guidance)** dashboard for details.`
+
+        case 'PEER_REVIEW':
+          let peerList = `I actively contribute as a **Peer Reviewer & Referee** for **09+ international scholarly journals** (including Springer, Elsevier, Wiley, SAGE, Cultech):\n`
+          peerReviewServiceData.journals.forEach(j => {
+            peerList += `• **${j.journalName}** (${j.publisher}${j.quartile ? `, ${j.quartile}` : ''}${j.sjr ? `, SJR: ${j.sjr}` : ''}${j.hIndex ? `, h-Index: ${j.hIndex}` : ''})\n`
+          })
+          peerList += `\nExplore the complete **[Peer Review & Editorial Service](/peer-review)** showcase page!`
+          return peerList
 
         case 'RESOURCES_LAB':
           return `I host several digital resources and hubs:
