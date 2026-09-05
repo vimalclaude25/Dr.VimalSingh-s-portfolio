@@ -3236,7 +3236,7 @@ export interface PeerReviewJournal {
   id: number
   journalName: string
   publisher: string
-  quartile: 'Q1' | 'Q2' | 'Q3' | 'Q4'
+  quartile: 'Q1' | 'Q2' | 'Q3' | 'Q4' | 'Peer-Reviewed'
   sjr?: string
   hIndex?: string
   issn?: string
@@ -3245,13 +3245,14 @@ export interface PeerReviewJournal {
   invitationBadge?: string
   year?: string
   topics?: string[]
+  link?: string
 }
 
 export const peerReviewServiceData = {
   stats: [
-    { value: '06+', label: 'Journals Reviewed' },
+    { value: '09+', label: 'Journals Reviewed' },
     { value: 'Q1–Q3', label: 'Journal Quartiles' },
-    { value: 'International', label: 'Publishers (Elsevier, Wiley, SAGE)' },
+    { value: 'International', label: 'Publishers (Springer, Elsevier, Wiley, SAGE)' },
     { value: 'Psychometrics • Education • Psychology • Research Methodology', label: 'Core Expertise Domains' }
   ],
   journals: [
@@ -3291,6 +3292,40 @@ export const peerReviewServiceData = {
     },
     {
       id: 4,
+      journalName: 'Current Psychology',
+      publisher: 'Springer',
+      quartile: 'Q1' as const,
+      sjr: '0.960',
+      hIndex: '83',
+      role: 'Peer Reviewer',
+      statusType: 'completed' as const,
+      year: '2025–2026',
+      topics: ['Psychology', 'Behavioral Sciences', 'Educational Psychology']
+    },
+    {
+      id: 5,
+      journalName: 'Behavioral Psychology/ Psicologia Conductual',
+      publisher: 'Fundacion VECA',
+      quartile: 'Peer-Reviewed' as const,
+      hIndex: '33',
+      role: 'Peer Reviewer',
+      statusType: 'completed' as const,
+      year: '2024–2025',
+      topics: ['Clinical Psychology', 'Experimental Psychology', 'Cognitive Psychology']
+    },
+    {
+      id: 6,
+      journalName: 'Global Health Dynamics',
+      publisher: 'Cultech Publications',
+      quartile: 'Peer-Reviewed' as const,
+      link: 'https://ghd.cultechpub.com/index.php/ghd',
+      role: 'Peer Reviewer',
+      statusType: 'completed' as const,
+      year: '2025–2026',
+      topics: ['Global Health', 'Public Health', 'Healthcare Policy & Research']
+    },
+    {
+      id: 7,
       journalName: 'Journal of Community Psychology',
       publisher: 'Wiley',
       quartile: 'Q1' as const,
@@ -3300,7 +3335,7 @@ export const peerReviewServiceData = {
       topics: ['Community Psychology', 'Behavioral Health', 'Educational Research']
     },
     {
-      id: 5,
+      id: 8,
       journalName: 'Neuroscience Insights',
       publisher: 'SAGE',
       quartile: 'Q3' as const,
@@ -3310,7 +3345,7 @@ export const peerReviewServiceData = {
       topics: ['Neuroeducation', 'Cognitive Neuroscience', 'Learning Processes']
     },
     {
-      id: 6,
+      id: 9,
       journalName: 'Inquiry',
       publisher: 'SAGE',
       quartile: 'Q3' as const,

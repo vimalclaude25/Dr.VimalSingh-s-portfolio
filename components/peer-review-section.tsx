@@ -12,7 +12,8 @@ import {
   Building2,
   CheckCircle2,
   Clock,
-  BookOpen
+  BookOpen,
+  ExternalLink
 } from 'lucide-react'
 import { peerReviewServiceData } from '@/lib/cv-data'
 
@@ -155,9 +156,21 @@ export function PeerReviewSection() {
                 )}
 
                 {/* Journal Title */}
-                <h3 className="font-heading text-xl font-bold text-navy dark:text-white group-hover:text-royal transition-colors leading-snug">
-                  {journal.journalName}
-                </h3>
+                {journal.link ? (
+                  <a
+                    href={journal.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 font-heading text-xl font-bold text-navy dark:text-white group-hover:text-royal transition-colors leading-snug hover:underline"
+                  >
+                    {journal.journalName}
+                    <ExternalLink className="h-4 w-4 shrink-0 text-royal opacity-80" />
+                  </a>
+                ) : (
+                  <h3 className="font-heading text-xl font-bold text-navy dark:text-white group-hover:text-royal transition-colors leading-snug">
+                    {journal.journalName}
+                  </h3>
+                )}
 
                 {/* Publisher */}
                 <p className="mt-2 text-xs font-semibold text-muted-foreground flex items-center gap-1.5">
