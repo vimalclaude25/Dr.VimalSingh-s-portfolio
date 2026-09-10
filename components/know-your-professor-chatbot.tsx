@@ -80,7 +80,11 @@ const INTENTS: Intent[] = [
   },
   {
     name: 'PEER_REVIEW',
-    keywords: ['peer review', 'reviewer', 'editorial', 'elsevier', 'sage', 'wiley', 'springer', 'cultech', 'ghd', 'referee', 'acta psychologica', 'chronic stress', 'inquiry', 'neuroscience insights', 'current psychology', 'behavioral psychology', 'global health dynamics', 'q1 journal']
+    keywords: ['peer review', 'reviewer', 'elsevier', 'sage', 'wiley', 'springer', 'cultech', 'ghd', 'referee', 'acta psychologica', 'chronic stress', 'inquiry', 'neuroscience insights', 'current psychology', 'behavioral psychology', 'global health dynamics', 'q1 journal']
+  },
+  {
+    name: 'EDITORIAL_ROLES',
+    keywords: ['editorial role', 'editorial roles', 'associate editor', 'cogent education', 'taylor & francis', 'taylor and francis', 'ict in education', 'editorial board', 'editorial position']
   },
   {
     name: 'RESOURCES_LAB',
@@ -406,6 +410,9 @@ Check the **[Research Guidance](/research-guidance)** dashboard for details.`
           })
           peerList += `\nExplore the complete **[Peer Review & Editorial Service](/peer-review)** showcase page!`
           return peerList
+
+        case 'EDITORIAL_ROLES':
+          return `I serve as **Associate Editor – ICT in Education** for **Cogent Education** (published by **Taylor & Francis**).\n\nExplore the dedicated **[Editorial Roles](/editorial-roles)** page for full details!`
 
         case 'RESOURCES_LAB':
           return `I host several digital resources and hubs:

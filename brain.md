@@ -32,6 +32,7 @@ academic-portfolio-website/
 │   │   ├── course-resources/ # Course Materials & Resources study hub subpage [NEW]
 │   │   │   └── admin/        # Client-side admin portal with Drive & Git integrations [NEW]
 │   │   ├── edited-book2026/  # Academic Edited Books 2026 details & chapter submission [NEW]
+│   │   ├── editorial-roles/  # Dedicated Associate Editor & Editorial Roles subpage [NEW]
 │   │   ├── peer-review/      # Peer Review & Editorial Service (Q1-Q3 journals, Elsevier, SAGE, Wiley) [NEW]
 │   │   ├── projects-consultancy/ # Government grants & industry consultancy subpage [NEW]
 │   │   ├── publications/     # Full-featured search & filter books/chapters subpage [NEW]
@@ -145,6 +146,7 @@ academic-portfolio-website/
   3. *Global Health Dynamics* (Publisher: Cultech Publications, URL: `https://ghd.cultechpub.com/index.php/ghd`)
   - Updated total journals reviewed count to **09+** and enabled direct external link navigation with icon for linked journals in `components/peer-review-section.tsx`.
 - **September 10, 2026**: Authenticated remote GitHub repository `https://github.com/vimalclaude25/Dr.VimalSingh-s-portfolio.git` using Personal Access Token (PAT). Successfully pushed all pending local commits to `origin/main` (`92c9072..13dc544`). Live deployment (Vercel/Netlify) triggered automatically.
+- **September 10, 2026**: Added new top-level navigation item **"Editorial Roles"** in `components/site-navbar.tsx` immediately before **"Peer Review"**. Created dedicated page route `app/(main)/editorial-roles/page.tsx` and component `components/editorial-roles-section.tsx` showcasing Associate Editor role for *ICT in Education* section at *Cogent Education* (Taylor & Francis). Complied strictly with accuracy constraints (no invented titles or metrics). Verified 0 TypeScript errors (`npx tsc --noEmit`) and successful 18/18 static pages Next.js build (`npm run build`).
 
 ---
 

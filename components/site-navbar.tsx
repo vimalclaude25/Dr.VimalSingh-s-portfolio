@@ -79,6 +79,7 @@ const nav: NavItem[] = [
       { label: 'Committees & Memberships', href: '/activities?tab=admin' },
     ],
   },
+  { label: 'Editorial Roles', href: '/editorial-roles' },
   { label: 'Peer Review', href: '/peer-review' },
   { label: 'Contact', href: '/contact' },
 ]
@@ -102,12 +103,16 @@ export function SiteNavbar() {
       setActive('Home')
     } else if (pathname === '/publications') {
       setActive('Publications')
+    } else if (pathname === '/editorial-roles') {
+      setActive('Editorial Roles')
     } else if (pathname === '/peer-review') {
       setActive('Peer Review')
     } else if (pathname.includes('research') || pathname.includes('project') || pathname.includes('innovation') || pathname.includes('guidance')) {
       setActive('Research')
     } else if (pathname === '/course-resources') {
       setActive('Course Materials & Resources')
+    } else if (pathname === '/activities') {
+      setActive('Activities')
     }
   }, [pathname])
 

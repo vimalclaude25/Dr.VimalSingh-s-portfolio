@@ -161,6 +161,30 @@ export interface CoCurricularActivity {
   link?: string
 }
 
+export interface EditorialRoleItem {
+  id: number
+  role: string
+  section: string
+  journal: string
+  publisher: string
+  status: string
+  description: string
+  url?: string
+}
+
+export const editorialRolesData: EditorialRoleItem[] = [
+  {
+    id: 1,
+    role: 'Associate Editor',
+    section: 'ICT in Education',
+    journal: 'Cogent Education',
+    publisher: 'Taylor & Francis',
+    status: 'Current',
+    description: 'Serving as an Associate Editor for the ICT in Education section of Cogent Education, contributing to the scholarly editorial process, peer-review coordination, and evaluation of research related to information and communication technologies in education.',
+    url: 'https://www.tandfonline.com/journals/oaed20'
+  }
+]
+
 export const personalInfo: PersonalInfo = {
   name: 'Dr. Vimal Singh',
   qualifications: 'MPA, M.Ed., Ph.D.',
