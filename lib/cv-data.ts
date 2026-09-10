@@ -16,6 +16,7 @@ export interface PersonalInfo {
     scholar: string
     orcid: string
     facultyPage: string
+    youtube?: string
   }
   summary: string
   biographical: {
@@ -203,6 +204,7 @@ export const personalInfo: PersonalInfo = {
     scholar: 'https://scholar.google.com/citations?user=eq1y6iYAAAAJ&hl=en',
     orcid: 'https://orcid.org/my-orcid?orcid=0000-0002-3209-6057',
     facultyPage: 'https://csjmu.ac.in/all-faculty/dr-vimal-singh/',
+    youtube: 'https://www.youtube.com/channel/UCYC9VAGknO1Ug3yJsLVRWXA',
   },
   summary: 'Presently working as Assistant Professor in the Department Of Advanced Educational Research And Teaching Of Educational Foundations, School of Teacher Education, C.S.J.M. University, Kanpur UP with sincerity, perseverance, hard work & commitment, having a good academic and research background.',
   biographical: {
@@ -2038,6 +2040,16 @@ export const coursesData: Course[] = [
 ]
 
 export const studyResourcesData: StudyResource[] = [
+  {
+    id: 1787315000099,
+    title: 'Dr. Vimal Singh — Official Educational Video Lectures & Tutorials Channel',
+    desc: 'Official YouTube Educational Channel featuring video lectures, research methodology tutorials, educational technology series, and M.Ed. / B.Ed. curriculum study resources.',
+    courseCode: 'General',
+    type: 'Video',
+    link: 'https://www.youtube.com/channel/UCYC9VAGknO1Ug3yJsLVRWXA',
+    date: 'September 2026',
+    fileSize: 'YouTube Channel',
+  },
   {
     id: 1787315000001,
     title: 'Understanding Research: Meaning, Concept & Key Characteristics',
