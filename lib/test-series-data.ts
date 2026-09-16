@@ -227,7 +227,7 @@ export function getMasterCalendarSchedule(): CalendarDaySchedule[] {
         isTestDay: false,
         isRevisionDay: false,
         isExamDay: true,
-        note: 'UPHESC ASSISTANT PROFESSOR EXAMINATION 2026 (No Unit Test Scheduled)',
+        note: 'UPESSC ASSISTANT PROFESSOR EXAMINATION 2026 (No Unit Test Scheduled)',
       })
     } else if (testDaysMap.has(dateStr)) {
       const tdMap = testDaysMap.get(dateStr)!

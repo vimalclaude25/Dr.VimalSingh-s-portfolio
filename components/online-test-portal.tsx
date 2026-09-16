@@ -89,13 +89,13 @@ export function OnlineTestPortal() {
             <div className="space-y-3 max-w-3xl">
               <div className="inline-flex items-center gap-2 rounded-full bg-white/10 px-3.5 py-1 text-xs font-semibold uppercase tracking-wider backdrop-blur-md border border-white/20 text-gold">
                 <Sparkles className="h-3.5 w-3.5" />
-                UPHESC Assistant Professor Exam 2026
+                UPESSC ASSISTANT PROFESSOR EXAM 2026
               </div>
               <h1 className="font-heading text-3xl font-extrabold tracking-tight sm:text-4xl text-white">
                 Online Test Series Portal
               </h1>
               <p className="text-slate-200 text-sm sm:text-base leading-relaxed">
-                Comprehensive 80-Test Series designed strictly for UPHESC Assistant Professor (GK & Education).
+                Comprehensive 80-Test Series designed strictly for UPESSC Assistant Professor (GK & Education).
                 Powered by Testmoz engine with instant scoring, dual daily slots, and systematic revision cycles.
               </p>
             </div>
@@ -164,7 +164,7 @@ export function OnlineTestPortal() {
 
             <div className="col-span-2 sm:col-span-1 rounded-2xl bg-gold/10 p-4 border border-gold/40 text-center">
               <span className="font-heading text-base font-black text-amber-700 dark:text-gold block mt-1">18-19 NOV</span>
-              <span className="text-[11px] font-bold text-amber-900 dark:text-amber-200 uppercase tracking-tight">UPHESC EXAM</span>
+              <span className="text-[11px] font-bold text-amber-900 dark:text-amber-200 uppercase tracking-tight">UPESSC EXAM</span>
             </div>
           </div>
         </div>
@@ -352,7 +352,7 @@ export function OnlineTestPortal() {
               <div className="p-6 border-b border-slate-200 dark:border-slate-800 bg-slate-50/50 dark:bg-slate-900/50 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
                 <div>
                   <h3 className="font-heading text-xl font-bold text-navy dark:text-white">
-                    UPHESC 2026 – Master Test Schedule
+                    UPESSC 2026 – Master Test Schedule
                   </h3>
                   <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">
                     Complete 40 Test Days Sequence (16 September 2026 – 17 November 2026) with Evening Slots & Revision Days
