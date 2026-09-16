@@ -136,6 +136,12 @@ export function getUnitTitle(subject: 'GK' | 'Education', unit: number): string 
   }
 }
 
+// Centralized registry for active Testmoz URLs keyed by Test ID
+export const TESTMOZ_URL_MAP: Record<string, string> = {
+  'gk-u1-t1': 'https://testmoz.com/q/15637736',
+  'education-u1-t1': 'https://testmoz.com/q/15637846',
+}
+
 // Generate the 80 individual test items programmatically from the authoritative TEST_DAYS_MAPPING
 export function generateTestSeriesData(): TestItem[] {
   const tests: TestItem[] = []
@@ -144,6 +150,7 @@ export function generateTestSeriesData(): TestItem[] {
     // Slot 1
     const s1UnitTitle = getUnitTitle(mapping.slot1.subject, mapping.slot1.unit)
     const s1Id = `${mapping.slot1.subject.toLowerCase()}-u${mapping.slot1.unit}-t${mapping.slot1.testNumber}`
+    const s1TestmozUrl = TESTMOZ_URL_MAP[s1Id] || ''
     tests.push({
       id: s1Id,
       subject: mapping.slot1.subject,
@@ -160,13 +167,14 @@ export function generateTestSeriesData(): TestItem[] {
       questionCount: 50,
       difficulty: 'Moderate',
       type: 'MCQ',
-      testmozUrl: '', // Add Testmoz link here when ready
-      status: 'coming-soon',
+      testmozUrl: s1TestmozUrl,
+      status: s1TestmozUrl ? 'available' : 'coming-soon',
     })
 
     // Slot 2
     const s2UnitTitle = getUnitTitle(mapping.slot2.subject, mapping.slot2.unit)
     const s2Id = `${mapping.slot2.subject.toLowerCase()}-u${mapping.slot2.unit}-t${mapping.slot2.testNumber}`
+    const s2TestmozUrl = TESTMOZ_URL_MAP[s2Id] || ''
     tests.push({
       id: s2Id,
       subject: mapping.slot2.subject,
@@ -183,8 +191,8 @@ export function generateTestSeriesData(): TestItem[] {
       questionCount: 50,
       difficulty: 'Moderate',
       type: 'MCQ',
-      testmozUrl: '', // Add Testmoz link here when ready
-      status: 'coming-soon',
+      testmozUrl: s2TestmozUrl,
+      status: s2TestmozUrl ? 'available' : 'coming-soon',
     })
   })
 
