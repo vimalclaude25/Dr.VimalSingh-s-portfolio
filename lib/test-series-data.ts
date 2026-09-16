@@ -140,6 +140,8 @@ export function getUnitTitle(subject: 'GK' | 'Education', unit: number): string 
 export const TESTMOZ_URL_MAP: Record<string, string> = {
   'gk-u1-t1': 'https://testmoz.com/q/15637736',
   'education-u1-t1': 'https://testmoz.com/q/15637846',
+  'gk-u1-t2': 'https://testmoz.com/q/15638702',
+  'education-u1-t2': 'https://testmoz.com/q/15638676',
 }
 
 // Generate the 80 individual test items programmatically from the authoritative TEST_DAYS_MAPPING

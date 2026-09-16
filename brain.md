@@ -149,6 +149,10 @@ academic-portfolio-website/
 - **September 10, 2026**: Added new top-level navigation item **"Editorial Roles"** in `components/site-navbar.tsx` immediately before **"Peer Review"**. Created dedicated page route `app/(main)/editorial-roles/page.tsx` and component `components/editorial-roles-section.tsx` showcasing Associate Editor role for *ICT in Education* section at *Cogent Education* (Taylor & Francis). Complied strictly with accuracy constraints (no invented titles or metrics). Verified 0 TypeScript errors (`npx tsc --noEmit`) and successful 18/18 static pages Next.js build (`npm run build`).
 - **September 10, 2026**: Integrated Dr. Vimal Singh's official YouTube Educational Lectures Channel (`https://www.youtube.com/channel/UCYC9VAGknO1Ug3yJsLVRWXA`) into the **Course Materials & Resources** section (`app/(main)/course-resources/page.tsx`), `personalInfo.links`, and `studyResourcesData`. Added a featured red video banner with a direct external link button for students and researchers.
 - **September 16, 2026**: Designed and implemented the **Online Test Portal** for UPESSC Assistant Professor Examination preparation (`/online-test`). Features 80 total tests (30 GK across 6 units + 50 Education across 10 units), 40 test days spanning 16 Sep 2026 to 17 Nov 2026, dual daily evening slots (Slot 1: 7:00 PM - 7:30 PM, Slot 2: 8:00 PM - 8:30 PM), Testmoz test engine integration (`target="_blank"`), dynamic "Coming Soon" / "Start Test" status handling, progress tracking indicators, search/filters, and a full responsive Master Schedule view with revision days and exam notice (18-19 Nov 2026).
+- **September 16, 2026**: Added active Testmoz exam links for **Test #2** cards in `lib/test-series-data.ts`:
+  - **GK Unit 1 Test #2** (`gk-u1-t2`): `https://testmoz.com/q/15638702` (Slot 1, 7:00 PM - 7:30 PM)
+  - **Education Unit 1 Test #2** (`education-u1-t2`): `https://testmoz.com/q/15638676` (Slot 2, 8:00 PM - 8:30 PM)
+  - Updated card status dynamically to `'available'` with active "START TEST" buttons.
 
 ---
 
