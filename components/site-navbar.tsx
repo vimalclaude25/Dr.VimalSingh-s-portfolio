@@ -71,6 +71,16 @@ const nav: NavItem[] = [
     ],
   },
   {
+    label: 'Online Test Portal',
+    href: '/online-test',
+    children: [
+      { label: 'All 80 Tests', href: '/online-test' },
+      { label: 'General Knowledge (30 Tests)', href: '/online-test?tab=gk' },
+      { label: 'Education (50 Tests)', href: '/online-test?tab=education' },
+      { label: 'Master Schedule (40 Days)', href: '/online-test?tab=schedule' },
+    ],
+  },
+  {
     label: 'Activities',
     href: '/activities',
     children: [
@@ -107,6 +117,8 @@ export function SiteNavbar() {
       setActive('Editorial Roles')
     } else if (pathname === '/peer-review') {
       setActive('Peer Review')
+    } else if (pathname === '/online-test') {
+      setActive('Online Test Portal')
     } else if (pathname.includes('research') || pathname.includes('project') || pathname.includes('innovation') || pathname.includes('guidance')) {
       setActive('Research')
     } else if (pathname === '/course-resources') {

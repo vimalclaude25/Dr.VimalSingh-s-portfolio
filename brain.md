@@ -148,10 +148,28 @@ academic-portfolio-website/
 - **September 10, 2026**: Authenticated remote GitHub repository `https://github.com/vimalclaude25/Dr.VimalSingh-s-portfolio.git` using Personal Access Token (PAT). Successfully pushed all pending local commits to `origin/main` (`92c9072..13dc544`). Live deployment (Vercel/Netlify) triggered automatically.
 - **September 10, 2026**: Added new top-level navigation item **"Editorial Roles"** in `components/site-navbar.tsx` immediately before **"Peer Review"**. Created dedicated page route `app/(main)/editorial-roles/page.tsx` and component `components/editorial-roles-section.tsx` showcasing Associate Editor role for *ICT in Education* section at *Cogent Education* (Taylor & Francis). Complied strictly with accuracy constraints (no invented titles or metrics). Verified 0 TypeScript errors (`npx tsc --noEmit`) and successful 18/18 static pages Next.js build (`npm run build`).
 - **September 10, 2026**: Integrated Dr. Vimal Singh's official YouTube Educational Lectures Channel (`https://www.youtube.com/channel/UCYC9VAGknO1Ug3yJsLVRWXA`) into the **Course Materials & Resources** section (`app/(main)/course-resources/page.tsx`), `personalInfo.links`, and `studyResourcesData`. Added a featured red video banner with a direct external link button for students and researchers.
+- **September 16, 2026**: Designed and implemented the **Online Test Portal** for UPHESC Assistant Professor Examination preparation (`/online-test`). Features 80 total tests (30 GK across 6 units + 50 Education across 10 units), 40 test days spanning 16 Sep 2026 to 17 Nov 2026, dual daily evening slots (Slot 1: 7:00 PM - 7:30 PM, Slot 2: 8:00 PM - 8:30 PM), Testmoz test engine integration (`target="_blank"`), dynamic "Coming Soon" / "Start Test" status handling, progress tracking indicators, search/filters, and a full responsive Master Schedule view with revision days and exam notice (18-19 Nov 2026).
 
 ---
 
-## 6. Development and Build Instructions
+## 6. Online Test Portal System Architecture
+- **Data Architecture (`lib/test-series-data.ts`)**:
+  - Centralized, fully typed dataset for all 80 unit tests (30 General Knowledge tests across 6 units + 50 Education tests across 10 units).
+  - Data schema includes `id`, `subject`, `unit`, `unitTitle`, `testNumber`, `title`, `date`, `day`, `slot`, `startTime`, `endTime`, `duration` (20 min), `questionCount` (50), `difficulty`, `type` ("MCQ"), `testmozUrl`, and `status`.
+  - Master schedule generator providing day-by-day lookup from 16 September 2026 to 17 November 2026 with automatically categorized "Revision Days" and "UPHESC Examination" notices on 18-19 November 2026.
+  - Built-in programmatic QA validator `validateTestSeriesData()` ensuring all 20 structural and scheduling integrity rules are passed without error.
+- **UI Components (`components/online-test-portal.tsx`)**:
+  - **Dashboard Summary Bar**: 9 quick-stat counters (80 Total Tests, 30 GK, 50 Education, 40 Test Days, 50 Questions/Test, 20 Mins/Test, 16 Sep Start, 17 Nov Final Test, 18-19 Nov UPHESC Exam).
+  - **Progress Dashboard**: Dynamic visual indicators for GK Progress (0/30), Education Progress (0/50), and Overall Progress (0/80).
+  - **Filter & Search Bar**: Quick filters for All, GK, Education, Available, Upcoming, and Coming Soon + Keyword search by unit name, title, or test number.
+  - **Test Card Grid**: Displays test details with dual-slot badges, duration, question count, and dynamic "START TEST" button (opening Testmoz in a new tab via `target="_blank"` and `rel="noopener noreferrer"`) or "Coming Soon" disabled state.
+  - **Master Schedule Table / Mobile View**: Comprehensive 40 test-day breakdown showing Slot 1 & Slot 2 pairings, explicit Revision Day banners, and exam notices.
+- **Page Route (`app/(main)/online-test/page.tsx`)**:
+  - Full-width responsive subpage integrated into standard `MainLayout` with header navigation in `site-navbar.tsx`.
+
+---
+
+## 7. Development and Build Instructions
 - **Run Locally (Development Dev Server)**:
   `pnpm dev`
 - **TypeScript Verification**:
