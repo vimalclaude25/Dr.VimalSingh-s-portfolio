@@ -91,7 +91,6 @@ const nav: NavItem[] = [
   },
   { label: 'Editorial Roles', href: '/editorial-roles' },
   { label: 'Peer Review', href: '/peer-review' },
-  { label: 'Contact', href: '/contact' },
 ]
 
 export function SiteNavbar() {
