@@ -56,7 +56,7 @@ const INTENTS: Intent[] = [
   },
   {
     name: 'CONTACT',
-    keywords: ['email', 'phone', 'contact', 'number', 'whatsapp', 'address', 'location', 'reach', 'office', 'mail', 'write to you', 'message', 'call', 'details', 'mobile']
+    keywords: ['email', 'phone', 'contact', 'number', 'whatsapp', 'youtube', 'facebook', 'social media', 'channel', 'video', 'address', 'location', 'reach', 'office', 'mail', 'write to you', 'message', 'call', 'details', 'mobile']
   },
   {
     name: 'QUALIFICATIONS',
@@ -361,6 +361,8 @@ export function KnowYourProfessorChatbot() {
           return `You can reach me directly via:
 • **Email**: ${personalInfo.email}
 • **WhatsApp**: ${personalInfo.whatsapp}
+• **YouTube**: [Research Orbit (@Researchorbit)](${personalInfo.links.youtube || 'https://www.youtube.com/@Researchorbit'})
+• **Facebook**: [Dr. Vimal Singh](${personalInfo.links.facebook || 'https://www.facebook.com/vimal.singh.908'})
 • **Phone**: ${personalInfo.contact.join(', ')}
 • **Office**: ${personalInfo.biographical.address}
 

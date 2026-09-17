@@ -17,6 +17,7 @@ export interface PersonalInfo {
     orcid: string
     facultyPage: string
     youtube?: string
+    facebook?: string
   }
   summary: string
   biographical: {
@@ -204,7 +205,8 @@ export const personalInfo: PersonalInfo = {
     scholar: 'https://scholar.google.com/citations?user=eq1y6iYAAAAJ&hl=en',
     orcid: 'https://orcid.org/my-orcid?orcid=0000-0002-3209-6057',
     facultyPage: 'https://csjmu.ac.in/all-faculty/dr-vimal-singh/',
-    youtube: 'https://www.youtube.com/channel/UCYC9VAGknO1Ug3yJsLVRWXA',
+    youtube: 'https://www.youtube.com/@Researchorbit',
+    facebook: 'https://www.facebook.com/vimal.singh.908',
   },
   summary: 'Presently working as Assistant Professor in the Department Of Advanced Educational Research And Teaching Of Educational Foundations, School of Teacher Education, C.S.J.M. University, Kanpur UP with sincerity, perseverance, hard work & commitment, having a good academic and research background.',
   biographical: {

@@ -4,7 +4,7 @@ import Image from 'next/image'
 const links = {
   'Quick Links': ['Home', 'About', 'Research', 'Publications', 'AI Lab', 'Contact'],
   Resources: ['Course Resources', 'Downloads', 'Thesis Repository', 'Blog', 'Gallery'],
-  Academic: ['Google Scholar', 'ResearchGate', 'Scopus', 'ORCID', 'VIDWAN', 'GitHub'],
+  Academic: ['Google Scholar', 'ResearchGate', 'Scopus', 'ORCID', 'VIDWAN', 'YouTube', 'Facebook'],
 }
 
 const getHref = (label: string) => {
@@ -22,6 +22,8 @@ const getHref = (label: string) => {
   if (label === 'Scopus') return 'https://www.scopus.com/authid/detail.uri?authorId=58797837900'
   if (label === 'ORCID') return 'https://orcid.org/my-orcid?orcid=0000-0002-3209-6057'
   if (label === 'VIDWAN') return 'https://vidwan.inflibnet.ac.in/profile/346396'
+  if (label === 'YouTube') return 'https://www.youtube.com/@Researchorbit'
+  if (label === 'Facebook') return 'https://www.facebook.com/vimal.singh.908'
   return '#'
 }
 
