@@ -80,9 +80,16 @@ export function SiteFooter() {
       <div className="border-t border-white/10">
         <div className="mx-auto flex max-w-8xl flex-col items-center justify-between gap-3 px-4 py-5 text-xs text-white/60 sm:flex-row sm:px-6 lg:px-8">
           <p>© {new Date().getFullYear()} Dr. Vimal Singh. All rights reserved.</p>
-          <div className="flex gap-5">
+          <div className="flex items-center gap-5">
             <a href="#" className="transition-colors hover:text-white">Privacy Policy</a>
             <a href="#" className="transition-colors hover:text-white">Terms</a>
+            <a
+              href="/admin/upessc-automation"
+              className="transition-colors text-white/30 hover:text-white/60 text-[11px]"
+              title="Admin Portal"
+            >
+              UPESSC Test Automation
+            </a>
           </div>
         </div>
       </div>

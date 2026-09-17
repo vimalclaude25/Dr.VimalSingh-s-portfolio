@@ -179,9 +179,40 @@ academic-portfolio-website/
 - **Page Route (`app/(main)/online-test/page.tsx`)**:
   - Full-width responsive subpage integrated into standard `MainLayout` with header navigation in `site-navbar.tsx`.
 
+- **September 17, 2026**: Integrated **UPESSC Test Assistant** administrative automation module (`/admin/upessc-automation`):
+  - Built comprehensive admin console with real-time countdown widget, today's tests manager, 10+ variation AI message generator, approval queue, and full 80-test Testmoz link registry.
+  - Added dedicated Safe Test Mode activity log viewer (`/admin/upessc-automation/test-log`).
+  - Implemented Next.js Edge Middleware route guard with HttpOnly session cookies and login route at `/admin/login`.
+  - Implemented server-side cron automation engine (`/api/admin/upessc/automation/cron`) configured via `vercel.json` with idempotency and retry handling.
+  - Added discrete admin lock link in `SiteFooter`.
+
 ---
 
-## 7. Development and Build Instructions
+## 7. UPESSC Test Assistant Architecture & Automation Engine
+- **Purpose**: Fully automate preparation, scheduling, admin review, and multi-channel publication of UPESSC 2026 Online Test Series announcements on WhatsApp Channels.
+- **Two-Phase Architecture**:
+  - **Phase 1 (Active by Default)**: Automated generation of scheduled announcements (30-min reminder, 10-min urgent alert, test live, 5-min warning, slot completion, 11 PM extended final, 12 AM closed) with mandatory admin review/approval (`status: "pending_approval"`).
+  - **Phase 2 (Fully Automatic Mode)**: Admin toggles `fully_automatic_publishing: true` in master settings to let the server-side cron engine publish approved messages without manual click-through.
+- **Core Abstractions & Storage**:
+  - `lib/automation-types.ts`: Core interfaces for `GeneratedMessage`, `AutomationSettings`, `TestOverride`, `ActivityLogEntry`.
+  - `lib/automation-store.ts`: File-backed atomic store (`data/automation/store.json`) with in-memory caching and deep-cloning safety.
+  - `lib/message-generator.ts`: Multi-variation generator with 10+ distinct Hinglish/Hindi educational templates per message type while strictly preserving test metadata (title, time, duration, question count, Testmoz URL).
+  - `lib/whatsapp-provider.ts`: Provider abstraction (`WhatsAppProvider`) supporting `none` (safe logging), Meta Cloud API, and external aggregators without hard-coded vendor dependencies.
+  - `lib/automation-engine.ts`: Time-offset scheduler and due message processor running with idempotency keys (`${testId}_${type}_${date}`).
+- **API Endpoints**:
+  - `POST /api/admin/auth/login`: Session cookie generator (validates `ADMIN_PASSWORD` or fallback `upessc2026admin`).
+  - `POST /api/admin/auth/logout`: Clears session cookie.
+  - `POST /api/admin/upessc/automation/generate`: Generates schedule messages for any test.
+  - `GET / POST /api/admin/upessc/automation/messages`: Lists, filters, approves, edits, regenerates, or retries messages.
+  - `POST /api/admin/upessc/automation/publish`: Manually or automatically publishes messages (handles safe test mode and real WhatsApp dispatch).
+  - `GET / POST /api/admin/upessc/automation/schedule`: Read/update Testmoz URLs and midnight extensions across all 80 tests.
+  - `GET / POST /api/admin/upessc/automation/settings`: Reads/updates master switches (`automation_enabled`, `test_mode`, `auto_approval`, `fully_automatic_publishing`, `whatsapp_channel_url`).
+  - `GET / POST /api/admin/upessc/automation/cron`: Server-side scheduler endpoint invoked via Vercel Cron (`vercel.json`) every 5 minutes.
+  - `GET / POST /api/admin/upessc/automation/logs`: Returns activity logs and real-time dashboard metrics.
+
+---
+
+## 8. Development and Build Instructions
 - **Run Locally (Development Dev Server)**:
   `pnpm dev`
 - **TypeScript Verification**:
@@ -190,4 +221,5 @@ academic-portfolio-website/
   `pnpm build`
 - **Start Production Server**:
   `pnpm start`
+
 
