@@ -3,7 +3,7 @@ import Image from 'next/image'
 
 const links = {
   'Quick Links': ['Home', 'About', 'Research', 'Publications', 'AI Lab', 'Contact'],
-  Resources: ['Course Resources', 'Downloads', 'Thesis Repository', 'Blog', 'Gallery'],
+  Resources: ['Course Resources', 'Thesis Repository', 'Gallery'],
   Academic: ['Google Scholar', 'ResearchGate', 'Scopus', 'ORCID', 'VIDWAN', 'YouTube', 'Facebook'],
 }
 
