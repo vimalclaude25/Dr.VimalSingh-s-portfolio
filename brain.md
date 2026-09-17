@@ -153,6 +153,14 @@ academic-portfolio-website/
   - **GK Unit 1 Test #2** (`gk-u1-t2`): `https://testmoz.com/q/15638702` (Slot 1, 7:00 PM - 7:30 PM)
   - **Education Unit 1 Test #2** (`education-u1-t2`): `https://testmoz.com/q/15638676` (Slot 2, 8:00 PM - 8:30 PM)
   - Updated card status dynamically to `'available'` with active "START TEST" buttons.
+- **September 17, 2026**: Added active Testmoz exam links for **Test #3** cards in `lib/test-series-data.ts`:
+  - **GK Unit 1 Test #3** (`gk-u1-t3`): `https://testmoz.com/q/15638828` (Slot 1, 7:00 PM - 7:30 PM, Current Affairs)
+  - **Education Unit 1 Test #3** (`education-u1-t3`): `https://testmoz.com/q/15638940` (Slot 2, 8:00 PM - 8:30 PM, Philosophical Foundation of Education)
+  - Updated card status dynamically to `'available'` with active "START TEST" buttons.
+- **September 17, 2026**: Integrated **YouTube** (`https://www.youtube.com/@Researchorbit`) and **Facebook** (`https://www.facebook.com/vimal.singh.908`) social media accounts:
+  - Created a dedicated, glassmorphic `FloatingSocialDock` component (`components/floating-social-dock.tsx`) placed on the landing page anchored at the bottom center (`fixed bottom-6 left-1/2 -translate-x-1/2 z-40`), positioned between the Digital Twin AI Chatbot (bottom-right) and WhatsApp (bottom-left).
+  - Updated `personalInfo.links` in `lib/cv-data.ts` to include official YouTube (`@Researchorbit`) and Facebook (`vimal.singh.908`) profiles.
+  - Added direct links into `SiteFooter` (`components/site-footer.tsx`) and `KnowYourProfessorChatbot` (`components/know-your-professor-chatbot.tsx`).
 
 ---
 
