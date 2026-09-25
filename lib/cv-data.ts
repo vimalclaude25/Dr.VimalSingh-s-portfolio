@@ -1546,6 +1546,18 @@ export interface ResearchNewsItem {
 
 export const researchNewsData: ResearchNewsItem[] = [
   {
+    id: 24,
+    title: 'डॉ. विमल बने टेलर एंड फ्रांसिस के एसो. एडिटर',
+    source: 'Newspaper (Kanpur)',
+    date: '25 September 2026',
+    desc: 'कानपुर। सीएसजेएमयू में असिस्टेंट प्रोफेसर डॉ. विमल सिंह को अंतरराष्ट्रीय प्रकाशक टेलर एंड फ्रांसिस ने प्रतिष्ठित जर्नल कोजेंट एजुकेशन में एसोसिएट एडिटर- इंफॉर्मेशन एंड कम्युनिकेशन टेक्नोलॉजी की जिम्मेदारी मिली है।',
+    category: 'media-coverage',
+    subcategory: 'Newspaper Coverage',
+    mediaType: 'Newspaper',
+    image: '/taylor-francis-editor-newspaper.jpg',
+    imageOnly: false,
+  },
+  {
     id: 22,
     title: 'एआई से पढ़ाई के साथ शिक्षक भी जरूरी',
     source: 'My City Reporter (Kanpur)',
