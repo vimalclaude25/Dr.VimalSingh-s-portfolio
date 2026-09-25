@@ -157,6 +157,15 @@ academic-portfolio-website/
   - **GK Unit 1 Test #3** (`gk-u1-t3`): `https://testmoz.com/q/15638828` (Slot 1, 7:00 PM - 7:30 PM, Current Affairs)
   - **Education Unit 1 Test #3** (`education-u1-t3`): `https://testmoz.com/q/15638940` (Slot 2, 8:00 PM - 8:30 PM, Philosophical Foundation of Education)
   - Updated card status dynamically to `'available'` with active "START TEST" buttons.
+- **September 25, 2026**: Added active Testmoz exam links for **Test #4 & #5 (Unit 1)** and **Test #1 & #2 (Unit 2)** in `lib/test-series-data.ts`:
+  - **GK Unit 1 Test #4** (`gk-u1-t4`): `https://testmoz.com/q/15644610` (Slot 1, 7:00 PM – Current Affairs)
+  - **Education Unit 1 Test #4** (`education-u1-t4`): `https://testmoz.com/q/15644602` (Slot 2, 8:00 PM – Philosophical Foundation of Education)
+  - **GK Unit 1 Test #5** (`gk-u1-t5`): `https://testmoz.com/q/15646386` (Slot 1, 7:00 PM – Current Affairs)
+  - **Education Unit 1 Test #5** (`education-u1-t5`): `https://testmoz.com/q/15646388` (Slot 2, 8:00 PM – Philosophical Foundation of Education)
+  - **GK Unit 2 Test #1** (`gk-u2-t1`): `https://testmoz.com/q/15653214` (Slot 1, 7:00 PM – Teaching and Research Aptitude)
+  - **Education Unit 2 Test #1** (`education-u2-t1`): `https://testmoz.com/q/15653256` (Slot 2, 8:00 PM – Sociological Foundations of Education)
+  - **GK Unit 2 Test #2** (`gk-u2-t2`): `https://testmoz.com/q/15654594` (Slot 1, 7:00 PM – Teaching and Research Aptitude)
+  - **Education Unit 2 Test #2** (`education-u2-t2`): `https://testmoz.com/q/15654608` (Slot 2, 8:00 PM – Sociological Foundations of Education)
 - **September 17, 2026**: Integrated **YouTube** (`https://www.youtube.com/@Researchorbit`) and **Facebook** (`https://www.facebook.com/vimal.singh.908`) social media accounts:
   - Created a dedicated, glassmorphic `FloatingSocialDock` component (`components/floating-social-dock.tsx`) placed on the landing page anchored at the bottom center (`fixed bottom-6 left-1/2 -translate-x-1/2 z-40`), positioned between the Digital Twin AI Chatbot (bottom-right) and WhatsApp (bottom-left).
   - Updated `personalInfo.links` in `lib/cv-data.ts` to include official YouTube (`@Researchorbit`) and Facebook (`vimal.singh.908`) profiles.
