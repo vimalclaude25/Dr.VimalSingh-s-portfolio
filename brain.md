@@ -175,7 +175,7 @@ academic-portfolio-website/
   - Created `pyqsData` data structure and `PYQItem` interface in `lib/cv-data.ts`.
   - Added **PYQs (Question Papers)** tab in navigation bar dropdown with sub-categories for **Mid Term Examination Papers** and **End Term Examination Papers**.
   - Structured Course Resources page (`app/(main)/course-resources/page.tsx`) with Mid Term and End Term section headings and filter controls.
-  - Removed PYQ paper card/box grids as per user preference (keeping headings & filter controls clean).
+  - Removed PYQ paper card/box grids and "Papers Available" badges as per user preference (keeping headings & filter controls clean).
   - Temporarily removed `FloatingSocialDock` (YouTube & Facebook floating buttons on left side) from `app/(main)/layout.tsx` (reusable anytime).
 
 ---
