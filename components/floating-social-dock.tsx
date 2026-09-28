@@ -11,26 +11,26 @@ export function FloatingSocialDock() {
   const facebookUrl = personalInfo.links.facebook || 'https://www.facebook.com/vimal.singh.908'
 
   return (
-    <div className="fixed bottom-6 left-1/2 -translate-x-1/2 z-40 flex items-center">
+    <div className="fixed left-4 top-1/2 -translate-y-1/2 z-40 flex flex-col items-center sm:left-6">
       <motion.div
-        initial={{ opacity: 0, y: 20, scale: 0.9 }}
-        animate={{ opacity: 1, y: 0, scale: 1 }}
+        initial={{ opacity: 0, x: -20, scale: 0.9 }}
+        animate={{ opacity: 1, x: 0, scale: 1 }}
         transition={{ duration: 0.4, delay: 0.2 }}
-        className="flex items-center gap-2 rounded-full border border-border/70 bg-card/80 p-1.5 shadow-2xl backdrop-blur-md dark:border-white/10 dark:bg-navy/80"
+        className="flex flex-col items-center gap-2.5 rounded-full border border-border/70 bg-card/80 p-2 shadow-2xl backdrop-blur-md dark:border-white/10 dark:bg-navy/80"
       >
         {/* YouTube Action Button */}
         <div className="relative">
           <AnimatePresence>
             {hoveredItem === 'youtube' && (
               <motion.div
-                initial={{ opacity: 0, y: 8, scale: 0.9 }}
-                animate={{ opacity: 1, y: -45, scale: 1 }}
-                exit={{ opacity: 0, y: 8, scale: 0.9 }}
+                initial={{ opacity: 0, x: -8, scale: 0.9 }}
+                animate={{ opacity: 1, x: 0, scale: 1 }}
+                exit={{ opacity: 0, x: -8, scale: 0.9 }}
                 transition={{ duration: 0.15 }}
-                className="pointer-events-none absolute left-1/2 -translate-x-1/2 whitespace-nowrap rounded-xl border border-red-500/20 bg-card px-2.5 py-1 text-[11px] font-semibold text-red-600 shadow-xl backdrop-blur-md dark:bg-slate-900 dark:text-red-400"
+                className="pointer-events-none absolute left-full top-1/2 ml-3 -translate-y-1/2 whitespace-nowrap rounded-xl border border-red-500/20 bg-card px-2.5 py-1 text-[11px] font-semibold text-red-600 shadow-xl backdrop-blur-md dark:bg-slate-900 dark:text-red-400"
               >
                 YouTube &bull; @Researchorbit
-                <div className="absolute -bottom-1 left-1/2 h-2 w-2 -translate-x-1/2 rotate-45 border-b border-r border-red-500/20 bg-card dark:bg-slate-900" />
+                <div className="absolute -left-1 top-1/2 h-2 w-2 -translate-y-1/2 rotate-45 border-b border-l border-red-500/20 bg-card dark:bg-slate-900" />
               </motion.div>
             )}
           </AnimatePresence>
@@ -56,22 +56,22 @@ export function FloatingSocialDock() {
           </motion.a>
         </div>
 
-        {/* Vertical divider */}
-        <div className="h-5 w-[1px] bg-border/80 dark:bg-white/10" />
+        {/* Horizontal divider for vertical dock */}
+        <div className="w-5 h-[1px] bg-border/80 dark:bg-white/10" />
 
         {/* Facebook Action Button */}
         <div className="relative">
           <AnimatePresence>
             {hoveredItem === 'facebook' && (
               <motion.div
-                initial={{ opacity: 0, y: 8, scale: 0.9 }}
-                animate={{ opacity: 1, y: -45, scale: 1 }}
-                exit={{ opacity: 0, y: 8, scale: 0.9 }}
+                initial={{ opacity: 0, x: -8, scale: 0.9 }}
+                animate={{ opacity: 1, x: 0, scale: 1 }}
+                exit={{ opacity: 0, x: -8, scale: 0.9 }}
                 transition={{ duration: 0.15 }}
-                className="pointer-events-none absolute left-1/2 -translate-x-1/2 whitespace-nowrap rounded-xl border border-blue-500/20 bg-card px-2.5 py-1 text-[11px] font-semibold text-blue-600 shadow-xl backdrop-blur-md dark:bg-slate-900 dark:text-blue-400"
+                className="pointer-events-none absolute left-full top-1/2 ml-3 -translate-y-1/2 whitespace-nowrap rounded-xl border border-blue-500/20 bg-card px-2.5 py-1 text-[11px] font-semibold text-blue-600 shadow-xl backdrop-blur-md dark:bg-slate-900 dark:text-blue-400"
               >
                 Facebook &bull; vimal.singh.908
-                <div className="absolute -bottom-1 left-1/2 h-2 w-2 -translate-x-1/2 rotate-45 border-b border-r border-blue-500/20 bg-card dark:bg-slate-900" />
+                <div className="absolute -left-1 top-1/2 h-2 w-2 -translate-y-1/2 rotate-45 border-b border-l border-blue-500/20 bg-card dark:bg-slate-900" />
               </motion.div>
             )}
           </AnimatePresence>
