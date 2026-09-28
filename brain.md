@@ -172,10 +172,9 @@ academic-portfolio-website/
   - Updated `personalInfo.links` in `lib/cv-data.ts` to include official YouTube (`@Researchorbit`) and Facebook (`vimal.singh.908`) profiles.
   - Added direct links into `SiteFooter` (`components/site-footer.tsx`) and `KnowYourProfessorChatbot` (`components/know-your-professor-chatbot.tsx`).
 - **September 28, 2026**: Integrated **PYQs (Previous Year Question Papers)** module & UI refinements:
-  - Created `pyqsData` data structure and `PYQItem` interface in `lib/cv-data.ts`.
+  - Created `pyqsData` data structure and `PYQItem` interface in `lib/cv-data.ts` (set to `[]` for initial zero count state until real papers are uploaded).
   - Added **PYQs (Question Papers)** tab in navigation bar dropdown with sub-categories for **Mid Term Examination Papers** and **End Term Examination Papers**.
-  - Structured Course Resources page (`app/(main)/course-resources/page.tsx`) with Mid Term and End Term section headings and filter controls.
-  - Removed PYQ paper card/box grids and "Papers Available" badges as per user preference (keeping headings & filter controls clean).
+  - Structured Course Resources page (`app/(main)/course-resources/page.tsx`) with Mid Term and End Term section headings, filter controls showing `All Papers (0)`, `Mid Term (0)`, `End Term (0)`, and clean empty state notices.
   - Temporarily removed `FloatingSocialDock` (YouTube & Facebook floating buttons on left side) from `app/(main)/layout.tsx` (reusable anytime).
 
 ---
