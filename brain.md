@@ -168,6 +168,7 @@ academic-portfolio-website/
   - **Education Unit 2 Test #2** (`education-u2-t2`): `https://testmoz.com/q/15654608` (Slot 2, 8:00 PM – Sociological Foundations of Education)
 - **September 17, 2026**: Integrated **YouTube** (`https://www.youtube.com/@Researchorbit`) and **Facebook** (`https://www.facebook.com/vimal.singh.908`) social media accounts:
   - Created a dedicated, glassmorphic `FloatingSocialDock` component (`components/floating-social-dock.tsx`) anchored vertically on the left side edge (`fixed left-4 top-1/2 -translate-y-1/2 z-40 sm:left-6`), clearing the bottom center area so page content is never obstructed.
+  - Reconfigured `FloatingWhatsApp` and `KnowYourProfessorChatbot` floating banners to be hover-triggered and auto-dismissing, preventing floating tooltips from covering section headings ("News & Events") and bottom page text.
   - Updated `personalInfo.links` in `lib/cv-data.ts` to include official YouTube (`@Researchorbit`) and Facebook (`vimal.singh.908`) profiles.
   - Added direct links into `SiteFooter` (`components/site-footer.tsx`) and `KnowYourProfessorChatbot` (`components/know-your-professor-chatbot.tsx`).
 

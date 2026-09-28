@@ -107,11 +107,11 @@ export function KnowYourProfessorChatbot() {
   useEffect(() => {
     const showTimer = setTimeout(() => {
       setShowWelcomeBubble(true)
-    }, 3000)
+    }, 2000)
 
     const hideTimer = setTimeout(() => {
       setShowWelcomeBubble(false)
-    }, 11000)
+    }, 6000)
 
     return () => {
       clearTimeout(showTimer)

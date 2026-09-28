@@ -4,18 +4,22 @@ import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 
 export function FloatingWhatsApp() {
-  const [showTooltip, setShowTooltip] = useState(true)
+  const [showTooltip, setShowTooltip] = useState(false)
 
   return (
-    <div className="fixed bottom-6 left-6 z-50 flex items-center gap-3">
-      {/* Tooltip banner */}
+    <div 
+      className="fixed bottom-6 left-6 z-50 flex items-center gap-3"
+      onMouseEnter={() => setShowTooltip(true)}
+      onMouseLeave={() => setShowTooltip(false)}
+    >
+      {/* Tooltip banner - shows cleanly on hover */}
       <AnimatePresence>
         {showTooltip && (
           <motion.div
             initial={{ opacity: 0, x: -15, scale: 0.9 }}
             animate={{ opacity: 1, x: 0, scale: 1 }}
             exit={{ opacity: 0, x: -15, scale: 0.9 }}
-            className="relative hidden items-center gap-2 rounded-2xl border border-emerald-500/30 bg-card p-3 shadow-xl backdrop-blur-md sm:flex dark:border-emerald-500/20"
+            className="relative hidden items-center gap-2 rounded-2xl border border-emerald-500/30 bg-card p-2.5 shadow-xl backdrop-blur-md sm:flex dark:border-emerald-500/20"
           >
             <div className="flex flex-col">
               <span className="text-xs font-bold text-navy dark:text-white">
@@ -25,15 +29,6 @@ export function FloatingWhatsApp() {
                 +91 7905184427
               </span>
             </div>
-            <button
-              onClick={() => setShowTooltip(false)}
-              className="ml-2 text-xs font-bold text-muted-foreground hover:text-foreground"
-              aria-label="Close tooltip"
-            >
-              ×
-            </button>
-            {/* Arrow pointer */}
-            <div className="absolute -right-1.5 top-1/2 h-3 w-3 -translate-y-1/2 rotate-45 border-r border-t border-emerald-500/30 bg-card dark:border-emerald-500/20" />
           </motion.div>
         )}
       </AnimatePresence>
@@ -46,8 +41,7 @@ export function FloatingWhatsApp() {
         aria-label="Contact Dr. Vimal Singh on WhatsApp"
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.95 }}
-        onMouseEnter={() => setShowTooltip(true)}
-        className="relative flex h-14 w-14 items-center justify-center rounded-full bg-[#25D366] text-white shadow-2xl transition-all duration-300 hover:bg-[#20ba5a] hover:shadow-emerald-500/40"
+        className="relative flex h-13 w-13 items-center justify-center rounded-full bg-[#25D366] text-white shadow-2xl transition-all duration-300 hover:bg-[#20ba5a] hover:shadow-emerald-500/40"
       >
         {/* Pulsing badge */}
         <span className="absolute -right-0.5 -top-0.5 flex h-3.5 w-3.5">
@@ -57,7 +51,7 @@ export function FloatingWhatsApp() {
 
         {/* WhatsApp SVG Icon */}
         <svg
-          className="h-7 w-7 fill-current"
+          className="h-6 w-6 fill-current"
           viewBox="0 0 24 24"
           xmlns="http://www.w3.org/2000/svg"
         >
