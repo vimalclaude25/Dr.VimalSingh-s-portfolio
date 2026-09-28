@@ -172,6 +172,7 @@ academic-portfolio-website/
   - Updated `personalInfo.links` in `lib/cv-data.ts` to include official YouTube (`@Researchorbit`) and Facebook (`vimal.singh.908`) profiles.
   - Added direct links into `SiteFooter` (`components/site-footer.tsx`) and `KnowYourProfessorChatbot` (`components/know-your-professor-chatbot.tsx`).
 - **September 28, 2026**: Integrated **PYQs (Previous Year Question Papers)** module & **Peer Review Section** additions:
+  - Updated total **Citations** stat counter to **119** in `components/hero-section.tsx`.
   - Added **Public Health Challenges** (*John Wiley & Sons Ltd*, Q1, SJR 0.569, ISSN 2769-2450) to `peerReviewServiceData` in `lib/cv-data.ts`, bringing total reviewed journals counter to **10+**.
   - Added **MED104** (*Research Methods in Education - General Perspectives*, M.Ed. Sem I 2026-27) and **MED305** (*Educational Administration & Planning*, M.Ed. Sem III 2025-27) to `pyqsData` in `lib/cv-data.ts` with downloadable PDF assets.
   - Temporarily removed `FloatingSocialDock` (YouTube & Facebook floating buttons on left side) from `app/(main)/layout.tsx` (reusable anytime).
