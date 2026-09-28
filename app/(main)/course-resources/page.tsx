@@ -567,7 +567,7 @@ function CourseResourcesContent() {
                         : 'text-muted-foreground hover:text-foreground'
                     }`}
                   >
-                    All Papers ({pyqsData.length})
+                    All Papers
                   </button>
                   <button
                     onClick={() => setPyqExamFilter('Mid Term')}
@@ -577,7 +577,7 @@ function CourseResourcesContent() {
                         : 'text-muted-foreground hover:text-foreground'
                     }`}
                   >
-                    Mid Term ({pyqsData.filter(p => p.examType === 'Mid Term').length})
+                    Mid Term
                   </button>
                   <button
                     onClick={() => setPyqExamFilter('End Term')}
@@ -587,7 +587,7 @@ function CourseResourcesContent() {
                         : 'text-muted-foreground hover:text-foreground'
                     }`}
                   >
-                    End Term ({pyqsData.filter(p => p.examType === 'End Term').length})
+                    End Term
                   </button>
                 </div>
               </div>
