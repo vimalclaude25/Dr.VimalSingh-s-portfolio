@@ -3300,10 +3300,10 @@ export interface PeerReviewJournal {
 
 export const peerReviewServiceData = {
   stats: [
-    { value: '09+', label: 'Journals Reviewed' },
+    { value: '10+', label: 'Journals Reviewed' },
     { value: 'Q1–Q3', label: 'Journal Quartiles' },
     { value: 'International', label: 'Publishers (Springer, Elsevier, Wiley, SAGE)' },
-    { value: 'Psychometrics • Education • Psychology • Research Methodology', label: 'Core Expertise Domains' }
+    { value: 'Psychometrics • Education • Psychology • Public Health • Research Methodology', label: 'Core Expertise Domains' }
   ],
   journals: [
     {
@@ -3405,6 +3405,19 @@ export const peerReviewServiceData = {
       statusType: 'completed' as const,
       year: '2024–2025',
       topics: ['Educational Inquiry', 'Higher Education Policy', 'Pedagogy']
+    },
+    {
+      id: 10,
+      journalName: 'Public Health Challenges',
+      publisher: 'John Wiley and Sons Ltd',
+      quartile: 'Q1' as const,
+      sjr: '0.569',
+      issn: '2769-2450',
+      link: 'https://www.scimagojr.com/journalsearch.php?q=21101226575&tip=sid&clean=0',
+      role: 'Peer Reviewer',
+      statusType: 'completed' as const,
+      year: '2025–2026',
+      topics: ['Public Health', 'Epidemiology', 'Healthcare Policy & Global Health']
     }
   ],
   closingQuote: '“Peer review is not merely an academic responsibility; it is a contribution to the integrity, quality and advancement of scholarly knowledge.”'
