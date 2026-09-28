@@ -3426,7 +3426,39 @@ export interface PYQItem {
   duration?: string
 }
 
-export const pyqsData: PYQItem[] = []
+export const pyqsData: PYQItem[] = [
+  // --- Mid Term Examination Papers ---
+  {
+    id: 1787400000104,
+    title: 'Research Methods in Education (MED104) (General Perspectives) — First Mid-Semester Examination Paper',
+    courseCode: 'MED104',
+    courseName: 'Research Methods in Education (General Perspectives)',
+    examType: 'Mid Term',
+    year: '2026–27 (Odd Semester)',
+    semester: 'M.Ed. I Semester',
+    date: '2026–27',
+    fileSize: '1.2 MB',
+    link: '/course-materials/pyq-med104-midterm-2026.pdf',
+    desc: 'Official M.Ed. Semester I First Mid-Semester Examination Question Paper. Covers Section A (Philosophy, Metaphysics, Epistemology, Axiology, Positivism, Interpretivism, Pragmatism, Critical Theory), Section B (Types of Research), and Section C (Research Design Windows & Positivist Paradigm Comparisons).',
+    totalMarks: 30,
+    duration: '1.5 Hours'
+  },
+  {
+    id: 1787400000305,
+    title: 'Educational Administration & Planning (MED 305) — First Mid-Semester Examination Paper',
+    courseCode: 'MED305',
+    courseName: 'Educational Administration & Planning',
+    examType: 'Mid Term',
+    year: '2025–27 (Odd Semester)',
+    semester: 'M.Ed. III Semester',
+    date: '2025–27',
+    fileSize: '1.1 MB',
+    link: '/course-materials/pyq-med305-midterm-2025.pdf',
+    desc: 'Official M.Ed. Semester III First Mid-Semester Examination Question Paper. Covers Section A (9 MCQs on Educational Administration, Management, Personnel Administration, Conflict Management, Compliance & Decision Making), Section B (Short Answer Questions), and Section C (Long Answer Questions).',
+    totalMarks: 30,
+    duration: '1.5 Hours'
+  }
+]
 
 
 

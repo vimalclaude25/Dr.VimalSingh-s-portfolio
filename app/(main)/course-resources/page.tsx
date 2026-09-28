@@ -610,11 +610,84 @@ function CourseResourcesContent() {
                       </p>
                     </div>
                   </div>
+                  {midTermPyqs.length > 0 && (
+                    <span className="rounded-full bg-amber-500/10 px-3 py-1 text-xs font-bold text-amber-600 dark:text-amber-400 border border-amber-500/20">
+                      {midTermPyqs.length} Paper{midTermPyqs.length === 1 ? '' : 's'} Available
+                    </span>
+                  )}
                 </div>
 
-                <div className="rounded-2xl border border-dashed border-border/70 p-6 text-center text-xs text-muted-foreground bg-muted/10">
-                  Abhi koi Mid Term question paper upload nahi hai. Soon papers will be uploaded here.
-                </div>
+                {midTermPyqs.length > 0 ? (
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    {midTermPyqs.map((paper) => (
+                      <div
+                        key={paper.id}
+                        className="group relative flex flex-col justify-between rounded-3xl border border-border bg-card p-6 shadow-sm transition-all duration-300 hover:border-amber-500/40 hover:shadow-xl dark:border-slate-800"
+                      >
+                        <div>
+                          <div className="flex flex-wrap items-center justify-between gap-2 mb-3">
+                            <div className="flex items-center gap-2">
+                              <span className="rounded-xl bg-amber-500/15 px-2.5 py-1 text-[11px] font-extrabold text-amber-600 dark:text-amber-400 uppercase tracking-wider">
+                                {paper.examType}
+                              </span>
+                              <span className="rounded-xl bg-royal/10 px-2.5 py-1 text-[11px] font-bold text-royal">
+                                {paper.courseCode}
+                              </span>
+                            </div>
+                            <span className="text-xs font-medium text-muted-foreground flex items-center gap-1">
+                              <Calendar className="h-3.5 w-3.5" /> {paper.year}
+                            </span>
+                          </div>
+
+                          <h4 className="font-heading text-base font-bold text-navy dark:text-white group-hover:text-amber-600 transition-colors leading-snug">
+                            {paper.title}
+                          </h4>
+
+                          <p className="mt-2 text-xs text-muted-foreground line-clamp-3 leading-relaxed">
+                            {paper.desc}
+                          </p>
+
+                          <div className="mt-4 flex flex-wrap items-center gap-4 text-xs text-muted-foreground border-t border-border/50 pt-3">
+                            {paper.duration && (
+                              <span className="flex items-center gap-1 font-medium">
+                                <Clock className="h-3.5 w-3.5 text-amber-600" /> {paper.duration}
+                              </span>
+                            )}
+                            {paper.totalMarks && (
+                              <span className="flex items-center gap-1 font-medium">
+                                <Award className="h-3.5 w-3.5 text-amber-600" /> Max Marks: {paper.totalMarks}
+                              </span>
+                            )}
+                            <span className="font-medium text-muted-foreground">
+                              {paper.semester}
+                            </span>
+                          </div>
+                        </div>
+
+                        <div className="mt-6 flex items-center justify-between gap-3 border-t border-border/60 pt-4">
+                          <span className="text-[11px] text-muted-foreground font-mono">
+                            {paper.fileSize}
+                          </span>
+                          <div className="flex items-center gap-2">
+                            <a
+                              href={paper.link}
+                              download
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="inline-flex items-center gap-1.5 rounded-xl bg-amber-600 px-4 py-2 text-xs font-bold text-white shadow-md hover:bg-amber-700 transition-all cursor-pointer"
+                            >
+                              <Download className="h-3.5 w-3.5" /> Download Question Paper
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                ) : (
+                  <div className="rounded-2xl border border-dashed border-border/70 p-6 text-center text-xs text-muted-foreground bg-muted/10">
+                    Abhi koi Mid Term question paper upload nahi hai. Soon papers will be uploaded here.
+                  </div>
+                )}
               </div>
             )}
 
@@ -635,11 +708,84 @@ function CourseResourcesContent() {
                       </p>
                     </div>
                   </div>
+                  {endTermPyqs.length > 0 && (
+                    <span className="rounded-full bg-emerald-500/10 px-3 py-1 text-xs font-bold text-emerald-600 dark:text-emerald-400 border border-emerald-500/20">
+                      {endTermPyqs.length} Paper{endTermPyqs.length === 1 ? '' : 's'} Available
+                    </span>
+                  )}
                 </div>
 
-                <div className="rounded-2xl border border-dashed border-border/70 p-6 text-center text-xs text-muted-foreground bg-muted/10">
-                  Abhi koi End Term question paper upload nahi hai. Soon papers will be uploaded here.
-                </div>
+                {endTermPyqs.length > 0 ? (
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    {endTermPyqs.map((paper) => (
+                      <div
+                        key={paper.id}
+                        className="group relative flex flex-col justify-between rounded-3xl border border-border bg-card p-6 shadow-sm transition-all duration-300 hover:border-emerald-500/40 hover:shadow-xl dark:border-slate-800"
+                      >
+                        <div>
+                          <div className="flex flex-wrap items-center justify-between gap-2 mb-3">
+                            <div className="flex items-center gap-2">
+                              <span className="rounded-xl bg-emerald-500/15 px-2.5 py-1 text-[11px] font-extrabold text-emerald-600 dark:text-emerald-400 uppercase tracking-wider">
+                                {paper.examType}
+                              </span>
+                              <span className="rounded-xl bg-royal/10 px-2.5 py-1 text-[11px] font-bold text-royal">
+                                {paper.courseCode}
+                              </span>
+                            </div>
+                            <span className="text-xs font-medium text-muted-foreground flex items-center gap-1">
+                              <Calendar className="h-3.5 w-3.5" /> {paper.year}
+                            </span>
+                          </div>
+
+                          <h4 className="font-heading text-base font-bold text-navy dark:text-white group-hover:text-emerald-600 transition-colors leading-snug">
+                            {paper.title}
+                          </h4>
+
+                          <p className="mt-2 text-xs text-muted-foreground line-clamp-3 leading-relaxed">
+                            {paper.desc}
+                          </p>
+
+                          <div className="mt-4 flex flex-wrap items-center gap-4 text-xs text-muted-foreground border-t border-border/50 pt-3">
+                            {paper.duration && (
+                              <span className="flex items-center gap-1 font-medium">
+                                <Clock className="h-3.5 w-3.5 text-emerald-600" /> {paper.duration}
+                              </span>
+                            )}
+                            {paper.totalMarks && (
+                              <span className="flex items-center gap-1 font-medium">
+                                <Award className="h-3.5 w-3.5 text-emerald-600" /> Max Marks: {paper.totalMarks}
+                              </span>
+                            )}
+                            <span className="font-medium text-muted-foreground">
+                              {paper.semester}
+                            </span>
+                          </div>
+                        </div>
+
+                        <div className="mt-6 flex items-center justify-between gap-3 border-t border-border/60 pt-4">
+                          <span className="text-[11px] text-muted-foreground font-mono">
+                            {paper.fileSize}
+                          </span>
+                          <div className="flex items-center gap-2">
+                            <a
+                              href={paper.link}
+                              download
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="inline-flex items-center gap-1.5 rounded-xl bg-emerald-600 px-4 py-2 text-xs font-bold text-white shadow-md hover:bg-emerald-700 transition-all cursor-pointer"
+                            >
+                              <Download className="h-3.5 w-3.5" /> Download Question Paper
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                ) : (
+                  <div className="rounded-2xl border border-dashed border-border/70 p-6 text-center text-xs text-muted-foreground bg-muted/10">
+                    Abhi koi End Term question paper upload nahi hai. Soon papers will be uploaded here.
+                  </div>
+                )}
               </div>
             )}
           </motion.div>
