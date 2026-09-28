@@ -22,10 +22,13 @@ import {
   Award,
   X,
   Maximize2,
-  Info
+  Info,
+  GraduationCap,
+  FileCheck,
+  HelpCircle
 } from 'lucide-react'
 import Link from 'next/link'
-import { coursesData, studyResourcesData, Course, StudyResource } from '@/lib/cv-data'
+import { coursesData, studyResourcesData, pyqsData, Course, StudyResource, PYQItem } from '@/lib/cv-data'
 
 function YouTubeIcon({ className = "h-5 w-5" }: { className?: string }) {
   return (
@@ -38,10 +41,14 @@ function YouTubeIcon({ className = "h-5 w-5" }: { className?: string }) {
 function CourseResourcesContent() {
   const searchParams = useSearchParams()
   const sectionParam = searchParams.get('section')
+  const examParam = searchParams.get('exam')
   
-  // Section Navigation (Courses i teach vs Study Materials & Resources)
-  const [activeTab, setActiveTab] = useState<'courses' | 'materials'>('courses')
+  // Section Navigation (Courses i teach vs Study Materials vs PYQs)
+  const [activeTab, setActiveTab] = useState<'courses' | 'materials' | 'pyqs'>('courses')
   
+  // PYQ Filter
+  const [pyqExamFilter, setPyqExamFilter] = useState<'All' | 'Mid Term' | 'End Term'>('All')
+
   // Selected course for details
   const [selectedCourseCode, setSelectedCourseCode] = useState<string>('MED104')
   
@@ -58,12 +65,19 @@ function CourseResourcesContent() {
   const [infoExpandedSection, setInfoExpandedSection] = useState<number | null>(0)
 
   useEffect(() => {
-    if (sectionParam === 'materials' || sectionParam === 'infographics') {
+    if (sectionParam === 'pyqs') {
+      setActiveTab('pyqs')
+      if (examParam === 'midterm') {
+        setPyqExamFilter('Mid Term')
+      } else if (examParam === 'endterm') {
+        setPyqExamFilter('End Term')
+      }
+    } else if (sectionParam === 'materials' || sectionParam === 'infographics') {
       setActiveTab('materials')
     } else if (sectionParam === 'courses') {
       setActiveTab('courses')
     }
-  }, [sectionParam])
+  }, [sectionParam, examParam])
 
   const selectedCourse = coursesData.find(c => c.code === selectedCourseCode) || coursesData[0]
 
@@ -77,6 +91,21 @@ function CourseResourcesContent() {
     const matchesType = typeFilter === 'All' || resource.type === typeFilter
     return matchesSearch && matchesType
   })
+
+  // Filter PYQs
+  const filteredPyqs = pyqsData.filter((paper) => {
+    const matchesSearch =
+      paper.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      paper.desc.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      paper.courseCode.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      paper.year.toLowerCase().includes(searchQuery.toLowerCase())
+    
+    const matchesExam = pyqExamFilter === 'All' || paper.examType === pyqExamFilter
+    return matchesSearch && matchesExam
+  })
+
+  const midTermPyqs = filteredPyqs.filter(p => p.examType === 'Mid Term')
+  const endTermPyqs = filteredPyqs.filter(p => p.examType === 'End Term')
 
   const getIcon = (type: string) => {
     switch (type) {
@@ -122,7 +151,7 @@ function CourseResourcesContent() {
 
       {/* Tab Switcher */}
       <div className="flex justify-center border-b border-border">
-        <div className="flex gap-8">
+        <div className="flex flex-wrap gap-4 sm:gap-8 justify-center">
           <button
             onClick={() => setActiveTab('courses')}
             className={`pb-4 text-sm font-bold tracking-wide transition-all border-b-2 cursor-pointer ${
@@ -143,6 +172,17 @@ function CourseResourcesContent() {
           >
             Study Materials & Resources
           </button>
+          <button
+            onClick={() => setActiveTab('pyqs')}
+            className={`pb-4 text-sm font-bold tracking-wide transition-all border-b-2 cursor-pointer flex items-center gap-2 ${
+              activeTab === 'pyqs'
+                ? 'border-royal text-royal font-extrabold'
+                : 'border-transparent text-muted-foreground hover:text-royal'
+            }`}
+          >
+            <FileCheck className="h-4 w-4" />
+            PYQs (Previous Year Questions)
+          </button>
         </div>
       </div>
 
@@ -158,171 +198,169 @@ function CourseResourcesContent() {
             id="courses"
           >
             {/* Sidebar list of courses */}
-            <div className="lg:col-span-4 space-y-4">
+            <div className="lg:col-span-4 space-y-3">
               <h3 className="font-heading text-xs font-bold uppercase tracking-wider text-muted-foreground mb-4">
                 Select Course
               </h3>
-              <div className="grid grid-cols-1 gap-3">
-                {coursesData.map((course) => (
+              {coursesData.map((course) => {
+                const isSelected = course.code === selectedCourseCode
+                return (
                   <button
                     key={course.code}
                     onClick={() => {
                       setSelectedCourseCode(course.code)
-                      setExpandedUnit(1) // Reset expanded unit
+                      setExpandedUnit(1)
                     }}
-                    className={`text-left p-5 rounded-2xl border transition-all duration-300 cursor-pointer ${
-                      selectedCourseCode === course.code
-                        ? 'border-royal/40 bg-royal/[0.03] shadow-md shadow-royal/5'
-                        : 'border-border bg-card hover:border-royal/20 hover:shadow-sm'
+                    className={`w-full text-left p-4 rounded-2xl border transition-all duration-200 cursor-pointer flex items-start justify-between gap-3 ${
+                      isSelected
+                        ? 'border-royal bg-royal/5 shadow-md dark:bg-royal/10'
+                        : 'border-border bg-card hover:border-royal/50 hover:bg-muted/50'
                     }`}
                   >
-                    <span className="inline-flex items-center gap-1.5 rounded-full bg-royal/10 px-2.5 py-0.5 text-[10px] font-bold text-royal mb-2">
-                      {course.code}
-                    </span>
-                    <h4 className="font-heading text-base font-bold text-navy dark:text-white leading-snug">
-                      {course.title}
-                    </h4>
-                    <p className="mt-1 text-xs text-muted-foreground">
-                      {course.semester}
-                    </p>
+                    <div>
+                      <div className="flex items-center gap-2">
+                        <span className={`text-xs font-extrabold px-2 py-0.5 rounded-md ${
+                          isSelected ? 'bg-royal text-white' : 'bg-muted text-muted-foreground'
+                        }`}>
+                          {course.code}
+                        </span>
+                        <span className="text-xs font-semibold text-muted-foreground">
+                          {course.semester}
+                        </span>
+                      </div>
+                      <h4 className="font-heading text-sm font-bold text-navy dark:text-white mt-2 leading-snug">
+                        {course.title}
+                      </h4>
+                      <p className="text-xs text-muted-foreground mt-1 line-clamp-1">
+                        {course.program} &bull; {course.credits} Credits
+                      </p>
+                    </div>
                   </button>
-                ))}
-              </div>
+                )
+              })}
             </div>
 
-            {/* Course details */}
-            <div className="lg:col-span-8 space-y-8 bg-card border border-border rounded-3xl p-6 sm:p-8 shadow-sm">
-              <div>
-                <span className="text-xs font-extrabold text-royal tracking-widest uppercase">
-                  {selectedCourse.semester}
-                </span>
-                <h2 className="font-heading text-2xl sm:text-3xl font-bold text-navy dark:text-white mt-1 leading-tight">
-                  {selectedCourse.title}
-                </h2>
-                <div className="mt-2 h-1 w-20 rounded-full bg-gold" />
-              </div>
-
-              {/* Objectives & Outcomes */}
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div className="space-y-3 bg-muted/40 p-5 rounded-2xl border border-border/40">
-                  <h4 className="font-heading text-sm font-bold text-navy dark:text-white flex items-center gap-2">
-                    <BookMarked className="h-4.5 w-4.5 text-royal" /> Course Objectives
-                  </h4>
-                  <ul className="space-y-2.5 text-xs text-muted-foreground">
-                    {selectedCourse.objectives.map((obj, i) => (
-                      <li key={i} className="flex gap-2 items-start">
-                        <span className="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-royal/80" />
-                        <span className="leading-relaxed">{obj}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-
-                <div className="space-y-3 bg-muted/40 p-5 rounded-2xl border border-border/40">
-                  <h4 className="font-heading text-sm font-bold text-navy dark:text-white flex items-center gap-2">
-                    <CheckCircle className="h-4.5 w-4.5 text-emerald-500" /> Course Outcomes
-                  </h4>
-                  <ul className="space-y-2.5 text-xs text-muted-foreground">
-                    {selectedCourse.outcomes.map((out, i) => (
-                      <li key={i} className="flex gap-2 items-start">
-                        <span className="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-emerald-500/80" />
-                        <span className="leading-relaxed">{out}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
-
-              {/* Syllabus Units (Accordion) */}
-              <div className="space-y-4">
-                <h4 className="font-heading text-sm font-bold text-navy dark:text-white border-b border-border pb-2">
-                  Course Syllabus Content
-                </h4>
-                <div className="space-y-2.5">
-                  {selectedCourse.units.map((unit) => {
-                    const isExpanded = expandedUnit === unit.number
-                    return (
-                      <div
-                        key={unit.number}
-                        className="border border-border/70 rounded-2xl overflow-hidden transition-all bg-card shadow-[0_1px_3px_rgba(0,0,0,0.02)]"
-                      >
-                        <button
-                          onClick={() => setExpandedUnit(isExpanded ? null : unit.number)}
-                          className="w-full flex items-center justify-between p-4 text-left font-semibold text-navy dark:text-white hover:bg-muted/50 transition-colors cursor-pointer"
-                        >
-                          <span className="text-xs sm:text-sm flex items-center gap-2.5">
-                            <span className="flex h-6 w-6 items-center justify-center rounded-full bg-royal/10 text-[11px] font-bold text-royal">
-                              U{unit.number}
-                            </span>
-                            {unit.title}
-                          </span>
-                          <ChevronDown className={`h-4.5 w-4.5 text-muted-foreground transition-transform duration-200 ${isExpanded ? 'rotate-180' : ''}`} />
-                        </button>
-                        
-                        <AnimatePresence initial={false}>
-                          {isExpanded && (
-                            <motion.div
-                              initial={{ height: 0 }}
-                              animate={{ height: 'auto' }}
-                              exit={{ height: 0 }}
-                              transition={{ duration: 0.25 }}
-                              className="overflow-hidden"
-                            >
-                              <div className="p-4 pt-1 bg-muted/20 border-t border-border/40">
-                                <ul className="space-y-2.5">
-                                  {unit.topics.map((topic, index) => (
-                                    <li key={index} className="flex gap-2.5 items-start text-xs leading-relaxed text-muted-foreground">
-                                      <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-gold" />
-                                      <span>{topic}</span>
-                                    </li>
-                                  ))}
-                                </ul>
-                              </div>
-                            </motion.div>
-                          )}
-                        </AnimatePresence>
+            {/* Course Details Main Panel */}
+            <div className="lg:col-span-8 space-y-6">
+              {selectedCourse && (
+                <div className="rounded-3xl border border-border bg-card p-6 sm:p-8 shadow-sm space-y-6">
+                  {/* Header info */}
+                  <div className="border-b border-border pb-6">
+                    <div className="flex flex-wrap items-center justify-between gap-3 mb-2">
+                      <div className="flex items-center gap-2">
+                        <span className="bg-royal text-white text-xs font-extrabold px-3 py-1 rounded-lg">
+                          {selectedCourse.code}
+                        </span>
+                        <span className="text-xs font-bold text-royal bg-royal/10 px-3 py-1 rounded-lg">
+                          {selectedCourse.program}
+                        </span>
                       </div>
-                    )
-                  })}
-                </div>
-              </div>
-
-              {/* Practicum & Suggested Readings */}
-              <div className="space-y-6 pt-4 border-t border-border/60">
-                {/* Practicum */}
-                {selectedCourse.practicum && selectedCourse.practicum.length > 0 && (
-                  <div className="space-y-2.5">
-                    <h4 className="font-heading text-sm font-bold text-navy dark:text-white flex items-center gap-2">
-                      <Presentation className="h-4.5 w-4.5 text-gold" /> Practicum / Evaluation Schema
-                    </h4>
-                    <ul className="grid grid-cols-1 md:grid-cols-2 gap-2 text-xs text-muted-foreground">
-                      {selectedCourse.practicum.map((prac, i) => (
-                        <li key={i} className="flex items-center gap-2 bg-muted/40 px-3 py-2 rounded-xl border border-border/30">
-                          <span className="h-1.5 w-1.5 rounded-full bg-gold" />
-                          <span>{prac}</span>
-                        </li>
-                      ))}
-                    </ul>
+                      <span className="text-xs font-semibold text-muted-foreground flex items-center gap-1">
+                        <BookMarked className="h-4 w-4 text-gold" /> {selectedCourse.credits} Academic Credits
+                      </span>
+                    </div>
+                    <h2 className="font-heading text-2xl font-bold text-navy dark:text-white sm:text-3xl mt-3">
+                      {selectedCourse.title}
+                    </h2>
+                    <p className="text-sm text-muted-foreground mt-2 leading-relaxed">
+                      {selectedCourse.description}
+                    </p>
                   </div>
-                )}
 
-                {/* Suggested Readings */}
-                <div className="space-y-3 pt-4 border-t border-border/40">
-                  <h4 className="font-heading text-sm font-bold text-navy dark:text-white flex items-center gap-2">
-                    <Award className="h-4.5 w-4.5 text-royal" /> Suggested Readings
-                  </h4>
-                  <ul className="space-y-2 max-h-56 overflow-y-auto pr-2 scrollbar-thin scrollbar-thumb-border">
-                    {selectedCourse.readings.map((reading, i) => (
-                      <li key={i} className="text-[11px] leading-relaxed text-muted-foreground bg-muted/20 px-3.5 py-2.5 rounded-xl border border-border/30">
-                        {reading}
-                      </li>
-                    ))}
-                  </ul>
+                  {/* Course Objectives */}
+                  {selectedCourse.objectives && selectedCourse.objectives.length > 0 && (
+                    <div className="space-y-3">
+                      <h3 className="font-heading text-sm font-bold uppercase tracking-wider text-navy dark:text-white flex items-center gap-2">
+                        <CheckCircle className="h-4 w-4 text-royal" /> Course Learning Objectives
+                      </h3>
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+                        {selectedCourse.objectives.map((obj, idx) => (
+                          <div key={idx} className="flex items-start gap-2 text-xs text-muted-foreground bg-muted/40 p-3 rounded-xl border border-border/40">
+                            <span className="mt-0.5 h-1.5 w-1.5 shrink-0 rounded-full bg-royal" />
+                            <span>{obj}</span>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+
+                  {/* Course Syllabus Units Accordion */}
+                  <div className="space-y-3 pt-2">
+                    <h3 className="font-heading text-sm font-bold uppercase tracking-wider text-navy dark:text-white flex items-center gap-2">
+                      <Layers className="h-4 w-4 text-royal" /> Syllabus Modules &amp; Topics
+                    </h3>
+                    <div className="space-y-3">
+                      {selectedCourse.units.map((unit) => {
+                        const isExpanded = expandedUnit === unit.unitNumber
+                        return (
+                          <div
+                            key={unit.unitNumber}
+                            className="border border-border/70 rounded-2xl overflow-hidden transition-all bg-muted/10 hover:bg-muted/30"
+                          >
+                            <button
+                              onClick={() => setExpandedUnit(isExpanded ? null : unit.unitNumber)}
+                              className="w-full flex items-center justify-between p-4 text-left font-semibold text-navy dark:text-white hover:bg-muted/40 transition-colors cursor-pointer"
+                            >
+                              <div className="flex items-center gap-3">
+                                <span className="flex h-7 w-7 items-center justify-center rounded-lg bg-royal/10 text-xs font-bold text-royal">
+                                  {unit.unitNumber}
+                                </span>
+                                <span className="text-sm font-bold text-navy dark:text-white">
+                                  {unit.title}
+                                </span>
+                              </div>
+                              <ChevronDown className={`h-4 w-4 text-muted-foreground transition-transform duration-200 ${isExpanded ? 'rotate-180' : ''}`} />
+                            </button>
+
+                            <AnimatePresence initial={false}>
+                              {isExpanded && (
+                                <motion.div
+                                  initial={{ height: 0 }}
+                                  animate={{ height: 'auto' }}
+                                  exit={{ height: 0 }}
+                                  transition={{ duration: 0.25 }}
+                                  className="overflow-hidden"
+                                >
+                                  <div className="p-4 pt-0 border-t border-border/30">
+                                    <ul className="space-y-2 mt-3">
+                                      {unit.topics.map((topic, tIdx) => (
+                                        <li key={tIdx} className="flex gap-2 items-start text-xs leading-relaxed text-muted-foreground">
+                                          <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-gold" />
+                                          <span>{topic}</span>
+                                        </li>
+                                      ))}
+                                    </ul>
+                                  </div>
+                                </motion.div>
+                              )}
+                            </AnimatePresence>
+                          </div>
+                        )
+                      })}
+                    </div>
+                  </div>
+
+                  {/* References */}
+                  {selectedCourse.references && selectedCourse.references.length > 0 && (
+                    <div className="space-y-3 border-t border-border pt-6">
+                      <h3 className="font-heading text-xs font-bold uppercase tracking-wider text-muted-foreground">
+                        Recommended Readings &amp; References
+                      </h3>
+                      <ul className="space-y-1.5">
+                        {selectedCourse.references.map((ref, rIdx) => (
+                          <li key={rIdx} className="text-xs text-muted-foreground italic flex items-start gap-2">
+                            <span className="text-royal font-bold">&bull;</span>
+                            <span>{ref}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
                 </div>
-              </div>
+              )}
             </div>
           </motion.div>
-        ) : (
+        ) : activeTab === 'materials' ? (
           <motion.div
             key="materials"
             initial={{ opacity: 0, y: 15 }}
@@ -332,198 +370,135 @@ function CourseResourcesContent() {
             className="space-y-8"
             id="materials"
           >
-            {/* Search and Filters Layout */}
-            <div className="flex flex-col md:flex-row gap-4 items-center justify-between bg-card border border-border rounded-3xl p-5 shadow-sm">
-              {/* Search Input */}
-              <div className="relative w-full md:max-w-md">
-                <Search className="absolute left-3.5 top-3 h-4.5 w-4.5 text-muted-foreground" />
+            {/* Filter controls bar */}
+            <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 rounded-3xl border border-border bg-card p-6 shadow-sm">
+              {/* Search */}
+              <div className="relative flex-1 max-w-md">
+                <Search className="absolute left-3.5 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
                 <input
                   type="text"
-                  placeholder="Search resources, lecture notes, topics..."
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  className="w-full rounded-2xl border border-border bg-muted/40 py-2.5 pl-11 pr-4 text-xs font-semibold text-foreground outline-none transition-colors focus:border-royal focus:bg-card"
+                  placeholder="Search resources, topics, or course codes..."
+                  className="w-full rounded-2xl border border-border bg-muted/30 pl-9 pr-4 py-2.5 text-xs focus:border-royal focus:outline-none dark:border-slate-800"
                 />
+                {searchQuery && (
+                  <button
+                    onClick={() => setSearchQuery('')}
+                    className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground"
+                  >
+                    <X className="h-4 w-4" />
+                  </button>
+                )}
               </div>
 
-              {/* Categories filters scroll list on mobile */}
-              <div className="flex w-full md:w-auto overflow-x-auto pb-1 md:pb-0 gap-1.5 scrollbar-thin scrollbar-thumb-border">
+              {/* Resource Type Filter Pills */}
+              <div className="flex flex-wrap items-center gap-1.5">
                 {(['All', 'PDF', 'PPT', 'Infographic', 'Video'] as const).map((type) => (
                   <button
                     key={type}
                     onClick={() => setTypeFilter(type)}
-                    className={`flex items-center gap-1.5 rounded-full px-4 py-2 text-xs font-bold whitespace-nowrap transition-colors cursor-pointer ${
+                    className={`rounded-xl px-3 py-1.5 text-xs font-bold transition-all cursor-pointer ${
                       typeFilter === type
-                        ? 'bg-royal text-white shadow-md'
-                        : 'border border-border bg-card text-muted-foreground hover:border-royal/30 hover:text-royal'
+                        ? 'bg-royal text-white shadow-sm'
+                        : 'bg-muted/50 text-muted-foreground hover:bg-muted hover:text-foreground'
                     }`}
                   >
-                    {type === 'All' ? (
-                      <SlidersHorizontal className="h-3 w-3" />
-                    ) : (
-                      (() => {
-                        const Icon = getIcon(type)
-                        return <Icon className="h-3 w-3" />
-                      })()
-                    )}
-                    {type === 'All' ? 'All Types' : `${type}s`}
+                    {type}
                   </button>
                 ))}
               </div>
             </div>
 
-            {/* Resources grid */}
-            <div className="min-h-[300px]">
+            {/* Study Material Grid */}
+            <div className="space-y-4">
               {filteredResources.length > 0 ? (
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                   {filteredResources.map((resource) => {
-                    const TypeIcon = getIcon(resource.type)
-                    const hasDetails = !!resource.details || resource.type === 'Infographic'
+                    const IconComp = getIcon(resource.type)
+                    const isInfographic = resource.type === 'Infographic' || resource.type === 'PPT'
+
                     return (
-                        <motion.div
-                          key={resource.id}
-                          layout
-                          initial={{ opacity: 0, scale: 0.96 }}
-                          animate={{ opacity: 1, scale: 1 }}
-                          exit={{ opacity: 0, scale: 0.96 }}
-                          transition={{ duration: 0.2 }}
-                          className={`flex flex-col justify-between rounded-3xl border border-border bg-card p-6 shadow-sm hover:border-royal/30 hover:shadow-lg transition-all ${
-                            hasDetails ? 'cursor-pointer group' : ''
-                          }`}
-                          onClick={
-                            hasDetails
-                              ? () => {
-                                  setSelectedInfographic(resource)
-                                  setInfoExpandedSection(0)
-                                }
-                              : undefined
-                          }
-                        >
-                          <div>
-                            {/* Thumbnail preview image if present */}
-                            {resource.thumbnail ? (
-                              <div className={`w-full overflow-hidden rounded-2xl mb-4 border border-border/40 bg-muted relative ${
-                                resource.type === 'Infographic' ? 'aspect-[3/4]' : 'aspect-video'
-                              }`}>
-                                <img
-                                  src={resource.thumbnail}
-                                  alt={resource.title}
-                                  className={`h-full w-full object-cover transition-transform duration-500 ${
-                                    hasDetails ? 'group-hover:scale-105' : 'hover:scale-105'
-                                  }`}
-                                  loading="lazy"
-                                />
-                                {hasDetails && (
-                                  <div className="absolute inset-0 bg-black/25 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                                    <span className="bg-white/95 text-navy dark:bg-navy/95 dark:text-white text-xs font-bold px-3.5 py-2 rounded-full flex items-center gap-1.5 shadow-md">
-                                      <Maximize2 className="h-3.5 w-3.5 text-royal" /> Preview Slides
-                                    </span>
-                                  </div>
-                                )}
-                              </div>
-                            ) : resource.type === 'PPT' ? (
-                              <div className="w-full aspect-[16/9] rounded-2xl mb-4 border border-royal/20 bg-gradient-to-br from-royal/10 via-navy/5 to-gold/10 p-4 flex flex-col justify-between relative group-hover:border-royal/40 transition-colors">
-                                <div className="flex items-center justify-between">
-                                  <span className="rounded-lg bg-royal/15 px-2.5 py-1 text-[10px] font-bold text-royal uppercase tracking-wider flex items-center gap-1">
-                                    <Presentation className="h-3.5 w-3.5" /> Lecture Deck
-                                  </span>
-                                  <span className="text-[10px] font-bold text-amber-600 dark:text-amber-400 bg-amber-500/10 px-2 py-0.5 rounded">
-                                    M.Ed. Paper IV
-                                  </span>
-                                </div>
-                                <div>
-                                  <p className="text-xs font-extrabold text-navy dark:text-white line-clamp-2">
-                                    {resource.title}
-                                  </p>
-                                  <p className="text-[10px] text-muted-foreground mt-1">Dr. Vimal Singh • CSJMU</p>
-                                </div>
-                                <div className="flex items-center justify-between text-[10px] font-semibold text-royal border-t border-royal/10 pt-2">
-                                  <span>{resource.fileSize || 'Presentation'}</span>
-                                  <span className="group-hover:translate-x-1 transition-transform">Explore Deck &rarr;</span>
-                                </div>
-                              </div>
-                            ) : null}
-
-                            {/* Header bar */}
-                            <div className="flex items-center justify-between gap-2 mb-3.5">
-                              <span className="inline-flex items-center gap-1 rounded-full bg-royal/10 px-2.5 py-0.5 text-[9px] font-bold text-royal uppercase tracking-wider">
-                                {resource.courseCode}
-                              </span>
-                              <span className="inline-flex items-center gap-1 rounded bg-muted px-2 py-0.5 text-[9px] font-bold text-muted-foreground uppercase">
-                                <TypeIcon className="h-3 w-3 text-royal" /> {resource.type}
-                              </span>
-                            </div>
-
-                            {/* Title & Desc */}
-                            <h3 className={`font-heading text-base font-bold text-navy dark:text-white leading-snug line-clamp-2 ${
-                              hasDetails ? 'group-hover:text-royal transition-colors' : ''
-                            }`}>
-                              {resource.title}
-                            </h3>
-                            <p className="mt-2 text-xs leading-relaxed text-muted-foreground line-clamp-3">
-                              {resource.desc}
-                            </p>
+                      <motion.div
+                        key={resource.id}
+                        layout
+                        initial={{ opacity: 0, scale: 0.95 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        exit={{ opacity: 0, scale: 0.95 }}
+                        transition={{ duration: 0.2 }}
+                        onClick={() => isInfographic ? setSelectedInfographic(resource) : null}
+                        className={`group relative flex flex-col justify-between rounded-3xl border border-border bg-card p-6 shadow-sm transition-all duration-300 hover:border-royal/40 hover:shadow-xl dark:border-slate-800 ${
+                          isInfographic ? 'cursor-pointer' : ''
+                        }`}
+                      >
+                        <div>
+                          {/* Top badge */}
+                          <div className="flex items-center justify-between mb-4">
+                            <span className="inline-flex items-center gap-1.5 rounded-xl bg-royal/10 px-2.5 py-1 text-[10px] font-extrabold uppercase tracking-wider text-royal">
+                              <IconComp className="h-3.5 w-3.5" />
+                              {resource.type}
+                            </span>
+                            <span className="text-[11px] font-semibold text-muted-foreground">
+                              {resource.courseCode}
+                            </span>
                           </div>
 
-                          {/* Actions / Metadata */}
-                          <div className="mt-6 flex justify-between items-center border-t border-border/60 pt-4 text-xs font-semibold">
-                            <span className="text-[10px] text-muted-foreground flex items-center gap-2">
-                              {resource.fileSize && (
-                                <span className="flex items-center gap-1">
-                                  <FileText className="h-3 w-3 opacity-60" /> {resource.fileSize}
+                          {/* Title */}
+                          <h3 className="font-heading text-base font-bold text-navy dark:text-white group-hover:text-royal transition-colors leading-snug">
+                            {resource.title}
+                          </h3>
+
+                          {/* Description */}
+                          <p className="mt-2 text-xs text-muted-foreground line-clamp-3 leading-relaxed">
+                            {resource.desc}
+                          </p>
+
+                          {/* Infographic Preview Badge if interactive */}
+                          {isInfographic && (
+                            <div className="mt-3 inline-flex items-center gap-1 text-[11px] font-semibold text-gold group-hover:underline">
+                              <Maximize2 className="h-3 w-3" /> View Interactive Infographic Details &bull;
+                            </div>
+                          )}
+                        </div>
+
+                        {/* Footer details */}
+                        <div className="mt-6 flex items-center justify-between border-t border-border/50 pt-4">
+                          <span className="text-[10px] font-medium text-muted-foreground">
+                            {resource.fileSize || resource.date}
+                          </span>
+
+                          {resource.link ? (
+                            isInfographic ? (
+                              <div className="flex items-center gap-2">
+                                <span className="inline-flex items-center gap-1 rounded-xl bg-royal/10 px-2.5 py-1 text-[10px] font-bold text-royal">
+                                  Details <Maximize2 className="h-3 w-3" />
                                 </span>
-                              )}
-                              {resource.duration && (
-                                <span className="flex items-center gap-1">
-                                  <Clock className="h-3 w-3 opacity-60" /> {resource.duration}
-                                </span>
-                              )}
-                              <span className="flex items-center gap-1">
-                                <Calendar className="h-3 w-3 opacity-60" /> {resource.date}
-                              </span>
-                            </span>
-                            
-                            {resource.link ? (
-                              resource.type === 'Video' ? (
                                 <a
                                   href={resource.link}
                                   target="_blank"
                                   rel="noopener noreferrer"
-                                  className="inline-flex items-center gap-1.5 rounded-xl bg-gold px-3.5 py-2 text-[10px] font-bold text-navy hover:bg-gold/90 transition-colors"
+                                  onClick={(e) => e.stopPropagation()}
+                                  className="inline-flex items-center gap-1 rounded-xl bg-royal px-2.5 py-1 text-[10px] font-bold text-white hover:bg-royal/95 transition-colors"
                                 >
-                                  Watch Video <ExternalLink className="h-3 w-3" />
-                                </a>
-                              ) : hasDetails ? (
-                                <div className="flex items-center gap-2">
-                                  <span className="inline-flex items-center gap-1 text-[10px] text-royal font-bold">
-                                    Slide Details &rarr;
-                                  </span>
-                                  <a
-                                    href={resource.link}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    onClick={(e) => e.stopPropagation()}
-                                    className="inline-flex items-center gap-1 rounded-xl bg-royal px-2.5 py-1 text-[10px] font-bold text-white hover:bg-royal/95 transition-colors"
-                                  >
-                                    <Download className="h-3 w-3" />
-                                  </a>
-                                </div>
-                              ) : (
-                                <a
-                                  href={resource.link}
-                                  target={resource.link.startsWith('/read/') ? undefined : '_blank'}
-                                  rel={resource.link.startsWith('/read/') ? undefined : 'noopener noreferrer'}
-                                  className="inline-flex items-center gap-1.5 rounded-xl bg-royal px-3.5 py-2 text-[10px] font-bold text-white hover:bg-royal/95 transition-colors"
-                                >
-                                  {resource.link.startsWith('/read/') ? 'Read Online' : 'Download'}
                                   <Download className="h-3 w-3" />
                                 </a>
-                              )
+                              </div>
                             ) : (
-                              <span className="text-[10px] text-muted-foreground italic bg-muted px-2.5 py-1.5 rounded-xl border border-border/40">No file attachment</span>
-                            )}
-                          </div>
-                        </motion.div>
+                              <a
+                                href={resource.link}
+                                target={resource.link.startsWith('/read/') ? undefined : '_blank'}
+                                rel={resource.link.startsWith('/read/') ? undefined : 'noopener noreferrer'}
+                                className="inline-flex items-center gap-1.5 rounded-xl bg-royal px-3.5 py-2 text-[10px] font-bold text-white hover:bg-royal/95 transition-colors"
+                              >
+                                {resource.link.startsWith('/read/') ? 'Read Online' : 'Download'}
+                                <Download className="h-3 w-3" />
+                              </a>
+                            )
+                          ) : (
+                            <span className="text-[10px] text-muted-foreground italic bg-muted px-2.5 py-1.5 rounded-xl border border-border/40">No file attachment</span>
+                          )}
+                        </div>
+                      </motion.div>
                     )
                   })}
                 </div>
@@ -535,7 +510,280 @@ function CourseResourcesContent() {
               )}
             </div>
           </motion.div>
-        )}
+        ) : activeTab === 'pyqs' ? (
+          <motion.div
+            key="pyqs"
+            initial={{ opacity: 0, y: 15 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -15 }}
+            transition={{ duration: 0.25 }}
+            className="space-y-10"
+            id="pyqs"
+          >
+            {/* Header & Filter Controls */}
+            <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 rounded-3xl border border-border bg-card p-6 shadow-sm">
+              <div>
+                <div className="flex items-center gap-2">
+                  <span className="flex h-8 w-8 items-center justify-center rounded-xl bg-royal/10 text-royal">
+                    <FileCheck className="h-4 w-4" />
+                  </span>
+                  <h2 className="font-heading text-xl font-bold text-navy dark:text-white">
+                    Previous Year Question Papers (PYQs)
+                  </h2>
+                </div>
+                <p className="mt-1 text-xs sm:text-sm text-muted-foreground">
+                  Official Mid Term and End Term Examination Question Papers for M.Ed. & B.Ed. Courses.
+                </p>
+              </div>
+
+              <div className="flex flex-wrap items-center gap-3">
+                {/* Search box */}
+                <div className="relative min-w-[220px]">
+                  <Search className="absolute left-3.5 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
+                  <input
+                    type="text"
+                    value={searchQuery}
+                    onChange={(e) => setSearchQuery(e.target.value)}
+                    placeholder="Search paper by course/year..."
+                    className="w-full rounded-2xl border border-border bg-muted/30 pl-9 pr-4 py-2 text-xs focus:border-royal focus:outline-none dark:border-slate-800"
+                  />
+                  {searchQuery && (
+                    <button
+                      onClick={() => setSearchQuery('')}
+                      className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground"
+                    >
+                      <X className="h-3.5 w-3.5" />
+                    </button>
+                  )}
+                </div>
+
+                {/* Sub-Category Filter Pills */}
+                <div className="flex items-center gap-1 rounded-2xl border border-border bg-muted/40 p-1">
+                  <button
+                    onClick={() => setPyqExamFilter('All')}
+                    className={`rounded-xl px-3 py-1.5 text-xs font-bold transition-all cursor-pointer ${
+                      pyqExamFilter === 'All'
+                        ? 'bg-royal text-white shadow-sm'
+                        : 'text-muted-foreground hover:text-foreground'
+                    }`}
+                  >
+                    All Papers ({pyqsData.length})
+                  </button>
+                  <button
+                    onClick={() => setPyqExamFilter('Mid Term')}
+                    className={`rounded-xl px-3 py-1.5 text-xs font-bold transition-all cursor-pointer ${
+                      pyqExamFilter === 'Mid Term'
+                        ? 'bg-amber-600 text-white shadow-sm'
+                        : 'text-muted-foreground hover:text-foreground'
+                    }`}
+                  >
+                    Mid Term ({pyqsData.filter(p => p.examType === 'Mid Term').length})
+                  </button>
+                  <button
+                    onClick={() => setPyqExamFilter('End Term')}
+                    className={`rounded-xl px-3 py-1.5 text-xs font-bold transition-all cursor-pointer ${
+                      pyqExamFilter === 'End Term'
+                        ? 'bg-emerald-600 text-white shadow-sm'
+                        : 'text-muted-foreground hover:text-foreground'
+                    }`}
+                  >
+                    End Term ({pyqsData.filter(p => p.examType === 'End Term').length})
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            {/* SECTION 1: Mid Term Examination Papers */}
+            {(pyqExamFilter === 'All' || pyqExamFilter === 'Mid Term') && (
+              <div className="space-y-4">
+                <div className="flex items-center justify-between border-b border-border pb-3">
+                  <div className="flex items-center gap-2.5">
+                    <span className="flex h-9 w-9 items-center justify-center rounded-2xl bg-amber-500/15 text-amber-600 dark:text-amber-400">
+                      <FileText className="h-5 w-5" />
+                    </span>
+                    <div>
+                      <h3 className="font-heading text-lg font-bold text-navy dark:text-white">
+                        Mid Term Examination Papers
+                      </h3>
+                      <p className="text-xs text-muted-foreground">
+                        मध्य सत्र परीक्षा प्रश्न पत्र (Internal & Mid-Semester Assessments)
+                      </p>
+                    </div>
+                  </div>
+                  <span className="rounded-full bg-amber-500/10 px-3 py-1 text-xs font-bold text-amber-600 dark:text-amber-400 border border-amber-500/20">
+                    {midTermPyqs.length} Papers Available
+                  </span>
+                </div>
+
+                {midTermPyqs.length > 0 ? (
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    {midTermPyqs.map((paper) => (
+                      <div
+                        key={paper.id}
+                        className="group relative flex flex-col justify-between rounded-3xl border border-border bg-card p-6 shadow-sm transition-all duration-300 hover:border-amber-500/40 hover:shadow-xl dark:border-slate-800"
+                      >
+                        <div>
+                          <div className="flex flex-wrap items-center justify-between gap-2 mb-3">
+                            <div className="flex items-center gap-2">
+                              <span className="rounded-xl bg-amber-500/15 px-2.5 py-1 text-[11px] font-extrabold text-amber-600 dark:text-amber-400 uppercase tracking-wider">
+                                {paper.examType}
+                              </span>
+                              <span className="rounded-xl bg-royal/10 px-2.5 py-1 text-[11px] font-bold text-royal">
+                                {paper.courseCode}
+                              </span>
+                            </div>
+                            <span className="text-xs font-medium text-muted-foreground flex items-center gap-1">
+                              <Calendar className="h-3.5 w-3.5" /> {paper.year}
+                            </span>
+                          </div>
+
+                          <h4 className="font-heading text-base font-bold text-navy dark:text-white group-hover:text-amber-600 transition-colors leading-snug">
+                            {paper.title}
+                          </h4>
+
+                          <p className="mt-2 text-xs text-muted-foreground line-clamp-3 leading-relaxed">
+                            {paper.desc}
+                          </p>
+
+                          <div className="mt-4 flex flex-wrap items-center gap-4 text-xs text-muted-foreground border-t border-border/50 pt-3">
+                            {paper.duration && (
+                              <span className="flex items-center gap-1 font-medium">
+                                <Clock className="h-3.5 w-3.5 text-amber-600" /> {paper.duration}
+                              </span>
+                            )}
+                            {paper.totalMarks && (
+                              <span className="flex items-center gap-1 font-medium">
+                                <Award className="h-3.5 w-3.5 text-amber-600" /> Max Marks: {paper.totalMarks}
+                              </span>
+                            )}
+                            <span className="font-medium text-muted-foreground">
+                              {paper.semester}
+                            </span>
+                          </div>
+                        </div>
+
+                        <div className="mt-6 flex items-center justify-between gap-3 border-t border-border/60 pt-4">
+                          <span className="text-[11px] text-muted-foreground font-mono">
+                            {paper.fileSize}
+                          </span>
+                          <div className="flex items-center gap-2">
+                            <a
+                              href={paper.link}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="inline-flex items-center gap-1.5 rounded-xl bg-amber-600 px-4 py-2 text-xs font-bold text-white shadow-md hover:bg-amber-700 transition-all cursor-pointer"
+                            >
+                              <Download className="h-3.5 w-3.5" /> Download Question Paper
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                ) : (
+                  <div className="rounded-2xl border border-dashed border-border p-8 text-center text-xs text-muted-foreground">
+                    No Mid Term papers match your search parameters.
+                  </div>
+                )}
+              </div>
+            )}
+
+            {/* SECTION 2: End Term Examination Papers */}
+            {(pyqExamFilter === 'All' || pyqExamFilter === 'End Term') && (
+              <div className="space-y-4 pt-4">
+                <div className="flex items-center justify-between border-b border-border pb-3">
+                  <div className="flex items-center gap-2.5">
+                    <span className="flex h-9 w-9 items-center justify-center rounded-2xl bg-emerald-500/15 text-emerald-600 dark:text-emerald-400">
+                      <GraduationCap className="h-5 w-5" />
+                    </span>
+                    <div>
+                      <h3 className="font-heading text-lg font-bold text-navy dark:text-white">
+                        End Term Examination Papers
+                      </h3>
+                      <p className="text-xs text-muted-foreground">
+                        अंत सत्र परीक्षा प्रश्न पत्र (University Semester End Examinations)
+                      </p>
+                    </div>
+                  </div>
+                  <span className="rounded-full bg-emerald-500/10 px-3 py-1 text-xs font-bold text-emerald-600 dark:text-emerald-400 border border-emerald-500/20">
+                    {endTermPyqs.length} Papers Available
+                  </span>
+                </div>
+
+                {endTermPyqs.length > 0 ? (
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    {endTermPyqs.map((paper) => (
+                      <div
+                        key={paper.id}
+                        className="group relative flex flex-col justify-between rounded-3xl border border-border bg-card p-6 shadow-sm transition-all duration-300 hover:border-emerald-500/40 hover:shadow-xl dark:border-slate-800"
+                      >
+                        <div>
+                          <div className="flex flex-wrap items-center justify-between gap-2 mb-3">
+                            <div className="flex items-center gap-2">
+                              <span className="rounded-xl bg-emerald-500/15 px-2.5 py-1 text-[11px] font-extrabold text-emerald-600 dark:text-emerald-400 uppercase tracking-wider">
+                                {paper.examType}
+                              </span>
+                              <span className="rounded-xl bg-royal/10 px-2.5 py-1 text-[11px] font-bold text-royal">
+                                {paper.courseCode}
+                              </span>
+                            </div>
+                            <span className="text-xs font-medium text-muted-foreground flex items-center gap-1">
+                              <Calendar className="h-3.5 w-3.5" /> {paper.year}
+                            </span>
+                          </div>
+
+                          <h4 className="font-heading text-base font-bold text-navy dark:text-white group-hover:text-emerald-600 transition-colors leading-snug">
+                            {paper.title}
+                          </h4>
+
+                          <p className="mt-2 text-xs text-muted-foreground line-clamp-3 leading-relaxed">
+                            {paper.desc}
+                          </p>
+
+                          <div className="mt-4 flex flex-wrap items-center gap-4 text-xs text-muted-foreground border-t border-border/50 pt-3">
+                            {paper.duration && (
+                              <span className="flex items-center gap-1 font-medium">
+                                <Clock className="h-3.5 w-3.5 text-emerald-600" /> {paper.duration}
+                              </span>
+                            )}
+                            {paper.totalMarks && (
+                              <span className="flex items-center gap-1 font-medium">
+                                <Award className="h-3.5 w-3.5 text-emerald-600" /> Max Marks: {paper.totalMarks}
+                              </span>
+                            )}
+                            <span className="font-medium text-muted-foreground">
+                              {paper.semester}
+                            </span>
+                          </div>
+                        </div>
+
+                        <div className="mt-6 flex items-center justify-between gap-3 border-t border-border/60 pt-4">
+                          <span className="text-[11px] text-muted-foreground font-mono">
+                            {paper.fileSize}
+                          </span>
+                          <div className="flex items-center gap-2">
+                            <a
+                              href={paper.link}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="inline-flex items-center gap-1.5 rounded-xl bg-emerald-600 px-4 py-2 text-xs font-bold text-white shadow-md hover:bg-emerald-700 transition-all cursor-pointer"
+                            >
+                              <Download className="h-3.5 w-3.5" /> Download Question Paper
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                ) : (
+                  <div className="rounded-2xl border border-dashed border-border p-8 text-center text-xs text-muted-foreground">
+                    No End Term papers match your search parameters.
+                  </div>
+                )}
+              </div>
+            )}
+          </motion.div>
+        ) : null}
       </AnimatePresence>
 
       {/* Lightbox / Modal with Details */}
@@ -729,7 +977,7 @@ export default function CourseResourcesPage() {
           Course Materials &amp; Resources
         </h1>
         <p className="mx-auto mt-4 max-w-3xl text-lg text-muted-foreground leading-relaxed">
-          Access comprehensive syllabi, download reference guides, review presentation slides, and stream lectures for M.Ed. programs taught by Dr. Vimal Singh.
+          Access comprehensive syllabi, download reference guides, review presentation slides, previous year question papers (PYQs), and stream lectures for M.Ed. programs taught by Dr. Vimal Singh.
         </p>
       </div>
 
