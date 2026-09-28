@@ -610,9 +610,7 @@ function CourseResourcesContent() {
                       </p>
                     </div>
                   </div>
-                  <span className="rounded-full bg-amber-500/10 px-3 py-1 text-xs font-bold text-amber-600 dark:text-amber-400 border border-amber-500/20">
-                    {midTermPyqs.length} Papers Available
-                  </span>
+
                 </div>
 
 
@@ -636,9 +634,7 @@ function CourseResourcesContent() {
                       </p>
                     </div>
                   </div>
-                  <span className="rounded-full bg-emerald-500/10 px-3 py-1 text-xs font-bold text-emerald-600 dark:text-emerald-400 border border-emerald-500/20">
-                    {endTermPyqs.length} Papers Available
-                  </span>
+
                 </div>
 
 
