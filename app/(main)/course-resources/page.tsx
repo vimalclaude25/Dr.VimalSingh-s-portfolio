@@ -567,7 +567,7 @@ function CourseResourcesContent() {
                         : 'text-muted-foreground hover:text-foreground'
                     }`}
                   >
-                    All Papers
+                    All Papers ({pyqsData.length})
                   </button>
                   <button
                     onClick={() => setPyqExamFilter('Mid Term')}
@@ -577,7 +577,7 @@ function CourseResourcesContent() {
                         : 'text-muted-foreground hover:text-foreground'
                     }`}
                   >
-                    Mid Term
+                    Mid Term ({midTermPyqs.length})
                   </button>
                   <button
                     onClick={() => setPyqExamFilter('End Term')}
@@ -587,7 +587,7 @@ function CourseResourcesContent() {
                         : 'text-muted-foreground hover:text-foreground'
                     }`}
                   >
-                    End Term
+                    End Term ({endTermPyqs.length})
                   </button>
                 </div>
               </div>
@@ -610,10 +610,11 @@ function CourseResourcesContent() {
                       </p>
                     </div>
                   </div>
-
                 </div>
 
-
+                <div className="rounded-2xl border border-dashed border-border/70 p-6 text-center text-xs text-muted-foreground bg-muted/10">
+                  Abhi koi Mid Term question paper upload nahi hai. Soon papers will be uploaded here.
+                </div>
               </div>
             )}
 
@@ -634,10 +635,11 @@ function CourseResourcesContent() {
                       </p>
                     </div>
                   </div>
-
                 </div>
 
-
+                <div className="rounded-2xl border border-dashed border-border/70 p-6 text-center text-xs text-muted-foreground bg-muted/10">
+                  Abhi koi End Term question paper upload nahi hai. Soon papers will be uploaded here.
+                </div>
               </div>
             )}
           </motion.div>
