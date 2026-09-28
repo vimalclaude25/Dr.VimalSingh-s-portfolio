@@ -56,7 +56,7 @@ const stats = [
 const glanceStats = [
   { icon: Award, value: 7, label: 'h-Index', color: 'text-royal' },
   { icon: BarChart2, value: 3, label: 'i10-Index', color: 'text-gold' },
-  { icon: TrendingUp, value: 109, label: 'Citations', color: 'text-emerald-400' },
+  { icon: TrendingUp, value: 119, label: 'Citations', color: 'text-emerald-400' },
   { icon: GraduationCap, value: 2, label: 'Ph.D. Scholar', color: 'text-royal' },
   { icon: Bookmark, value: 2, label: 'Scale Published', color: 'text-gold' },
   { icon: Presentation, value: 30, label: 'Paper Presentations', color: 'text-emerald-400' },
