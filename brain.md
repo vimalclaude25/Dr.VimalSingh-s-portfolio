@@ -175,7 +175,11 @@ academic-portfolio-website/
   - Updated total **Citations** stat counter to **119** in `components/hero-section.tsx`.
   - Added **Public Health Challenges** (*John Wiley & Sons Ltd*, Q1, SJR 0.569, ISSN 2769-2450) to `peerReviewServiceData` in `lib/cv-data.ts`, bringing total reviewed journals counter to **10+**.
   - Added **MED104** (*Research Methods in Education - General Perspectives*, M.Ed. Sem I 2026-27) and **MED305** (*Educational Administration & Planning*, M.Ed. Sem III 2025-27) to `pyqsData` in `lib/cv-data.ts` with downloadable PDF assets.
-  - Temporarily removed `FloatingSocialDock` (YouTube & Facebook floating buttons on left side) from `app/(main)/layout.tsx` (reusable anytime).
+- **October 03, 2026**: Added active Testmoz exam links for **Test #1 & #2 (Unit 3)** in `lib/test-series-data.ts`:
+  - **GK Unit 3 Test #1** (`gk-u3-t1`): `https://testmoz.com/q/15675318` (Slot 1, 7:00 PM – Information and Communication Technology (ICT))
+  - **Education Unit 3 Test #1** (`education-u3-t1`): `https://testmoz.com/q/15675346` (Slot 2, 8:00 PM – Psychological Foundations of Education)
+  - **GK Unit 3 Test #2** (`gk-u3-t2`): `https://testmoz.com/q/15675394` (Slot 1, 7:00 PM – Information and Communication Technology (ICT))
+  - **Education Unit 3 Test #2** (`education-u3-t2`): `https://testmoz.com/q/15675378` (Slot 2, 8:00 PM – Psychological Foundations of Education)
 
 ---
 
