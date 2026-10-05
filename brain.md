@@ -183,6 +183,10 @@ academic-portfolio-website/
   - **GK Unit 3 Test #5** (`gk-u3-t5`): `https://testmoz.com/q/15680582` (Information and Communication Technology (ICT))
   - **Education Unit 3 Test #5** (`education-u3-t5`): `https://testmoz.com/q/15680598` (Psychological Foundations of Education)
 - **October 05, 2026**: Pushed all pending local commits to GitHub remote repository (`origin/main`), updating the live website repository and triggering automatic Vercel deployment.
+- **October 05, 2026**: Updated Question Paper Modal Viewer (`components/paper-viewer-modal.tsx`) and `/course-resources` PYQ cards:
+  - Configured `PaperViewerModal` to render all paper sections (Section A: 9 Marks, Section B: 9 Marks, Section C: 12 Marks) sequentially in a single scrollable document view with smooth-scrolling section jump tabs.
+  - Removed "Download PDF" and "Download Question Paper" buttons, keeping "View Question Paper" as the primary interactive action.
+
 
 ---
 

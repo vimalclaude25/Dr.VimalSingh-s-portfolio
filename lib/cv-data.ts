@@ -1866,15 +1866,20 @@ export interface Course {
   code: string
   title: string
   semester: string
+  program?: string
+  credits?: string | number
+  description?: string
   objectives: string[]
   outcomes: string[]
   units: {
     number: number
+    unitNumber?: number
     title: string
     topics: string[]
   }[]
-  practicum: string[]
-  readings: string[]
+  practicum?: string[]
+  readings?: string[]
+  references?: string[]
 }
 
 export interface StudyResource {

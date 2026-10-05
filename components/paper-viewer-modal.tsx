@@ -86,19 +86,12 @@ export const PaperViewerModal: React.FC<PaperViewerModalProps> = ({
 
               {/* Action Toolbar */}
               <div className="flex items-center gap-2 self-start md:self-center">
-                <a
-                  href={`/course-materials/pyq-${paper.courseCode.toLowerCase()}-midterm-${paper.courseCode === 'MED104' ? '2026' : '2025'}.pdf`}
-                  download
-                  className="inline-flex items-center gap-1.5 rounded-xl bg-white text-amber-900 px-3.5 py-2 text-xs font-extrabold hover:bg-amber-100 transition-all shadow-md cursor-pointer"
-                >
-                  <Download className="h-4 w-4" /> Download PDF
-                </a>
                 <button
                   onClick={handlePrint}
                   title="Print Question Paper"
-                  className="rounded-xl bg-white/15 p-2 text-white hover:bg-white/25 transition-all cursor-pointer"
+                  className="rounded-xl bg-white/15 p-2 text-white hover:bg-white/25 transition-all cursor-pointer flex items-center gap-1 text-xs font-semibold px-3"
                 >
-                  <Printer className="h-4 w-4" />
+                  <Printer className="h-4 w-4" /> Print Paper
                 </button>
                 <button
                   onClick={onClose}
@@ -166,12 +159,18 @@ export const PaperViewerModal: React.FC<PaperViewerModalProps> = ({
               </div>
             </div>
 
-            {/* Section Navigation Tabs */}
+            {/* Section Quick Jump Tabs */}
             <div className="flex border-b border-border bg-muted/20 px-4 pt-2 gap-2 overflow-x-auto">
               {paper.sections.map((sec, idx) => (
                 <button
                   key={idx}
-                  onClick={() => setActiveSectionIdx(idx)}
+                  onClick={() => {
+                    setActiveSectionIdx(idx)
+                    const el = document.getElementById(`paper-sec-${idx}`)
+                    if (el) {
+                      el.scrollIntoView({ behavior: 'smooth', block: 'start' })
+                    }
+                  }}
                   className={`flex items-center gap-2 px-4 py-2.5 text-xs font-bold border-b-2 transition-all cursor-pointer whitespace-nowrap ${
                     activeSectionIdx === idx
                       ? 'border-amber-500 text-amber-600 dark:text-amber-400 bg-background rounded-t-xl shadow-xs'
@@ -184,138 +183,142 @@ export const PaperViewerModal: React.FC<PaperViewerModalProps> = ({
               ))}
             </div>
 
-            {/* Question Content Body */}
-            <div className="p-6 overflow-y-auto space-y-6 flex-1 bg-gradient-to-b from-background via-background to-muted/10">
-              {/* Section Instruction Note */}
-              <div className="rounded-2xl border border-amber-500/20 bg-amber-500/5 p-4 flex items-start gap-3 text-xs text-amber-900 dark:text-amber-200">
-                <Sparkles className="h-5 w-5 text-amber-600 flex-shrink-0 mt-0.5" />
-                <div>
-                  <h4 className="font-bold text-sm text-amber-800 dark:text-amber-300">
-                    {activeSection.title} — {activeSection.marks}
-                  </h4>
-                  {activeSection.instructions && (
-                    <p className="mt-1 font-medium">{activeSection.instructions}</p>
-                  )}
-                </div>
-              </div>
-
-              {/* Questions List */}
-              <div className="space-y-6">
-                {activeSection.questions.map((q: any, qIdx: number) => (
-                  <div
-                    key={q.id || qIdx}
-                    className="group rounded-3xl border border-border bg-card p-6 shadow-sm transition-all hover:border-amber-500/30 hover:shadow-md"
-                  >
-                    {/* Question Header */}
-                    <div className="flex items-start gap-3">
-                      <span className="flex h-7 w-7 items-center justify-center rounded-xl bg-royal/10 text-royal font-mono font-bold text-xs flex-shrink-0 mt-0.5">
-                        {q.qNum || (qIdx + 1)}
-                      </span>
-                      <div className="space-y-2 flex-1">
-                        {/* English Question Text */}
-                        {(langMode === 'bilingual' || langMode === 'en') && q.textEn && (
-                          <p className="text-sm font-bold text-foreground leading-relaxed whitespace-pre-line">
-                            {q.textEn}
-                          </p>
-                        )}
-                        {/* Hindi Question Text */}
-                        {(langMode === 'bilingual' || langMode === 'hi') && q.textHi && (
-                          <p className="text-sm font-semibold text-muted-foreground leading-relaxed whitespace-pre-line border-t border-border/40 pt-2 font-serif">
-                            {q.textHi}
-                          </p>
-                        )}
-
-                        {/* Question Statements (If MED104 Section A) */}
-                        {q.statements && q.statements.length > 0 && (
-                          <div className="mt-4 rounded-2xl border border-border/70 bg-muted/20 p-4 space-y-3">
-                            <h5 className="text-xs font-bold uppercase tracking-wider text-muted-foreground flex items-center gap-1.5">
-                              <BookOpen className="h-3.5 w-3.5 text-amber-600" /> Statements / कथन:
-                            </h5>
-                            <div className="grid grid-cols-1 gap-2.5">
-                              {q.statements.map((st: any) => (
-                                <div key={st.num} className="flex items-start gap-2.5 text-xs">
-                                  <span className="rounded-md bg-amber-500/10 px-2 py-0.5 font-mono font-bold text-amber-600 flex-shrink-0">
-                                    {st.num}
-                                  </span>
-                                  <div className="space-y-0.5 flex-1">
-                                    {(langMode === 'bilingual' || langMode === 'en') && (
-                                      <p className="text-foreground font-medium">{st.textEn}</p>
-                                    )}
-                                    {(langMode === 'bilingual' || langMode === 'hi') && (
-                                      <p className="text-muted-foreground font-serif">{st.textHi}</p>
-                                    )}
-                                  </div>
-                                </div>
-                              ))}
-                            </div>
-                          </div>
-                        )}
-
-                        {/* Matching Table if present */}
-                        {q.matchingTable && (
-                          <div className="mt-4 rounded-2xl border border-border bg-background overflow-hidden">
-                            <div className="grid grid-cols-1 md:grid-cols-2 bg-muted/60 p-3 text-xs font-bold border-b border-border">
-                              <div>{q.matchingTable.col1Title}</div>
-                              <div>{q.matchingTable.col2Title}</div>
-                            </div>
-                            <div className="divide-y divide-border/60">
-                              {q.matchingTable.rows.map((row: any, rIdx: number) => (
-                                <div key={rIdx} className="grid grid-cols-1 md:grid-cols-2 p-3 text-xs gap-2">
-                                  <div className="font-semibold text-royal">{row.col1}</div>
-                                  <div className="text-muted-foreground">{row.col2}</div>
-                                </div>
-                              ))}
-                            </div>
-                          </div>
-                        )}
-
-                        {/* Options Grid (Multiple Choice Questions) */}
-                        {q.options && q.options.length > 0 && (
-                          <div className="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-3">
-                            {q.options.map((opt: any, optIdx: number) => {
-                              const isCorrect = showAnswerKey && opt.correct
-                              return (
-                                <div
-                                  key={optIdx}
-                                  className={`flex items-start gap-2.5 rounded-2xl border p-3 text-xs transition-all ${
-                                    isCorrect
-                                      ? 'border-emerald-500 bg-emerald-500/10 text-emerald-900 dark:text-emerald-200 font-bold ring-2 ring-emerald-500/30'
-                                      : 'border-border bg-background/80 text-foreground hover:border-amber-500/40'
-                                  }`}
-                                >
-                                  <span className={`flex h-6 w-6 items-center justify-center rounded-lg font-bold text-xs flex-shrink-0 uppercase ${
-                                    isCorrect ? 'bg-emerald-600 text-white' : 'bg-muted text-muted-foreground'
-                                  }`}>
-                                    {opt.code}
-                                  </span>
-                                  <div className="space-y-0.5 flex-1">
-                                    {(langMode === 'bilingual' || langMode === 'en') && opt.textEn && (
-                                      <p className="font-semibold">{opt.textEn}</p>
-                                    )}
-                                    {opt.text && <p className="font-semibold">{opt.text}</p>}
-                                    {(langMode === 'bilingual' || langMode === 'hi') && opt.textHi && (
-                                      <p className="text-muted-foreground font-serif">{opt.textHi}</p>
-                                    )}
-                                  </div>
-                                  {isCorrect && (
-                                    <CheckCircle2 className="h-4 w-4 text-emerald-600 flex-shrink-0" />
-                                  )}
-                                </div>
-                              )
-                            })}
-                          </div>
-                        )}
-                      </div>
+            {/* Question Content Body (Rendering ALL Sections A, B, C) */}
+            <div className="p-6 overflow-y-auto space-y-10 flex-1 bg-gradient-to-b from-background via-background to-muted/10 scrollbar-thin scrollbar-thumb-border">
+              {paper.sections.map((sec, secIdx) => (
+                <div key={secIdx} id={`paper-sec-${secIdx}`} className="space-y-6 scroll-mt-6">
+                  {/* Section Instruction Banner */}
+                  <div className="rounded-2xl border border-amber-500/30 bg-amber-500/10 p-4.5 flex items-start gap-3.5 text-xs text-amber-950 dark:text-amber-100 shadow-xs">
+                    <Sparkles className="h-5 w-5 text-amber-600 flex-shrink-0 mt-0.5" />
+                    <div>
+                      <h4 className="font-bold text-base text-amber-900 dark:text-amber-300">
+                        {sec.title} — {sec.marks}
+                      </h4>
+                      {sec.instructions && (
+                        <p className="mt-1 font-semibold text-amber-800 dark:text-amber-300/90">{sec.instructions}</p>
+                      )}
                     </div>
                   </div>
-                ))}
-              </div>
+
+                  {/* Section Questions */}
+                  <div className="space-y-6">
+                    {sec.questions.map((q: any, qIdx: number) => (
+                      <div
+                        key={q.id || qIdx}
+                        className="group rounded-3xl border border-border bg-card p-6 shadow-sm transition-all hover:border-amber-500/30 hover:shadow-md"
+                      >
+                        {/* Question Header */}
+                        <div className="flex items-start gap-3">
+                          <span className="flex h-7 w-7 items-center justify-center rounded-xl bg-royal/10 text-royal font-mono font-bold text-xs flex-shrink-0 mt-0.5">
+                            {q.qNum || (qIdx + 1)}
+                          </span>
+                          <div className="space-y-2.5 flex-1">
+                            {/* English Question Text */}
+                            {(langMode === 'bilingual' || langMode === 'en') && q.textEn && (
+                              <p className="text-sm font-bold text-foreground leading-relaxed whitespace-pre-line">
+                                {q.textEn}
+                              </p>
+                            )}
+                            {/* Hindi Question Text */}
+                            {(langMode === 'bilingual' || langMode === 'hi') && q.textHi && (
+                              <p className="text-sm font-semibold text-muted-foreground leading-relaxed whitespace-pre-line border-t border-border/40 pt-2 font-serif">
+                                {q.textHi}
+                              </p>
+                            )}
+
+                            {/* Question Statements (If present) */}
+                            {q.statements && q.statements.length > 0 && (
+                              <div className="mt-4 rounded-2xl border border-border/70 bg-muted/20 p-4 space-y-3">
+                                <h5 className="text-xs font-bold uppercase tracking-wider text-muted-foreground flex items-center gap-1.5">
+                                  <BookOpen className="h-3.5 w-3.5 text-amber-600" /> Statements / कथन:
+                                </h5>
+                                <div className="grid grid-cols-1 gap-2.5">
+                                  {q.statements.map((st: any) => (
+                                    <div key={st.num} className="flex items-start gap-2.5 text-xs">
+                                      <span className="rounded-md bg-amber-500/10 px-2 py-0.5 font-mono font-bold text-amber-600 flex-shrink-0">
+                                        {st.num}
+                                      </span>
+                                      <div className="space-y-0.5 flex-1">
+                                        {(langMode === 'bilingual' || langMode === 'en') && (
+                                          <p className="text-foreground font-medium">{st.textEn}</p>
+                                        )}
+                                        {(langMode === 'bilingual' || langMode === 'hi') && (
+                                          <p className="text-muted-foreground font-serif">{st.textHi}</p>
+                                        )}
+                                      </div>
+                                    </div>
+                                  ))}
+                                </div>
+                              </div>
+                            )}
+
+                            {/* Matching Table if present */}
+                            {q.matchingTable && (
+                              <div className="mt-4 rounded-2xl border border-border bg-background overflow-hidden">
+                                <div className="grid grid-cols-1 md:grid-cols-2 bg-muted/60 p-3 text-xs font-bold border-b border-border">
+                                  <div>{q.matchingTable.col1Title}</div>
+                                  <div>{q.matchingTable.col2Title}</div>
+                                </div>
+                                <div className="divide-y divide-border/60">
+                                  {q.matchingTable.rows.map((row: any, rIdx: number) => (
+                                    <div key={rIdx} className="grid grid-cols-1 md:grid-cols-2 p-3 text-xs gap-2">
+                                      <div className="font-semibold text-royal">{row.col1}</div>
+                                      <div className="text-muted-foreground">{row.col2}</div>
+                                    </div>
+                                  ))}
+                                </div>
+                              </div>
+                            )}
+
+                            {/* Options Grid (Multiple Choice Questions) */}
+                            {q.options && q.options.length > 0 && (
+                              <div className="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-3">
+                                {q.options.map((opt: any, optIdx: number) => {
+                                  const isCorrect = showAnswerKey && opt.correct
+                                  return (
+                                    <div
+                                      key={optIdx}
+                                      className={`flex items-start gap-2.5 rounded-2xl border p-3 text-xs transition-all ${
+                                        isCorrect
+                                          ? 'border-emerald-500 bg-emerald-500/10 text-emerald-900 dark:text-emerald-200 font-bold ring-2 ring-emerald-500/30'
+                                          : 'border-border bg-background/80 text-foreground hover:border-amber-500/40'
+                                      }`}
+                                    >
+                                      <span className={`flex h-6 w-6 items-center justify-center rounded-lg font-bold text-xs flex-shrink-0 uppercase ${
+                                        isCorrect ? 'bg-emerald-600 text-white' : 'bg-muted text-muted-foreground'
+                                      }`}>
+                                        {opt.code}
+                                      </span>
+                                      <div className="space-y-0.5 flex-1">
+                                        {(langMode === 'bilingual' || langMode === 'en') && opt.textEn && (
+                                          <p className="font-semibold">{opt.textEn}</p>
+                                        )}
+                                        {opt.text && <p className="font-semibold">{opt.text}</p>}
+                                        {(langMode === 'bilingual' || langMode === 'hi') && opt.textHi && (
+                                          <p className="text-muted-foreground font-serif">{opt.textHi}</p>
+                                        )}
+                                      </div>
+                                      {isCorrect && (
+                                        <CheckCircle2 className="h-4 w-4 text-emerald-600 flex-shrink-0" />
+                                      )}
+                                    </div>
+                                  )
+                                })}
+                              </div>
+                            )}
+                          </div>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              ))}
             </div>
 
             {/* Footer Toolbar */}
             <div className="border-t border-border bg-muted/40 p-4 flex items-center justify-between gap-4">
               <span className="text-xs text-muted-foreground">
-                Showing Paper: <strong className="text-foreground">{paper.courseCode}</strong> ({activeSection.title})
+                Showing Paper: <strong className="text-foreground">{paper.courseCode}</strong> (All Sections A, B & C)
               </span>
               <button
                 onClick={onClose}

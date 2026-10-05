@@ -296,19 +296,20 @@ function CourseResourcesContent() {
                     </h3>
                     <div className="space-y-3">
                       {selectedCourse.units.map((unit) => {
-                        const isExpanded = expandedUnit === unit.unitNumber
+                        const unitNum = unit.number || unit.unitNumber || 1
+                        const isExpanded = expandedUnit === unitNum
                         return (
                           <div
-                            key={unit.unitNumber}
+                            key={unitNum}
                             className="border border-border/70 rounded-2xl overflow-hidden transition-all bg-muted/10 hover:bg-muted/30"
                           >
                             <button
-                              onClick={() => setExpandedUnit(isExpanded ? null : unit.unitNumber)}
+                              onClick={() => setExpandedUnit(isExpanded ? null : unitNum)}
                               className="w-full flex items-center justify-between p-4 text-left font-semibold text-navy dark:text-white hover:bg-muted/40 transition-colors cursor-pointer"
                             >
                               <div className="flex items-center gap-3">
                                 <span className="flex h-7 w-7 items-center justify-center rounded-lg bg-royal/10 text-xs font-bold text-royal">
-                                  {unit.unitNumber}
+                                  {unitNum}
                                 </span>
                                 <span className="text-sm font-bold text-navy dark:text-white">
                                   {unit.title}
@@ -676,19 +677,10 @@ function CourseResourcesContent() {
                           <div className="flex flex-wrap items-center gap-2">
                             <button
                               onClick={() => setViewerPaperId(paper.courseCode as 'MED104' | 'MED305')}
-                              className="inline-flex items-center gap-1.5 rounded-xl border border-amber-600/40 bg-amber-500/10 px-3.5 py-2 text-xs font-bold text-amber-700 dark:text-amber-300 hover:bg-amber-500/20 transition-all cursor-pointer"
+                              className="inline-flex items-center gap-1.5 rounded-xl bg-amber-600 px-4 py-2 text-xs font-extrabold text-white shadow-md hover:bg-amber-700 transition-all cursor-pointer"
                             >
-                              <Eye className="h-3.5 w-3.5 text-amber-600" /> View Question Paper
+                              <Eye className="h-4 w-4" /> View Question Paper
                             </button>
-                            <a
-                              href={paper.link}
-                              download
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              className="inline-flex items-center gap-1.5 rounded-xl bg-amber-600 px-4 py-2 text-xs font-bold text-white shadow-md hover:bg-amber-700 transition-all cursor-pointer"
-                            >
-                              <Download className="h-3.5 w-3.5" /> Download Question Paper
-                            </a>
                           </div>
                         </div>
                       </div>
@@ -780,12 +772,11 @@ function CourseResourcesContent() {
                           <div className="flex items-center gap-2">
                             <a
                               href={paper.link}
-                              download
                               target="_blank"
                               rel="noopener noreferrer"
                               className="inline-flex items-center gap-1.5 rounded-xl bg-emerald-600 px-4 py-2 text-xs font-bold text-white shadow-md hover:bg-emerald-700 transition-all cursor-pointer"
                             >
-                              <Download className="h-3.5 w-3.5" /> Download Question Paper
+                              <Eye className="h-3.5 w-3.5" /> View Question Paper
                             </a>
                           </div>
                         </div>
