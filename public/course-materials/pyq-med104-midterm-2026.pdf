@@ -3,161 +3,359 @@
 << /Type /Catalog /Pages 2 0 R >>
 endobj
 2 0 obj
-<< /Type /Pages /Kids [3 0 R] /Count 1 >>
+<< /Type /Pages /Kids [ 4 0 R 6 0 R 8 0 R 10 0 R 12 0 R 14 0 R ] /Count 6 >>
 endobj
 3 0 obj
-<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 4 0 R >> >> /Contents 5 0 R >>
-endobj
-4 0 obj
 << /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
 endobj
+31 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold >>
+endobj
+4 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R /F2 31 0 R >> >> /Contents 5 0 R >>
+endobj
 5 0 obj
-<< /Length 2772 >>
+<< /Length 4350 >>
 stream
-BT
-/F1 16 Tf
-50 750 Td
-(DEPARTMENT OF EDUCATION / EDUCATION TRAINING) Tj
-ET
-
-BT
-/F1 12 Tf
-50 730 Td
-(MID-SEMESTER EXAMINATION 2026-27 \(Odd Semester\)) Tj
-ET
-
-BT
-/F1 10 Tf
-50 710 Td
-(M.Ed. I Semester | PAPER IV - RESEARCH METHODS IN EDUCATION \(MED104\) | Max Marks: 30) Tj
-ET
-
-BT
-/F1 11 Tf
-50 680 Td
-(SECTION A - Attempt All Questions \(9 x 1 = 9 Marks\)) Tj
-ET
-
-BT
-/F1 9 Tf
-50 660 Td
-(1. \(a\) Identify correct statements on Philosophy, Epistemology, Axiology, Positivism & Research Process.) Tj
-ET
-
-BT
-/F1 9 Tf
-50 646 Td
-(   \(b\) Identify correct statements on Practitioner Research, Inquiry, Quasi-Experimental Design & Replication.) Tj
-ET
-
-BT
-/F1 9 Tf
-50 632 Td
-(   \(c\) Epistemological Concerns in Research Situations & Educational Phenomenon.) Tj
-ET
-
-BT
-/F1 9 Tf
-50 618 Td
-(   \(d\) Analysis of Story Situations: Sources of Knowledge, Deductive/Inductive Reasoning & Scientific Method.) Tj
-ET
-
-BT
-/F1 9 Tf
-50 604 Td
-(   \(e\) M.Ed. Student Dialogue Analysis: Philosophy, Information, Intelligence and Wisdom.) Tj
-ET
-
-BT
-/F1 9 Tf
-50 590 Td
-(   \(f\) Role of Knowledge, Education and Research in Personal and Social Development.) Tj
-ET
-
-BT
-/F1 9 Tf
-50 576 Td
-(   \(g\) Matching Column I & II: Replication, Falsifiability, Precision, Parsimony, Generalization.) Tj
-ET
-
-BT
-/F1 9 Tf
-50 562 Td
-(   \(h\) Assertion \(A\) & Reason \(R\): The Research Process as a Slow, Steady and Systematic Exploration.) Tj
-ET
-
-BT
-/F1 9 Tf
-50 548 Td
-(   \(i\) Research Synthesis, Critical Examination, Knowledge Banks and Generational Transmission.) Tj
-ET
-
-BT
-/F1 11 Tf
-50 524 Td
-(SECTION B - Short Answer Questions \(Attempt any 3\) \(3 x 3 = 9 Marks\)) Tj
-ET
-
-BT
-/F1 9 Tf
-50 504 Td
-(2. \(a\) Identify Basic, Applied and Action Research from three educational scenarios & frame research problems.) Tj
-ET
-
-BT
-/F1 9 Tf
-50 490 Td
-(   \(b\) Qualitative Research Approach: Interviews & Observation vs Numerical Scores for Online Learning Hesitation.) Tj
-ET
-
-BT
-/F1 9 Tf
-50 476 Td
-(   \(c\) Post-Positivism Approach: Fallibility of Measurement, Alternative Explanations & Research Limitations.) Tj
-ET
-
-BT
-/F1 9 Tf
-50 462 Td
-(   \(d\) Fundamental Research: Conceptual Basis of Children Developing Concept of Fairness.) Tj
-ET
-
-BT
-/F1 11 Tf
-50 438 Td
-(SECTION C - Long Answer Questions \(Attempt any 2\) \(2 x 6 = 12 Marks\)) Tj
-ET
-
-BT
-/F1 9 Tf
-50 418 Td
-(3. \(a\) Research Windows: Past \(British Period Policies\), Present \(Digital Learning\) & Intervention \(Science Achievement\).) Tj
-ET
-
-BT
-/F1 9 Tf
-50 404 Td
-(   \(b\) Comparative Analysis: Pre-Positivism, Positivism and Post-Positivism \(Reality, Knowledge, Researcher Role\).) Tj
-ET
-
-BT
-/F1 9 Tf
-50 390 Td
-(   \(c\) Research Problem Component Breakdown: Weekly Low-Stakes Quizzes vs Regular Assessment \(Population, IV, DV\).) Tj
-ET
-
+BT /F2 14 Tf 50 780 Td (DEPARTMENT OF EDUCATION/EDUCATION TRAINING) Tj ET
+BT /F2 16 Tf 50 760 Td (MID–SEMESTER EXAMINATION) Tj ET
+BT /F1 12 Tf 50 738 Td (M.Ed. I Semester | 2026 – 27 \(Odd Semester\)) Tj ET
+BT /F2 11 Tf 50 720 Td (PAPER IV - RESEARCH METHODS IN EDUCATION \(GENERAL PERSPECTIVES\) \(MED104\)) Tj ET
+BT /F1 10 Tf 50 700 Td (Max Time: 1 Hour 30 Minutes    Max Marks: 30 Marks) Tj ET
+BT /F1 10 Tf 50 684 Td (Note: All Questions are Compulsory / सभी प्रश्न अनिवार्य हैं) Tj ET
+50 672 m 545 672 l S
+BT /F2 12 Tf 50 647 Td (Section – A -- 9 × 1 = 9 Marks) Tj ET
+BT /F1 10 Tf 50 631 Td (Attempt all Questions / सभी प्रश्नों के उत्तर दीजिये - \(9×1 = 9\)) Tj ET
+BT /F2 10 Tf 50 611 Td (1.a) Tj ET
+BT /F1 9 Tf 80 611 Td (Read the following statements carefully and identify the set of statements that) Tj ET
+BT /F1 9 Tf 50 597 Td (is CORRECT.) Tj ET
+BT /F1 8.5 Tf 65 579 Td (1. Philosophy provides the conceptual coordinates for understanding reality,) Tj ET
+BT /F1 8.5 Tf 80 566 Td (knowledge, values, reasoning and human existence.) Tj ET
+BT /F1 8.5 Tf 65 553 Td (2. Metaphysics primarily examines how researchers can determine whether their) Tj ET
+BT /F1 8.5 Tf 80 540 Td (findings are statistically significant.) Tj ET
+BT /F1 8.5 Tf 65 527 Td (3. Epistemology deals with questions concerning how we know what we know and what) Tj ET
+BT /F1 8.5 Tf 80 514 Td (constitutes valid research.) Tj ET
+BT /F1 8.5 Tf 65 501 Td (4. Axiology is concerned with values, while ethics guides moral conduct in research.) Tj ET
+BT /F1 8.5 Tf 65 488 Td (5. Positivism assumes that reality is socially constructed and its research goal is) Tj ET
+BT /F1 8.5 Tf 80 475 Td (to understand deeper meanings.) Tj ET
+BT /F1 8.5 Tf 65 462 Td (6. Interpretivism views reality as socially constructed and seeks to understand) Tj ET
+BT /F1 8.5 Tf 80 449 Td (deeper meaning.) Tj ET
+BT /F1 8.5 Tf 65 436 Td (7. Pragmatism is concerned with what practically works and with solving real-world) Tj ET
+BT /F1 8.5 Tf 80 423 Td (problems.) Tj ET
+BT /F1 8.5 Tf 65 410 Td (8. Critical Theory accepts existing power structures as neutral and focuses primarily) Tj ET
+BT /F1 8.5 Tf 80 397 Td (on discovering universal laws.) Tj ET
+BT /F1 8.5 Tf 65 384 Td (9. Logical alignment among Reality, Epistemology/Paradigm and Methodology/Process is) Tj ET
+BT /F1 8.5 Tf 80 371 Td (important for research.) Tj ET
+BT /F1 8.5 Tf 65 358 Td (10. The research process moves from Problem → Questions → Design → Data Collection →) Tj ET
+BT /F1 8.5 Tf 80 345 Td (Analysis → Interpretation → Knowledge Creation.) Tj ET
+BT /F1 8.5 Tf 70 328 Td (A\) 1, 2, 3, 4, 7, 9) Tj ET
+BT /F1 8.5 Tf 70 315 Td (B\) 1, 3, 4, 6, 7, 9, 10) Tj ET
+BT /F1 8.5 Tf 70 302 Td (C\) 2, 3, 5, 6, 8, 10) Tj ET
+BT /F1 8.5 Tf 70 289 Td (D\) 1, 4, 5, 7, 8, 9, 10) Tj ET
+BT /F2 10 Tf 50 266 Td (1.b) Tj ET
+BT /F1 9 Tf 80 266 Td (Read the following statements carefully and identify the set of statements that) Tj ET
+BT /F1 9 Tf 50 252 Td (is CORRECT.) Tj ET
+BT /F1 8.5 Tf 65 234 Td (1. Practitioner research can help teachers move from anecdotal assumptions toward) Tj ET
+BT /F1 8.5 Tf 80 221 Td (evidence-based practice.) Tj ET
+BT /F1 8.5 Tf 65 208 Td (2. Inquiry and curiosity involve identifying a knowledge gap that can be investigated) Tj ET
+BT /F1 8.5 Tf 80 195 Td (systematically.) Tj ET
+BT /F1 8.5 Tf 65 182 Td (3. Weekly low-stakes quizzes are compared with regular homework to examine their) Tj ET
+BT /F1 8.5 Tf 80 169 Td (effect on final examination performance.) Tj ET
+BT /F1 8.5 Tf 65 156 Td (4. A quasi-experimental design requires that every participant must be randomly) Tj ET
+BT /F1 8.5 Tf 80 143 Td (assigned to the intervention and control groups.) Tj ET
+BT /F1 8.5 Tf 65 130 Td (5. Pre-test and final-exam measurements can provide baseline and outcome information) Tj ET
+BT /F1 8.5 Tf 80 117 Td (for examining change.) Tj ET
+BT /F1 8.5 Tf 65 104 Td (6. Statistical significance alone necessarily proves that an intervention is the only) Tj ET
+BT /F1 8.5 Tf 80 91 Td (cause of the observed improvement.) Tj ET
+BT /F1 8.5 Tf 65 78 Td (7. A confounding variable may provide an alternative explanation for an observed) Tj ET
+BT /F1 8.5 Tf 80 65 Td (relationship between an intervention and an outcome.) Tj ET
+endstream
+endobj
+6 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R /F2 31 0 R >> >> /Contents 7 0 R >>
+endobj
+7 0 obj
+<< /Length 4855 >>
+stream
+BT /F1 8.5 Tf 65 780 Td (8. If increased study hours may influence final examination scores, measuring study) Tj ET
+BT /F1 8.5 Tf 80 767 Td (time and controlling for it can strengthen the analysis.) Tj ET
+BT /F1 8.5 Tf 65 754 Td (9. Research concludes permanently once statistically significant results have been) Tj ET
+BT /F1 8.5 Tf 80 741 Td (obtained, so further questions are unnecessary.) Tj ET
+BT /F1 8.5 Tf 65 728 Td (10. Replication is strengthened when research methods are simple, clearly documented) Tj ET
+BT /F1 8.5 Tf 80 715 Td (and repeatable by other practitioners.) Tj ET
+BT /F1 8.5 Tf 70 698 Td (A\) 1, 2, 3, 5, 7, 8, 10) Tj ET
+BT /F1 8.5 Tf 70 685 Td (B\) 1, 3, 4, 6, 7, 9, 10) Tj ET
+BT /F1 8.5 Tf 70 672 Td (C\) 2, 3, 5, 6, 8, 10) Tj ET
+BT /F1 8.5 Tf 70 659 Td (D\) 1, 4, 5, 7, 8, 9, 10) Tj ET
+BT /F2 10 Tf 50 636 Td (1.c) Tj ET
+BT /F1 9 Tf 80 636 Td (Read the following research situations carefully and identify the set of) Tj ET
+BT /F1 9 Tf 50 622 Td (situations that correctly represents epistemological concerns.) Tj ET
+BT /F1 8.5 Tf 65 604 Td (1. A researcher asks students whether their knowledge of a concept comes mainly from) Tj ET
+BT /F1 8.5 Tf 80 591 Td (classroom observation and personal experience.) Tj ET
+BT /F1 8.5 Tf 65 578 Td (2. A researcher examines whether logical reasoning can provide a valid basis for) Tj ET
+BT /F1 8.5 Tf 80 565 Td (accepting a conclusion about students’ learning.) Tj ET
+BT /F1 8.5 Tf 65 552 Td (3. A researcher investigates how students construct their understanding of a) Tj ET
+BT /F1 8.5 Tf 80 539 Td (difficult concept through their previous experiences and interactions.) Tj ET
+BT /F1 8.5 Tf 65 526 Td (4. A researcher studies how social and cultural conditions influence what is accepted) Tj ET
+BT /F1 8.5 Tf 80 513 Td (as knowledge in a classroom.) Tj ET
+BT /F1 8.5 Tf 65 500 Td (5. A researcher asks whether a belief held by students should automatically be) Tj ET
+BT /F1 8.5 Tf 80 487 Td (treated as true simply because they strongly believe it.) Tj ET
+BT /F1 8.5 Tf 65 474 Td (6. A researcher explores whether observation, inference, intuition and logic can be) Tj ET
+BT /F1 8.5 Tf 80 461 Td (considered different ways through which knowledge is acquired.) Tj ET
+BT /F1 8.5 Tf 65 448 Td (7. A researcher examines the relationship between the knower and the phenomenon being) Tj ET
+BT /F1 8.5 Tf 80 435 Td (studied.) Tj ET
+BT /F1 8.5 Tf 65 422 Td (8. A researcher decides that the only purpose of epistemology is to calculate the) Tj ET
+BT /F1 8.5 Tf 80 409 Td (statistical significance of research findings.) Tj ET
+BT /F1 8.5 Tf 65 396 Td (9. A researcher questions what can be known about an educational phenomenon and) Tj ET
+BT /F1 8.5 Tf 80 383 Td (whether some aspects may remain beyond human knowledge.) Tj ET
+BT /F1 8.5 Tf 65 370 Td (10. A researcher examines how to distinguish justified or valid knowledge from false) Tj ET
+BT /F1 8.5 Tf 80 357 Td (or unsupported beliefs.) Tj ET
+BT /F1 8.5 Tf 70 340 Td (A\) 1, 2, 3, 5, 7, 8, 10) Tj ET
+BT /F1 8.5 Tf 70 327 Td (B\) 1, 3, 4, 5, 6, 8, 9) Tj ET
+BT /F1 8.5 Tf 70 314 Td (C\) 2, 3, 4, 6, 7, 9, 10) Tj ET
+BT /F1 8.5 Tf 70 301 Td (D\) 1, 2, 3, 5, 6, 7, 8) Tj ET
+BT /F2 10 Tf 50 278 Td (1.d) Tj ET
+BT /F1 9 Tf 80 278 Td (Read the story carefully and identify the correct combination of statements.) Tj ET
+BT /F1 9 Tf 50 264 Td (\(Ananya’s Case Study on Knowledge Acquisition\)) Tj ET
+BT /F1 8.5 Tf 65 246 Td (1. Her teacher explains a difficult concept, and Ananya accepts the explanation) Tj ET
+BT /F1 8.5 Tf 80 233 Td (because she considers the teacher knowledgeable and trustworthy.) Tj ET
+BT /F1 8.5 Tf 65 220 Td (2. During a festival, Ananya follows a family ritual that has been practiced across) Tj ET
+BT /F1 8.5 Tf 80 207 Td (generations.) Tj ET
+BT /F1 8.5 Tf 65 194 Td (3. Ananya learns to ride a bicycle through repeated attempts, mistakes and practice.) Tj ET
+BT /F1 8.5 Tf 65 181 Td (4. After observing the sunrise repeatedly in the east, she forms a general conclusion) Tj ET
+BT /F1 8.5 Tf 80 168 Td (about where the sun rises.) Tj ET
+BT /F1 8.5 Tf 65 155 Td (5. She reasons: "All humans need food. I am a human. Therefore, I need food.") Tj ET
+BT /F1 8.5 Tf 65 142 Td (6. While studying plants, Ananya notices that they grow toward the window, proposes a) Tj ET
+BT /F1 8.5 Tf 80 129 Td (hypothesis, changes their position and observes the results systematically.) Tj ET
+BT /F1 8.5 Tf 65 116 Td (7. Ananya decides that knowledge gained from personal experience is always true and) Tj ET
+BT /F1 8.5 Tf 80 103 Td (never needs further justification.) Tj ET
+BT /F1 8.5 Tf 65 90 Td (8. She realizes that knowledge is not merely information but understanding with) Tj ET
+BT /F1 8.5 Tf 80 77 Td (meaning.) Tj ET
+BT /F1 8.5 Tf 65 64 Td (9. She recognizes that knowledge should be reliable, justified, systematic and) Tj ET
+endstream
+endobj
+8 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R /F2 31 0 R >> >> /Contents 9 0 R >>
+endobj
+9 0 obj
+<< /Length 4867 >>
+stream
+BT /F1 8.5 Tf 80 780 Td (capable of being verified.) Tj ET
+BT /F1 8.5 Tf 65 767 Td (10. She concludes that scientific method involves systematic observation, hypothesis,) Tj ET
+BT /F1 8.5 Tf 80 754 Td (experimentation, analysis and conclusion.) Tj ET
+BT /F1 8.5 Tf 70 737 Td (A\) 2, 3, 4, 5, 7, 8, 9, 10) Tj ET
+BT /F1 8.5 Tf 70 724 Td (B\) 1, 2, 3, 4, 6, 7, 8, 10) Tj ET
+BT /F1 8.5 Tf 70 711 Td (C\) 1, 3, 5, 6, 7, 8, 9) Tj ET
+BT /F1 8.5 Tf 70 698 Td (D\) 1, 2, 3, 4, 5, 6, 8, 9, 10) Tj ET
+BT /F2 10 Tf 50 675 Td (1.e) Tj ET
+BT /F1 9 Tf 80 675 Td (Three M.Ed. students—Kunal, Manav and Vivek—were discussing the meaning of) Tj ET
+BT /F1 9 Tf 50 661 Td (philosophy while preparing for their Research in Education class.) Tj ET
+BT /F1 8.5 Tf 65 643 Td (1. Kunal said, "I have read many books and collected a large amount of information.) Tj ET
+BT /F1 8.5 Tf 80 630 Td (Therefore, I have knowledge.") Tj ET
+BT /F1 8.5 Tf 65 617 Td (2. Manav said, "I can solve difficult problems quickly by applying logic, so I am) Tj ET
+BT /F1 8.5 Tf 80 604 Td (intelligent.") Tj ET
+BT /F1 8.5 Tf 65 591 Td (3. Vivek replied, "Knowledge gives us facts, intelligence helps us use them, but) Tj ET
+BT /F1 8.5 Tf 80 578 Td (wisdom helps us decide what is right and best.") Tj ET
+BT /F1 8.5 Tf 65 565 Td (4. The teacher explained that philosophy comes from the Greek words Philos \(love\) and) Tj ET
+BT /F1 8.5 Tf 80 552 Td (Sophia \(wisdom\), meaning "love for wisdom.") Tj ET
+BT /F1 8.5 Tf 65 539 Td (5. She further explained that philosophy is not merely collecting facts or becoming) Tj ET
+BT /F1 8.5 Tf 80 526 Td (intelligent; it involves curiosity, reflection, questioning and the search for truth,) Tj ET
+BT /F1 8.5 Tf 80 513 Td (goodness and a meaningful life.) Tj ET
+BT /F1 8.5 Tf 65 500 Td (6. Kunal argued that once a person possesses sufficient information, there is no need) Tj ET
+BT /F1 8.5 Tf 80 487 Td (for reflection or questioning.) Tj ET
+BT /F1 8.5 Tf 65 474 Td (7. Manav observed that intelligence and wisdom are exactly the same because both) Tj ET
+BT /F1 8.5 Tf 80 461 Td (involve the ability to solve problems.) Tj ET
+BT /F1 8.5 Tf 65 448 Td (8. Vivek used his knowledge and intelligence to make responsible decisions and help) Tj ET
+BT /F1 8.5 Tf 80 435 Td (others, showing how wisdom can transform knowledge into meaningful action.) Tj ET
+BT /F1 8.5 Tf 65 422 Td (9. The teacher concluded that philosophy encourages us to use knowledge and) Tj ET
+BT /F1 8.5 Tf 80 409 Td (intelligence for a meaningful and better life.) Tj ET
+BT /F1 8.5 Tf 65 396 Td (10. She added that philosophical thinking can be expressed as: Philosophy → Search) Tj ET
+BT /F1 8.5 Tf 80 383 Td (for Wisdom → Better Life → Better World.) Tj ET
+BT /F1 8.5 Tf 70 366 Td (A\) 2, 3, 4, 5, 6, 7, 9) Tj ET
+BT /F1 8.5 Tf 70 353 Td (B\) 1, 2, 4, 6, 7, 8, 10) Tj ET
+BT /F1 8.5 Tf 70 340 Td (C\) 1, 2, 3, 4, 5, 8, 9, 10) Tj ET
+BT /F1 8.5 Tf 70 327 Td (D\) 1, 3, 5, 6, 7, 8, 9, 10) Tj ET
+BT /F2 10 Tf 50 304 Td (1.f) Tj ET
+BT /F1 9 Tf 80 304 Td (Aarav, a postgraduate student, was preparing a seminar on how knowledge,) Tj ET
+BT /F1 9 Tf 50 290 Td (education and research contribute to individual and social development.) Tj ET
+BT /F1 8.5 Tf 65 272 Td (1. Knowledge represents awareness and understanding of reality and may develop) Tj ET
+BT /F1 8.5 Tf 80 259 Td (through experience, thinking, reflection and discovery.) Tj ET
+BT /F1 8.5 Tf 65 246 Td (2. Education mainly transmits existing knowledge and has no significant role in) Tj ET
+BT /F1 8.5 Tf 80 233 Td (developing skills, attitudes, values or critical thinking.) Tj ET
+BT /F1 8.5 Tf 65 220 Td (3. Research explores unknowns, generates new knowledge and can validate or refine) Tj ET
+BT /F1 8.5 Tf 80 207 Td (existing knowledge.) Tj ET
+BT /F1 8.5 Tf 65 194 Td (4. Education can inspire questions and prepare learners’ minds for research.) Tj ET
+BT /F1 8.5 Tf 65 181 Td (5. Research and education are completely independent processes because education only) Tj ET
+BT /F1 8.5 Tf 80 168 Td (uses old knowledge whereas research only produces unrelated new knowledge.) Tj ET
+BT /F1 8.5 Tf 65 155 Td (6. Knowledge can be organized and transmitted through education, while research can) Tj ET
+BT /F1 8.5 Tf 80 142 Td (expand and refine that knowledge.) Tj ET
+BT /F1 8.5 Tf 65 129 Td (7. The cycle may be understood as Knowledge → Education → Research → New Knowledge →) Tj ET
+BT /F1 8.5 Tf 80 116 Td (Benefits to Society.) Tj ET
+BT /F1 8.5 Tf 65 103 Td (8. Research is useful only for producing academic publications and has no role in) Tj ET
+BT /F1 8.5 Tf 80 90 Td (innovation, problem-solving or societal development.) Tj ET
+BT /F1 8.5 Tf 65 77 Td (9. Knowledge, education and research together can contribute to personal growth,) Tj ET
+BT /F1 8.5 Tf 80 64 Td (social progress, economic development and a sustainable future.) Tj ET
+endstream
+endobj
+10 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R /F2 31 0 R >> >> /Contents 11 0 R >>
+endobj
+11 0 obj
+<< /Length 4373 >>
+stream
+BT /F1 8.5 Tf 65 780 Td (10. Knowledge is the foundation, education cultivates and imparts knowledge, and) Tj ET
+BT /F1 8.5 Tf 80 767 Td (research investigates and expands knowledge.) Tj ET
+BT /F1 8.5 Tf 70 750 Td (A\) 1, 2, 3, 4, 5, 7, 9) Tj ET
+BT /F1 8.5 Tf 70 737 Td (B\) 1, 3, 4, 6, 7, 9, 10) Tj ET
+BT /F1 8.5 Tf 70 724 Td (C\) 2, 3, 5, 6, 8, 9, 10) Tj ET
+BT /F1 8.5 Tf 70 711 Td (D\) 1, 3, 5, 6, 7, 8, 10) Tj ET
+BT /F2 10 Tf 50 688 Td (1.g) Tj ET
+BT /F1 9 Tf 80 688 Td (Match Column I with the most appropriate description in Column II and select the) Tj ET
+BT /F1 9 Tf 50 674 Td (correct code.) Tj ET
+BT /F2 9 Tf 65 654 Td (Column I: Concept / अवधारणा    Column II: Description / विवरण) Tj ET
+BT /F1 8 Tf 65 639 Td (A. Replication / पुनरावृत्ति) Tj ET
+BT /F1 8 Tf 260 639 Td (1. A research procedure should be capable of) Tj ET
+BT /F1 8 Tf 260 626 Td (being repeated by others. / शोध प्रक्रिया को) Tj ET
+BT /F1 8 Tf 65 613 Td (B. Falsifiability / खंडनीयता) Tj ET
+BT /F1 8 Tf 260 613 Td (2. Observations and descriptions should be) Tj ET
+BT /F1 8 Tf 260 600 Td (exact and free from unnecessary ambiguity. /) Tj ET
+BT /F1 8 Tf 65 587 Td (C. Precision / परिशुद्धता) Tj ET
+BT /F1 8 Tf 260 587 Td (3. A scientific claim should be open to being) Tj ET
+BT /F1 8 Tf 260 574 Td (tested and potentially shown to be false. /) Tj ET
+BT /F1 8 Tf 65 561 Td (D. Parsimony / मितव्ययिता) Tj ET
+BT /F1 8 Tf 260 561 Td (4. Prefer the simplest adequate explanation) Tj ET
+BT /F1 8 Tf 260 548 Td (when competing explanations are available. /) Tj ET
+BT /F1 8 Tf 65 535 Td (E. Generalization / सामान्यीकरण) Tj ET
+BT /F1 8 Tf 260 535 Td (5. Findings obtained under appropriate) Tj ET
+BT /F1 8 Tf 260 522 Td (conditions may be extended beyond the) Tj ET
+BT /F1 8.5 Tf 70 505 Td (A\) A–1, B–3, C–2, D–4, E–5) Tj ET
+BT /F1 8.5 Tf 70 492 Td (B\) A–3, B–1, C–4, D–2, E–5) Tj ET
+BT /F1 8.5 Tf 70 479 Td (C\) A–1, B–4, C–2, D–5, E–3) Tj ET
+BT /F1 8.5 Tf 70 466 Td (D\) A–5, B–3, C–1, D–4, E–2) Tj ET
+BT /F2 10 Tf 50 443 Td (1.h) Tj ET
+BT /F1 9 Tf 80 443 Td (Assertion \(A\): The research process is generally a slow, steady and long process) Tj ET
+BT /F1 9 Tf 50 429 Td (that requires specialization and specific knowledge. Reason \(R\): Research) Tj ET
+BT /F1 9 Tf 50 415 Td (involves moving from an idea and question through exploration and analysis) Tj ET
+BT /F1 9 Tf 50 401 Td (toward discovery and the creation of new knowledge, and it may require) Tj ET
+BT /F1 9 Tf 50 387 Td (considerable time, money and energy.) Tj ET
+BT /F1 8.5 Tf 70 369 Td (A\) Both A and R are true, and R is the correct explanation of A.) Tj ET
+BT /F1 8.5 Tf 70 356 Td (B\) Both A and R are true, but R is not the correct explanation of A.) Tj ET
+BT /F1 8.5 Tf 70 343 Td (C\) A is true, but R is false.) Tj ET
+BT /F1 8.5 Tf 70 330 Td (D\) A is false, but R is true.) Tj ET
+BT /F2 10 Tf 50 307 Td (1.i) Tj ET
+BT /F1 9 Tf 80 307 Td (Read the following statements and identify the correct combination.) Tj ET
+BT /F1 8.5 Tf 65 289 Td (1. Research generates new ideas.) Tj ET
+BT /F1 8.5 Tf 65 276 Td (2. Ideas are important for the growth of knowledge.) Tj ET
+BT /F1 8.5 Tf 65 263 Td (3. Research involves synthesis and re-synthesis of knowledge.) Tj ET
+BT /F1 8.5 Tf 65 250 Td (4. Research critically examines existing knowledge.) Tj ET
+BT /F1 8.5 Tf 65 237 Td (5. Universities can act as knowledge banks.) Tj ET
+BT /F1 8.5 Tf 65 224 Td (6. Research helps transmit knowledge from one generation to another.) Tj ET
+BT /F1 8.5 Tf 65 211 Td (7. Research investigates existing situations and real-life problems.) Tj ET
+BT /F1 8.5 Tf 65 198 Td (8. Scientific research aims at objectivity, reliability, validity and verifiability.) Tj ET
+BT /F1 8.5 Tf 65 185 Td (9. Research can provide practical and effective solutions to problems.) Tj ET
+BT /F1 8.5 Tf 65 172 Td (10. Research is concerned only with storing existing knowledge and does not explore) Tj ET
+BT /F1 8.5 Tf 80 159 Td (new solutions.) Tj ET
+BT /F1 8.5 Tf 70 142 Td (A\) 1, 2, 4, 5, 6, 8, 9, 10) Tj ET
+BT /F1 8.5 Tf 70 129 Td (B\) 1, 2, 3, 4, 5, 7, 8, 9) Tj ET
+BT /F1 8.5 Tf 70 116 Td (C\) 2, 3, 5, 6, 7, 8, 10) Tj ET
+BT /F1 8.5 Tf 70 103 Td (D\) 1, 3, 4, 6, 7, 9, 10) Tj ET
+endstream
+endobj
+12 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R /F2 31 0 R >> >> /Contents 13 0 R >>
+endobj
+13 0 obj
+<< /Length 4845 >>
+stream
+BT /F2 12 Tf 50 780 Td (Section – B -- 3 × 3 = 9 Marks) Tj ET
+BT /F1 10 Tf 50 764 Td (Attempt any three of the following Questions / किन्ही तीन प्रश्नों के उत्तर दीजिये - \(3×3 = 9\)) Tj ET
+BT /F2 10 Tf 50 744 Td (2.a) Tj ET
+BT /F1 9 Tf 80 744 Td (A researcher is interested in three different educational situations: A.) Tj ET
+BT /F1 9 Tf 50 730 Td (Understanding how students develop the concept of creativity — without an) Tj ET
+BT /F1 9 Tf 50 716 Td (immediate practical application. B. Finding whether a new teaching strategy can) Tj ET
+BT /F1 9 Tf 50 702 Td (improve mathematics achievement in secondary school students. C. Solving a) Tj ET
+BT /F1 9 Tf 50 688 Td (specific classroom problem of poor reading comprehension through a teacher’s own) Tj ET
+BT /F1 9 Tf 50 674 Td (intervention. → Identify the type of research represented by A, B and C and) Tj ET
+BT /F1 9 Tf 50 660 Td (frame one appropriate research problem for each.) Tj ET
+BT /F2 10 Tf 50 636 Td (2.b) Tj ET
+BT /F1 9 Tf 80 636 Td (A researcher wants to study "Why do some rural students hesitate to participate) Tj ET
+BT /F1 9 Tf 50 622 Td (in online classes?" He plans to conduct interviews and observe students’) Tj ET
+BT /F1 9 Tf 50 608 Td (experiences rather than collect numerical scores. → Apply your understanding of) Tj ET
+BT /F1 9 Tf 50 594 Td (research approaches and identify the most appropriate approach. Give two reasons) Tj ET
+BT /F1 9 Tf 50 580 Td (for your choice.) Tj ET
+BT /F2 10 Tf 50 556 Td (2.c) Tj ET
+BT /F1 9 Tf 80 556 Td (A researcher finds that students taught through a new teaching strategy perform) Tj ET
+BT /F1 9 Tf 50 542 Td (better in a test. However, instead of claiming that the strategy certainly and) Tj ET
+BT /F1 9 Tf 50 528 Td (completely caused the improvement, the researcher considers possible) Tj ET
+BT /F1 9 Tf 50 514 Td (limitations, alternative explanations and the fallibility of measurement before) Tj ET
+BT /F1 9 Tf 50 500 Td (drawing a conclusion. → Which research approach is reflected in this situation?) Tj ET
+BT /F1 9 Tf 50 486 Td (Explain how the researcher’s thinking reflects the key assumptions of this) Tj ET
+BT /F1 9 Tf 50 472 Td (approach.) Tj ET
+BT /F2 10 Tf 50 448 Td (2.d) Tj ET
+BT /F1 9 Tf 80 448 Td (A researcher studies how children develop the concept of "fairness" during) Tj ET
+BT /F1 9 Tf 50 434 Td (different stages of cognitive development, without intending to develop an) Tj ET
+BT /F1 9 Tf 50 420 Td (immediate classroom intervention. → What type of research is this? Explain the) Tj ET
+BT /F1 9 Tf 50 406 Td (conceptual basis of your answer and state how the findings may contribute to) Tj ET
+BT /F1 9 Tf 50 392 Td (educational knowledge.) Tj ET
+BT /F2 12 Tf 50 353 Td (Section – C -- 2 × 6 = 12 Marks) Tj ET
+BT /F1 10 Tf 50 337 Td (Attempt any two of the following Questions / किन्ही दो प्रश्नों के उत्तर दीजिये - \(2×6 = 12\)) Tj ET
+BT /F2 10 Tf 50 317 Td (3.a) Tj ET
+BT /F1 9 Tf 80 317 Td (Imagine that you are investigating education through three different windows: 1) Tj ET
+BT /F1 9 Tf 50 303 Td (– Past: You want to understand how education policies during the British period) Tj ET
+BT /F1 9 Tf 50 289 Td (influenced the development of education in India. 2 – Present: You want to find) Tj ET
+BT /F1 9 Tf 50 275 Td (out the present status of digital learning among secondary school students. 3 –) Tj ET
+BT /F1 9 Tf 50 261 Td (Intervention: You want to test whether a new teaching method produces better) Tj ET
+BT /F1 9 Tf 50 247 Td (science achievement than the existing method. → Identify the research design) Tj ET
+BT /F1 9 Tf 50 233 Td (appropriate for each window and formulate one suitable research problem for) Tj ET
+BT /F1 9 Tf 50 219 Td (each.) Tj ET
+BT /F2 10 Tf 50 195 Td (3.b) Tj ET
+BT /F1 9 Tf 80 195 Td (A researcher wants to understand how Positivism, Pre-Positivism and) Tj ET
+BT /F1 9 Tf 50 181 Td (Post-Positivism differ in their views about knowledge and research. →) Tj ET
+BT /F1 9 Tf 50 167 Td (Differentiate among the three approaches on the basis of their view of reality,) Tj ET
+BT /F1 9 Tf 50 153 Td (nature of knowledge, role of the researcher, and approach to objectivity.) Tj ET
+BT /F1 9 Tf 50 139 Td (Present your answer in a concise comparative form.) Tj ET
+BT /F2 10 Tf 50 115 Td (3.c) Tj ET
+BT /F1 9 Tf 80 115 Td (Consider the following research problem: "A Study of the Effect of Weekly) Tj ET
+BT /F1 9 Tf 50 101 Td (Low-Stakes Quizzes on the Final Examination Performance of Class IX Students in) Tj ET
+BT /F1 9 Tf 50 87 Td (Science Compared with Regular Classroom Assessment." → Based on the above) Tj ET
+BT /F1 9 Tf 50 73 Td (research problem, identify and briefly explain its major components: 1.) Tj ET
+endstream
+endobj
+14 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R /F2 31 0 R >> >> /Contents 15 0 R >>
+endobj
+15 0 obj
+<< /Length 584 >>
+stream
+BT /F1 9 Tf 50 780 Td (Population — Who is being studied? 2. Independent Variable — What is being) Tj ET
+BT /F1 9 Tf 50 766 Td (introduced or changed? 3. Dependent Variable — What outcome is being) Tj ET
+BT /F1 9 Tf 50 752 Td (measured? 4. What result is measured? 5. Comparison — What is the intervention) Tj ET
+BT /F1 9 Tf 50 738 Td (being compared with? 6. Context/Subject — In what educational context is the) Tj ET
+BT /F1 9 Tf 50 724 Td (study conducted? 7. Relationship/Effect — What relationship or effect is being) Tj ET
+BT /F1 9 Tf 50 710 Td (investigated?) Tj ET
 endstream
 endobj
 xref
-0 6
+0 16
 0000000000 65535 f 
 0000000009 00000 n 
 0000000058 00000 n 
-0000000115 00000 n 
-0000000242 00000 n 
-0000000319 00000 n 
+0000000150 00000 n 
+0000000220 00000 n 
+0000000296 00000 n 
+0000000433 00000 n 
+0000004835 00000 n 
+0000004972 00000 n 
+0000009879 00000 n 
+0000010016 00000 n 
+0000014935 00000 n 
+0000015074 00000 n 
+0000019500 00000 n 
+0000019639 00000 n 
+0000024537 00000 n 
+0000024676 00000 n 
 trailer
-<< /Size 6 /Root 1 0 R >>
+<< /Size 16 /Root 1 0 R >>
 startxref
-3172
+24822
 %%EOF

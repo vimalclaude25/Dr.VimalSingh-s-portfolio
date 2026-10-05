@@ -171,15 +171,10 @@ academic-portfolio-website/
   - Reconfigured `FloatingWhatsApp` and `KnowYourProfessorChatbot` floating banners to be hover-triggered and auto-dismissing, preventing floating tooltips from covering section headings ("News & Events") and bottom page text.
   - Updated `personalInfo.links` in `lib/cv-data.ts` to include official YouTube (`@Researchorbit`) and Facebook (`vimal.singh.908`) profiles.
   - Added direct links into `SiteFooter` (`components/site-footer.tsx`) and `KnowYourProfessorChatbot` (`components/know-your-professor-chatbot.tsx`).
-- **September 28, 2026**: Integrated **PYQs (Previous Year Question Papers)** module & **Peer Review Section** additions:
-  - Updated total **Citations** stat counter to **119** in `components/hero-section.tsx`.
-  - Added **Public Health Challenges** (*John Wiley & Sons Ltd*, Q1, SJR 0.569, ISSN 2769-2450) to `peerReviewServiceData` in `lib/cv-data.ts`, bringing total reviewed journals counter to **10+**.
-  - Added **MED104** (*Research Methods in Education - General Perspectives*, M.Ed. Sem I 2026-27) and **MED305** (*Educational Administration & Planning*, M.Ed. Sem III 2025-27) to `pyqsData` in `lib/cv-data.ts` with downloadable PDF assets.
-- **October 03, 2026**: Added active Testmoz exam links for **Test #1 & #2 (Unit 3)** in `lib/test-series-data.ts`:
-  - **GK Unit 3 Test #1** (`gk-u3-t1`): `https://testmoz.com/q/15675318` (Slot 1, 7:00 PM – Information and Communication Technology (ICT))
-  - **Education Unit 3 Test #1** (`education-u3-t1`): `https://testmoz.com/q/15675346` (Slot 2, 8:00 PM – Psychological Foundations of Education)
-  - **GK Unit 3 Test #2** (`gk-u3-t2`): `https://testmoz.com/q/15675394` (Slot 1, 7:00 PM – Information and Communication Technology (ICT))
-  - **Education Unit 3 Test #2** (`education-u3-t2`): `https://testmoz.com/q/15675378` (Slot 2, 8:00 PM – Psychological Foundations of Education)
+- **October 05, 2026**: Updated **MED104** & **MED305** Mid-Term Examination Papers with complete uploaded document data & interactive viewer:
+  - Created `lib/med-papers-data.ts` containing the complete, 100% accurate question paper data for **MED104** (*Research Methods in Education - General Perspectives*, M.Ed. Sem I 2026-27, Max Marks: 30) and **MED305** (*Educational Administration & Planning*, M.Ed. Sem III 2025-27, Max Marks: 30) with all sections (Section A 9 marks, Section B 9 marks, Section C 12 marks), statements, situations, matching tables, MCQs, and bilingual English & Hindi text.
+  - Built multi-page PDF builder in `scratch/generate_pyq_pdfs.js` to output complete downloadable PDF files for `/course-materials/pyq-med104-midterm-2026.pdf` (25.7 KB) and `/course-materials/pyq-med305-midterm-2025.pdf` (6.8 KB).
+  - Created interactive `PaperViewerModal` component (`components/paper-viewer-modal.tsx`) with bilingual switching (English, Hindi, Both), section navigation, answer key toggle, print functionality, and PDF download, integrated directly into `/course-resources`.
 
 ---
 

@@ -25,10 +25,12 @@ import {
   Info,
   GraduationCap,
   FileCheck,
-  HelpCircle
+  HelpCircle,
+  Eye
 } from 'lucide-react'
 import Link from 'next/link'
 import { coursesData, studyResourcesData, pyqsData, Course, StudyResource, PYQItem } from '@/lib/cv-data'
+import { PaperViewerModal } from '@/components/paper-viewer-modal'
 
 function YouTubeIcon({ className = "h-5 w-5" }: { className?: string }) {
   return (
@@ -51,6 +53,9 @@ function CourseResourcesContent() {
 
   // Selected course for details
   const [selectedCourseCode, setSelectedCourseCode] = useState<string>('MED104')
+
+  // State for Question Paper Modal Viewer
+  const [viewerPaperId, setViewerPaperId] = useState<'MED104' | 'MED305' | null>(null)
   
   // Course accordion expansion
   const [expandedUnit, setExpandedUnit] = useState<number | null>(1)
@@ -668,7 +673,13 @@ function CourseResourcesContent() {
                           <span className="text-[11px] text-muted-foreground font-mono">
                             {paper.fileSize}
                           </span>
-                          <div className="flex items-center gap-2">
+                          <div className="flex flex-wrap items-center gap-2">
+                            <button
+                              onClick={() => setViewerPaperId(paper.courseCode as 'MED104' | 'MED305')}
+                              className="inline-flex items-center gap-1.5 rounded-xl border border-amber-600/40 bg-amber-500/10 px-3.5 py-2 text-xs font-bold text-amber-700 dark:text-amber-300 hover:bg-amber-500/20 transition-all cursor-pointer"
+                            >
+                              <Eye className="h-3.5 w-3.5 text-amber-600" /> View Question Paper
+                            </button>
                             <a
                               href={paper.link}
                               download
@@ -953,6 +964,13 @@ function CourseResourcesContent() {
           </div>
         )}
       </AnimatePresence>
+
+      {/* Paper Viewer Modal */}
+      <PaperViewerModal
+        paperId={viewerPaperId}
+        isOpen={!!viewerPaperId}
+        onClose={() => setViewerPaperId(null)}
+      />
     </div>
   )
 }
