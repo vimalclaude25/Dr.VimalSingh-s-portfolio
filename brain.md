@@ -175,6 +175,13 @@ academic-portfolio-website/
   - Created `lib/med-papers-data.ts` containing the complete, 100% accurate question paper data for **MED104** (*Research Methods in Education - General Perspectives*, M.Ed. Sem I 2026-27, Max Marks: 30) and **MED305** (*Educational Administration & Planning*, M.Ed. Sem III 2025-27, Max Marks: 30) with all sections (Section A 9 marks, Section B 9 marks, Section C 12 marks), statements, situations, matching tables, MCQs, and bilingual English & Hindi text.
   - Built multi-page PDF builder in `scratch/generate_pyq_pdfs.js` to output complete downloadable PDF files for `/course-materials/pyq-med104-midterm-2026.pdf` (25.7 KB) and `/course-materials/pyq-med305-midterm-2025.pdf` (6.8 KB).
   - Created interactive `PaperViewerModal` component (`components/paper-viewer-modal.tsx`) with bilingual switching (English, Hindi, Both), section navigation, answer key toggle, print functionality, and PDF download, integrated directly into `/course-resources`.
+- **October 05, 2026**: Integrated active Testmoz exam links for **Unit 3 Tests #3, #4 & #5** in `lib/test-series-data.ts`:
+  - **GK Unit 3 Test #3** (`gk-u3-t3`): `https://testmoz.com/q/15679168` (Information and Communication Technology (ICT))
+  - **Education Unit 3 Test #3** (`education-u3-t3`): `https://testmoz.com/q/15679190` (Psychological Foundations of Education)
+  - **GK Unit 3 Test #4** (`gk-u3-t4`): `https://testmoz.com/q/15679768` (Information and Communication Technology (ICT))
+  - **Education Unit 3 Test #4** (`education-u3-t4`): `https://testmoz.com/q/15679776` (Psychological Foundations of Education)
+  - **GK Unit 3 Test #5** (`gk-u3-t5`): `https://testmoz.com/q/15680582` (Information and Communication Technology (ICT))
+  - **Education Unit 3 Test #5** (`education-u3-t5`): `https://testmoz.com/q/15680598` (Psychological Foundations of Education)
 
 ---
 

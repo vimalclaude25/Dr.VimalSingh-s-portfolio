@@ -162,6 +162,12 @@ export const TESTMOZ_URL_MAP: Record<string, string> = {
   'education-u3-t1': 'https://testmoz.com/q/15675346',
   'gk-u3-t2': 'https://testmoz.com/q/15675394',
   'education-u3-t2': 'https://testmoz.com/q/15675378',
+  'gk-u3-t3': 'https://testmoz.com/q/15679168',
+  'education-u3-t3': 'https://testmoz.com/q/15679190',
+  'gk-u3-t4': 'https://testmoz.com/q/15679768',
+  'education-u3-t4': 'https://testmoz.com/q/15679776',
+  'gk-u3-t5': 'https://testmoz.com/q/15680582',
+  'education-u3-t5': 'https://testmoz.com/q/15680598',
 }
 
 // Generate the 80 individual test items programmatically from the authoritative TEST_DAYS_MAPPING
