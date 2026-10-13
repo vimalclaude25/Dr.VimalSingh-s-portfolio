@@ -188,8 +188,14 @@ academic-portfolio-website/
   3. Enhanced `parseTimestamp` in `components/research-news-section.tsx` to ensure `DD.MM.YYYY` sorts as the top article in the **Newspaper Coverage** tab (`/news-media?category=Newspaper+Coverage`).
   4. Enforced strict modal layout rule across both components: (1) Heading first, (2) Newspaper clipping image, (3) Detailed text description, and (4) Original source link (hidden when not applicable).
   5. Updated homepage "At a Glance" dashboard "Last Updated" timestamp to **27 September 2026** in `components/hero-section.tsx`.
-
-
+- **October 13, 2026**: Integrated active Testmoz exam links for **Unit 4 Tests #1, #2 & #3** in `lib/test-series-data.ts`:
+  - **GK Unit 4 Test #1** (`gk-u4-t1`): `https://testmoz.com/q/15686222` (People and Environment)
+  - **Education Unit 4 Test #1** (`education-u4-t1`): `https://testmoz.com/q/15686228` (Educational Research)
+  - **GK Unit 4 Test #2** (`gk-u4-t2`): `https://testmoz.com/q/15687260` (People and Environment)
+  - **Education Unit 4 Test #2** (`education-u4-t2`): `https://testmoz.com/q/15687260` (Educational Research)
+  - **GK Unit 4 Test #3** (`gk-u4-t3`): `https://testmoz.com/q/15694888` (People and Environment)
+  - **Education Unit 4 Test #3** (`education-u4-t3`): `https://testmoz.com/q/15694890` (Educational Research)
+  - Updated card statuses dynamically to `'available'` with active "START TEST" buttons. Passed all 20 structural and scheduling integrity rules in `validateTestSeriesData()`.
 
 ---
 
