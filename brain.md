@@ -182,10 +182,13 @@ academic-portfolio-website/
   - **Education Unit 3 Test #4** (`education-u3-t4`): `https://testmoz.com/q/15679776` (Psychological Foundations of Education)
   - **GK Unit 3 Test #5** (`gk-u3-t5`): `https://testmoz.com/q/15680582` (Information and Communication Technology (ICT))
   - **Education Unit 3 Test #5** (`education-u3-t5`): `https://testmoz.com/q/15680598` (Psychological Foundations of Education)
-- **October 05, 2026**: Pushed all pending local commits to GitHub remote repository (`origin/main`), updating the live website repository and triggering automatic Vercel deployment.
-- **October 05, 2026**: Updated Question Paper Modal Viewer (`components/paper-viewer-modal.tsx`) and `/course-resources` PYQ cards:
-  - Configured `PaperViewerModal` to render all paper sections (Section A: 9 Marks, Section B: 9 Marks, Section C: 12 Marks) sequentially in a single scrollable document view with smooth-scrolling section jump tabs.
-  - Removed "Download PDF" and "Download Question Paper" buttons, keeping "View Question Paper" as the primary interactive action.
+- **October 13, 2026**: Updated and verified the newspaper coverage published on **27.09.2026** (27 September 2026) titled *सीएसजेएमयू की अंतरराष्ट्रीय अकादमिक पहचान को नई उड़ान: डॉ. विमल सिंह बने टेलर एंड फ्रांसिस के सहायक संपादक* (Compumail Bureau / कंपूमेल ब्यूरो कानपुर) across the website:
+  1. Updated item #24 in `lib/cv-data.ts` with `date: '27.09.2026'`, `source: 'कंपूमेल ब्यूरो (Kanpur)'`, complete article text, and newspaper clipping image `/taylor-francis-editor-newspaper.jpg`.
+  2. Enhanced `parseDate` in `components/news-events.tsx` to handle `DD.MM.YYYY` format seamlessly, displaying `27 SEP 2026` badge and sorting it as #1 at the top of the landing page feed.
+  3. Enhanced `parseTimestamp` in `components/research-news-section.tsx` to ensure `DD.MM.YYYY` sorts as the top article in the **Newspaper Coverage** tab (`/news-media?category=Newspaper+Coverage`).
+  4. Enforced strict modal layout rule across both components: (1) Heading first, (2) Newspaper clipping image, (3) Detailed text description, and (4) Original source link (hidden when not applicable).
+  5. Updated homepage "At a Glance" dashboard "Last Updated" timestamp to **27 September 2026** in `components/hero-section.tsx`.
+
 
 
 ---

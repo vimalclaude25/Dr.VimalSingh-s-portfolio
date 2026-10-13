@@ -165,8 +165,22 @@ export function ResearchNewsSection() {
     return matchesSub && matchesSearch
   })
 
+  const parseTimestamp = (dateStr: string) => {
+    if (!dateStr) return 0
+    const trimmed = dateStr.trim()
+    const dmyMatch = trimmed.match(/^(\d{1,2})[./-](\d{1,2})[./-](\d{4})$/)
+    if (dmyMatch) {
+      const day = parseInt(dmyMatch[1], 10)
+      const month = parseInt(dmyMatch[2], 10) - 1
+      const year = parseInt(dmyMatch[3], 10)
+      return new Date(year, month, day).getTime() || 0
+    }
+    const t = new Date(trimmed).getTime()
+    return isNaN(t) ? 0 : t
+  }
+
   const sortedNews = [...filteredNews].sort((a, b) => {
-    return new Date(b.date).getTime() - new Date(a.date).getTime()
+    return parseTimestamp(b.date) - parseTimestamp(a.date)
   })
 
   return (
@@ -346,20 +360,24 @@ export function ResearchNewsSection() {
                 <X className="h-4 w-4" />
               </button>
 
-              {/* Tag & Date */}
-              <div className="flex items-center gap-3 mb-4">
+              {/* 1. HEADING FIRST */}
+              <h3 className="font-heading text-xl sm:text-2xl font-bold text-navy dark:text-white leading-snug mb-3">
+                {selectedNews.title}
+              </h3>
+
+              {/* Tag & Date & Source */}
+              <div className="flex flex-wrap items-center gap-2 sm:gap-3 mb-4 text-xs">
                 <span className="inline-flex items-center gap-1.5 rounded-full bg-royal/10 px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-royal">
                   {selectedNews.subcategory}
                 </span>
-                <span className="flex items-center gap-1 text-xs text-muted-foreground">
+                <span className="flex items-center gap-1 text-muted-foreground">
                   <Calendar className="h-3.5 w-3.5" /> {selectedNews.date}
                 </span>
+                <span className="text-muted-foreground/60 hidden sm:inline">&bull;</span>
+                <span className="font-semibold text-muted-foreground">
+                  Source: <span className="text-navy dark:text-white font-bold">{selectedNews.source}</span>
+                </span>
               </div>
-
-              {/* Title */}
-              <h3 className="font-heading text-xl sm:text-2xl font-bold text-navy dark:text-white leading-snug mb-4">
-                {selectedNews.title}
-              </h3>
 
               {/* Image or Carousel in Modal */}
               {selectedNews.images && selectedNews.images.length > 0 ? (
@@ -375,12 +393,6 @@ export function ResearchNewsSection() {
                 </div>
               ) : null}
 
-              {/* Divider */}
-              <div className="border-b border-border/50 pb-4 mb-4">
-                <span className="text-xs font-semibold text-muted-foreground">
-                  Source: <span className="text-navy dark:text-white font-bold">{selectedNews.source}</span>
-                </span>
-              </div>
 
               {/* Content Description — hidden for image-only entries or when there is no text content */}
               {!selectedNews.imageOnly && selectedNews.desc && (

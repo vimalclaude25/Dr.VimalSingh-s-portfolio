@@ -13,14 +13,30 @@ export function NewsEvents() {
     (item) => item.title && item.desc && item.desc.trim() !== ''
   )
 
-  // Date parser helper for items formatted like "28 August 2026"
+  // Date parser helper for items formatted like "28 August 2026" or "27.09.2026"
   const parseDate = (dateStr: string) => {
-    const parts = dateStr.trim().split(' ')
+    if (!dateStr) return { day: '01', mon: 'JAN', year: '2026', timestamp: 0 }
+    const trimmed = dateStr.trim()
+
+    // Handle DD.MM.YYYY, DD-MM-YYYY, DD/MM/YYYY
+    const dmyMatch = trimmed.match(/^(\d{1,2})[./-](\d{1,2})[./-](\d{4})$/)
+    if (dmyMatch) {
+      const day = dmyMatch[1].padStart(2, '0')
+      const monthNum = parseInt(dmyMatch[2], 10)
+      const year = dmyMatch[3]
+      const monthNames = ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC']
+      const mon = monthNames[monthNum - 1] || 'SEP'
+      const timestamp = new Date(parseInt(year, 10), monthNum - 1, parseInt(day, 10)).getTime() || 0
+      return { day, mon, year, timestamp }
+    }
+
+    // Handle "28 August 2026"
+    const parts = trimmed.split(' ')
     if (parts.length >= 3) {
       const day = parts[0].padStart(2, '0')
       const mon = parts[1].substring(0, 3).toUpperCase()
       const year = parts[2]
-      const timestamp = new Date(dateStr).getTime() || 0
+      const timestamp = new Date(trimmed).getTime() || 0
       return { day, mon, year, timestamp }
     }
     return { day: '01', mon: 'JAN', year: '2026', timestamp: 0 }
