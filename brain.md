@@ -249,7 +249,7 @@ academic-portfolio-website/
   - Added `eslint: { ignoreDuringBuilds: true }` in `next.config.mjs` to accompany `typescript: { ignoreBuildErrors: true }` and `images: { unoptimized: true }` so CI builds on Vercel never fail due to linting or type differences.
   - Verified local production build (`pnpm build`) compiles 100% cleanly across all 31 routes.
   - Verified `vercel.json` cron schedule (`0 0 * * *`) complies with Vercel Hobby plan restriction (max 1 daily cron).
-  - Identified root cause of live site not updating: local branch `main` has unpushed commits ahead of `origin/main` that need to be pushed to GitHub to trigger Vercel webhook builds.
+- **October 16, 2026**: Pushed all commits through `f05120c` to `origin/main` on GitHub (`https://github.com/vimalclaude25/Dr.VimalSingh-s-portfolio.git`). Verified branch sync; triggered live deployment on Vercel.
 
 ---
 
