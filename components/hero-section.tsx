@@ -29,7 +29,7 @@ import {
   BarChart2,
 } from 'lucide-react'
 import { AnimatedCounter } from '@/components/animated-counter'
-import { personalInfo, journalPublications, bookChapters } from '@/lib/cv-data'
+import { personalInfo, journalPublications, bookChapters, scales } from '@/lib/cv-data'
 
 const areas = [
   'Education',
@@ -58,7 +58,7 @@ const glanceStats = [
   { icon: BarChart2, value: 3, label: 'i10-Index', color: 'text-gold' },
   { icon: TrendingUp, value: 119, label: 'Citations', color: 'text-emerald-400' },
   { icon: GraduationCap, value: 2, label: 'Ph.D. Scholar', color: 'text-royal' },
-  { icon: Bookmark, value: 2, label: 'Scale Published', color: 'text-gold' },
+  { icon: Bookmark, value: scales.length, label: 'Scale Published', color: 'text-gold' },
   { icon: Presentation, value: 30, label: 'Paper Presentations', color: 'text-emerald-400' },
   { icon: Briefcase, value: 20, label: 'Professional Development Activities', color: 'text-royal' },
   { icon: BookOpen, value: 4, label: 'Design New Curricula', color: 'text-gold' },
@@ -281,7 +281,7 @@ export function HeroSection() {
           </div>
 
           <div className="mt-4 flex items-center justify-between border-t border-white/10 pt-3 text-[11px] text-white/50">
-            <span>Last Updated: 27 September 2026</span>
+            <span>Last Updated: 19 October 2026</span>
             <span>Counters update automatically</span>
           </div>
         </motion.div>

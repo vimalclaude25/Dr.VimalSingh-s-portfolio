@@ -195,7 +195,12 @@ academic-portfolio-website/
   - **Education Unit 4 Test #2** (`education-u4-t2`): `https://testmoz.com/q/15687260` (Educational Research)
   - **GK Unit 4 Test #3** (`gk-u4-t3`): `https://testmoz.com/q/15694888` (People and Environment)
   - **Education Unit 4 Test #3** (`education-u4-t3`): `https://testmoz.com/q/15694890` (Educational Research)
-  - Updated card statuses dynamically to `'available'` with active "START TEST" buttons. Passed all 20 structural and scheduling integrity rules in `validateTestSeriesData()`.
+- **October 19, 2026**: Published new Newspaper Coverage item on the Choice-Based Credit System research scale developed by Dr. Vimal Singh and Suraj Gupta:
+  1. Newspaper clipping image saved at `public/cbcs-shikshak-survey-newspaper.jpg`.
+  2. Added item #25 to `researchNewsData` in `lib/cv-data.ts` with `date: '19 October 2026'`, `title: 'शिक्षकों की राय से बदलेगी उच्च शिक्षा की तस्वीर: सीबीसीएस पर देश का नया शोध उपकरण तैयार'`, `source: 'Newspaper (Kanpur)'`, and complete article Hindi description.
+  3. Displays automatically as #1 latest item at the top of the Landing Page **News & Events** feed and the **Newspaper Coverage** tab (`/news-media?category=Newspaper+Coverage`).
+  4. Cataloged the new standardized research scale *Teachers’ Perception and Attitude toward the Choice-Based Credit System Scale (TPA-CBCSS)* under `scales` in `lib/cv-data.ts`.
+  5. Updated homepage "At a Glance" dashboard "Last Updated" timestamp to **19 October 2026** and dynamically bound `Scale Published` counter to `scales.length` (displaying 3) in `components/hero-section.tsx`.
 
 ---
 
